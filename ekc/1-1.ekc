@@ -1,0 +1,11 @@
+choice 继续前进
+scene 1-2
+show >= bsl 1
+
+choice 原路返回
+scene 1-3
+show >= osl 1
+
+choice 就地睡一觉
+scene 1-4
+show >= ssl 1
