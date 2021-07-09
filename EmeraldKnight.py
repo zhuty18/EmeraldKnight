@@ -90,9 +90,9 @@ class EmeraldKnight:
         self.pickSave()
 
     def saveGame(self):
-        if self.scenetext=="":
-            m=qt.QMessageBox(self.main)
-            m.critical(self.main,"警告！","还没有进入游戏！")
+        if self.scenetext == "":
+            m = qt.QMessageBox(self.main)
+            m.critical(self.main, "警告！", "还没有进入游戏！")
         else:
             self.saving = True
             self.pickSave()
@@ -107,6 +107,8 @@ class EmeraldKnight:
     def loadScene(self):
         with open("story/"+self.kernel.scene+".ekt", "r", encoding="utf8") as f:
             self.scenetext = f.read()
+        self.scenetext = "    "+self.scenetext
+        self.scenetext = self.scenetext.replace("\n", "\n    ")
         self.choices = self.kernel.getChoice()
         game_layout = qt.QVBoxLayout()
         text = qt.QLabel(self.scenetext+"\n")

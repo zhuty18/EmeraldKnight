@@ -12,6 +12,17 @@ class ek_choice:
         self.kernel.scene = self.target
 
 
+class ek_section:
+    cho = []
+
+    def choices(self):
+        ls = []
+        for i in self.cho:
+            if i.show():
+                ls.append(i)
+        return ls
+
+
 def getName(s):
     if s == "1-1":
         return "出发"
@@ -21,3 +32,5 @@ def getName(s):
         return "原路返回"
     elif s == "1-4":
         return "就地睡一觉"
+    elif s == "1-5":
+        return "跟着前进"
