@@ -1,12 +1,22 @@
 # coding=utf-8
 
 import os
+import time
+
+log = time.strftime("%y%m%d_%H%M%S", time.localtime(time.time()))
+f = open("./log/"+log+".log", 'w', encoding="utf=8")
+writing = []
+
 list = os.listdir("story")
 k = 0
 for i in list:
     if i.endswith(".ekt"):
-        with open("story/"+i, 'r', encoding='utf8') as f:
-            j = len(f.read())
-            print(i.replace(".ekt",""), j)
+        with open("story/"+i, 'r', encoding='utf8') as f2:
+            j = len(f2.read())
+            writing.append(i.replace(".ekt", "")+"\t"+str(j)+"\n")
             k += j
-print(k)
+writing.append("总字数"+"\t"+str(k))
+writing = "".join(writing)
+f.write(writing)
+print(writing)
+f.close()

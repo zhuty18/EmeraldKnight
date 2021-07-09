@@ -11,3 +11,12 @@ default_para = {
     SINESTRO_LOVE: 0,
     SINESTRO_TAME: 0
 }
+
+
+sceneName = {
+    "1-1": "出发",
+    "1-2": "继续前进",
+    "1-3": "原路返回",
+    "1-4": "就地睡一觉",
+    "1-5": "跟着前进"
+}

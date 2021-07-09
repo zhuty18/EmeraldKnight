@@ -16,8 +16,12 @@ class ek_kernel:
             return s1_1().choices()
         elif name == "1-2":
             return s1_2().choices()
+        elif name == "1-3":
+            return s1_3().choices()
         elif name == "1-4":
             return s1_4().choices()
+        elif name == "1-5":
+            return s1_5().choices()
 
     def load(self, name):
         if name == "0":
@@ -33,4 +37,4 @@ class ek_kernel:
             f.write(json.dumps(self.paras)+"\n")
 
     def getSceneName(self, s):
-        return ek_abstract.getName(s)
+        return sceneName[s]
