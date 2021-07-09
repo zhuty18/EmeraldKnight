@@ -1,4 +1,8 @@
 import os
+from functools import partial
+import PySide2.QtWidgets as qt
+import PySide2.QtCore as core
+import PySide2.QtGui as gui
 
 
 class EmeraldKnight:
@@ -6,137 +10,118 @@ class EmeraldKnight:
         self.kernel = ek_kernel.ek_kernel()
         self.scenetext = ""
         self.choices = []
+        self.loading = False
+        self.saving = True
+        self.app = qt.QApplication()
+        self.main = qt.QMainWindow()
+        self.main.resize(400, 640)
+        self.setMenu()
+        self.main.show()
         self.hello()
 
-    def hello(self):
-        print("感谢你打开这个游戏！")
-        print("=======================")
-        print("翡翠骑士\nEmerald Knight")
-        print("=======================")
-        print("N\t新的游戏")
-        print("L\t载入存档")
-        print("Q\t退出游戏")
-        print("\n（不区分大小写）")
+    def setMenu(self):
+        menu = self.main.menuBar()
+        new = menu.addAction("新的游戏")
+        new.triggered.connect(self.newGame)
+        save = menu.addAction("保存进度")
+        save.triggered.connect(self.saveGame)
+        load = menu.addAction("读取存档")
+        load.triggered.connect(self.loadGame)
+        exit = menu.addAction("退出游戏")
+        exit.triggered.connect(self.exitGame)
 
-        while(True):
-            t = input().capitalize()
-            if t == "N":
-                self.newGame()
-                break
-            elif t == "L":
-                self.loadGame()
-                break
-            elif t == "Q":
-                break
-            else:
-                print("请重新输入")
+    def update(self, layout):
+        self.game = qt.QWidget(self.main)
+        self.game.setLayout(layout)
+        self.main.setCentralWidget(self.game)
+        self.main.update()
+
+    def hello(self):
+        hello_str = "<font size=60>翡翠骑士\n</font>"
+
+        hello_layout = qt.QVBoxLayout()
+        hello_label = qt.QLabel()
+        hello_label.setText(hello_str)
+        hello_label.setAlignment(core.Qt.AlignCenter)
+        hello_layout.addWidget(hello_label)
+        self.update(hello_layout)
 
     def newGame(self):
         self.startGame("0")
 
-    def printSave(self):
-        havesave = False
+    def showSave(self):
+        saves = qt.QDialog()
+        self.dia = saves
+        saves_layout = qt.QVBoxLayout()
         for i in range(1, 11):
             try:
                 with open("save/"+str(i)+".eks", "r") as f:
-                    if not havesave:
-                        havesave = True
-                        print("以下是你的存档：")
                     s = f.readline().strip()
-                    print("存档"+str(i)+"\t"+s+"\t"+self.kernel.getSceneName(s))
+                    s = "存档"+str(i)+"\t"+s+"\t"+self.kernel.getSceneName(s)
+                    btn = qt.QPushButton(s)
+                    btn.clicked.connect(partial(self.pick, i))
+                    saves_layout.addWidget(btn)
             except FileNotFoundError:
-                pass
-        return havesave
+                s = "空存档"
+                btn = qt.QPushButton(s)
+                btn.clicked.connect(partial(self.pick, i))
+                saves_layout.addWidget(btn)
+        saves.setLayout(saves_layout)
+        saves.show()
+        saves.exec_()
+
+    def pick(self, i):
+        self.picked = i
+        self.dia.close()
+        if self.loading:
+            self.loading = False
+            # print("读档"+str(i))
+            self.startGame(str(i))
+        elif self.saving:
+            self.kernel.save(str(i))
+            # print("保存成功！")
+
+    def pickSave(self):
+        self.picked = 0
+        self.showSave()
 
     def loadGame(self):
-        havesave = self.printSave
-        if not havesave:
-            print("没有存档！")
-            print("N\t新的游戏\nB\t返回\nQ\t退出游戏\n")
-            while(True):
-                t = input().capitalize()
-                if t == "N":
-                    self.newGame()
-                    break
-                elif t == "B":
-                    if self.kernel.scene == "0":
-                        self.hello()
-                    break
-                elif t == "Q":
-                    quit()
-                else:
-                    print("请重新输入！")
-        else:
-            print()
-            s = input("你要载入的存档编号为：")
-            while(True):
-                if os.path.exists("save/"+s+".eks"):
-                    self.startGame(s)
-                    break
-                else:
-                    print("存档不存在，请重新选择！")
-                    s = input()
+        self.loading = True
+        self.pickSave()
 
     def saveGame(self):
-        havesave = self.printSave()
-        if havesave:
-            print("\n以上是你的存档\n")
-        print("请输入一个[1,10]内的数字来保存当前进度，输入B返回")
-        while(True):
-            try:
-                s = input().capitalize()
-                if s=="B":
-                    break
-                index=int(s)
-                if index > 0 and index <= 10:
-                    self.kernel.save(str(index))
-                    print("保存成功！")
-                    break
-                else:
-                    raise TypeError
-            except TypeError:
-                print("请重新输入！")
+        if self.scenetext=="":
+            m=qt.QMessageBox(self.main)
+            m.critical(self.main,"警告！","还没有进入游戏！")
+        else:
+            self.saving = True
+            self.pickSave()
+
+    def exitGame(self):
+        self.app.exit()
 
     def startGame(self, name):
         self.kernel.load(name)
-        self.tips()
-        while(True):
-            self.loadScene()
+        self.loadScene()
 
     def loadScene(self):
         with open("story/"+self.kernel.scene+".ekt", "r", encoding="utf8") as f:
             self.scenetext = f.read()
         self.choices = self.kernel.getChoice()
-        self.choose()
-
-    def tips(self):
-        print("游戏过程中，全程支持以下操作：\nS\t保存进度\nL\t读取进度\nQ\t退出游戏\n祝您游戏愉快！\n\n输入任意字符开始")
-        input()
-
-    def choose(self):
-        print(self.scenetext+"\n")
+        game_layout = qt.QVBoxLayout()
+        text = qt.QLabel(self.scenetext+"\n")
+        text.setWordWrap(True)
+        game_layout.addWidget(text)
         for i in range(0, len(self.choices)):
-            print(chr(i+ord('A'))+"\t"+self.choices[i].text())
-        print()
-        while(True):
-            s = input().capitalize()
-            try:
-                t = ord(s[0])-ord("A")
-                if t >= 0 and t < len(self.choices):
-                    self.choices[t].chosen()
-                    break
-                elif s == "S":
-                    self.saveGame()
-                    break
-                elif s == "L":
-                    self.loadGame()
-                    break
-                elif s == "Q":
-                    quit()
-                else:
-                    raise TypeError
-            except TypeError:
-                print("请重新输入！")
+            s = chr(i+ord('A'))+"\t"+self.choices[i].text()
+            btn = qt.QPushButton(s)
+            btn.clicked.connect(partial(self.choose, i))
+            game_layout.addWidget(btn)
+        self.update(game_layout)
+
+    def choose(self, c):
+        self.choices[c].chosen()
+        self.loadScene()
 
 
 if __name__ == "__main__":
@@ -144,3 +129,4 @@ if __name__ == "__main__":
     path.append("./scripts")
     from scripts import ek_kernel
     ek = EmeraldKnight()
+    ek.app.exec_()

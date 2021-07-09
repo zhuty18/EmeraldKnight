@@ -8,11 +8,11 @@ class ek_kernel:
     def __init__(self):
         self.scene = "0"
         self.paras = {
-            "osl": 0,
-            "bsl": 0,
-            "ssl": 0,
-            "sinl": 0,
-            "sint": 0
+            "osl": 0,  # Oliver Story Line
+            "bsl": 0,  # Bruce Story Line
+            "ssl": 0,  # Sinestro Story Line
+            "sinl": 0,  # Sinestro Love
+            "sint": 0  # Sinestro Tame
         }
         ek_abstract.ek_choice.kernel = self
 
