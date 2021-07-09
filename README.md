@@ -30,3 +30,14 @@
 
 这两条做完了应该还会有，卡萝巴里奥利凯尔……哈尔乔丹的风流债那么多，当然不能轻易放过。
 
+# 游戏安装
+
+本游戏使用python3.9.5在Windows 10上开发，未进行进一步测试
+
+## 安装依赖
+
+`python -m pip install --user -r requirements.txt`
+
+## 运行游戏
+
+`python EmeraldKnight.py`

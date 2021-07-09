@@ -1,6 +1,4 @@
 import json
-import ek_getchoice
-import ek_getname
 import ek_abstract
 
 
@@ -17,7 +15,11 @@ class ek_kernel:
         ek_abstract.ek_choice.kernel = self
 
     def getChoice(self):
-        return ek_getchoice.getChoice(self.scene)
+        name = self.scene
+        if name == "1-1":
+            return s1_1.choices()
+        elif name == "1-4":
+            return s1_4.choices()
 
     def load(self, name):
         with open("./save/"+name+".eks", "r") as f:
@@ -30,4 +32,4 @@ class ek_kernel:
             f.write(json.dumps(self.paras)+"\n")
 
     def getSceneName(self, s):
-        return ek_getname.getName(s)
+        return ek_abstract.getName(s)
