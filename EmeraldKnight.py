@@ -117,16 +117,19 @@ class EmeraldKnight:
 
     def loadScene(self):
         self.scenetext, self.choices = self.kernel.loadScene()
-        game_layout = qt.QVBoxLayout()
-        text = qt.QLabel(self.scenetext+"\n")
-        text.setWordWrap(True)
-        game_layout.addWidget(text)
-        for i in range(0, len(self.choices)):
-            s = chr(i+ord('A'))+"\t"+self.choices[i].text()
-            btn = qt.QPushButton(s)
-            btn.clicked.connect(partial(self.choose, i))
-            game_layout.addWidget(btn)
-        self.update(game_layout)
+        if self.scenetext == GAME_OVER:
+            self.hello()
+        else:
+            game_layout = qt.QVBoxLayout()
+            text = qt.QLabel(self.scenetext+"\n")
+            text.setWordWrap(True)
+            game_layout.addWidget(text)
+            for i in range(0, len(self.choices)):
+                s = chr(i+ord('A'))+"\t"+self.choices[i].text()
+                btn = qt.QPushButton(s)
+                btn.clicked.connect(partial(self.choose, i))
+                game_layout.addWidget(btn)
+            self.update(game_layout)
 
     def choose(self, c):
         self.choices[c].chosen()
@@ -136,6 +139,7 @@ class EmeraldKnight:
 if __name__ == "__main__":
     from sys import path
     path.append("./scripts")
-    from scripts import kernel
+    import kernel
+    from constant import GAME_OVER
     ek = EmeraldKnight()
     ek.app.exec_()

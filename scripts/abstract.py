@@ -1,4 +1,4 @@
-from constant import sceneName
+from constant import GAME_OVER, sceneName
 
 
 class choice_abstract:
@@ -14,18 +14,22 @@ class choice_abstract:
         gk.core.scene = self.target
 
 
+class choice_end(choice_abstract):
+    target = GAME_OVER
+
+    def text(self):
+        return "回到开始界面"
+
+
 class scene_abstract:
     options = []
 
-    def choices(self):
+    def load(self):
         ls = []
         for i in self.options:
             if i.show():
                 ls.append(i)
         return ls
-
-    def load(self):
-        return self.choices()
 
 
 class gk:

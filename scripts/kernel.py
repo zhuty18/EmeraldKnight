@@ -40,9 +40,12 @@ class kernel:
         return sceneName[s]
 
     def loadScene(self):
-        with open("story/"+self.scene+".ekt", "r", encoding="utf8") as f:
-            scenetext = f.read()
-        scenetext = "    "+scenetext
-        scenetext = scenetext.replace("\n", "\n    ")
-        choice = self.getChoice()
-        return scenetext, choice
+        if self.scene == GAME_OVER:
+            return GAME_OVER, []
+        else:
+            with open("story/"+self.scene+".ekt", "r", encoding="utf8") as f:
+                scenetext = f.read()
+            scenetext = "    "+scenetext
+            scenetext = scenetext.replace("\n", "\n    ")
+            choice = self.getChoice()
+            return scenetext, choice

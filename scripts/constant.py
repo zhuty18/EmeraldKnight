@@ -4,6 +4,8 @@ SINESTRO_STORY_LINE = "ssl"
 SINESTRO_LOVE = "sinl"
 SINESTRO_TAME = "sint"
 SWORD_HOT_TIME = "sht"
+END_NOTHING = "end n"
+GAME_OVER = "game over"
 
 default_para = {
     OLIVER_STORY_LINE: 0,
@@ -20,5 +22,17 @@ sceneName = {
     "1-2": "继续前进",
     "1-3": "原路返回",
     "1-4": "就地睡一觉",
-    "1-5": "跟着前进"
+    "1-5": "跟着前进",
+    "1-6": "原地蹲守",
+    "1-7": "不理会",
+    "1-8": "上树跟去看看",
+    "1-9": "呛回去",
+    "1-10": "谢谢他",
+    "1-11": "“你是谁？”",
+    "1-12": "进去",
+    "1-13": "先四下看看"
+}
+
+end = {
+    END_NOTHING: 0
 }
