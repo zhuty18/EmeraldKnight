@@ -39,3 +39,15 @@ class s1_12(scene_abstract):
 
 class s1_17(scene_abstract):
     options = [c1_17_1(), c1_17_2()]
+
+
+class s1_24(scene_abstract):
+    options = [c1_24_1(), c1_24_2(), c1_24_3(), c1_24_4(), c1_24_5()]
+
+
+class s1_29(scene_abstract):
+    options = [c1_29_1(), c1_29_2()]
+
+
+class s1_34(scene_abstract):
+    options = []

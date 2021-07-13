@@ -68,6 +68,10 @@ class c1_7_2(choice_abstract):
     target = "1-17"
 
 
+class c1_12_0(choice_abstract):
+    target = "1-24"
+
+
 class c1_12_1(choice_abstract):
     target = "1-20"
 
@@ -112,10 +116,6 @@ class c1_12_4(choice_abstract):
         return "带有草叶纹路的绿晶石"
 
 
-class c1_12_0(choice_abstract):
-    target = "1-24"
-
-
 class c1_17_1(choice_abstract):
     target = "end-1"
 
@@ -125,3 +125,70 @@ class c1_17_1(choice_abstract):
 
 class c1_17_2(choice_abstract):
     target = "1-19"
+
+
+class c1_24_0(choice_abstract):
+    target = "1-29"
+
+
+class c1_24_1(choice_abstract):
+    target = "1-25"
+
+    def chosen(self):
+        gk.core.paras[WIZARD_TOWER_RUNE] = 1
+        return super().chosen()
+
+    def text(self):
+        return "看看书架"
+
+
+class c1_24_2(choice_abstract):
+    target = "1-26"
+
+    def chosen(self):
+        gk.core.paras[WIZARD_TOWER_RUNE] = 2
+        return super().chosen()
+
+    def text(self):
+        return "看看卷轴"
+
+
+class c1_24_3(choice_abstract):
+    target = "1-27"
+
+    def chosen(self):
+        gk.core.paras[WIZARD_TOWER_RUNE] = 3
+        return super().chosen()
+
+    def text(self):
+        return "看看挂毯"
+
+
+class c1_24_4(choice_abstract):
+    target = "1-28"
+
+    def chosen(self):
+        gk.core.paras[WIZARD_TOWER_RUNE] = 4
+        return super().chosen()
+
+    def text(self):
+        return "看看徽章"
+
+
+class c1_24_5(choice_abstract):
+    target = "1-29"
+
+    def chosen(self):
+        gk.core.paras[INTELLIGENCE] -= 2
+        return super().chosen()
+
+
+class c1_29_1(choice_abstract):
+    target = "1-30"
+
+
+class c1_29_2(choice_abstract):
+    target = "1-34"
+
+    def show(self):
+        return gk.core.paras[WIZARD_TOWER_RUNE] == 1

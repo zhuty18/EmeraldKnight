@@ -29,6 +29,16 @@ class kernel:
             return [c1_5_1()]
         elif name == "1-17":
             return s1_17().load()
+        elif (name == "1-20") or (name == "1-21") or (name == "1-22") or (name == "1-23"):
+            return [c1_12_0()]
+        elif name == "1-24":
+            return s1_24().load()
+        elif (name == "1-25") or (name == "1-26") or (name == "1-27") or (name == "1-28"):
+            return [c1_24_0()]
+        elif name == "1-29":
+            return s1_29().load()
+        elif name == "1-34":
+            return s1_34().load()
         elif name == "end-1":
             self.openPara("end-1")
             return [choice_end()]
@@ -53,7 +63,7 @@ class kernel:
         if self.scene == GAME_OVER:
             return GAME_OVER, []
         else:
-            with open("story/"+self.scene+".ekt", "r", encoding="utf8") as f:
+            with open("story/"+self.scene, "r", encoding="utf8") as f:
                 scenetext = f.read()
             scenetext = "    "+scenetext
             scenetext = scenetext.replace("\n", "\n    ")

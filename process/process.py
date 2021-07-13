@@ -10,11 +10,10 @@ writing = []
 list = os.listdir("story")
 k = 0
 for i in list:
-    if i.endswith(".ekt"):
-        with open("story/"+i, 'r', encoding='utf8') as f2:
-            j = len(f2.read())
-            writing.append(i.replace(".ekt", "")+"\t"+str(j)+"\n")
-            k += j
+    with open("story/"+i, 'r', encoding='utf8') as f2:
+        j = len(f2.read())
+        writing.append(i+"\t"+str(j)+"\n")
+        k += j
 writing.append("总字数"+"\t"+str(k))
 writing = "".join(writing)
 f.write(writing)
