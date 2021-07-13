@@ -8,6 +8,10 @@ class c1_1_1(choice_abstract):
     def show(self):
         return (gk.core.paras[BRUCE_STORY_LINE] >= 1)
 
+    def chosen(self):
+        gk.core.paras[SWORD_HOT_TIME] += 1
+        return super().chosen()
+
 
 class c1_1_2(choice_abstract):
     target = "1-3"
@@ -22,6 +26,10 @@ class c1_1_3(choice_abstract):
 
 class c1_2_1(choice_abstract):
     target = "1-5"
+
+    def chosen(self):
+        gk.core.paras[SWORD_HOT_TIME] += 1
+        return super().chosen()
 
 
 class c1_3_1(choice_abstract):
@@ -225,3 +233,108 @@ class c1_34_3(choice_abstract):
     def chosen(self):
         gk.core.paras[TEMPORARY] = 0
         return super().chosen()
+
+
+class c1_37_1(choice_abstract):
+    target = "1-38"
+
+    def chosen(self):
+        gk.core.paras[BRUCE_LOVE] -= 5
+        return super().chosen()
+
+
+class c1_37_2(choice_abstract):
+    target = "1-39"
+
+    def chosen(self):
+        gk.core.paras[BRUCE_LOVE] += 1
+        return super().chosen()
+
+
+class c1_38_1(choice_abstract):
+    target = "1-31"
+
+    def text(self):
+        return "四处走走"
+
+
+class c1_39_1(choice_abstract):
+    target = "1-40"
+
+    def show(self):
+        return gk.core.paras[KNOWLEDGE] >= 1
+
+    def text(self):
+        return "四处走走"
+
+
+class c1_39_2(choice_abstract):
+    target = "1-31"
+
+    def show(self):
+        return gk.core.paras[KNOWLEDGE] < 1
+
+    def text(self):
+        return "四处走走"
+
+
+class c1_40_1(choice_abstract):
+    target = "1-41"
+
+    def show(self):
+        return (gk.core.paras[WIZARD_TOWER_CRYSTAL] == 4) and (gk.core.paras[BRUCE_SHOW_UP] == 1)
+
+    def text(self):
+        return "仔细看看"
+
+    def chosen(self):
+        gk.core.paras[SWORD_HOT_TIME] += 1
+        gk.core.paras[BRUCE_LOVE] += 10
+        return super().chosen()
+
+
+class c1_40_2(choice_abstract):
+    target = "1-41-2"
+
+    def show(self):
+        return (gk.core.paras[WIZARD_TOWER_CRYSTAL] == 4) and (gk.core.paras[BRUCE_SHOW_UP] == 0)
+
+    def text(self):
+        return "仔细看看"
+
+    def chosen(self):
+        gk.core.paras[SWORD_HOT_TIME] += 1
+        gk.core.paras[BRUCE_LOVE] += 4
+        return super().chosen()
+
+
+class c1_40_3(choice_abstract):
+    target = "1-45"
+
+    def show(self):
+        return (gk.core.paras[WIZARD_TOWER_CRYSTAL] != 4) and (gk.core.paras[BRUCE_SHOW_UP] == 1)
+
+
+class c1_40_4(choice_abstract):
+    target = "1-31"
+
+    def show(self):
+        return (gk.core.paras[WIZARD_TOWER_CRYSTAL] != 4) and (gk.core.paras[BRUCE_SHOW_UP] == 0)
+
+    def text(self):
+        return "起身走开"
+
+
+class c1_41_1(choice_abstract):
+    target = "1-42"
+
+    def show(self):
+        return gk.core.paras[INTELLIGENCE] >= 0
+
+
+class c1_41_2(choice_abstract):
+    target = "1-43"
+
+
+class c1_41_3(choice_abstract):
+    target = "1-44"

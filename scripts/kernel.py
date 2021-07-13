@@ -43,6 +43,18 @@ class kernel:
             return s1_35().load()
         elif name == "1-36":
             return s1_36().load()
+        elif name == "1-37":
+            return s1_37().load()
+        elif name == "1-38":
+            return [c1_38_1()]
+        elif name == "1-39":
+            return s1_39().load()
+        elif name == "1-40":
+            return s1_40().load()
+        elif name == "1-41":
+            return s1_41().load()
+        elif name == "1-41-2":
+            return [c1_41_3()]
         elif name == "end-1":
             self.openPara("end-1")
             return [choice_end()]

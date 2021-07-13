@@ -1,6 +1,7 @@
 import json
 BRUCE_STORY_LINE = "bsl"
 BRUCE_SHOW_UP = "bsu"
+BRUCE_LOVE = "brul"
 OLIVER_STORY_LINE = "osl"
 SINESTRO_STORY_LINE = "ssl"
 SINESTRO_LOVE = "sinl"
@@ -18,6 +19,7 @@ GAME_OVER = "game over"
 debug_para = {
     BRUCE_STORY_LINE: 1,
     BRUCE_SHOW_UP: 0,
+    BRUCE_LOVE: 0,
     OLIVER_STORY_LINE: 0,
     SINESTRO_STORY_LINE: 1,
     SINESTRO_LOVE: 0,
@@ -62,10 +64,19 @@ sceneName = {
     "1-28": "雷电符文",
     "1-29": "推门离开",
     "1-30": "追上去",  # TODO
+    "1-31": "四处走走",  # TODO
     "1-34": "用光明术",
     "1-35": "这是什么地方？",
     "1-36": "你是什么人？",
     "1-37": "怎么离开这儿？",
+    "1-38": "你确定吗？",
+    "1-39": "阵眼是什么样的？",
+    "1-40": "黑球",
+    "1-41": "生命晶石",
+    "1-42": "法师塔究竟是什么？",
+    "1-43": "我叫哈尔",
+    "1-44": "四下看看",
+    "1-45": "这应该就是阵眼",
     "end-1": "无事发生",
 }
 

@@ -4,10 +4,6 @@ from ch1_choices import *
 class s1_1(scene_abstract):
     options = [c1_1_1(), c1_1_2(), c1_1_3()]
 
-    def load(self):
-        gk.core.paras[SWORD_HOT_TIME] += 1
-        return super().load()
-
 
 class s1_2(scene_abstract):
     options = [c1_2_1(), c1_1_2()]
@@ -23,10 +19,6 @@ class s1_4(scene_abstract):
 
 class s1_5(scene_abstract):
     options = [c1_5_1(), c1_5_2()]
-
-    def load(self):
-        gk.core.paras[SWORD_HOT_TIME] += 1
-        return super().load()
 
 
 class s1_7(scene_abstract):
@@ -63,3 +55,19 @@ class s1_35(scene_abstract):
 
 class s1_36(scene_abstract):
     options = [c1_34_1(), c1_34_3()]
+
+
+class s1_37(scene_abstract):
+    options = [c1_37_1(), c1_37_2()]
+
+
+class s1_39(scene_abstract):
+    options = [c1_39_1(), c1_39_2()]
+
+
+class s1_40(scene_abstract):
+    options = [c1_40_1(), c1_40_2(), c1_40_3(), c1_40_4()]
+
+
+class s1_41(scene_abstract):
+    options = [c1_41_1(), c1_41_2()]
