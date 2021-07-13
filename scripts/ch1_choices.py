@@ -54,3 +54,11 @@ class c1_5_1(choice_abstract):
 
 class c1_5_2(choice_abstract):
     target = "1-13"
+
+
+class c1_7_1(choice_abstract):
+    target = "1-14"
+
+
+class c1_7_2(choice_abstract):
+    target = "1-17"

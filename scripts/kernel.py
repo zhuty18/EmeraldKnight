@@ -1,13 +1,11 @@
 import json
 from ch1 import *
-import constant
-from abstract import gk
 
 
 class kernel:
     def __init__(self):
         self.scene = "0"
-        self.paras = constant.default_para
+        self.paras = default_para
         gk.core = self
 
     def getChoice(self):
@@ -22,6 +20,8 @@ class kernel:
             return s1_4().load()
         elif name == "1-5":
             return s1_5().load()
+        elif name == "1-7":
+            return s1_7().load()
 
     def load(self, name):
         if name == "0":

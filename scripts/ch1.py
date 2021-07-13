@@ -27,3 +27,7 @@ class s1_5(scene_abstract):
     def load(self):
         gk.core.paras[SWORD_HOT_TIME] += 1
         return super().load()
+
+
+class s1_7(scene_abstract):
+    options = [c1_7_1(), c1_7_2()]
