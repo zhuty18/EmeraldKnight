@@ -50,4 +50,16 @@ class s1_29(scene_abstract):
 
 
 class s1_34(scene_abstract):
-    options = []
+    options = [c1_34_1(), c1_34_2()]
+
+    def load(self):
+        gk.core.paras[BRUCE_SHOW_UP] = 1
+        return super().load()
+
+
+class s1_35(scene_abstract):
+    options = [c1_34_2(), c1_34_3()]
+
+
+class s1_36(scene_abstract):
+    options = [c1_34_1(), c1_34_3()]

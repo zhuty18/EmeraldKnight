@@ -11,6 +11,7 @@ KNOWLEDGE = "know"
 INTELLIGENCE = "intel"
 WIZARD_TOWER_CRYSTAL = "wtc"
 WIZARD_TOWER_RUNE = "wtr"
+TEMPORARY = "tmp"
 
 GAME_OVER = "game over"
 
@@ -27,6 +28,7 @@ debug_para = {
     INTELLIGENCE: 0,
     WIZARD_TOWER_CRYSTAL: 0,
     WIZARD_TOWER_RUNE: 0,
+    TEMPORARY: 0,
 }
 f = open("./data/0.eks", "r")
 default_para = json.loads(f.readline())
@@ -61,6 +63,9 @@ sceneName = {
     "1-29": "推门离开",
     "1-30": "追上去",  # TODO
     "1-34": "用光明术",
+    "1-35": "这是什么地方？",
+    "1-36": "你是什么人？",
+    "1-37": "怎么离开这儿？",
     "end-1": "无事发生",
 }
 

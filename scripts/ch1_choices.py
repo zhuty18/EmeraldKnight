@@ -192,3 +192,36 @@ class c1_29_2(choice_abstract):
 
     def show(self):
         return gk.core.paras[WIZARD_TOWER_RUNE] == 1
+
+
+class c1_34_1(choice_abstract):
+    target = "1-35"
+
+    def show(self):
+        return gk.core.paras[TEMPORARY] < 2
+
+    def chosen(self):
+        gk.core.paras[TEMPORARY] += 1
+        return super().chosen()
+
+
+class c1_34_2(choice_abstract):
+    target = "1-36"
+
+    def show(self):
+        return gk.core.paras[TEMPORARY] < 2
+
+    def chosen(self):
+        gk.core.paras[TEMPORARY] += 1
+        return super().chosen()
+
+
+class c1_34_3(choice_abstract):
+    target = "1-37"
+
+    def show(self):
+        return gk.core.paras[TEMPORARY] == 2
+
+    def chosen(self):
+        gk.core.paras[TEMPORARY] = 0
+        return super().chosen()
