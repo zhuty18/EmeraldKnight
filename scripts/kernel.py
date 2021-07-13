@@ -5,7 +5,8 @@ from ch1 import *
 class kernel:
     def __init__(self):
         self.scene = "0"
-        self.paras = default_para
+        self.paras = debug_para
+        # self.paras = default_para
         gk.core = self
 
     def getChoice(self):
@@ -22,6 +23,11 @@ class kernel:
             return s1_5().load()
         elif name == "1-7":
             return s1_7().load()
+        elif name == "1-17":
+            return s1_17().load()
+        elif name == "end-1":
+            self.openPara("end-1")
+            return [choice_end()]
 
     def load(self, name):
         if name == "0":
@@ -49,3 +55,12 @@ class kernel:
             scenetext = scenetext.replace("\n", "\n    ")
             choice = self.getChoice()
             return scenetext, choice
+
+    def openPara(self, end):
+        f = open("./data/0.eks", "r")
+        default_para = json.loads(f.read())
+        f.close()
+        default_para[end] = 1
+        f = open("./data/0.eks", "w")
+        f.write(json.dumps(default_para)+"\n")
+        f.close()

@@ -62,3 +62,14 @@ class c1_7_1(choice_abstract):
 
 class c1_7_2(choice_abstract):
     target = "1-17"
+
+
+class c1_17_1(choice_abstract):
+    target = "end-1"
+
+    def text(self):
+        return "不了"
+
+
+class c1_17_2(choice_abstract):
+    target = "1-19"
