@@ -23,6 +23,10 @@ class kernel:
             return s1_5().load()
         elif name == "1-7":
             return s1_7().load()
+        elif name == "1-12":
+            return s1_12().load()
+        elif name == "1-13":
+            return [c1_5_1()]
         elif name == "1-17":
             return s1_17().load()
         elif name == "end-1":

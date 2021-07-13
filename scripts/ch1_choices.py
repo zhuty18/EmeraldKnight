@@ -55,6 +55,10 @@ class c1_5_1(choice_abstract):
 class c1_5_2(choice_abstract):
     target = "1-13"
 
+    def chosen(self):
+        gk.core.paras[KNOWLEDGE] += 1
+        return super().chosen()
+
 
 class c1_7_1(choice_abstract):
     target = "1-14"
@@ -62,6 +66,54 @@ class c1_7_1(choice_abstract):
 
 class c1_7_2(choice_abstract):
     target = "1-17"
+
+
+class c1_12_1(choice_abstract):
+    target = "1-20"
+
+    def chosen(self):
+        gk.core.paras[WIZARD_TOWER_CRYSTAL] = 1
+        return super().chosen()
+
+    def text(self):
+        return "带有火焰纹路的红晶石"
+
+
+class c1_12_2(choice_abstract):
+    target = "1-21"
+
+    def chosen(self):
+        gk.core.paras[WIZARD_TOWER_CRYSTAL] = 2
+        return super().chosen()
+
+    def text(self):
+        return "带有雪花纹路的蓝晶石"
+
+
+class c1_12_3(choice_abstract):
+    target = "1-22"
+
+    def chosen(self):
+        gk.core.paras[WIZARD_TOWER_CRYSTAL] = 3
+        return super().chosen()
+
+    def text(self):
+        return "带有漩涡纹路的紫晶石"
+
+
+class c1_12_4(choice_abstract):
+    target = "1-23"
+
+    def chosen(self):
+        gk.core.paras[WIZARD_TOWER_CRYSTAL] = 4
+        return super().chosen()
+
+    def text(self):
+        return "带有草叶纹路的绿晶石"
+
+
+class c1_12_0(choice_abstract):
+    target = "1-24"
 
 
 class c1_17_1(choice_abstract):

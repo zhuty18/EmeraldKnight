@@ -1,21 +1,32 @@
 import json
 BRUCE_STORY_LINE = "bsl"
+BRUCE_SHOW_UP = "bsu"
 OLIVER_STORY_LINE = "osl"
 SINESTRO_STORY_LINE = "ssl"
 SINESTRO_LOVE = "sinl"
 SINESTRO_TAME = "sint"
 SWORD_HOT_TIME = "sht"
 END_NOTHING = "end-1"
+KNOWLEDGE = "know"
+INTELLIGENCE = "intel"
+WIZARD_TOWER_CRYSTAL = "wtc"
+WIZARD_TOWER_RUNE = "wtr"
+
 GAME_OVER = "game over"
 
 debug_para = {
-    OLIVER_STORY_LINE: 0,
     BRUCE_STORY_LINE: 1,
+    BRUCE_SHOW_UP: 0,
+    OLIVER_STORY_LINE: 0,
     SINESTRO_STORY_LINE: 1,
     SINESTRO_LOVE: 0,
     SINESTRO_TAME: 0,
     SWORD_HOT_TIME: 0,
-    END_NOTHING: 0
+    END_NOTHING: 0,
+    KNOWLEDGE: 0,
+    INTELLIGENCE: 0,
+    WIZARD_TOWER_CRYSTAL: 0,
+    WIZARD_TOWER_RUNE: 0,
 }
 f = open("./data/0.eks", "r")
 default_para = json.loads(f.readline())
@@ -33,12 +44,17 @@ sceneName = {
     "1-9": "呛回去",  # TODO
     "1-10": "谢谢他",  # TODO
     "1-11": "“你是谁？”",  # TODO
-    "1-12": "进去",  # TODO
-    "1-13": "先四下看看",  # TODO
+    "1-12": "进去",
+    "1-13": "先四下看看",
     "1-14": "上去敲门",  # TODO
     "1-17": "回家睡觉",
     "1-19": "当然要继续",  # TODO
-    "end-1": "无事发生"
+    "1-20": "红晶石",
+    "1-21": "蓝晶石",
+    "1-22": "紫晶石",
+    "1-23": "绿晶石",
+    "1-24": "继续前进",
+    "end-1": "无事发生",
 }
 
 end = {
