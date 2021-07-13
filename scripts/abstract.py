@@ -1,9 +1,8 @@
 from constant import sceneName
 
 
-class ek_choice:
+class choice_abstract:
     target = ""
-    kernel = None
 
     def text(self):
         return sceneName[self.target]
@@ -12,10 +11,10 @@ class ek_choice:
         return True
 
     def chosen(self):
-        self.kernel.scene = self.target
+        gk.core.scene = self.target
 
 
-class ek_scene:
+class scene_abstract:
     options = []
 
     def choices(self):
@@ -24,3 +23,10 @@ class ek_scene:
             if i.show():
                 ls.append(i)
         return ls
+
+    def load(self):
+        return self.choices()
+
+
+class gk:
+    core = None

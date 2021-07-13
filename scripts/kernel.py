@@ -1,27 +1,27 @@
 import json
-import ek_abstract
 from ch1 import *
-from constant import *
+import constant
+from abstract import gk
 
 
-class ek_kernel:
+class kernel:
     def __init__(self):
         self.scene = "0"
-        self.paras = default_para
-        ek_abstract.ek_choice.kernel = self
+        self.paras = constant.default_para
+        gk.core = self
 
     def getChoice(self):
         name = self.scene
         if name == "1-1":
-            return s1_1().choices()
+            return s1_1().load()
         elif name == "1-2":
-            return s1_2().choices()
+            return s1_2().load()
         elif name == "1-3":
-            return s1_3().choices()
+            return s1_3().load()
         elif name == "1-4":
-            return s1_4().choices()
+            return s1_4().load()
         elif name == "1-5":
-            return s1_5().choices()
+            return s1_5().load()
 
     def load(self, name):
         if name == "0":
@@ -38,3 +38,11 @@ class ek_kernel:
 
     def getSceneName(self, s):
         return sceneName[s]
+
+    def loadScene(self):
+        with open("story/"+self.scene+".ekt", "r", encoding="utf8") as f:
+            scenetext = f.read()
+        scenetext = "    "+scenetext
+        scenetext = scenetext.replace("\n", "\n    ")
+        choice = self.getChoice()
+        return scenetext, choice

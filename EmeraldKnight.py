@@ -7,7 +7,7 @@ import PySide2.QtGui as gui
 
 class EmeraldKnight:
     def __init__(self):
-        self.kernel = ek_kernel.ek_kernel()
+        self.kernel = kernel.kernel()
         self.scenetext = ""
         self.choices = []
         self.loading = False
@@ -86,8 +86,19 @@ class EmeraldKnight:
         self.showSave()
 
     def loadGame(self):
-        self.loading = True
-        self.pickSave()
+        havesave = False
+        for i in range(1, 11):
+            try:
+                open("save/"+str(i)+".eks", "r")
+                havesave = True
+            except FileNotFoundError:
+                pass
+        if havesave:
+            self.loading = True
+            self.pickSave()
+        else:
+            m = qt.QMessageBox(self.main)
+            m.critical(self.main, "警告！", "当前无可用存档！")
 
     def saveGame(self):
         if self.scenetext == "":
@@ -105,11 +116,7 @@ class EmeraldKnight:
         self.loadScene()
 
     def loadScene(self):
-        with open("story/"+self.kernel.scene+".ekt", "r", encoding="utf8") as f:
-            self.scenetext = f.read()
-        self.scenetext = "    "+self.scenetext
-        self.scenetext = self.scenetext.replace("\n", "\n    ")
-        self.choices = self.kernel.getChoice()
+        self.scenetext, self.choices = self.kernel.loadScene()
         game_layout = qt.QVBoxLayout()
         text = qt.QLabel(self.scenetext+"\n")
         text.setWordWrap(True)
@@ -129,6 +136,6 @@ class EmeraldKnight:
 if __name__ == "__main__":
     from sys import path
     path.append("./scripts")
-    from scripts import ek_kernel
+    from scripts import kernel
     ek = EmeraldKnight()
     ek.app.exec_()
