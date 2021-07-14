@@ -18,3 +18,6 @@ jobs:
       - name: Run Statistic
         run: |
           python3 process/process.py
+
+      - name: Test
+        run: python3 test.py
