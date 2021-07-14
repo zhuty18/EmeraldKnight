@@ -55,9 +55,9 @@ class EmeraldKnight:
         saves_layout = qt.QVBoxLayout()
         for i in range(1, 11):
             try:
-                with open("save/"+str(i)+".eks", "r") as f:
+                with open("save/" + str(i) + ".eks", "r") as f:
                     s = f.readline().strip()
-                    s = "存档"+str(i)+"\t"+s+"\t"+self.kernel.getSceneName(s)
+                    s = "存档" + str(i) + "\t" + s + "\t" + self.kernel.getSceneName(s)
                     btn = qt.QPushButton(s)
                     btn.clicked.connect(partial(self.pick, i))
                     saves_layout.addWidget(btn)
@@ -89,7 +89,7 @@ class EmeraldKnight:
         havesave = False
         for i in range(1, 11):
             try:
-                open("save/"+str(i)+".eks", "r")
+                open("save/" + str(i) + ".eks", "r")
                 havesave = True
             except FileNotFoundError:
                 pass
@@ -121,11 +121,11 @@ class EmeraldKnight:
             self.hello()
         else:
             game_layout = qt.QVBoxLayout()
-            text = qt.QLabel(self.scenetext+"\n")
+            text = qt.QLabel(self.scenetext + "\n")
             text.setWordWrap(True)
             game_layout.addWidget(text)
             for i in range(0, len(self.choices)):
-                s = chr(i+ord('A'))+"\t"+self.choices[i].text()
+                s = chr(i + ord('A')) + "\t" + self.choices[i].text()
                 btn = qt.QPushButton(s)
                 btn.clicked.connect(partial(self.choose, i))
                 game_layout.addWidget(btn)

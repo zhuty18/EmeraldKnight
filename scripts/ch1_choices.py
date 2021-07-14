@@ -319,6 +319,10 @@ class c1_41_1(choice_abstract):
     def show(self):
         return gk.core.paras[INTELLIGENCE] >= 0
 
+    def chosen(self):
+        gk.core.paras[KNOWLEDGE] += 5
+        return super().chosen()
+
 
 class c1_41_2(choice_abstract):
     target = "1-43"

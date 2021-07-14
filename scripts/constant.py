@@ -1,4 +1,5 @@
 import json
+
 BRUCE_STORY_LINE = "bsl"
 BRUCE_SHOW_UP = "bsu"
 BRUCE_LOVE = "brul"
@@ -75,11 +76,9 @@ sceneName = {
     "1-41": "生命晶石",
     "1-42": "法师塔是什么？",
     "1-43": "你叫什么？",
-    "1-44": "四下看看",
-    "1-45": "这应该就是阵眼",
+    "1-44": "四下看看",  # TODO
+    "1-45": "这应该就是阵眼",  # TODO
     "end-1": "无事发生",
 }
 
-end = {
-    END_NOTHING: 0
-}
+end = {END_NOTHING: 0}

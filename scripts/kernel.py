@@ -65,14 +65,14 @@ class kernel:
         if name == "0":
             self.scene = "1-1"
         else:
-            with open("./save/"+name+".eks", "r") as f:
+            with open("./save/" + name + ".eks", "r") as f:
                 self.scene = f.readline().strip()
                 self.paras = json.loads(f.readline())
 
     def save(self, name):
-        with open("./save/"+name+".eks", "w") as f:
-            f.write(self.scene+"\n")
-            f.write(json.dumps(self.paras)+"\n")
+        with open("./save/" + name + ".eks", "w") as f:
+            f.write(self.scene + "\n")
+            f.write(json.dumps(self.paras) + "\n")
 
     def getSceneName(self, s):
         return sceneName[s]
@@ -81,9 +81,9 @@ class kernel:
         if self.scene == GAME_OVER:
             return GAME_OVER, []
         else:
-            with open("story/"+self.scene, "r", encoding="utf8") as f:
+            with open("story/" + self.scene, "r", encoding="utf8") as f:
                 scenetext = f.read()
-            scenetext = "    "+scenetext
+            scenetext = "    " + scenetext
             scenetext = scenetext.replace("\n", "\n    ")
             choice = self.getChoice()
             return scenetext, choice
@@ -94,5 +94,5 @@ class kernel:
         f.close()
         default_para[end] = 1
         f = open("./data/0.eks", "w")
-        f.write(json.dumps(default_para)+"\n")
+        f.write(json.dumps(default_para) + "\n")
         f.close()
