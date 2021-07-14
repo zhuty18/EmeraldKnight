@@ -1,7 +1,7 @@
 import os
 for i in range(1, 2):
     k = str(i)
-    cmd = "python ek_test.py <test/" + k + ".in"
+    cmd = "python test/ek_test.py <test/" + k + ".in"
     p=os.popen(cmd)
     output=p.read()
     p.close()

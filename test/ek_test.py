@@ -144,6 +144,7 @@ class EmeraldKnight:
 
 if __name__ == "__main__":
     from sys import path
+    path.append("./")
     path.append("./scripts")
     from scripts import kernel
     kernel.TEST = True
