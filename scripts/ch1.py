@@ -21,12 +21,20 @@ class s1_5(scene_abstract):
     options = [c1_5_1(), c1_5_2()]
 
 
+class s1_6(scene_abstract):
+    options = [c1_6_1(), c1_6_2()]
+
+
 class s1_7(scene_abstract):
     options = [c1_7_1(), c1_7_2()]
 
 
 class s1_12(scene_abstract):
     options = [c1_12_1(), c1_12_2(), c1_12_3(), c1_12_4()]
+
+
+class s1_14(scene_abstract):
+    options = [c1_14_1(), c1_14_2(), c1_14_3()]
 
 
 class s1_17(scene_abstract):

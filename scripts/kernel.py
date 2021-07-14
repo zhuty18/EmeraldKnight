@@ -23,6 +23,8 @@ class kernel:
             return s1_4().load()
         elif name == "1-5":
             return s1_5().load()
+        elif name == "1-6":
+            return s1_6().load()
         elif name == "1-7":
             return s1_7().load()
         elif name == "1-12":
@@ -31,6 +33,8 @@ class kernel:
             return [c1_5_1()]
         elif name == "1-17":
             return s1_17().load()
+        elif name == "1-18":
+            return [c1_6_1()]
         elif (name == "1-20") or (name == "1-21") or (name == "1-22") or (name == "1-23"):
             return [c1_12_0()]
         elif name == "1-24":
@@ -46,7 +50,7 @@ class kernel:
         elif name == "1-32":
             return [c1_31_2()]
         elif name == "1-33":
-            return [choice_unfinished()]
+            return [c1_16_1()]
         elif name == "1-34":
             return s1_34().load()
         elif name == "1-35":
@@ -66,7 +70,7 @@ class kernel:
         elif name == "1-42":
             return [c1_41_2()]
         elif name == "1-43":
-            return [choice_unfinished()]
+            return [c1_16_3()]
         elif name == "1-44":
             return s1_31().load()
         elif name == "1-45":
@@ -76,6 +80,8 @@ class kernel:
         elif name == "end-1":
             self.openPara("end-1")
             return [choice_end()]
+        else:
+            return [choice_abstract()]
 
     def load(self, name):
         if name == "0":
@@ -103,12 +109,16 @@ class kernel:
         if self.scene == GAME_OVER:
             return GAME_OVER, []
         else:
-            with open("story/" + self.scene, "r", encoding="utf8") as f:
-                scenetext = f.read()
-            scenetext = "    " + scenetext
-            scenetext = scenetext.replace("\n", "\n    ")
-            choice = self.getChoice()
-            return scenetext, choice
+            try:
+                with open("story/" + self.scene, "r", encoding="utf8") as f:
+                    scenetext = f.read()
+                scenetext = "    " + scenetext
+                scenetext = scenetext.replace("\n", "\n    ")
+                choice = self.getChoice()
+                return scenetext, choice
+            except:
+                scenetext = "抱歉，这儿还没写呢。请先存档。"
+                return scenetext, [choice_end()]
 
     def refresh(self):
         for i in debug_para.keys():

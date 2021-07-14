@@ -39,5 +39,14 @@ class scene_abstract:
         return ls
 
 
+class scene_end(scene_abstract):
+    def __init__(self, name):
+        self.e = name
+
+    def load(self):
+        gk.core.openPara(self.e)
+        return [choice_end()]
+
+
 class gk:
     core = None

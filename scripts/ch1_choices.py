@@ -62,6 +62,18 @@ class c1_5_2(choice_abstract):
         return super().chosen()
 
 
+class c1_6_1(choice_abstract):
+    target = "1-51"
+
+
+class c1_6_2(choice_abstract):
+    target = "1-18"
+
+    def chosen(self):
+        gk.core.paras[CREDIT] += 3
+        return super().chosen()
+
+
 class c1_7_1(choice_abstract):
     target = "1-14"
 
@@ -116,6 +128,30 @@ class c1_12_4(choice_abstract):
 
     def text(self):
         return "带有草叶纹路的绿晶石"
+
+
+class c1_14_1(choice_abstract):
+    target = "1-47"
+
+
+class c1_14_2(choice_abstract):
+    target = "1-48"
+
+
+class c1_14_3(choice_abstract):
+    target = "1-49"
+
+
+class c1_16_1(choice_abstract):
+    target = "2.1-1"
+
+
+class c1_16_2(choice_abstract):
+    target = "2.2-1"
+
+
+class c1_16_3(choice_abstract):
+    target = "2.3-1"
 
 
 class c1_17_1(choice_abstract):
