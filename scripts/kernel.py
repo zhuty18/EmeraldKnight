@@ -110,11 +110,16 @@ class kernel:
             choice = self.getChoice()
             return scenetext, choice
 
+    def refresh(self):
+        for i in debug_para.keys():
+            if i not in self.paras:
+                self.paras[i] = 0
+
     def openPara(self, end):
         f = open("./data/0.eks", "r")
-        default_para = json.loads(f.read())
+        p = json.loads(f.read())
         f.close()
-        default_para[end] = 1
+        p[end] = 1
         f = open("./data/0.eks", "w")
-        f.write(json.dumps(default_para) + "\n")
+        f.write(json.dumps(p) + "\n")
         f.close()

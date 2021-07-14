@@ -5,9 +5,6 @@ from constant import *
 class c1_1_1(choice_abstract):
     target = "1-2"
 
-    def show(self):
-        return (gk.core.paras[BRUCE_STORY_LINE] >= 1)
-
     def chosen(self):
         gk.core.paras[SWORD_HOT_TIME] += 1
         return super().chosen()
@@ -19,9 +16,6 @@ class c1_1_2(choice_abstract):
 
 class c1_1_3(choice_abstract):
     target = "1-4"
-
-    def show(self):
-        return (gk.core.paras[SINESTRO_STORY_LINE] >= 1)
 
 
 class c1_2_1(choice_abstract):

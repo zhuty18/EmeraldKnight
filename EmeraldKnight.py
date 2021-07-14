@@ -1,8 +1,11 @@
 import os
 from functools import partial
+from sys import version
 import PySide2.QtWidgets as qt
 import PySide2.QtCore as core
 import PySide2.QtGui as gui
+
+VERSION = "v0.1"
 
 
 class EmeraldKnight:
@@ -18,8 +21,10 @@ class EmeraldKnight:
         self.setMenu()
         self.main.show()
         self.hello()
+        self.tips()
 
     def setMenu(self):
+        self.main.setWindowTitle("翡翠骑士 " + VERSION)
         menu = self.main.menuBar()
         new = menu.addAction("新的游戏")
         new.triggered.connect(self.newGame)
@@ -29,6 +34,8 @@ class EmeraldKnight:
         load.triggered.connect(self.loadGame)
         exit = menu.addAction("退出游戏")
         exit.triggered.connect(self.exitGame)
+        exit = menu.addAction("刷新存档")
+        exit.triggered.connect(self.refresh)
 
     def update(self, layout):
         self.game = qt.QWidget(self.main)
@@ -37,7 +44,7 @@ class EmeraldKnight:
         self.main.update()
 
     def hello(self):
-        hello_str = "<font size=60>翡翠骑士\n</font>"
+        hello_str = "<font size=60>翡翠骑士\n" + VERSION + "\n</font>"
 
         hello_layout = qt.QVBoxLayout()
         hello_label = qt.QLabel()
@@ -131,9 +138,16 @@ class EmeraldKnight:
                 game_layout.addWidget(btn)
             self.update(game_layout)
 
+    def tips(self):
+        m = qt.QMessageBox(self.main)
+        m.information(self.main, "提示", "如使用之前版本的存档，请在读档后先点击刷新存档按钮再继续游戏")
+
     def choose(self, c):
         self.choices[c].chosen()
         self.loadScene()
+
+    def refresh(self):
+        self.kernel.refresh()
 
 
 if __name__ == "__main__":
