@@ -55,6 +55,8 @@ class kernel:
             return s1_41().load()
         elif name == "1-41-2":
             return [c1_41_3()]
+        elif name == "1-42":
+            return [c1_41_2()]
         elif name == "end-1":
             self.openPara("end-1")
             return [choice_end()]

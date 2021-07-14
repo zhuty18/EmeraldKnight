@@ -281,9 +281,6 @@ class c1_39_2(choice_abstract):
 class c1_40_1(choice_abstract):
     target = "1-41"
 
-    def show(self):
-        return (gk.core.paras[WIZARD_TOWER_CRYSTAL] == 4) and (gk.core.paras[BRUCE_SHOW_UP] == 1)
-
     def text(self):
         return "仔细看看"
 
@@ -295,9 +292,6 @@ class c1_40_1(choice_abstract):
 
 class c1_40_2(choice_abstract):
     target = "1-41-2"
-
-    def show(self):
-        return (gk.core.paras[WIZARD_TOWER_CRYSTAL] == 4) and (gk.core.paras[BRUCE_SHOW_UP] == 0)
 
     def text(self):
         return "仔细看看"
@@ -311,15 +305,9 @@ class c1_40_2(choice_abstract):
 class c1_40_3(choice_abstract):
     target = "1-45"
 
-    def show(self):
-        return (gk.core.paras[WIZARD_TOWER_CRYSTAL] != 4) and (gk.core.paras[BRUCE_SHOW_UP] == 1)
-
 
 class c1_40_4(choice_abstract):
     target = "1-31"
-
-    def show(self):
-        return (gk.core.paras[WIZARD_TOWER_CRYSTAL] != 4) and (gk.core.paras[BRUCE_SHOW_UP] == 0)
 
     def text(self):
         return "起身走开"
