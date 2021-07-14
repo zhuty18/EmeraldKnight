@@ -63,7 +63,7 @@ class c1_5_2(choice_abstract):
 
 
 class c1_6_1(choice_abstract):
-    target = "1-51"
+    target = "1-52"
 
 
 class c1_6_2(choice_abstract):
@@ -136,6 +136,10 @@ class c1_14_1(choice_abstract):
 
 class c1_14_2(choice_abstract):
     target = "1-48"
+
+    def chosen(self):
+        gk.core.paras[BARRY_LOVE] += 5
+        return super().chosen()
 
 
 class c1_14_3(choice_abstract):
@@ -373,3 +377,21 @@ class c1_41_4(choice_abstract):
 
     def text(self):
         return "那个人呢？"
+
+
+class c1_49_1(choice_abstract):
+    target = "end-1"
+
+    def text(self):
+        return "我还不够强"
+
+
+class c1_49_2(choice_abstract):
+    target = "1-51"
+
+    def show(self):
+        return gk.core.paras[SWORD_HOT_TIME] >= 1
+
+
+class c1_49_3(choice_abstract):
+    target = "1-52"

@@ -101,3 +101,7 @@ class s1_41(scene_abstract):
 
 class s1_46(scene_abstract):
     options = [c1_41_1(), c1_41_2()]
+
+
+class s1_49(scene_abstract):
+    options = [c1_49_1(), c1_49_2(), c1_49_3()]

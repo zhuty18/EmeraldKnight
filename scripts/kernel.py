@@ -31,6 +31,8 @@ class kernel:
             return s1_12().load()
         elif name == "1-13":
             return [c1_5_1()]
+        elif name=="1-14":
+            return s1_14().load()
         elif name == "1-17":
             return s1_17().load()
         elif name == "1-18":
@@ -77,6 +79,16 @@ class kernel:
             return [c1_31_2()]
         elif name == "1-46":
             return s1_46().load()
+        elif name == "1-47":
+            return [c1_16_1()]
+        elif name == "1-48":
+            return [c1_14_1()]
+        elif name == "1-49":
+            return s1_49().load()
+        elif name == "1-50":
+            return [c1_16_3()]
+        elif name == "1-51":
+            return [c1_16_2()]
         elif name == "end-1":
             self.openPara("end-1")
             return [choice_end()]
@@ -93,6 +105,7 @@ class kernel:
             with open(k + name + ".eks", "r") as f:
                 self.scene = f.readline().strip()
                 self.paras = json.loads(f.readline())
+            self.refresh()
 
     def save(self, name):
         k = "./save/"

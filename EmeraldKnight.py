@@ -21,7 +21,7 @@ class EmeraldKnight:
         self.setMenu()
         self.main.show()
         self.hello()
-        self.tips()
+        # self.tips()
 
     def setMenu(self):
         self.main.setWindowTitle("翡翠骑士 " + VERSION)
@@ -34,8 +34,8 @@ class EmeraldKnight:
         load.triggered.connect(self.loadGame)
         exit = menu.addAction("退出游戏")
         exit.triggered.connect(self.exitGame)
-        exit = menu.addAction("刷新存档")
-        exit.triggered.connect(self.refresh)
+        # exit = menu.addAction("刷新存档")
+        # exit.triggered.connect(self.refresh)
 
     def update(self, layout):
         self.game = qt.QWidget(self.main)
@@ -44,11 +44,12 @@ class EmeraldKnight:
         self.main.update()
 
     def hello(self):
-        hello_str = "<font size=60>翡翠骑士\n" + VERSION + "\n</font>"
-
+        hello_str = "<font size=10>翡翠骑士<br></font><font size=6>" + VERSION + "<br></font>"
+        hello_str += "<font size=4><br>雪山之巅，英魂渐远。<br>危城影下，一念不灭。<br>剑心重铸，翡翠明灯。<br>孤光陨灭，万灵恸哭。</font>"
         hello_layout = qt.QVBoxLayout()
         hello_label = qt.QLabel()
         hello_label.setText(hello_str)
+        hello_label.setWordWrap(True)
         hello_label.setAlignment(core.Qt.AlignCenter)
         hello_layout.addWidget(hello_label)
         self.update(hello_layout)
