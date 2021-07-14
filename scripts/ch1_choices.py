@@ -305,6 +305,10 @@ class c1_40_2(choice_abstract):
 class c1_40_3(choice_abstract):
     target = "1-45"
 
+    def chosen(self):
+        gk.core.paras[BRUCE_LOVE] += 2
+        return super().chosen()
+
 
 class c1_40_4(choice_abstract):
     target = "1-31"

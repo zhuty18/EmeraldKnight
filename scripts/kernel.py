@@ -1,6 +1,8 @@
 import json
 from ch1 import *
 
+TEST = False
+
 
 class kernel:
     def __init__(self):
@@ -57,6 +59,8 @@ class kernel:
             return [c1_41_3()]
         elif name == "1-42":
             return [c1_41_2()]
+        elif name == "1-43":
+            return []
         elif name == "end-1":
             self.openPara("end-1")
             return [choice_end()]
@@ -65,12 +69,18 @@ class kernel:
         if name == "0":
             self.scene = "1-1"
         else:
-            with open("./save/" + name + ".eks", "r") as f:
+            k = "./save/"
+            if TEST:
+                k = "./test/"
+            with open(k + name + ".eks", "r") as f:
                 self.scene = f.readline().strip()
                 self.paras = json.loads(f.readline())
 
     def save(self, name):
-        with open("./save/" + name + ".eks", "w") as f:
+        k = "./save/"
+        if TEST:
+            k = "./test/"
+        with open(k + name + ".eks", "w") as f:
             f.write(self.scene + "\n")
             f.write(json.dumps(self.paras) + "\n")
 
