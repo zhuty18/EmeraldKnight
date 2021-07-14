@@ -1,5 +1,5 @@
 import os
-for i in range(1, 2):
+for i in range(1, 4):
     k = str(i)
     cmd = "python test/ek_test.py <test/" + k + ".in"
     p=os.popen(cmd)

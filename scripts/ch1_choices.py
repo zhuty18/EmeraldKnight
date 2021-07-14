@@ -202,6 +202,17 @@ class c1_29_2(choice_abstract):
         return gk.core.paras[WIZARD_TOWER_RUNE] == 1
 
 
+class c1_31_1(choice_abstract):
+    target = "1-32"
+
+    def show(self):
+        return gk.core.paras[BRUCE_LOVE] >= 0
+
+
+class c1_31_2(choice_abstract):
+    target = "1-33"
+
+
 class c1_34_1(choice_abstract):
     target = "1-35"
 
@@ -286,23 +297,14 @@ class c1_40_1(choice_abstract):
 
     def chosen(self):
         gk.core.paras[SWORD_HOT_TIME] += 1
-        gk.core.paras[BRUCE_LOVE] += 10
+        if gk.core.paras[BRUCE_SHOW_UP] == 1:
+            gk.core.paras[BRUCE_LOVE] += 10
+        else:
+            gk.core.paras[BRUCE_LOVE] += 4
         return super().chosen()
 
 
 class c1_40_2(choice_abstract):
-    target = "1-41-2"
-
-    def text(self):
-        return "仔细看看"
-
-    def chosen(self):
-        gk.core.paras[SWORD_HOT_TIME] += 1
-        gk.core.paras[BRUCE_LOVE] += 4
-        return super().chosen()
-
-
-class c1_40_3(choice_abstract):
     target = "1-45"
 
     def chosen(self):
@@ -310,7 +312,7 @@ class c1_40_3(choice_abstract):
         return super().chosen()
 
 
-class c1_40_4(choice_abstract):
+class c1_40_3(choice_abstract):
     target = "1-31"
 
     def text(self):
@@ -334,3 +336,10 @@ class c1_41_2(choice_abstract):
 
 class c1_41_3(choice_abstract):
     target = "1-44"
+
+
+class c1_41_4(choice_abstract):
+    target = "1-46"
+
+    def text(self):
+        return "那个人呢？"

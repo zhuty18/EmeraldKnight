@@ -1,3 +1,4 @@
 log
 save
 test/*.out
+.vscode/

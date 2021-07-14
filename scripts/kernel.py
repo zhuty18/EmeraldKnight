@@ -39,6 +39,14 @@ class kernel:
             return [c1_24_0()]
         elif name == "1-29":
             return s1_29().load()
+        elif name == "1-30":
+            return s1_39().load()
+        elif name == "1-31":
+            return s1_31().load()
+        elif name == "1-32":
+            return [c1_31_2()]
+        elif name == "1-33":
+            return [choice_unfinished()]
         elif name == "1-34":
             return s1_34().load()
         elif name == "1-35":
@@ -55,12 +63,16 @@ class kernel:
             return s1_40().load()
         elif name == "1-41":
             return s1_41().load()
-        elif name == "1-41-2":
-            return [c1_41_3()]
         elif name == "1-42":
             return [c1_41_2()]
         elif name == "1-43":
-            return []
+            return [choice_unfinished()]
+        elif name == "1-44":
+            return s1_31().load()
+        elif name == "1-45":
+            return [c1_31_2()]
+        elif name == "1-46":
+            return s1_46().load()
         elif name == "end-1":
             self.openPara("end-1")
             return [choice_end()]

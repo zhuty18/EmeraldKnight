@@ -41,6 +41,10 @@ class s1_29(scene_abstract):
     options = [c1_29_1(), c1_29_2()]
 
 
+class s1_31(scene_abstract):
+    options = [c1_31_1(), c1_31_2()]
+
+
 class s1_34(scene_abstract):
     options = [c1_34_1(), c1_34_2()]
 
@@ -70,16 +74,22 @@ class s1_40(scene_abstract):
 
     def load(self):
         if gk.core.paras[WIZARD_TOWER_CRYSTAL] == 4:
-            if gk.core.paras[BRUCE_SHOW_UP] == 1:
-                return [c1_40_1()]
-            else:
-                return [c1_40_2()]
+            return [c1_40_1()]
         else:
             if gk.core.paras[BRUCE_SHOW_UP] == 1:
-                return [c1_40_3()]
+                return [c1_40_2()]
             else:
-                return [c1_40_4()]
+                return [c1_40_3()]
 
 
 class s1_41(scene_abstract):
+    # options = [c1_41_1(), c1_41_2(), c1_41_3(),c1_41_4()]
+    def load(self):
+        if gk.core.paras[BRUCE_SHOW_UP] == 1:
+            return [c1_41_4()]
+        else:
+            return [c1_41_3()]
+
+
+class s1_46(scene_abstract):
     options = [c1_41_1(), c1_41_2()]

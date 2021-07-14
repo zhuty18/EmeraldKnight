@@ -21,6 +21,13 @@ class choice_end(choice_abstract):
         return "回到开始界面"
 
 
+class choice_unfinished(choice_abstract):
+    target = GAME_OVER
+
+    def text(self):
+        return "看到这个就存档吧，后面还没做呢"
+
+
 class scene_abstract:
     options = []
 
