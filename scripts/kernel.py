@@ -97,11 +97,17 @@ class kernel:
             return [c1_16_3()]
         elif name == "1-51":
             return [c1_16_2()]
+        elif name == "1-52":
+            return s1_52().load()
+        elif name == "1-53":
+            return [c1_52_2()]
+        elif name == "1-54":
+            return [c1_16_2()]
         elif name == "end-1":
             self.openPara("end-1")
             return [choice_end()]
         else:
-            return [choice_abstract()]
+            return [choice_unfinished()]
 
     def load(self, name):
         if name == "0":

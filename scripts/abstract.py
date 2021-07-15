@@ -25,7 +25,7 @@ class choice_unfinished(choice_abstract):
     target = GAME_OVER
 
     def text(self):
-        return "看到这个就存档吧，后面还没做呢"
+        return "看到这个，说明出bug了，麻烦存个档发给我，谢谢。（13718054285@163.com）"
 
 
 class scene_abstract:

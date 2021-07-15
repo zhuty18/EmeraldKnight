@@ -18,10 +18,12 @@ WIZARD_TOWER_RUNE = "wtr"
 TEMPORARY = "tmp"
 CREDIT = "cre"
 
+TEAMMATE = "tm"
+
 GAME_OVER = "game over"
 character_para = {
     BRUCE_STORY_LINE: 0,
-    BRUCE_SHOW_UP: 0,
+    BRUCE_SHOW_UP: False,
     BRUCE_LOVE: 0,
     OLIVER_STORY_LINE: 0,
     SINESTRO_STORY_LINE: 0,
@@ -30,6 +32,7 @@ character_para = {
     BARRY_LOVE: 0,
 }
 stroy_para = {
+    TEAMMATE: "",
     SWORD_HOT_TIME: 0,
     END_NOTHING: 0,
     KNOWLEDGE: 0,
@@ -97,6 +100,8 @@ sceneName = {
     "1-50": "知道的太少",
     "1-51": "有件事需要查",
     "1-52": "去找奥利",
+    "1-53": "看看成品箭",
+    "1-54": "进去等他",
     "2.1-1": "银鳞村",
     "2.2-1": "百羽镇",
     "2.3-1": "天使城",

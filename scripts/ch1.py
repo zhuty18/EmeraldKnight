@@ -69,7 +69,7 @@ class s1_34(scene_abstract):
     options = [c1_34_1(), c1_34_2()]
 
     def load(self):
-        gk.core.paras[BRUCE_SHOW_UP] = 1
+        gk.core.paras[BRUCE_SHOW_UP] = True
         return super().load()
 
 
@@ -93,10 +93,10 @@ class s1_40(scene_abstract):
     # options = [c1_40_1(), c1_40_2(), c1_40_3(), c1_40_4()]
 
     def load(self):
-        if gk.core.paras[WIZARD_TOWER_CRYSTAL] == 4:
+        if gk.core.paras[WIZARD_TOWER_CRYSTAL] == "green":
             return [c1_40_1()]
         else:
-            if gk.core.paras[BRUCE_SHOW_UP] == 1:
+            if gk.core.paras[BRUCE_SHOW_UP]:
                 return [c1_40_2()]
             else:
                 return [c1_40_3()]
@@ -105,7 +105,7 @@ class s1_40(scene_abstract):
 class s1_41(scene_abstract):
     # options = [c1_41_1(), c1_41_2(), c1_41_3(),c1_41_4()]
     def load(self):
-        if gk.core.paras[BRUCE_SHOW_UP] == 1:
+        if gk.core.paras[BRUCE_SHOW_UP]:
             return [c1_41_4()]
         else:
             return [c1_41_3()]
@@ -117,3 +117,13 @@ class s1_46(scene_abstract):
 
 class s1_49(scene_abstract):
     options = [c1_49_1(), c1_49_2(), c1_49_3()]
+
+
+class s1_52(scene_abstract):
+    # options = [c1_52_1(), c1_52_2()]
+
+    def load(self):
+        if gk.core.paras[CREDIT] > 0:
+            return [c1_52_1()]
+        else:
+            return [c1_52_2()]
