@@ -29,6 +29,10 @@ class kernel:
             return s1_7().load()
         elif name == "1-8":
             return s1_8().load()
+        elif name == "1-9":
+            return [c1_4_3()]
+        elif name == "1-10":
+            return [c1_4_3()]
         elif name == "1-12":
             return s1_12().load()
         elif name == "1-13":
@@ -104,8 +108,7 @@ class kernel:
         elif name == "1-54":
             return [c1_16_2()]
         elif name == "end-1":
-            self.openPara("end-1")
-            return [choice_end()]
+            return scene_end(name).load()
         else:
             return [choice_unfinished()]
 
