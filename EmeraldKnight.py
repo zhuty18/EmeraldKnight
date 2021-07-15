@@ -45,7 +45,7 @@ class EmeraldKnight:
 
     def hello(self):
         hello_str = "<font size=10>翡翠骑士<br></font><font size=6>" + VERSION + "<br></font>"
-        hello_str += "<font size=4><br>雪山之巅，英魂渐远。<br>危城影下，一念不灭。<br>剑心重铸，翡翠明灯。<br>孤光陨灭，万灵恸哭。</font>"
+        hello_str += "<font size=4><br>雪山之巅，英魂渐远。<br>危城影下，一念不灭。<br>剑心重铸，翡翠长明。<br>孤星陨灭，万灵恸哭。</font>"
         hello_layout = qt.QVBoxLayout()
         hello_label = qt.QLabel()
         hello_label.setText(hello_str)

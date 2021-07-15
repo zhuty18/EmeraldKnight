@@ -402,11 +402,11 @@ class c1_49_1(choice_abstract):
 
 
 class c1_49_2(choice_abstract):
-    target = "1-51"
+    target = "1-50"
 
     def show(self):
         return gk.core.paras[SWORD_HOT_TIME] >= 1
 
 
 class c1_49_3(choice_abstract):
-    target = "1-52"
+    target = "1-51"
