@@ -1,9 +1,6 @@
-import os
 from functools import partial
-from sys import version
 import PySide2.QtWidgets as qt
 import PySide2.QtCore as core
-import PySide2.QtGui as gui
 
 VERSION = "v0.1"
 
@@ -36,6 +33,8 @@ class EmeraldKnight:
         exit.triggered.connect(self.exitGame)
         # exit = menu.addAction("刷新存档")
         # exit.triggered.connect(self.refresh)
+        exit = menu.addAction("关于")
+        exit.triggered.connect(self.about)
 
     def update(self, layout):
         self.game = qt.QWidget(self.main)
@@ -45,7 +44,9 @@ class EmeraldKnight:
 
     def hello(self):
         hello_str = "<font size=10>翡翠骑士<br></font><font size=6>" + VERSION + "<br></font>"
-        hello_str += "<font size=4><br>雪山之巅，英魂渐远。<br>危城影下，一念不灭。<br>剑心重铸，翡翠长明。<br>孤星陨灭，万灵恸哭。</font>"
+        hello_str += "<font size=4><br>雪山之巅，英魂渐远。<br>危城影下，一念不灭。<br>剑心重铸，翡翠长明。<br>孤星陨灭，万灵恸哭。<br></font>"
+        hello_str += "<br><br>"
+        hello_str += "<font size=3>作者：兔子草<br></font>"
         hello_layout = qt.QVBoxLayout()
         hello_label = qt.QLabel()
         hello_label.setText(hello_str)
@@ -59,6 +60,7 @@ class EmeraldKnight:
 
     def showSave(self):
         saves = qt.QDialog()
+        saves.setWindowTitle("当前存档")
         self.dia = saves
         saves_layout = qt.QVBoxLayout()
         for i in range(1, 11):
@@ -82,9 +84,14 @@ class EmeraldKnight:
         self.picked = i
         self.dia.close()
         if self.loading:
-            self.loading = False
-            # print("读档"+str(i))
-            self.startGame(str(i))
+            try:
+                open("save/" + str(i) + ".eks", "r")
+                self.loading = False
+                # print("读档"+str(i))
+                self.startGame(str(i))
+            except FileNotFoundError:
+                m = qt.QMessageBox(self.main)
+                m.critical(self.main, "警告！", "不可读取空存档！")
         elif self.saving:
             self.kernel.save(str(i))
             # print("保存成功！")
@@ -102,6 +109,7 @@ class EmeraldKnight:
             except FileNotFoundError:
                 pass
         if havesave:
+            self.saving = True
             self.loading = True
             self.pickSave()
         else:
@@ -113,6 +121,7 @@ class EmeraldKnight:
             m = qt.QMessageBox(self.main)
             m.critical(self.main, "警告！", "还没有进入游戏！")
         else:
+            self.loading = False
             self.saving = True
             self.pickSave()
 
@@ -149,6 +158,23 @@ class EmeraldKnight:
 
     def refresh(self):
         self.kernel.refresh()
+
+    def about(self):
+        s = "作者：兔子草<br><br>"
+        s += "联系方式：<br>"
+        s += "QQ: 34409508988<br>"
+        s += "邮箱：13718054285@163.com<br><br>"
+        s += "游戏地址：<br>"
+        s += "<a href=\"https://github.com/zhuty18/EmeraldKnight\">github.com/zhuty18/EmeraldKnight</a>"
+        about = qt.QDialog()
+        about.setWindowTitle("游戏信息")
+        layout = qt.QVBoxLayout()
+        label = qt.QLabel()
+        label.setText(s)
+        layout.addWidget(label)
+        about.setLayout(layout)
+        about.show()
+        about.exec_()
 
 
 if __name__ == "__main__":
