@@ -27,16 +27,24 @@ class kernel:
             return s1_6().load()
         elif name == "1-7":
             return s1_7().load()
+        elif name == "1-8":
+            return s1_8().load()
         elif name == "1-12":
             return s1_12().load()
         elif name == "1-13":
             return [c1_5_1()]
-        elif name=="1-14":
+        elif name == "1-14":
             return s1_14().load()
+        elif name == "1-15":
+            return [c1_15_1()]
+        elif name == "1-16":
+            return s1_16().load()
         elif name == "1-17":
             return s1_17().load()
         elif name == "1-18":
             return [c1_6_1()]
+        elif name == "1-19":
+            return s1_19().load()
         elif (name == "1-20") or (name == "1-21") or (name == "1-22") or (name == "1-23"):
             return [c1_12_0()]
         elif name == "1-24":

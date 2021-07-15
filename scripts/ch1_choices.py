@@ -82,6 +82,10 @@ class c1_7_2(choice_abstract):
     target = "1-17"
 
 
+class c1_8_2(choice_abstract):
+    target = "1-16"
+
+
 class c1_12_0(choice_abstract):
     target = "1-24"
 
@@ -146,6 +150,13 @@ class c1_14_3(choice_abstract):
     target = "1-49"
 
 
+class c1_15_1(choice_abstract):
+    target = "1-19"
+
+    def text(self):
+        return "重选"
+
+
 class c1_16_1(choice_abstract):
     target = "2.1-1"
 
@@ -167,6 +178,10 @@ class c1_17_1(choice_abstract):
 
 class c1_17_2(choice_abstract):
     target = "1-19"
+
+
+class c1_19_2(choice_abstract):
+    target = "1-15"
 
 
 class c1_24_0(choice_abstract):

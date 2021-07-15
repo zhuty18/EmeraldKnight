@@ -29,6 +29,10 @@ class s1_7(scene_abstract):
     options = [c1_7_1(), c1_7_2()]
 
 
+class s1_8(scene_abstract):
+    options = [c1_6_1(), c1_8_2()]
+
+
 class s1_12(scene_abstract):
     options = [c1_12_1(), c1_12_2(), c1_12_3(), c1_12_4()]
 
@@ -37,8 +41,16 @@ class s1_14(scene_abstract):
     options = [c1_14_1(), c1_14_2(), c1_14_3()]
 
 
+class s1_16(scene_abstract):
+    options = [c1_16_1(), c1_16_2(), c1_16_3()]
+
+
 class s1_17(scene_abstract):
     options = [c1_17_1(), c1_17_2()]
+
+
+class s1_19(scene_abstract):
+    options = [c1_8_2(), c1_19_2()]
 
 
 class s1_24(scene_abstract):
