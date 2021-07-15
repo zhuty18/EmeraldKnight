@@ -119,7 +119,8 @@ class EmeraldKnight:
         # print(self.scenetext + "\n")
         print(self.scenetext)
         for i in range(0, len(self.choices)):
-            print(chr(i + ord('A')) + "\t" + self.choices[i].text())
+            c = chr(i + ord('A')) + "\t" + self.choices[i].text()
+            # print(c)
         # print()
         while (True):
             s = input().capitalize()
