@@ -33,6 +33,10 @@ class s1_8(scene_abstract):
     options = [c1_6_1(), c1_8_2()]
 
 
+class s1_11(scene_abstract):
+    options = [c1_11_1(), c1_11_2(), c1_11_3()]
+
+
 class s1_12(scene_abstract):
     options = [c1_12_1(), c1_12_2(), c1_12_3(), c1_12_4()]
 

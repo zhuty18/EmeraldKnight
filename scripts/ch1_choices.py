@@ -94,6 +94,26 @@ class c1_8_2(choice_abstract):
     target = "1-16"
 
 
+class c1_11_1(choice_abstract):
+    target = "1-55"
+
+    def chosen(self):
+        gk.core.paras[SINESTRO_LOVE] -= 1
+        return super().chosen()
+
+
+class c1_11_2(choice_abstract):
+    target = "1-56"
+
+
+class c1_11_3(choice_abstract):
+    target = "1-57"
+
+    def chosen(self):
+        gk.core.paras[SINESTRO_TAME] += 1
+        return super().chosen()
+
+
 class c1_12_0(choice_abstract):
     target = "1-24"
 
