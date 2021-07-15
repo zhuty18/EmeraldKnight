@@ -1,4 +1,5 @@
 log
 save
-test/*.out
+test/
 .vscode/
+.github/**/**.yml
