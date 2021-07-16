@@ -4,7 +4,7 @@ test/
 .vscode/
 .github/**/**.yml
 __pycache__/
-build/*/lib
-build/*/*.dll
-build/*/*.exe
-setup.py
+build/
+icon.ico
+setup.*
+Output

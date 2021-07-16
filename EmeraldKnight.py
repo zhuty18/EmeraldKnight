@@ -180,5 +180,9 @@ class EmeraldKnight:
         about.exec_()
 
 
+import os
+if not os.path.exists('./save'):
+    os.makedirs('./save')
+
 ek = EmeraldKnight()
 ek.app.exec_()
