@@ -143,7 +143,11 @@ class EmeraldKnight:
             game_layout = qt.QVBoxLayout()
             text = qt.QLabel(self.scenetext + "\n")
             text.setWordWrap(True)
-            game_layout.addWidget(text)
+            scroll=qt.QScrollArea()
+            scroll.setWidgetResizable(True)
+            scroll.setWidget(text)
+            scroll.setFrameShape(qt.QScrollArea.NoFrame)
+            game_layout.addWidget(scroll)
             for i in range(0, len(self.choices)):
                 s = chr(i + ord('A')) + "\t" + self.choices[i].text()
                 btn = qt.QPushButton(s)
