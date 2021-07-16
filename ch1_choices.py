@@ -435,6 +435,9 @@ class c1_49_2(choice_abstract):
     def show(self):
         return gk.core.paras[SWORD_HOT_TIME] >= 1
 
+    def text(self):
+        return "知道的太少"
+
 
 class c1_49_3(choice_abstract):
     target = "1-51"
