@@ -7,8 +7,6 @@ TEST = False
 class kernel:
     def __init__(self):
         self.scene = "0"
-        self.paras = debug_para
-        # self.paras = default_para
         gk.core = self
 
     def getChoice(self):
@@ -51,11 +49,11 @@ class kernel:
             return [c1_6_1()]
         elif name == "1-19":
             return s1_19().load()
-        elif (name == "1-20") or (name == "1-21") or (name == "1-22") or (name == "1-23"):
+        elif name == "1-20" or name == "1-21" or name == "1-22" or name == "1-23":
             return [c1_12_0()]
         elif name == "1-24":
             return s1_24().load()
-        elif (name == "1-25") or (name == "1-26") or (name == "1-27") or (name == "1-28"):
+        elif name == "1-25" or name == "1-26" or name == "1-27" or name == "1-28":
             return [c1_24_0()]
         elif name == "1-29":
             return s1_29().load()
@@ -117,6 +115,8 @@ class kernel:
     def load(self, name):
         if name == "0":
             self.scene = "1-1"
+            self.paras = debug_para.copy()
+            # self.paras = default_para()
         else:
             k = "./save/"
             if TEST:
