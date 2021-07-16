@@ -491,3 +491,7 @@ class c1_58_3(choice_abstract):
     def chosen(self):
         gk.core.paras[SINESTRO_LOVE] -= 1
         return super().chosen()
+
+
+class c1_58_4(choice_abstract):
+    target = "1-62"
