@@ -5,7 +5,7 @@ import PySide2.QtCore as core
 import kernel
 from constant import GAME_OVER
 
-VERSION = "v0.1"
+VERSION = "0.1"
 
 
 class EmeraldKnight:
@@ -24,7 +24,7 @@ class EmeraldKnight:
         # self.tips()
 
     def setMenu(self):
-        self.main.setWindowTitle("翡翠骑士 " + VERSION)
+        self.main.setWindowTitle("翡翠骑士 v" + VERSION)
         menu = self.main.menuBar()
         new = menu.addAction("新的游戏")
         new.triggered.connect(self.newGame)
@@ -46,7 +46,7 @@ class EmeraldKnight:
         self.main.update()
 
     def hello(self):
-        hello_str = "<font size=10>翡翠骑士<br></font><font size=6>" + VERSION + "<br></font>"
+        hello_str = "<font size=10>翡翠骑士<br></font><font size=6>v" + VERSION + "<br></font>"
         hello_str += "<font size=4><br>雪山之巅，英魂渐远。<br>危城影下，一念不灭。<br>剑心重铸，翡翠长明。<br>孤星陨灭，万灵恸哭。<br></font>"
         hello_str += "<br><br>"
         hello_str += "<font size=3>作者：兔子草<br></font>"
