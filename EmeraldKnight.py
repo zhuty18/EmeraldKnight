@@ -2,6 +2,9 @@ from functools import partial
 import PySide2.QtWidgets as qt
 import PySide2.QtCore as core
 
+import kernel
+from constant import GAME_OVER
+
 VERSION = "v0.1"
 
 
@@ -177,10 +180,5 @@ class EmeraldKnight:
         about.exec_()
 
 
-if __name__ == "__main__":
-    from sys import path
-    path.append("./scripts")
-    import kernel
-    from constant import GAME_OVER
-    ek = EmeraldKnight()
-    ek.app.exec_()
+ek = EmeraldKnight()
+ek.app.exec_()

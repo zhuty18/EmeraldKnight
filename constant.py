@@ -43,9 +43,10 @@ stroy_para = {
     CREDIT: 0,
 }
 debug_para = {**character_para, **stroy_para}
-f = open("./data/0.eks", "r")
-default_para = json.loads(f.readline())
-f.close()
+# f = open("./data/0.eks", "r")
+# default_para = json.loads(f.readline())
+# f.close()
+default_para = debug_para
 
 sceneName = {
     "1-1": "出发",

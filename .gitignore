@@ -3,3 +3,8 @@ save
 test/
 .vscode/
 .github/**/**.yml
+__pycache__/
+build/*/lib
+build/*/*.dll
+build/*/*.exe
+setup.py
