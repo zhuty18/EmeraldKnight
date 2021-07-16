@@ -114,6 +114,10 @@ class c1_11_3(choice_abstract):
         return super().chosen()
 
 
+class c1_11_4(choice_abstract):
+    target = "1-58"
+
+
 class c1_12_0(choice_abstract):
     target = "1-24"
 
@@ -456,4 +460,34 @@ class c1_52_2(choice_abstract):
 
     def chosen(self):
         gk.core.paras[TEAMMATE] = "oliver"
+        return super().chosen()
+
+
+class c1_58_1(choice_abstract):
+    target = "1-59"
+
+    def show(self):
+        return gk.core.paras[SINESTRO_TAME] >= 0
+
+    def chosen(self):
+        gk.core.paras[SINESTRO_TAME] += 2
+        return super().chosen()
+
+
+class c1_58_2(choice_abstract):
+    target = "1-60"
+
+    def chosen(self):
+        gk.core.paras[SINESTRO_TAME] -= 1
+        return super().chosen()
+
+
+class c1_58_3(choice_abstract):
+    target = "1-61"
+
+    def show(self):
+        return gk.core.paras[SINESTRO_LOVE] >= 0
+
+    def chosen(self):
+        gk.core.paras[SINESTRO_LOVE] -= 1
         return super().chosen()

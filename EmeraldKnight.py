@@ -1,4 +1,5 @@
 from functools import partial
+import json
 import PySide2.QtWidgets as qt
 import PySide2.QtCore as core
 
@@ -69,7 +70,8 @@ class EmeraldKnight:
         for i in range(1, 11):
             try:
                 with open("save/" + str(i) + ".eks", "r") as f:
-                    s = f.readline().strip()
+                    j = json.loads(f.read())
+                    s = j['scene']
                     s = "存档" + str(i) + "\t" + s + "\t" + self.kernel.getSceneName(s)
                     btn = qt.QPushButton(s)
                     btn.clicked.connect(partial(self.pick, i))
@@ -143,7 +145,7 @@ class EmeraldKnight:
             game_layout = qt.QVBoxLayout()
             text = qt.QLabel(self.scenetext + "\n")
             text.setWordWrap(True)
-            scroll=qt.QScrollArea()
+            scroll = qt.QScrollArea()
             scroll.setWidgetResizable(True)
             scroll.setWidget(text)
             scroll.setFrameShape(qt.QScrollArea.NoFrame)

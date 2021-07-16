@@ -131,3 +131,7 @@ class s1_52(scene_abstract):
             return [c1_52_1()]
         else:
             return [c1_52_2()]
+
+
+class s1_58(scene_abstract):
+    options = [c1_58_1(), c1_58_2(), c1_58_3()]

@@ -1,4 +1,4 @@
-from constant import GAME_OVER, sceneName
+from constant import GAME_OVER, sceneName, gk
 
 
 class choice_abstract:
@@ -46,7 +46,3 @@ class scene_end(scene_abstract):
     def load(self):
         gk.core.openPara(self.e)
         return [choice_end()]
-
-
-class gk:
-    core = None

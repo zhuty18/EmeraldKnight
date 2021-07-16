@@ -57,3 +57,7 @@ def default_para():
 f = open("./story/menu.json", "r", encoding="utf8")
 sceneName = json.loads(f.read())
 f.close()
+
+
+class gk:
+    core = None
