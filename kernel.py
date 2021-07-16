@@ -156,10 +156,10 @@ class kernel:
                 self.paras[i] = 0
 
     def openPara(self, end):
-        f = open("./data/0.eks", "r")
+        f = open("./save/0.eks", "r")
         p = json.loads(f.read())
         f.close()
         p[end] = 1
-        f = open("./data/0.eks", "w")
+        f = open("./save/0.eks", "w")
         f.write(json.dumps(p) + "\n")
         f.close()
