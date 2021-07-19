@@ -10,7 +10,7 @@ SINESTRO_TAME = "sint"
 BARRY_LOVE = "bal"
 
 SWORD_HOT_TIME = "sht"
-END_NOTHING = "end-1"
+# END_NOTHING = "end-1"
 KNOWLEDGE = "know"
 INTELLIGENCE = "intel"
 WIZARD_TOWER_CRYSTAL = "wtc"
@@ -41,9 +41,9 @@ stroy_para = {
     TEMPORARY: 0,
     CREDIT: 0,
 }
-end = {END_NOTHING: 0}
+# end = {END_NOTHING: 0}
 debug_para = {**character_para, **stroy_para}
-debug_para = {**debug_para, **end}
+# debug_para = {**debug_para, **end}
 
 
 def default_para():

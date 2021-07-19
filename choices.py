@@ -4,7 +4,7 @@ from ch1 import *
 def getChoice(name):
     if name.startswith("1-"):
         return getCh1(name)
-    elif name == "end-1":
+    elif name.__contains__("end"):
         return scene_end(name).load()
 
 
@@ -111,5 +111,15 @@ def getCh1(name):
         return s1_58().load()
     elif name == "1-59" or name == "1-60" or name == "1-61":
         return [c1_58_4()]
+    elif name == "1-62":
+        return s1_62().load()
+    elif name == "1-63":
+        return s1_63().load()
+    elif name == "1-64":
+        return s1_64().load()
+    elif name == "1-65":
+        return [c1_64_2()]
+    elif name == "1-66":
+        return s1_66().load()
     else:
         return [choice_unfinished()]

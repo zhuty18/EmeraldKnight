@@ -47,7 +47,7 @@ class kernel:
                 scenetext = scenetext.replace("\n", "\n    ")
                 choice = self.getChoice()
                 return scenetext, choice
-            except:
+            except FileNotFoundError:
                 scenetext = "抱歉，这儿还没写呢。请先存档。"
                 return scenetext, [choice_end()]
 
@@ -60,7 +60,7 @@ class kernel:
         f = open("./save/0.eks", "r")
         p = json.loads(f.read())
         f.close()
-        p[end] = 1
+        p[end] = True
         f = open("./save/0.eks", "w")
         f.write(json.dumps(p) + "\n")
         f.close()

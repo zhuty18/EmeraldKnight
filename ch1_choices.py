@@ -495,3 +495,48 @@ class c1_58_3(choice_abstract):
 
 class c1_58_4(choice_abstract):
     target = "1-62"
+
+
+class c1_62_1(choice_abstract):
+    target = "1-63"
+
+    def text(self):
+        return "把他捆上"
+
+
+class c1_62_2(choice_abstract):
+    target = "1-64"
+
+
+class c1_63_1(choice_abstract):
+    target = "1-72"
+
+
+class c1_63_2(choice_abstract):
+    target = "end-3"
+
+    def text(self):
+        return "拒绝"
+
+
+class c1_64_1(choice_abstract):
+    target = "1-65"
+
+    def chosen(self):
+        gk.core.paras[TEMPORARY] = 1
+        return super().chosen()
+
+
+class c1_64_2(choice_abstract):
+    target = "1-66"
+
+
+class c1_66_1(choice_abstract):
+    target = "1-67"
+
+    def show(self):
+        return gk.core.paras[TEMPORARY] == 1
+
+
+class c1_66_2(choice_abstract):
+    target = "1-68"

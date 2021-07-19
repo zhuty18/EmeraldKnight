@@ -135,3 +135,24 @@ class s1_52(scene_abstract):
 
 class s1_58(scene_abstract):
     options = [c1_58_1(), c1_58_2(), c1_58_3()]
+
+
+class s1_62(scene_abstract):
+    # options = [c1_62_1(), c1_62_2()]
+    def load(self):
+        if gk.core.paras[SINESTRO_LOVE] > 0 or gk.core.paras[SINESTRO_TAME] > 0:
+            return [c1_62_1()]
+        else:
+            return [c1_62_2()]
+
+
+class s1_63(scene_abstract):
+    options = [c1_63_1(), c1_63_2()]
+
+
+class s1_64(scene_abstract):
+    options = [c1_64_1(), c1_64_2()]
+
+
+class s1_66(scene_abstract):
+    options = [c1_66_1(), c1_66_2()]
