@@ -156,3 +156,16 @@ class s1_64(scene_abstract):
 
 class s1_66(scene_abstract):
     options = [c1_66_1(), c1_66_2()]
+
+
+class s1_67(scene_abstract):
+    options = [c1_67_1(), c1_67_2()]
+
+
+class s1_69(scene_abstract):
+    options = [c1_67_2(), c1_67_3()]
+
+
+class s1_70(scene_abstract):
+    options = [c1_67_1(), c1_67_3()]
+

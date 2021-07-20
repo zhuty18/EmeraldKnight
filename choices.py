@@ -121,5 +121,13 @@ def getCh1(name):
         return [c1_64_2()]
     elif name == "1-66":
         return s1_66().load()
+    elif name == "1-67":
+        return s1_67().load()
+    elif name == "1-69":
+        return s1_69().load()
+    elif name == "1-70":
+        return s1_70().load()
+    elif name == "1-71":
+        return [c1_71_1()]
     else:
         return [choice_unfinished()]

@@ -537,6 +537,50 @@ class c1_66_1(choice_abstract):
     def show(self):
         return gk.core.paras[TEMPORARY] == 1
 
+    def chosen(self):
+        gk.core.paras[TEMPORARY] = 0
+        return super().chosen()
+
 
 class c1_66_2(choice_abstract):
     target = "1-68"
+
+
+class c1_67_1(choice_abstract):
+    target = "1-69"
+
+    def show(self):
+        return gk.core.paras[TEMPORARY] < 2
+
+    def chosen(self):
+        gk.core.paras[TEMPORARY] += 1
+        return super().chosen()
+
+
+class c1_67_2(choice_abstract):
+    target = "1-70"
+
+    def show(self):
+        return gk.core.paras[TEMPORARY] < 2
+
+    def chosen(self):
+        gk.core.paras[TEMPORARY] += 1
+        return super().chosen()
+
+
+class c1_67_3(choice_abstract):
+    target = "1-71"
+
+    def show(self):
+        return gk.core.paras[TEMPORARY] == 2
+
+    def chosen(self):
+        gk.core.paras[TEMPORARY] = 0
+        return super().chosen()
+
+
+class c1_71_1(choice_abstract):
+    target = "end-2"
+
+    def text(self):
+        return "杀了他"
