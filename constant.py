@@ -10,7 +10,6 @@ SINESTRO_TAME = "sint"
 BARRY_LOVE = "bal"
 
 SWORD_HOT_TIME = "sht"
-# END_NOTHING = "end-1"
 KNOWLEDGE = "know"
 INTELLIGENCE = "intel"
 WIZARD_TOWER_CRYSTAL = "wtc"
@@ -54,9 +53,16 @@ def default_para():
     return debug_para
 
 
-f = open("./story/menu.json", "r", encoding="utf8")
-sceneName = json.loads(f.read())
-f.close()
+__sn__ = {}
+
+
+def sceneName(scene):
+    global __sn__
+    if len(__sn__) == 0:
+        f = open("./story/menu.json", "r", encoding="utf8")
+        __sn__ = json.loads(f.read())
+        f.close()
+    return __sn__.get(scene,"!!!")
 
 
 class gk:

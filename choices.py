@@ -1,11 +1,18 @@
+from ch2 import s2_1
+from abstract import scene_end, choice_unfinished
 from ch1 import *
+from ch2 import *
 
 
 def getChoice(name):
     if name.startswith("1-"):
         return getCh1(name)
+    elif name.startswith("2-"):
+        return getCh2(name)
     elif name.__contains__("end"):
         return scene_end(name).load()
+    else:
+        return [choice_unfinished()]
 
 
 def getCh1(name):
@@ -131,5 +138,12 @@ def getCh1(name):
         return s1_70().load()
     elif name == "1-71":
         return [c1_71_1()]
+    else:
+        return [choice_unfinished()]
+
+
+def getCh2(name):
+    if name == "2-1":
+        return s2_1().load()
     else:
         return [choice_unfinished()]

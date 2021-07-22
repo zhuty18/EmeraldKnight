@@ -1,4 +1,5 @@
 from ch1_choices import *
+from abstract import scene_abstract
 
 
 class s1_1(scene_abstract):
@@ -168,4 +169,3 @@ class s1_69(scene_abstract):
 
 class s1_70(scene_abstract):
     options = [c1_67_1(), c1_67_3()]
-

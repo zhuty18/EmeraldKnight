@@ -34,7 +34,7 @@ class kernel:
             f.write(json.dumps(j))
 
     def getSceneName(self, s):
-        return sceneName[s]
+        return sceneName(s)
 
     def loadScene(self):
         if self.scene == GAME_OVER:

@@ -1,5 +1,5 @@
-from abstract import *
 from constant import *
+from abstract import choice_abstract
 
 
 class c1_1_1(choice_abstract):
@@ -190,15 +190,15 @@ class c1_15_1(choice_abstract):
 
 
 class c1_16_1(choice_abstract):
-    target = "2.1-1"
+    target = "2-1"
 
 
 class c1_16_2(choice_abstract):
-    target = "2.2-1"
+    target = "2-2"
 
 
 class c1_16_3(choice_abstract):
-    target = "2.3-1"
+    target = "2-3"
 
 
 class c1_17_1(choice_abstract):

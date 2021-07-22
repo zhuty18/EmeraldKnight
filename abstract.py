@@ -5,7 +5,7 @@ class choice_abstract:
     target = ""
 
     def text(self):
-        return sceneName[self.target]
+        return sceneName(self.target)
 
     def show(self):
         return True
