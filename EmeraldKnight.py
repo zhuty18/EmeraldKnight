@@ -52,8 +52,12 @@ class EmeraldKnight:
         self.main.update()
 
     def hello(self):
-        hello_str = "<font size=7 face='华文行楷' color='#25ee79'>翡翠骑士<br></font><font size=2>v" + VERSION + "<br><br></font>"
-        hello_str += "<font size=3 face='楷体'>雪山之巅，英魂渐远<br>危城影下，一念不灭<br>剑心重铸，翡翠长明<br>孤星陨灭，万灵恸哭<br></font>"
+        hello_str = "<font size=7 face='华文隶书' color='#25ee79'>翡翠骑士<br></font><font size=2>v" + VERSION + "<br><br></font>"
+        hello_str += "<font size=3 face='华文仿宋'>"
+        hello_str += "雪山之巅&nbsp;&nbsp;英魂渐远<br>"
+        hello_str += "危城影下&nbsp;&nbsp;一念不灭<br>"
+        hello_str += "剑心重铸&nbsp;&nbsp;翡翠长明<br>"
+        hello_str += "孤星陨灭&nbsp;&nbsp;万灵恸哭<br></font>"
         hello_str += "<font size=2><br><br>作者：兔子草<br></font>"
         hello_layout = qt.QVBoxLayout()
         hello_label = qt.QLabel()
