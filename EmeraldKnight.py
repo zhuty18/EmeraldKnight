@@ -4,7 +4,7 @@ import PySide2.QtWidgets as qt
 import PySide2.QtCore as core
 import PySide2.QtGui as gui
 
-import kernel
+from kernel import kernel
 from constant import GAME_OVER
 
 VERSION = "0.2"
@@ -12,7 +12,7 @@ VERSION = "0.2"
 
 class EmeraldKnight:
     def __init__(self):
-        self.kernel = kernel.kernel()
+        self.kernel = kernel()
         self.scenetext = ""
         self.choices = []
         self.loading = False
@@ -21,6 +21,9 @@ class EmeraldKnight:
         self.main = qt.QMainWindow()
         self.main.resize(400, 640)
         self.setMenu()
+        self.font = gui.QFont()
+        self.font.setPixelSize(14)
+        self.font.setFamily("宋体")
         self.main.show()
         self.hello()
         # self.tips()
@@ -49,14 +52,15 @@ class EmeraldKnight:
         self.main.update()
 
     def hello(self):
-        hello_str = "<font size=10>翡翠骑士<br></font><font size=6>v" + VERSION + "<br></font>"
-        hello_str += "<font size=4><br>雪山之巅，英魂渐远。<br>危城影下，一念不灭。<br>剑心重铸，翡翠长明。<br>孤星陨灭，万灵恸哭。<br></font>"
-        hello_str += "<br><br>"
-        hello_str += "<font size=3>作者：兔子草<br></font>"
+        hello_str = "<font size=7 face='华文行楷' color='#25ee79'>翡翠骑士<br></font><font size=2>v" + VERSION + "<br><br></font>"
+        hello_str += "<font size=3 face='楷体'>雪山之巅，英魂渐远<br>危城影下，一念不灭<br>剑心重铸，翡翠长明<br>孤星陨灭，万灵恸哭<br></font>"
+        hello_str += "<font size=2><br><br>作者：兔子草<br></font>"
         hello_layout = qt.QVBoxLayout()
         hello_label = qt.QLabel()
         hello_label.setText(hello_str)
-        hello_label.setWordWrap(True)
+        f = gui.QFont()
+        f.setPixelSize(20)
+        hello_label.setFont(f)
         hello_label.setAlignment(core.Qt.AlignCenter)
         hello_layout.addWidget(hello_label)
         self.update(hello_layout)
@@ -145,7 +149,11 @@ class EmeraldKnight:
             self.hello()
         else:
             game_layout = qt.QVBoxLayout()
-            text = qt.QLabel(self.scenetext + "\n")
+            self.scenetext = self.scenetext.replace("  ", "&nbsp;")
+            self.scenetext = self.scenetext.replace("\n", "<br>")
+            self.scenetext = "<p style='line-height:120%'>" + self.scenetext + "</p>"
+            text = qt.QLabel(self.scenetext)
+            text.setFont(self.font)
             text.setWordWrap(True)
             scroll = qt.QScrollArea()
             scroll.setWidgetResizable(True)
@@ -155,6 +163,7 @@ class EmeraldKnight:
             for i in range(0, len(self.choices)):
                 s = chr(i + ord('A')) + "\t" + self.choices[i].text()
                 btn = qt.QPushButton(s)
+                btn.setFont(self.font)
                 btn.clicked.connect(partial(self.choose, i))
                 game_layout.addWidget(btn)
             self.update(game_layout)
@@ -182,6 +191,7 @@ class EmeraldKnight:
         layout = qt.QVBoxLayout()
         label = qt.QLabel()
         label.setText(s)
+        label.setOpenExternalLinks(True)
         layout.addWidget(label)
         about.setLayout(layout)
         about.show()
