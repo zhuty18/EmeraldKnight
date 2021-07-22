@@ -1,7 +1,7 @@
 import json
 from constant import gk, debug_para, default_para, sceneName, GAME_OVER
 from choices import getChoice
-from abstract import choice_end
+from abstract import choice_end, choice_unfinished
 
 
 class kernel:
@@ -46,6 +46,8 @@ class kernel:
                 scenetext = "    " + scenetext
                 scenetext = scenetext.replace("\n", "\n    ")
                 choice = self.getChoice()
+                if choice is None:
+                    choice = [choice_unfinished()]
                 return scenetext, choice
             except FileNotFoundError:
                 scenetext = "抱歉，这儿还没写呢。请先存档。"

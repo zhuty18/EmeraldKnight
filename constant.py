@@ -62,7 +62,7 @@ def sceneName(scene):
         f = open("./story/menu.json", "r", encoding="utf8")
         __sn__ = json.loads(f.read())
         f.close()
-    return __sn__.get(scene,"!!!")
+    return __sn__.get(scene, "找不到场景名")
 
 
 class gk:

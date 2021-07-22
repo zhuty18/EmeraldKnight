@@ -140,6 +140,7 @@ class s1_58(scene_abstract):
 
 class s1_62(scene_abstract):
     # options = [c1_62_1(), c1_62_2()]
+
     def load(self):
         if gk.core.paras[SINESTRO_LOVE] > 0 or gk.core.paras[SINESTRO_TAME] > 0:
             return [c1_62_1()]
@@ -169,3 +170,31 @@ class s1_69(scene_abstract):
 
 class s1_70(scene_abstract):
     options = [c1_67_1(), c1_67_3()]
+
+
+class s1_72(scene_abstract):
+    options = [c1_72_1(), c1_72_2()]
+
+
+class s1_73(scene_abstract):
+    options = [c1_73_1(), c1_73_2()]
+
+
+class s1_74(scene_abstract):
+    options = [c1_74_1(), c1_74_2()]
+
+
+class s1_75(scene_abstract):
+    # options = [c1_75_1(), c1_75_2(), c1_75_3()]
+
+    def load(self):
+        if gk.core.paras[TEMPORARY] == 10:
+            return [c1_75_1()]
+        elif gk.core.paras[TEMPORARY] >= 5:
+            return [c1_75_2()]
+        else:
+            return [c1_75_3()]
+
+
+class s1_76(scene_abstract):
+    options = [c1_76_1(), c1_76_2(), c1_76_3()]

@@ -58,7 +58,7 @@ class EmeraldKnight:
         hello_str += "危城影下&nbsp;&nbsp;一念不灭<br>"
         hello_str += "剑心重铸&nbsp;&nbsp;翡翠长明<br>"
         hello_str += "孤星陨灭&nbsp;&nbsp;万灵恸哭<br></font>"
-        hello_str += "<font size=2><br><br>作者：兔子草<br></font>"
+        hello_str += "<font size=2><br><br>作者：兔子草</font>"
         hello_layout = qt.QVBoxLayout()
         hello_label = qt.QLabel()
         hello_label.setText(hello_str)
@@ -159,6 +159,7 @@ class EmeraldKnight:
             text = qt.QLabel(self.scenetext)
             text.setFont(self.font)
             text.setWordWrap(True)
+            text.setAlignment(core.Qt.AlignTop)
             scroll = qt.QScrollArea()
             scroll.setWidgetResizable(True)
             scroll.setWidget(text)

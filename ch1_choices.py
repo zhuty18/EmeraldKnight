@@ -1,5 +1,5 @@
 from constant import *
-from abstract import choice_abstract
+from abstract import choice_abstract, choice_unfinished
 
 
 class c1_1_1(choice_abstract):
@@ -584,3 +584,115 @@ class c1_71_1(choice_abstract):
 
     def text(self):
         return "杀了他"
+
+
+class c1_72_1(choice_abstract):
+    target = "1-73"
+
+    def text(self):
+        return "吻他"
+
+
+class c1_72_2(choice_abstract):
+    target = "1-73"
+
+    def text(self):
+        return "摸他"
+
+    def chosen(self):
+        gk.core.paras[TEMPORARY] += 2
+        return super().chosen()
+
+
+class c1_73_1(choice_abstract):
+    target = "1-74"
+
+    def text(self):
+        return "地上"
+
+    def chosen(self):
+        gk.core.paras[TEMPORARY] += 3
+        return super().chosen()
+
+
+class c1_73_2(choice_abstract):
+    target = "1-74"
+
+    def text(self):
+        return "墙上"
+
+
+class c1_74_1(choice_abstract):
+    target = "1-75"
+
+    def text(self):
+        return "里面"
+
+    def chosen(self):
+        gk.core.paras[TEMPORARY] += 5
+        return super().chosen()
+
+
+class c1_74_2(choice_abstract):
+    target = "1-75"
+
+    def text(self):
+        return "外面"
+
+
+class c1_75_1(choice_abstract):
+    target = "1-76"
+
+    def text(self):
+        return "体验如何"
+
+    def chosen(self):
+        gk.core.paras[TEMPORARY] = 0
+        return super().chosen()
+
+
+class c1_75_2(choice_abstract):
+    target = "1-77"
+
+    def text(self):
+        return "体验如何"
+
+    def chosen(self):
+        gk.core.paras[TEMPORARY] = 0
+        return super().chosen()
+
+
+class c1_75_3(choice_abstract):
+    target = "end-4"
+
+    def text(self):
+        return "体验如何"
+
+
+class c1_76_1(choice_abstract):
+    target = "1-78"
+
+    def chosen(self):
+        gk.core.paras[SINESTRO_TAME] -= 1
+        return super().chosen()
+
+
+class c1_76_2(choice_abstract):
+    target = "1-79"
+
+
+class c1_76_3(choice_abstract):
+    target = "1-80"
+
+    def chosen(self):
+        gk.core.paras[SINESTRO_TAME] += 1
+        gk.core.paras[SINESTRO_LOVE] += 1
+        return super().chosen()
+
+
+class c1_76_4(choice_abstract):
+    target = "1-81"
+
+
+class c1_81_1(choice_abstract):
+    target = "3-1"

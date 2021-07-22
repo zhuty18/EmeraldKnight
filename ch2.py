@@ -4,4 +4,4 @@ from abstract import scene_abstract
 
 
 class s2_1(scene_abstract):
-    options = [c2_1_1()]
+    options = [c2_1_1(), c2_1_2(), c2_1_3()]

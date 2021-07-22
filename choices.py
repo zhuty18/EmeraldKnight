@@ -11,8 +11,6 @@ def getChoice(name):
         return getCh2(name)
     elif name.__contains__("end"):
         return scene_end(name).load()
-    else:
-        return [choice_unfinished()]
 
 
 def getCh1(name):
@@ -138,12 +136,24 @@ def getCh1(name):
         return s1_70().load()
     elif name == "1-71":
         return [c1_71_1()]
-    else:
-        return [choice_unfinished()]
+    elif name == "1-72":
+        return s1_72().load()
+    elif name == "1-73":
+        return s1_73().load()
+    elif name == "1-74":
+        return s1_74().load()
+    elif name == "1-75":
+        return s1_75().load()
+    elif name == "1-76":
+        return s1_76().load()
+    elif name == "1-77":
+        return [c1_16_2()]
+    elif name == "1-78" or name == "1-79" or name == "1-80":
+        return [c1_76_4()]
+    elif name == "1-81":
+        return [c1_81_1()]
 
 
 def getCh2(name):
     if name == "2-1":
         return s2_1().load()
-    else:
-        return [choice_unfinished()]
