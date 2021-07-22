@@ -5,6 +5,7 @@ test/
 .github/**/**.yml
 __pycache__/
 build/
-icon.ico
+icon.psd
+icon.png
 setup.*
 Output

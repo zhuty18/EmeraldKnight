@@ -2,11 +2,12 @@ from functools import partial
 import json
 import PySide2.QtWidgets as qt
 import PySide2.QtCore as core
+import PySide2.QtGui as gui
 
 import kernel
 from constant import GAME_OVER
 
-VERSION = "0.1"
+VERSION = "0.2"
 
 
 class EmeraldKnight:
@@ -25,6 +26,7 @@ class EmeraldKnight:
         # self.tips()
 
     def setMenu(self):
+        self.main.setWindowIcon(gui.QIcon("icon.ico"))
         self.main.setWindowTitle("翡翠骑士 v" + VERSION)
         menu = self.main.menuBar()
         new = menu.addAction("新的游戏")
