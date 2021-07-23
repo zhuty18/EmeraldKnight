@@ -5,7 +5,7 @@ import PySide2.QtCore as core
 import PySide2.QtGui as gui
 
 from kernel import kernel
-from constant import GAME_OVER
+from constant import GAME_OVER, res_path
 
 VERSION = "0.2"
 
@@ -29,7 +29,7 @@ class EmeraldKnight:
         # self.tips()
 
     def setMenu(self):
-        self.main.setWindowIcon(gui.QIcon("icon.ico"))
+        self.main.setWindowIcon(gui.QIcon(res_path("icon.ico")))
         self.main.setWindowTitle("翡翠骑士 v" + VERSION)
         menu = self.main.menuBar()
         new = menu.addAction("新的游戏")

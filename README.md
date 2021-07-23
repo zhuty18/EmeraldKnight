@@ -34,6 +34,10 @@
 
 本游戏使用python3.9.5在Windows 10上开发，未进行进一步测试
 
+## 安装python
+
+在[这里](https://www.python.org/downloads/)下载操作系统对应的python包并安装
+
 ## 安装依赖
 
 `python -m pip install --user -r requirements.txt`

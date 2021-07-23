@@ -1,5 +1,5 @@
-import json
-from constant import gk, debug_para, default_para, sceneName, GAME_OVER
+import json, os
+from constant import gk, debug_para, default_para, sceneName, GAME_OVER, res_path
 from choices import getChoice
 from abstract import choice_end, choice_unfinished
 
@@ -41,7 +41,8 @@ class kernel:
             return GAME_OVER, []
         else:
             try:
-                with open("story/" + self.scene, "r", encoding="utf8") as f:
+                fn = os.path.join("story", self.scene)
+                with open(res_path(fn), "r", encoding="utf8") as f:
                     scenetext = f.read()
                 scenetext = "    " + scenetext
                 scenetext = scenetext.replace("\n", "\n    ")

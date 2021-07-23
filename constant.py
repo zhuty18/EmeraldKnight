@@ -55,11 +55,21 @@ def default_para():
 
 __sn__ = {}
 
+import sys, os
+
+
+def res_path(fn):
+    if getattr(sys, 'frozen', False):  #是否Bundle Resource
+        root = sys._MEIPASS
+    else:
+        root = os.path.abspath(".")
+    return os.path.join(root, fn)
+
 
 def sceneName(scene):
     global __sn__
     if len(__sn__) == 0:
-        f = open("./story/menu.json", "r", encoding="utf8")
+        f = open(res_path("story/menu.json"), "r", encoding="utf8")
         __sn__ = json.loads(f.read())
         f.close()
     return __sn__.get(scene, "找不到场景名")
