@@ -34,8 +34,9 @@ class scene_abstract:
     def load(self):
         ls = []
         for i in self.options:
-            if i.show():
-                ls.append(i)
+            h = i()
+            if h.show():
+                ls.append(h)
         return ls
 
 
