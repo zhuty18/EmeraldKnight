@@ -4,6 +4,7 @@ BRUCE_STORY_LINE = "bsl"
 BRUCE_SHOW_UP = "bsu"
 BRUCE_LOVE = "brul"
 OLIVER_STORY_LINE = "osl"
+OLIVER_LOVE = "oll"
 SINESTRO_STORY_LINE = "ssl"
 SINESTRO_LOVE = "sinl"
 SINESTRO_TAME = "sint"
@@ -25,6 +26,7 @@ character_para = {
     BRUCE_SHOW_UP: False,
     BRUCE_LOVE: 0,
     OLIVER_STORY_LINE: 0,
+    OLIVER_LOVE: 0,
     SINESTRO_STORY_LINE: 0,
     SINESTRO_LOVE: 0,
     SINESTRO_TAME: 0,
