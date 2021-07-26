@@ -1,4 +1,3 @@
-from ch2 import s2_1
 from abstract import scene_end, choice_unfinished
 from ch1 import *
 from ch2 import *
@@ -163,5 +162,9 @@ def getCh2(name):
         return s2_1().load()
     elif name == "2-7":
         return s2_7().load()
+    elif name == "2-8":
+        return s2_8().load()
+    elif name == "2-12":
+        return s2_8().load()
     else:
         return [choice_unfinished()]

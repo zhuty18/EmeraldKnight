@@ -1,5 +1,3 @@
-import json
-
 BRUCE_STORY_LINE = "bsl"
 BRUCE_SHOW_UP = "bsu"
 BRUCE_LOVE = "brul"
@@ -43,8 +41,18 @@ stroy_para = {
     CREDIT: 0,
 }
 # end = {END_NOTHING: 0}
+import sys, os, json
+
 debug_para = {**character_para, **stroy_para}
 # debug_para = {**debug_para, **end}
+
+
+def res_path(fn):
+    if getattr(sys, 'frozen', False):  #是否Bundle Resource
+        root = sys._MEIPASS
+    else:
+        root = os.path.abspath(".")
+    return os.path.join(root, fn)
 
 
 def default_para():
@@ -56,16 +64,6 @@ def default_para():
 
 
 __sn__ = {}
-
-import sys, os
-
-
-def res_path(fn):
-    if getattr(sys, 'frozen', False):  #是否Bundle Resource
-        root = sys._MEIPASS
-    else:
-        root = os.path.abspath(".")
-    return os.path.join(root, fn)
 
 
 def sceneName(scene):

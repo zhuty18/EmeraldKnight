@@ -19,7 +19,7 @@ class c2_1_2(choice_abstract):
 
     def show(self):
         t = gk.core.paras[TEMPORARY]
-        return (t / 2) % 2 == 0
+        return int(t / 2) % 2 == 0
 
     def chosen(self):
         gk.core.paras[TEMPORARY] += 2
@@ -31,7 +31,7 @@ class c2_1_3(choice_abstract):
 
     def show(self):
         t = gk.core.paras[TEMPORARY]
-        return (t / 4) % 2 == 0
+        return int(t / 4) % 2 == 0
 
     def chosen(self):
         gk.core.paras[TEMPORARY] += 4

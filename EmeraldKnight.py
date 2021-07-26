@@ -93,7 +93,7 @@ class EmeraldKnight:
                     s = "空存档"
                     btn.setText(s)
                     btn.clicked.connect(partial(self.pick, k))
-                btn.setMinimumSize(150, 25)
+                btn.setMinimumSize(160, 20)
                 v_layout.addWidget(btn)
             saves_layout.addLayout(v_layout)
             v_layout = qt.QVBoxLayout()

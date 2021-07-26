@@ -93,6 +93,9 @@ class c1_7_2(choice_abstract):
 class c1_8_2(choice_abstract):
     target = "1-16"
 
+    def text(self):
+        return "找人带路去龙骨雪山"
+
 
 class c1_11_1(choice_abstract):
     target = "1-55"
@@ -297,6 +300,9 @@ class c1_31_2(choice_abstract):
 class c1_34_1(choice_abstract):
     target = "1-35"
 
+    def text(self):
+        return "这是什么地方？"
+
     def show(self):
         return gk.core.paras[TEMPORARY] < 2
 
@@ -467,6 +473,9 @@ class c1_52_2(choice_abstract):
 class c1_58_1(choice_abstract):
     target = "1-59"
 
+    def text(self):
+        return "你就这么在野外点火的？"
+
     def show(self):
         return gk.core.paras[SINESTRO_TAME] >= 0
 
@@ -534,6 +543,9 @@ class c1_64_2(choice_abstract):
 
 class c1_66_1(choice_abstract):
     target = "1-67"
+
+    def text(self):
+        return "质问他是否与失踪有关"
 
     def show(self):
         return gk.core.paras[TEMPORARY] == 1
