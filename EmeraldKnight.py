@@ -4,10 +4,8 @@ import PySide2.QtWidgets as qt
 import PySide2.QtCore as core
 import PySide2.QtGui as gui
 
-from kernel import kernel
+from kernel import kernel, VERSION
 from constant import GAME_OVER, res_path
-
-VERSION = "0.2"
 
 
 class EmeraldKnight:
