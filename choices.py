@@ -158,7 +158,11 @@ def getCh1(name):
 
 
 def getCh2(name):
-    if name == "2-1" or name == "2-4" or name == "2-5" or name == "2-6":
+    if name == "2-1":
+        return s2_1().load()
+    elif name == "2-2":
+        return s2_2().load()
+    elif name == "2-4" or name == "2-5" or name == "2-6":
         return s2_1().load()
     elif name == "2-7":
         return s2_7().load()
