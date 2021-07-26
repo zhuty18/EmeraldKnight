@@ -76,21 +76,27 @@ class EmeraldKnight:
         saves = qt.QDialog()
         saves.setWindowTitle("当前存档")
         self.dia = saves
-        saves_layout = qt.QVBoxLayout()
-        for i in range(1, 11):
-            try:
-                with open("save/" + str(i) + ".eks", "r") as f:
-                    j = json.loads(f.read())
-                    s = j['scene']
-                    s = "存档" + str(i) + "\t" + s + "\t" + self.kernel.getSceneName(s)
-                    btn = qt.QPushButton(s)
-                    btn.clicked.connect(partial(self.pick, i))
-                    saves_layout.addWidget(btn)
-            except FileNotFoundError:
-                s = "空存档"
-                btn = qt.QPushButton(s)
-                btn.clicked.connect(partial(self.pick, i))
-                saves_layout.addWidget(btn)
+        saves_layout = qt.QHBoxLayout()
+        v_layout = qt.QVBoxLayout()
+        for l in range(0, 3):
+            for i in range(1, 11):
+                k = i + l * 10
+                btn = qt.QPushButton()
+                try:
+                    with open("save/" + str(k) + ".eks", "r") as f:
+                        j = json.loads(f.read())
+                        s = j['scene']
+                        s = "存档" + str(k) + "\t" + s + "\t" + self.kernel.getSceneName(s)
+                        btn.setText(s)
+                        btn.clicked.connect(partial(self.pick, k))
+                except FileNotFoundError:
+                    s = "空存档"
+                    btn.setText(s)
+                    btn.clicked.connect(partial(self.pick, k))
+                btn.setMinimumSize(150, 25)
+                v_layout.addWidget(btn)
+            saves_layout.addLayout(v_layout)
+            v_layout = qt.QVBoxLayout()
         saves.setLayout(saves_layout)
         saves.show()
         saves.exec_()
