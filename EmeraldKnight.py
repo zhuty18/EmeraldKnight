@@ -24,7 +24,7 @@ class EmeraldKnight:
         self.font.setFamily("宋体")
         self.main.show()
         self.hello()
-        # self.tips()
+        self.tips()
 
     def setMenu(self):
         self.main.setWindowIcon(gui.QIcon(res_path("icon.ico")))
@@ -179,7 +179,7 @@ class EmeraldKnight:
 
     def tips(self):
         m = qt.QMessageBox(self.main)
-        m.information(self.main, "提示", "如使用之前版本的存档，请在读档后先点击刷新存档按钮再继续游戏")
+        m.information(self.main, "提示", "现在还处于开发阶段，旧版本的存档可能无法在新存档中继续使用。")
 
     def choose(self, c):
         self.choices[c].chosen()

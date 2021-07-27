@@ -162,13 +162,57 @@ def getCh2(name):
         return s2_1().load()
     elif name == "2-2":
         return s2_2().load()
+    elif name == "2-3":
+        return s2_3().load()
     elif name == "2-4" or name == "2-5" or name == "2-6":
         return s2_1().load()
     elif name == "2-7":
         return s2_7().load()
     elif name == "2-8":
         return s2_8().load()
+    elif name == "2-9":
+        return s2_9().load()
+    elif name == "2-10":
+        return s2_10().load()
+    elif name == "2-11":
+        return s2_11().load()
     elif name == "2-12":
         return s2_8().load()
+    elif name == "2-13":
+        return [c2_10_2()]
+    elif name == "2-14":
+        return s2_14().load()
+    elif name == "2-15":
+        return [c2_15_1()]
+    elif name == "2-16":
+        return [c2_16_1()]
+    elif name == "2-17" or name == "2-18":
+        return [c2_8_1()]
+    elif name == "2-19":
+        return s2_9().load()
+    elif name == "2-20":
+        return s2_20().load()
+    elif name == "2-21":
+        return [c2_9_1()]
+    elif name == "2-22":
+        return [c2_20_2()]
+    elif name == "2-23":
+        return [c2_7_1()]
+    elif name == "2-24":
+        return s2_24().load()
+    elif name == "2-25" or name == "2-26" or name == "2-27":
+        return [c2_25_1()]
+    elif name == "2-28":
+        return s2_28().load()
+    elif name == "2-29":
+        return [c2_28_2()]
+    elif name == "2-30":
+        return s2_30().load()
+    elif name == "2-31":
+        return [c2_31_1()]
+    elif name == "2-32":
+        return [c2_30_1()]
+    elif name == "2-33":
+        return [c2_14_1()]
     else:
         return [choice_unfinished()]
