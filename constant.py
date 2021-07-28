@@ -41,13 +41,13 @@ stroy_para = {
     CREDIT: 0,
 }
 # end = {END_NOTHING: 0}
-import sys, os, json
 
 debug_para = {**character_para, **stroy_para}
 # debug_para = {**debug_para, **end}
 
 
 def res_path(fn):
+    import sys, os
     if getattr(sys, 'frozen', False):  #是否Bundle Resource
         root = sys._MEIPASS
     else:
@@ -69,6 +69,7 @@ __sn__ = {}
 def sceneName(scene):
     global __sn__
     if len(__sn__) == 0:
+        import json
         f = open(res_path("story/menu.json"), "r", encoding="utf8")
         __sn__ = json.loads(f.read())
         f.close()

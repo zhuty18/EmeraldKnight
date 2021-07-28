@@ -1,5 +1,5 @@
 from constant import *
-from abstract import choice_abstract, choice_unfinished
+from abstract import choice_abstract
 
 
 class c1_1_1(choice_abstract):

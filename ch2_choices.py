@@ -1,5 +1,5 @@
-from abstract import choice_abstract
 from constant import *
+from abstract import choice_abstract
 
 
 class c2_1_1(choice_abstract):
@@ -69,6 +69,10 @@ class c2_3_1(choice_abstract):
     def show(self):
         return gk.core.paras[SWORD_HOT_TIME] == 3
 
+    def chosen(self):
+        gk.core.paras[SWORD_HOT_TIME] += 1
+        return super().chosen()
+
 
 class c2_3_2(choice_abstract):
     target = "2-25"
@@ -101,7 +105,7 @@ class c2_9_1(choice_abstract):
     target = "2-20"
 
     def text(self):
-        return "你知道翻越龙骨雪山的路吗？"
+        return "我走了，去翻龙骨雪山"
 
 
 class c2_9_2(choice_abstract):
@@ -152,7 +156,7 @@ class c2_14_2(choice_abstract):
         return gk.core.paras[SWORD_HOT_TIME] > 0
 
     def text(self):
-        return "它是不是有什么不同凡响的地方"
+        return "它是不是有什么不同寻常的地方"
 
 
 class c2_15_1(choice_abstract):

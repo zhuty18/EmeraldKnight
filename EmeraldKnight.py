@@ -24,7 +24,7 @@ class EmeraldKnight:
         self.font.setFamily("宋体")
         self.main.show()
         self.hello()
-        self.tips()
+        # self.tips()
 
     def setMenu(self):
         self.main.setWindowIcon(gui.QIcon(res_path("icon.ico")))
