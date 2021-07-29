@@ -1,6 +1,7 @@
 from abstract import scene_end, choice_unfinished
 from ch1 import *
 from ch2 import *
+from ch3 import *
 
 
 def getChoice(name):
@@ -8,6 +9,8 @@ def getChoice(name):
         return getCh1(name)
     elif name.startswith("2-"):
         return getCh2(name)
+    elif name.startswith("3-"):
+        return getCh3(name)
     elif name.__contains__("end"):
         return scene_end(name).load()
     else:
@@ -216,3 +219,7 @@ def getCh2(name):
         return [c2_14_1()]
     else:
         return [choice_unfinished()]
+
+
+def getCh3(name):
+    pass
