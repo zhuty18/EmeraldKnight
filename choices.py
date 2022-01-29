@@ -1,225 +1,136 @@
+import re
 from abstract import scene_end, choice_unfinished
 from ch1 import *
 from ch2 import *
 from ch3 import *
 
+all_choices = {
+    "1-1": s1_1,
+    "1-2": s1_2,
+    "1-3": s1_3,
+    "1-4": s1_4,
+    "1-5": s1_5,
+    "1-6": s1_6,
+    "1-7": s1_7,
+    "1-8": s1_8,
+    "1-9": c1_4_3,
+    "1-10": c1_4_3,
+    "1-11": s1_11,
+    "1-12": s1_12,
+    "1-13": c1_5_1,
+    "1-14": s1_14,
+    "1-15": c1_15_1,
+    "1-16": s1_16,
+    "1-17": s1_17,
+    "1-18": c1_6_1,
+    "1-19": s1_19,
+    "1-20": c1_12_0,
+    "1-21": c1_12_0,
+    "1-22": c1_12_0,
+    "1-23": c1_12_0,
+    "1-24": s1_24,
+    "1-25": c1_24_0,
+    "1-26": c1_24_0,
+    "1-27": c1_24_0,
+    "1-28": c1_24_0,
+    "1-29": s1_29,
+    "1-30": s1_39,
+    "1-31": s1_31,
+    "1-32": c1_31_2,
+    "1-33": c1_16_1,
+    "1-34": s1_34,
+    "1-35": s1_35,
+    "1-36": s1_36,
+    "1-37": s1_37,
+    "1-38": c1_38_1,
+    "1-39": s1_39,
+    "1-40": s1_40,
+    "1-41": s1_41,
+    "1-42": c1_41_2,
+    "1-43": c1_16_3,
+    "1-44": s1_31,
+    "1-45": c1_31_2,
+    "1-46": s1_46,
+    "1-47": c1_16_1,
+    "1-48": c1_14_1,
+    "1-49": s1_49,
+    "1-50": c1_16_3,
+    "1-51": c1_16_2,
+    "1-52": s1_52,
+    "1-53": c1_52_2,
+    "1-54": c1_16_2,
+    "1-55": c1_11_4,
+    "1-56": c1_11_4,
+    "1-57": c1_11_4,
+    "1-58": s1_58,
+    "1-59": c1_58_4,
+    "1-60": c1_58_4,
+    "1-61": c1_58_4,
+    "1-62": s1_62,
+    "1-63": s1_63,
+    "1-64": s1_64,
+    "1-65": c1_64_2,
+    "1-66": s1_66,
+    "1-67": s1_67,
+    "1-68": c1_67_3,
+    "1-69": s1_69,
+    "1-70": s1_70,
+    "1-71": c1_71_1,
+    "1-72": s1_72,
+    "1-73": s1_73,
+    "1-74": s1_74,
+    "1-75": s1_75,
+    "1-76": s1_76,
+    "1-77": c1_16_2,
+    "1-78": c1_76_4,
+    "1-79": c1_76_4,
+    "1-80": c1_76_4,
+    "1-81": c1_81_1,
+    "2-1": s2_1,
+    "2-2": s2_2,
+    "2-3": s2_3,
+    "2-4": s2_1,
+    "2-5": s2_1,
+    "2-6": s2_1,
+    "2-7": s2_7,
+    "2-8": s2_8,
+    "2-9": s2_9,
+    "2-10": s2_10,
+    "2-11": s2_11,
+    "2-12": s2_8,
+    "2-13": c2_10_2,
+    "2-14": s2_14,
+    "2-15": c2_15_1,
+    "2-16": c2_16_1,
+    "2-17": c2_8_1,
+    "2-18": c2_8_1,
+    "2-19": s2_9,
+    "2-20": s2_20,
+    "2-21": c2_9_1,
+    "2-22": c2_20_2,
+    "2-23": c2_7_1,
+    "2-24": s2_24,
+    "2-25": c2_25_1,
+    "2-26": c2_25_1,
+    "2-27": c2_25_1,
+    "2-28": s2_28,
+    "2-29": c2_28_2,
+    "2-30": s2_30,
+    "2-31": c2_31_1,
+    "2-32": c2_30_1,
+    "2-33": c2_14_1
+}
+
 
 def getChoice(name):
-    if name.startswith("1-"):
-        return getCh1(name)
-    elif name.startswith("2-"):
-        return getCh2(name)
-    elif name.startswith("3-"):
-        return getCh3(name)
-    elif name.__contains__("end"):
-        return scene_end(name).load()
+    if name.__contains__("end"):
+        k = scene_end(name).load()
+    else:
+        k = all_choices.get(name)()
+
+    if isinstance(k, scene_abstract):
+        return k.load()
+    elif isinstance(k, choice_abstract):
+        return [k]
     else:
         return [choice_unfinished()]
-
-
-def getCh1(name):
-    if name == "1-1":
-        return s1_1().load()
-    elif name == "1-2":
-        return s1_2().load()
-    elif name == "1-3":
-        return s1_3().load()
-    elif name == "1-4":
-        return s1_4().load()
-    elif name == "1-5":
-        return s1_5().load()
-    elif name == "1-6":
-        return s1_6().load()
-    elif name == "1-7":
-        return s1_7().load()
-    elif name == "1-8":
-        return s1_8().load()
-    elif name == "1-9":
-        return [c1_4_3()]
-    elif name == "1-10":
-        return [c1_4_3()]
-    elif name == "1-11":
-        return s1_11().load()
-    elif name == "1-12":
-        return s1_12().load()
-    elif name == "1-13":
-        return [c1_5_1()]
-    elif name == "1-14":
-        return s1_14().load()
-    elif name == "1-15":
-        return [c1_15_1()]
-    elif name == "1-16":
-        return s1_16().load()
-    elif name == "1-17":
-        return s1_17().load()
-    elif name == "1-18":
-        return [c1_6_1()]
-    elif name == "1-19":
-        return s1_19().load()
-    elif name == "1-20" or name == "1-21" or name == "1-22" or name == "1-23":
-        return [c1_12_0()]
-    elif name == "1-24":
-        return s1_24().load()
-    elif name == "1-25" or name == "1-26" or name == "1-27" or name == "1-28":
-        return [c1_24_0()]
-    elif name == "1-29":
-        return s1_29().load()
-    elif name == "1-30":
-        return s1_39().load()
-    elif name == "1-31":
-        return s1_31().load()
-    elif name == "1-32":
-        return [c1_31_2()]
-    elif name == "1-33":
-        return [c1_16_1()]
-    elif name == "1-34":
-        return s1_34().load()
-    elif name == "1-35":
-        return s1_35().load()
-    elif name == "1-36":
-        return s1_36().load()
-    elif name == "1-37":
-        return s1_37().load()
-    elif name == "1-38":
-        return [c1_38_1()]
-    elif name == "1-39":
-        return s1_39().load()
-    elif name == "1-40":
-        return s1_40().load()
-    elif name == "1-41":
-        return s1_41().load()
-    elif name == "1-42":
-        return [c1_41_2()]
-    elif name == "1-43":
-        return [c1_16_3()]
-    elif name == "1-44":
-        return s1_31().load()
-    elif name == "1-45":
-        return [c1_31_2()]
-    elif name == "1-46":
-        return s1_46().load()
-    elif name == "1-47":
-        return [c1_16_1()]
-    elif name == "1-48":
-        return [c1_14_1()]
-    elif name == "1-49":
-        return s1_49().load()
-    elif name == "1-50":
-        return [c1_16_3()]
-    elif name == "1-51":
-        return [c1_16_2()]
-    elif name == "1-52":
-        return s1_52().load()
-    elif name == "1-53":
-        return [c1_52_2()]
-    elif name == "1-54":
-        return [c1_16_2()]
-    elif name == "1-55" or name == "1-56" or name == "1-57":
-        return [c1_11_4()]
-    elif name == "1-58":
-        return s1_58().load()
-    elif name == "1-59" or name == "1-60" or name == "1-61":
-        return [c1_58_4()]
-    elif name == "1-62":
-        return s1_62().load()
-    elif name == "1-63":
-        return s1_63().load()
-    elif name == "1-64":
-        return s1_64().load()
-    elif name == "1-65":
-        return [c1_64_2()]
-    elif name == "1-66":
-        return s1_66().load()
-    elif name == "1-67":
-        return s1_67().load()
-    elif name == "1-68":
-        return [c1_67_3()]
-    elif name == "1-69":
-        return s1_69().load()
-    elif name == "1-70":
-        return s1_70().load()
-    elif name == "1-71":
-        return [c1_71_1()]
-    elif name == "1-72":
-        return s1_72().load()
-    elif name == "1-73":
-        return s1_73().load()
-    elif name == "1-74":
-        return s1_74().load()
-    elif name == "1-75":
-        return s1_75().load()
-    elif name == "1-76":
-        return s1_76().load()
-    elif name == "1-77":
-        return [c1_16_2()]
-    elif name == "1-78" or name == "1-79" or name == "1-80":
-        return [c1_76_4()]
-    elif name == "1-81":
-        return [c1_81_1()]
-    else:
-        return [choice_unfinished()]
-
-
-def getCh2(name):
-    if name == "2-1":
-        return s2_1().load()
-    elif name == "2-2":
-        return s2_2().load()
-    elif name == "2-3":
-        return s2_3().load()
-    elif name == "2-4" or name == "2-5" or name == "2-6":
-        return s2_1().load()
-    elif name == "2-7":
-        return s2_7().load()
-    elif name == "2-8":
-        return s2_8().load()
-    elif name == "2-9":
-        return s2_9().load()
-    elif name == "2-10":
-        return s2_10().load()
-    elif name == "2-11":
-        return s2_11().load()
-    elif name == "2-12":
-        return s2_8().load()
-    elif name == "2-13":
-        return [c2_10_2()]
-    elif name == "2-14":
-        return s2_14().load()
-    elif name == "2-15":
-        return [c2_15_1()]
-    elif name == "2-16":
-        return [c2_16_1()]
-    elif name == "2-17" or name == "2-18":
-        return [c2_8_1()]
-    elif name == "2-19":
-        return s2_9().load()
-    elif name == "2-20":
-        return s2_20().load()
-    elif name == "2-21":
-        return [c2_9_1()]
-    elif name == "2-22":
-        return [c2_20_2()]
-    elif name == "2-23":
-        return [c2_7_1()]
-    elif name == "2-24":
-        return s2_24().load()
-    elif name == "2-25" or name == "2-26" or name == "2-27":
-        return [c2_25_1()]
-    elif name == "2-28":
-        return s2_28().load()
-    elif name == "2-29":
-        return [c2_28_2()]
-    elif name == "2-30":
-        return s2_30().load()
-    elif name == "2-31":
-        return [c2_31_1()]
-    elif name == "2-32":
-        return [c2_30_1()]
-    elif name == "2-33":
-        return [c2_14_1()]
-    else:
-        return [choice_unfinished()]
-
-
-def getCh3(name):
-    pass
