@@ -107,7 +107,7 @@ class c3_20_1(choice_abstract):
     target = "3-22"
 
     def text(self):
-        return "瑟尔是谁"
+        return "瑟尔在这里吗"
 
 
 class c3_20_2(choice_abstract):
@@ -152,7 +152,7 @@ class c3_24_1(choice_abstract):
     target = "3-23"
 
     def text(self):
-        return "怎么说？"
+        return "告诉他全过程"
 
 
 class c3_27_1(choice_abstract):
