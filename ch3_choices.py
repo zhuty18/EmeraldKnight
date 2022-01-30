@@ -133,6 +133,13 @@ class c3_22_2(choice_abstract):
     target = "3-24"
 
 
+class c3_22_3(choice_abstract):
+    target = "3-27"
+
+    def text(self):
+        return "捡到了他的信"
+
+
 class c3_23_1(choice_abstract):
     target = "3-25"
 

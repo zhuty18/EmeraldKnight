@@ -65,7 +65,7 @@ class kernel:
         f = open("./save/0.eks", "r")
         p = json.loads(f.read())
         f.close()
-        p[end] = True
+        p[end] = 1
         f = open("./save/0.eks", "w")
         f.write(json.dumps(p) + "\n")
         f.close()

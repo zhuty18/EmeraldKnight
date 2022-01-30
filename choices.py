@@ -151,13 +151,12 @@ all_choices = {
 
 def getChoice(name):
     if name.__contains__("end"):
-        k = scene_end(name).load()
+        return scene_end(name).load()
     else:
         k = all_choices.get(name)()
-
-    if isinstance(k, scene_abstract):
-        return k.load()
-    elif isinstance(k, choice_abstract):
-        return [k]
-    else:
-        return [choice_unfinished()]
+        if isinstance(k, scene_abstract):
+            return k.load()
+        elif isinstance(k, choice_abstract):
+            return [k]
+        else:
+            return [choice_unfinished()]
