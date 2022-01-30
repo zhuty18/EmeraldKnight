@@ -53,14 +53,14 @@ class c2_2_1(choice_abstract):
     target = "2-8"
 
     def show(self):
-        return gk.core.paras[TEAMMATE] == "oliver"
+        return gk.core.paras[TEAMMATE] == OLIVER_CODE
 
 
 class c2_2_2(choice_abstract):
     target = "2-9"
 
     def show(self):
-        return gk.core.paras[TEAMMATE] != "oliver"
+        return gk.core.paras[TEAMMATE] != OLIVER_CODE
 
 
 class c2_3_1(choice_abstract):

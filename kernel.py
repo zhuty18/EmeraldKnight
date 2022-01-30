@@ -43,7 +43,7 @@ class kernel:
             return GAME_OVER, []
         else:
             try:
-                fn = os.path.join("story", self.scene)
+                fn = os.path.join("story", self.scene+".txt")
                 with open(res_path(fn), "r", encoding="utf8") as f:
                     scenetext = f.read()
                 scenetext = "    " + scenetext

@@ -17,11 +17,14 @@ TEMPORARY = "tmp"
 CREDIT = "cre"
 
 TEAMMATE = "tm"
+BRUCE_CODE = 1
+SINESTRO_CODE = 2
+OLIVER_CODE = 3
 
 GAME_OVER = "game over"
 character_para = {
     BRUCE_STORY_LINE: 0,
-    BRUCE_SHOW_UP: False,
+    BRUCE_SHOW_UP: 0,
     BRUCE_LOVE: 0,
     OLIVER_STORY_LINE: 0,
     OLIVER_LOVE: 0,
@@ -31,7 +34,7 @@ character_para = {
     BARRY_LOVE: 0,
 }
 stroy_para = {
-    TEAMMATE: "",
+    TEAMMATE: 0,
     SWORD_HOT_TIME: 0,
     KNOWLEDGE: 0,
     INTELLIGENCE: 0,
