@@ -1,16 +1,6 @@
 from constant import *
 from abstract import choice_abstract
 
-CRYSTAL_RED = 1
-CRYSTAL_BLUE = 2
-CRYSTAL_PURPLE = 3
-CRYSTAL_GREEN = 4
-
-RUNE_LIGHT = 1
-RUNE_DARK = 2
-RUNE_EARTH = 3
-RUNE_LIGHTNING = 4
-
 
 class c1_1_1(choice_abstract):
     target = "1-2"
@@ -139,7 +129,7 @@ class c1_12_1(choice_abstract):
     target = "1-20"
 
     def chosen(self):
-        gk.core.paras[WIZARD_TOWER_CRYSTAL] = CRYSTAL_RED
+        gk.core.paras[WIZARD_TOWER_CRYSTAL] = 1
         return super().chosen()
 
     def text(self):
@@ -150,7 +140,7 @@ class c1_12_2(choice_abstract):
     target = "1-21"
 
     def chosen(self):
-        gk.core.paras[WIZARD_TOWER_CRYSTAL] = CRYSTAL_BLUE
+        gk.core.paras[WIZARD_TOWER_CRYSTAL] = 2
         return super().chosen()
 
     def text(self):
@@ -161,7 +151,7 @@ class c1_12_3(choice_abstract):
     target = "1-22"
 
     def chosen(self):
-        gk.core.paras[WIZARD_TOWER_CRYSTAL] = CRYSTAL_PURPLE
+        gk.core.paras[WIZARD_TOWER_CRYSTAL] = 3
         return super().chosen()
 
     def text(self):
@@ -172,7 +162,7 @@ class c1_12_4(choice_abstract):
     target = "1-23"
 
     def chosen(self):
-        gk.core.paras[WIZARD_TOWER_CRYSTAL] = CRYSTAL_GREEN
+        gk.core.paras[WIZARD_TOWER_CRYSTAL] = 4
         return super().chosen()
 
     def text(self):
@@ -237,7 +227,7 @@ class c1_24_1(choice_abstract):
     target = "1-25"
 
     def chosen(self):
-        gk.core.paras[WIZARD_TOWER_RUNE] = RUNE_LIGHT
+        gk.core.paras[WIZARD_TOWER_RUNE] = 1
         return super().chosen()
 
     def text(self):
@@ -248,7 +238,7 @@ class c1_24_2(choice_abstract):
     target = "1-26"
 
     def chosen(self):
-        gk.core.paras[WIZARD_TOWER_RUNE] = RUNE_EARTH
+        gk.core.paras[WIZARD_TOWER_RUNE] = 2
         return super().chosen()
 
     def text(self):
@@ -259,7 +249,7 @@ class c1_24_3(choice_abstract):
     target = "1-27"
 
     def chosen(self):
-        gk.core.paras[WIZARD_TOWER_RUNE] = RUNE_DARK
+        gk.core.paras[WIZARD_TOWER_RUNE] = 3
         return super().chosen()
 
     def text(self):
@@ -270,7 +260,7 @@ class c1_24_4(choice_abstract):
     target = "1-28"
 
     def chosen(self):
-        gk.core.paras[WIZARD_TOWER_RUNE] = RUNE_LIGHTNING
+        gk.core.paras[WIZARD_TOWER_RUNE] = 4
         return super().chosen()
 
     def text(self):
@@ -293,7 +283,7 @@ class c1_29_2(choice_abstract):
     target = "1-34"
 
     def show(self):
-        return gk.core.paras[WIZARD_TOWER_RUNE] == RUNE_LIGHT
+        return gk.core.paras[WIZARD_TOWER_RUNE] == 1
 
 
 class c1_31_1(choice_abstract):

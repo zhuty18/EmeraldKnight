@@ -96,7 +96,7 @@ class s1_39(scene_abstract):
 
 class s1_40(scene_abstract):
     def load(self):
-        if gk.core.paras[WIZARD_TOWER_CRYSTAL] == CRYSTAL_GREEN:
+        if gk.core.paras[WIZARD_TOWER_CRYSTAL] == 4:
             return [c1_40_1()]
         else:
             if gk.core.paras[BRUCE_SHOW_UP] == 1:
