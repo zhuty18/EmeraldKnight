@@ -22,6 +22,7 @@ SINESTRO_CODE = 2
 OLIVER_CODE = 3
 
 GAME_OVER = "game over"
+
 character_para = {
     BRUCE_STORY_LINE: 0,
     BRUCE_SHOW_UP: 0,

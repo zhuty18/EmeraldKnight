@@ -128,45 +128,45 @@ class c1_12_0(choice_abstract):
 class c1_12_1(choice_abstract):
     target = "1-20"
 
+    def text(self):
+        return "带有火焰纹路的红晶石"
+
     def chosen(self):
         gk.core.paras[PROPS] = 1
         return super().chosen()
-
-    def text(self):
-        return "带有火焰纹路的红晶石"
 
 
 class c1_12_2(choice_abstract):
     target = "1-21"
 
+    def text(self):
+        return "带有雪花纹路的蓝晶石"
+
     def chosen(self):
         gk.core.paras[PROPS] = 2
         return super().chosen()
-
-    def text(self):
-        return "带有雪花纹路的蓝晶石"
 
 
 class c1_12_3(choice_abstract):
     target = "1-22"
 
+    def text(self):
+        return "带有漩涡纹路的紫晶石"
+
     def chosen(self):
         gk.core.paras[PROPS] = 3
         return super().chosen()
-
-    def text(self):
-        return "带有漩涡纹路的紫晶石"
 
 
 class c1_12_4(choice_abstract):
     target = "1-23"
 
+    def text(self):
+        return "带有草叶纹路的绿晶石"
+
     def chosen(self):
         gk.core.paras[PROPS] = 4
         return super().chosen()
-
-    def text(self):
-        return "带有草叶纹路的绿晶石"
 
 
 class c1_14_1(choice_abstract):
@@ -226,45 +226,45 @@ class c1_24_0(choice_abstract):
 class c1_24_1(choice_abstract):
     target = "1-25"
 
+    def text(self):
+        return "看看书架"
+
     def chosen(self):
         gk.core.paras[PROPS] += 10
         return super().chosen()
-
-    def text(self):
-        return "看看书架"
 
 
 class c1_24_2(choice_abstract):
     target = "1-26"
 
+    def text(self):
+        return "看看卷轴"
+
     def chosen(self):
         gk.core.paras[PROPS] += 20
         return super().chosen()
-
-    def text(self):
-        return "看看卷轴"
 
 
 class c1_24_3(choice_abstract):
     target = "1-27"
 
+    def text(self):
+        return "看看挂毯"
+
     def chosen(self):
         gk.core.paras[PROPS] += 30
         return super().chosen()
-
-    def text(self):
-        return "看看挂毯"
 
 
 class c1_24_4(choice_abstract):
     target = "1-28"
 
+    def text(self):
+        return "看看徽章"
+
     def chosen(self):
         gk.core.paras[PROPS] += 40
         return super().chosen()
-
-    def text(self):
-        return "看看徽章"
 
 
 class c1_24_5(choice_abstract):
@@ -282,12 +282,12 @@ class c1_29_1(choice_abstract):
 class c1_29_2(choice_abstract):
     target = "1-34"
 
+    def show(self):
+        return gk.core.paras[PROPS] // 10 == 1
+
     def chosen(self):
         gk.core.paras[BRUCE_SHOW_UP] = 1
         return super().chosen()
-
-    def show(self):
-        return gk.core.paras[PROPS] // 10 == 1
 
 
 class c1_31_1(choice_abstract):
@@ -367,21 +367,21 @@ class c1_38_1(choice_abstract):
 class c1_39_1(choice_abstract):
     target = "1-40"
 
-    def show(self):
-        return gk.core.paras[KNOWLEDGE] >= 1
-
     def text(self):
         return "四处走走"
+
+    def show(self):
+        return gk.core.paras[KNOWLEDGE] >= 1
 
 
 class c1_39_2(choice_abstract):
     target = "1-31"
 
-    def show(self):
-        return gk.core.paras[KNOWLEDGE] < 1
-
     def text(self):
         return "四处走走"
+
+    def show(self):
+        return gk.core.paras[KNOWLEDGE] < 1
 
 
 class c1_40_1(choice_abstract):
@@ -451,11 +451,11 @@ class c1_49_1(choice_abstract):
 class c1_49_2(choice_abstract):
     target = "1-50"
 
-    def show(self):
-        return gk.core.paras[SWORD_HOT_TIME] >= 1
-
     def text(self):
         return "知道的太少"
+
+    def show(self):
+        return gk.core.paras[SWORD_HOT_TIME] >= 1
 
 
 class c1_49_3(choice_abstract):

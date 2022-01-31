@@ -166,15 +166,15 @@ class c2_14_1(choice_abstract):
 class c2_14_2(choice_abstract):
     target = "2-33"
 
-    def chosen(self):
-        gk.core.paras[INTELLIGENCE] += 2
-        return super().chosen()
+    def text(self):
+        return "它是不是有什么不同寻常的地方"
 
     def show(self):
         return gk.core.paras[SWORD_HOT_TIME] > 0
 
-    def text(self):
-        return "它是不是有什么不同寻常的地方"
+    def chosen(self):
+        gk.core.paras[INTELLIGENCE] += 2
+        return super().chosen()
 
 
 class c2_15_1(choice_abstract):

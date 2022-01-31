@@ -1,4 +1,3 @@
-import re
 from abstract import scene_end, choice_unfinished
 from ch1 import *
 from ch2 import *
