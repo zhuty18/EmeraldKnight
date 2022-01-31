@@ -6,8 +6,7 @@ class c2_1_1(choice_abstract):
     target = "2-4"
 
     def show(self):
-        t = gk.core.paras[TEMPORARY]
-        return t % 2 == 0
+        return gk.core.paras[TEMPORARY] % 2 == 0
 
     def chosen(self):
         gk.core.paras[TEMPORARY] += 1
@@ -18,8 +17,7 @@ class c2_1_2(choice_abstract):
     target = "2-5"
 
     def show(self):
-        t = gk.core.paras[TEMPORARY]
-        return int(t / 2) % 2 == 0
+        return (gk.core.paras[TEMPORARY] // 2) % 2 == 0
 
     def chosen(self):
         gk.core.paras[TEMPORARY] += 2
@@ -30,8 +28,7 @@ class c2_1_3(choice_abstract):
     target = "2-6"
 
     def show(self):
-        t = gk.core.paras[TEMPORARY]
-        return int(t / 4) % 2 == 0
+        return (gk.core.paras[TEMPORARY] // 4) % 2 == 0
 
     def chosen(self):
         gk.core.paras[TEMPORARY] += 4
@@ -131,14 +128,35 @@ class c2_10_2(choice_abstract):
 class c2_11_1(choice_abstract):
     target = "2-17"
 
+    def show(self):
+        return gk.core.paras[TEMPORARY] % 2 == 0
+
     def chosen(self):
-        if gk.core.scene == "2-10":
-            gk.core.paras[KNOWLEDGE] += 1
+        gk.core.paras[TEMPORARY] += 1
+        gk.core.paras[KNOWLEDGE] += 1
         return super().chosen()
 
 
 class c2_11_2(choice_abstract):
     target = "2-18"
+
+    def show(self):
+        return (gk.core.paras[TEMPORARY] // 2) % 2 == 0
+
+    def chosen(self):
+        gk.core.paras[TEMPORARY] += 2
+        return super().chosen()
+
+
+class c2_11_3(choice_abstract):
+    target = "2-10"
+
+    def show(self):
+        return gk.core.paras[TEMPORARY] == 3
+
+    def chosen(self):
+        gk.core.paras[TEMPORARY] = 0
+        return super().chosen()
 
 
 class c2_14_1(choice_abstract):

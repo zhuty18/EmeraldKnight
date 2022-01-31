@@ -40,6 +40,8 @@ class EmeraldKnight:
         exit.triggered.connect(self.exitGame)
         # exit = menu.addAction("刷新存档")
         # exit.triggered.connect(self.refresh)
+        exit = menu.addAction("打印变量")
+        exit.triggered.connect(self.debug)
         exit = menu.addAction("关于")
         exit.triggered.connect(self.about)
 
@@ -205,6 +207,9 @@ class EmeraldKnight:
         about.setLayout(layout)
         about.show()
         about.exec_()
+
+    def debug(self):
+        print(self.kernel.paras)
 
 
 import os

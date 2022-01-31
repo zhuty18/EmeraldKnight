@@ -1,20 +1,20 @@
 BRUCE_STORY_LINE = "bsl"
 BRUCE_SHOW_UP = "bsu"
-BRUCE_LOVE = "brul"
+BRUCE_LOVE = "brl"
 OLIVER_STORY_LINE = "osl"
 OLIVER_LOVE = "oll"
 SINESTRO_STORY_LINE = "ssl"
-SINESTRO_LOVE = "sinl"
-SINESTRO_TAME = "sint"
+SINESTRO_LOVE = "sil"
+SINESTRO_TAME = "sit"
 BARRY_LOVE = "bal"
 
 SWORD_HOT_TIME = "sht"
-KNOWLEDGE = "know"
-INTELLIGENCE = "intel"
-WIZARD_TOWER_CRYSTAL = "wtc"
-WIZARD_TOWER_RUNE = "wtr"
+KNOWLEDGE = "knw"
+INTELLIGENCE = "int"
 TEMPORARY = "tmp"
+PROPS = "pro"
 CREDIT = "cre"
+PEGASUS = "pgs"
 
 TEAMMATE = "tm"
 BRUCE_CODE = 1
@@ -38,10 +38,10 @@ stroy_para = {
     SWORD_HOT_TIME: 0,
     KNOWLEDGE: 0,
     INTELLIGENCE: 0,
-    WIZARD_TOWER_CRYSTAL: 0,
-    WIZARD_TOWER_RUNE: 0,
     TEMPORARY: 0,
+    PROPS: 0,
     CREDIT: 0,
+    PEGASUS: 0,
 }
 # end = {END_NOTHING: 0}
 
