@@ -18,7 +18,7 @@ PROPS = "pro"
 CREDIT = "cre"
 PEGASUS = "pgs"
 
-TEAMMATE = "tm"
+TEAMMATE = "tmm"
 BRUCE_CODE = 1
 SINESTRO_CODE = 2
 OLIVER_CODE = 3

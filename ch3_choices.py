@@ -229,7 +229,7 @@ class c3_31_3(choice_abstract):
 
 
 class c3_31_4(choice_abstract):
-    target = "3-35"
+    target = "3-49"
 
     def show(self):
         return gk.paras[TEMPORARY] == 7
@@ -356,7 +356,7 @@ class c3_36_2(choice_abstract):
     target = "3-35"
 
     def text(self):
-        return "塑形"
+        return "熔化"
 
     def chosen(self):
         if gk.paras[PROPS] == 2:
@@ -514,3 +514,7 @@ class c3_48_1(choice_abstract):
     def chosen(self):
         gk.paras[TEMPORARY] = 0
         return super().chosen()
+
+
+class c3_49_1(choice_abstract):
+    target = "3-35"
