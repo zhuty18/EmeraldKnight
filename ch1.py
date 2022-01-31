@@ -94,11 +94,10 @@ class s1_40(scene_abstract):
     def load(self):
         if gk.paras[PROPS] % 10 == 4:
             return [c1_40_1()]
+        elif gk.paras[BRUCE_SHOW_UP] == 1:
+            return [c1_40_2()]
         else:
-            if gk.paras[BRUCE_SHOW_UP] == 1:
-                return [c1_40_2()]
-            else:
-                return [c1_40_3()]
+            return [c1_40_3()]
 
 
 class s1_41(scene_abstract):

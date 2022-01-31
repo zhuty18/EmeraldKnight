@@ -230,7 +230,7 @@ class c1_24_1(choice_abstract):
         return "看看书架"
 
     def chosen(self):
-        gk.paras[PROPS] += 10
+        gk.paras[PROPS] += 8
         return super().chosen()
 
 
@@ -241,7 +241,7 @@ class c1_24_2(choice_abstract):
         return "看看卷轴"
 
     def chosen(self):
-        gk.paras[PROPS] += 20
+        gk.paras[PROPS] +=16
         return super().chosen()
 
 
@@ -252,7 +252,7 @@ class c1_24_3(choice_abstract):
         return "看看挂毯"
 
     def chosen(self):
-        gk.paras[PROPS] += 30
+        gk.paras[PROPS] += 24
         return super().chosen()
 
 
@@ -263,7 +263,7 @@ class c1_24_4(choice_abstract):
         return "看看徽章"
 
     def chosen(self):
-        gk.paras[PROPS] += 40
+        gk.paras[PROPS] += 32
         return super().chosen()
 
 
@@ -283,7 +283,7 @@ class c1_29_2(choice_abstract):
     target = "1-34"
 
     def show(self):
-        return gk.paras[PROPS] // 10 == 1
+        return gk.paras[PROPS] >> 3 == 1
 
     def chosen(self):
         gk.paras[BRUCE_SHOW_UP] = 1

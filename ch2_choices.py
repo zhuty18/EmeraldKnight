@@ -17,7 +17,7 @@ class c2_1_2(choice_abstract):
     target = "2-5"
 
     def show(self):
-        return (gk.paras[TEMPORARY] // 2) % 2 == 0
+        return (gk.paras[TEMPORARY] >> 1) % 2 == 0
 
     def chosen(self):
         gk.paras[TEMPORARY] += 2
@@ -28,7 +28,7 @@ class c2_1_3(choice_abstract):
     target = "2-6"
 
     def show(self):
-        return (gk.paras[TEMPORARY] // 4) % 2 == 0
+        return (gk.paras[TEMPORARY] >> 2) % 2 == 0
 
     def chosen(self):
         gk.paras[TEMPORARY] += 4
@@ -141,7 +141,7 @@ class c2_11_2(choice_abstract):
     target = "2-18"
 
     def show(self):
-        return (gk.paras[TEMPORARY] // 2) % 2 == 0
+        return (gk.paras[TEMPORARY] >> 1) % 2 == 0
 
     def chosen(self):
         gk.paras[TEMPORARY] += 2
