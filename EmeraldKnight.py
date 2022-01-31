@@ -4,7 +4,7 @@ import PySide2.QtWidgets as qt
 import PySide2.QtCore as core
 import PySide2.QtGui as gui
 
-from kernel import kernel, VERSION
+from kernel import kernel, VERSION, gk
 from constant import GAME_OVER, res_path
 
 
@@ -209,7 +209,7 @@ class EmeraldKnight:
         about.exec_()
 
     def debug(self):
-        print(self.kernel.paras)
+        print(gk.paras)
 
 
 import os

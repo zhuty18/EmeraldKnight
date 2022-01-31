@@ -11,7 +11,7 @@ class choice_abstract:
         return True
 
     def chosen(self):
-        gk.core.scene = self.target
+        gk.scene = self.target
 
 
 class choice_end(choice_abstract):
@@ -45,5 +45,5 @@ class scene_end(scene_abstract):
         self.e = name
 
     def load(self):
-        gk.core.openPara(self.e)
+        gk.openPara(self.e)
         return [choice_end()]

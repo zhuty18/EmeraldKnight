@@ -6,12 +6,20 @@ class c3_1_1(choice_abstract):
     target = "3-5"
 
     def chosen(self):
-        gk.core.paras[SINESTRO_TAME] += 1
+        gk.paras[SINESTRO_TAME] += 1
         return super().chosen()
 
 
 class c3_1_2(choice_abstract):
     target = "3-30"
+
+
+class c3_2_1(choice_abstract):
+    target = "3-31"
+
+
+class c3_2_2(choice_abstract):
+    target = "3-41"
 
 
 class c3_5_1(choice_abstract):
@@ -50,7 +58,7 @@ class c3_12_1(choice_abstract):
     target = "3-14"
 
     def chosen(self):
-        gk.core.paras[SINESTRO_TAME] += 2
+        gk.paras[SINESTRO_TAME] += 2
         return super().chosen()
 
 
@@ -148,10 +156,10 @@ class c3_23_2(choice_abstract):
     target = "3-26"
 
     def show(self):
-        return gk.core.paras[SINESTRO_TAME] == 6
+        return gk.paras[SINESTRO_TAME] == 6
 
     def chosen(self):
-        gk.core.paras[SINESTRO_LOVE] += 3
+        gk.paras[SINESTRO_LOVE] += 3
         return super().chosen()
 
 
@@ -178,4 +186,19 @@ class c3_29_1(choice_abstract):
 
 
 class c3_30_1(choice_abstract):
+    target = "3-2"
+
+
+class c3_31_1(choice_abstract):
+    target = "3-2"
+
+    def show(self):
+        return gk
+
+
+class c3_31_2(choice_abstract):
+    target = "3-2"
+
+
+class c3_31_3(choice_abstract):
     target = "3-2"

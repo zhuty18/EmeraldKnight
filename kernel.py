@@ -8,42 +8,41 @@ VERSION = "0.3"
 
 class kernel:
     def __init__(self):
-        self.scene = "0"
-        gk.core = self
+        gk.scene = "0"
 
     def getChoice(self):
-        return getChoice(self.scene)
+        return getChoice(gk.scene)
 
     def load(self, name):
         if name == "0":
-            self.scene = "1-1"
-            self.paras = debug_para.copy()
-            # self.paras = default_para()
+            gk.scene = "1-1"
+            gk.paras = debug_para.copy()
+            # gk.paras = default_para()
         else:
             k = "./save/"
             with open(k + name + ".eks", "r") as f:
                 j = json.loads(f.read())
-                self.scene = j['scene']
-                self.paras = j['paras']
+                gk.scene = j['scene']
+                gk.paras = j['paras']
             self.refresh()
 
     def save(self, name):
         k = "./save/"
         with open(k + name + ".eks", "w") as f:
             j = json.loads('{}')
-            j['scene'] = self.scene
-            j['paras'] = self.paras
+            j['scene'] = gk.scene
+            j['paras'] = gk.paras
             f.write(json.dumps(j))
 
     def getSceneName(self, s):
         return sceneName(s)
 
     def loadScene(self):
-        if self.scene == GAME_OVER:
+        if gk.scene == GAME_OVER:
             return GAME_OVER, []
         else:
             try:
-                fn = os.path.join("story", self.scene+".txt")
+                fn = os.path.join("story", gk.scene + ".txt")
                 with open(res_path(fn), "r", encoding="utf8") as f:
                     scenetext = f.read()
                 scenetext = "    " + scenetext
@@ -58,14 +57,6 @@ class kernel:
 
     def refresh(self):
         for i in debug_para.keys():
-            if i not in self.paras:
-                self.paras[i] = 0
+            if i not in gk.paras:
+                gk.paras[i] = 0
 
-    def openPara(self, end):
-        f = open("./save/0.eks", "r")
-        p = json.loads(f.read())
-        f.close()
-        p[end] = 1
-        f = open("./save/0.eks", "w")
-        f.write(json.dumps(p) + "\n")
-        f.close()

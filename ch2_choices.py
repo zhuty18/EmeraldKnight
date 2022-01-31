@@ -6,10 +6,10 @@ class c2_1_1(choice_abstract):
     target = "2-4"
 
     def show(self):
-        return gk.core.paras[TEMPORARY] % 2 == 0
+        return gk.paras[TEMPORARY] % 2 == 0
 
     def chosen(self):
-        gk.core.paras[TEMPORARY] += 1
+        gk.paras[TEMPORARY] += 1
         return super().chosen()
 
 
@@ -17,10 +17,10 @@ class c2_1_2(choice_abstract):
     target = "2-5"
 
     def show(self):
-        return (gk.core.paras[TEMPORARY] // 2) % 2 == 0
+        return (gk.paras[TEMPORARY] // 2) % 2 == 0
 
     def chosen(self):
-        gk.core.paras[TEMPORARY] += 2
+        gk.paras[TEMPORARY] += 2
         return super().chosen()
 
 
@@ -28,10 +28,10 @@ class c2_1_3(choice_abstract):
     target = "2-6"
 
     def show(self):
-        return (gk.core.paras[TEMPORARY] // 4) % 2 == 0
+        return (gk.paras[TEMPORARY] // 4) % 2 == 0
 
     def chosen(self):
-        gk.core.paras[TEMPORARY] += 4
+        gk.paras[TEMPORARY] += 4
         return super().chosen()
 
 
@@ -39,10 +39,10 @@ class c2_1_4(choice_abstract):
     target = "2-7"
 
     def show(self):
-        return gk.core.paras[TEMPORARY] == 7
+        return gk.paras[TEMPORARY] == 7
 
     def chosen(self):
-        gk.core.paras[TEMPORARY] = 0
+        gk.paras[TEMPORARY] = 0
         return super().chosen()
 
 
@@ -50,24 +50,24 @@ class c2_2_1(choice_abstract):
     target = "2-8"
 
     def show(self):
-        return gk.core.paras[TEAMMATE] == OLIVER_CODE
+        return gk.paras[TEAMMATE] == OLIVER_CODE
 
 
 class c2_2_2(choice_abstract):
     target = "2-9"
 
     def show(self):
-        return gk.core.paras[TEAMMATE] != OLIVER_CODE
+        return gk.paras[TEAMMATE] != OLIVER_CODE
 
 
 class c2_3_1(choice_abstract):
     target = "2-24"
 
     def show(self):
-        return gk.core.paras[SWORD_HOT_TIME] == 3
+        return gk.paras[SWORD_HOT_TIME] == 3
 
     def chosen(self):
-        gk.core.paras[SWORD_HOT_TIME] += 1
+        gk.paras[SWORD_HOT_TIME] += 1
         return super().chosen()
 
 
@@ -75,7 +75,7 @@ class c2_3_2(choice_abstract):
     target = "2-25"
 
     def show(self):
-        return gk.core.paras[SWORD_HOT_TIME] == 1
+        return gk.paras[SWORD_HOT_TIME] == 1
 
 
 class c2_7_1(choice_abstract):
@@ -94,7 +94,7 @@ class c2_8_3(choice_abstract):
     target = "2-12"
 
     def chosen(self):
-        gk.core.paras[OLIVER_LOVE] += 3
+        gk.paras[OLIVER_LOVE] += 3
         return super().chosen()
 
 
@@ -121,7 +121,7 @@ class c2_10_2(choice_abstract):
     target = "2-14"
 
     def chosen(self):
-        gk.core.paras[CREDIT] += 2
+        gk.paras[CREDIT] += 2
         return super().chosen()
 
 
@@ -129,11 +129,11 @@ class c2_11_1(choice_abstract):
     target = "2-17"
 
     def show(self):
-        return gk.core.paras[TEMPORARY] % 2 == 0
+        return gk.paras[TEMPORARY] % 2 == 0
 
     def chosen(self):
-        gk.core.paras[TEMPORARY] += 1
-        gk.core.paras[KNOWLEDGE] += 1
+        gk.paras[TEMPORARY] += 1
+        gk.paras[KNOWLEDGE] += 1
         return super().chosen()
 
 
@@ -141,10 +141,10 @@ class c2_11_2(choice_abstract):
     target = "2-18"
 
     def show(self):
-        return (gk.core.paras[TEMPORARY] // 2) % 2 == 0
+        return (gk.paras[TEMPORARY] // 2) % 2 == 0
 
     def chosen(self):
-        gk.core.paras[TEMPORARY] += 2
+        gk.paras[TEMPORARY] += 2
         return super().chosen()
 
 
@@ -152,10 +152,10 @@ class c2_11_3(choice_abstract):
     target = "2-10"
 
     def show(self):
-        return gk.core.paras[TEMPORARY] == 3
+        return gk.paras[TEMPORARY] == 3
 
     def chosen(self):
-        gk.core.paras[TEMPORARY] = 0
+        gk.paras[TEMPORARY] = 0
         return super().chosen()
 
 
@@ -170,10 +170,10 @@ class c2_14_2(choice_abstract):
         return "它是不是有什么不同寻常的地方"
 
     def show(self):
-        return gk.core.paras[SWORD_HOT_TIME] > 0
+        return gk.paras[SWORD_HOT_TIME] > 0
 
     def chosen(self):
-        gk.core.paras[INTELLIGENCE] += 2
+        gk.paras[INTELLIGENCE] += 2
         return super().chosen()
 
 
@@ -189,7 +189,7 @@ class c2_20_1(choice_abstract):
     target = "2-22"
 
     def chosen(self):
-        gk.core.paras[KNOWLEDGE] += 3
+        gk.paras[KNOWLEDGE] += 3
         return super().chosen()
 
 
@@ -208,10 +208,10 @@ class c2_24_2(choice_abstract):
         return "这下面是不是有黑暗力量？"
 
     def show(self):
-        return gk.core.paras[KNOWLEDGE] > 5
+        return gk.paras[KNOWLEDGE] > 5
 
     def chosen(self):
-        gk.core.paras[INTELLIGENCE] += 2
+        gk.paras[INTELLIGENCE] += 2
         return super().chosen()
 
 
@@ -227,8 +227,8 @@ class c2_28_2(choice_abstract):
     target = "2-30"
 
     def chosen(self):
-        if gk.core.scene == "2-28":
-            gk.core.paras[INTELLIGENCE] += 1
+        if gk.scene == "2-28":
+            gk.paras[INTELLIGENCE] += 1
         return super().chosen()
 
 
@@ -240,7 +240,7 @@ class c2_30_2(choice_abstract):
     target = "2-32"
 
     def chosen(self):
-        gk.core.paras[INTELLIGENCE] -= 1
+        gk.paras[INTELLIGENCE] -= 1
         return super().chosen()
 
 

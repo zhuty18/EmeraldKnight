@@ -92,10 +92,10 @@ class s1_39(scene_abstract):
 
 class s1_40(scene_abstract):
     def load(self):
-        if gk.core.paras[PROPS] % 10 == 4:
+        if gk.paras[PROPS] % 10 == 4:
             return [c1_40_1()]
         else:
-            if gk.core.paras[BRUCE_SHOW_UP] == 1:
+            if gk.paras[BRUCE_SHOW_UP] == 1:
                 return [c1_40_2()]
             else:
                 return [c1_40_3()]
@@ -103,7 +103,7 @@ class s1_40(scene_abstract):
 
 class s1_41(scene_abstract):
     def load(self):
-        if gk.core.paras[BRUCE_SHOW_UP] == 1:
+        if gk.paras[BRUCE_SHOW_UP] == 1:
             return [c1_41_4()]
         else:
             return [c1_41_3()]
@@ -119,7 +119,7 @@ class s1_49(scene_abstract):
 
 class s1_52(scene_abstract):
     def load(self):
-        if gk.core.paras[CREDIT] > 0:
+        if gk.paras[CREDIT] > 0:
             return [c1_52_1()]
         else:
             return [c1_52_2()]
@@ -131,7 +131,7 @@ class s1_58(scene_abstract):
 
 class s1_62(scene_abstract):
     def load(self):
-        if gk.core.paras[SINESTRO_LOVE] > 0 or gk.core.paras[SINESTRO_TAME] > 0:
+        if gk.paras[SINESTRO_LOVE] > 0 or gk.paras[SINESTRO_TAME] > 0:
             return [c1_62_1()]
         else:
             return [c1_62_2()]
@@ -175,9 +175,9 @@ class s1_74(scene_abstract):
 
 class s1_75(scene_abstract):
     def load(self):
-        if gk.core.paras[TEMPORARY] == 10:
+        if gk.paras[TEMPORARY] == 10:
             return [c1_75_1()]
-        elif gk.core.paras[TEMPORARY] >= 5:
+        elif gk.paras[TEMPORARY] >= 5:
             return [c1_75_2()]
         else:
             return [c1_75_3()]

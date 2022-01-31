@@ -1,3 +1,5 @@
+import json
+
 BRUCE_STORY_LINE = "bsl"
 BRUCE_SHOW_UP = "bsu"
 BRUCE_LOVE = "brl"
@@ -81,4 +83,14 @@ def sceneName(scene):
 
 
 class gk:
-    core = None
+    scene = ""
+    paras = {}
+
+    def openPara(self, end):
+        f = open("./save/0.eks", "r")
+        p = json.loads(f.read())
+        f.close()
+        p[end] = 1
+        f = open("./save/0.eks", "w")
+        f.write(json.dumps(p) + "\n")
+        f.close()

@@ -6,7 +6,7 @@ class c1_1_1(choice_abstract):
     target = "1-2"
 
     def chosen(self):
-        gk.core.paras[SWORD_HOT_TIME] += 1
+        gk.paras[SWORD_HOT_TIME] += 1
         return super().chosen()
 
 
@@ -22,7 +22,7 @@ class c1_2_1(choice_abstract):
     target = "1-5"
 
     def chosen(self):
-        gk.core.paras[SWORD_HOT_TIME] += 1
+        gk.paras[SWORD_HOT_TIME] += 1
         return super().chosen()
 
 
@@ -42,7 +42,7 @@ class c1_4_1(choice_abstract):
     target = "1-9"
 
     def chosen(self):
-        gk.core.paras[SINESTRO_TAME] -= 1
+        gk.paras[SINESTRO_TAME] -= 1
         return super().chosen()
 
 
@@ -50,7 +50,7 @@ class c1_4_2(choice_abstract):
     target = "1-10"
 
     def chosen(self):
-        gk.core.paras[SINESTRO_LOVE] += 1
+        gk.paras[SINESTRO_LOVE] += 1
         return super().chosen()
 
 
@@ -66,7 +66,7 @@ class c1_5_2(choice_abstract):
     target = "1-13"
 
     def chosen(self):
-        gk.core.paras[KNOWLEDGE] += 1
+        gk.paras[KNOWLEDGE] += 1
         return super().chosen()
 
 
@@ -78,7 +78,7 @@ class c1_6_2(choice_abstract):
     target = "1-18"
 
     def chosen(self):
-        gk.core.paras[CREDIT] += 3
+        gk.paras[CREDIT] += 3
         return super().chosen()
 
 
@@ -101,7 +101,7 @@ class c1_11_1(choice_abstract):
     target = "1-55"
 
     def chosen(self):
-        gk.core.paras[SINESTRO_LOVE] -= 1
+        gk.paras[SINESTRO_LOVE] -= 1
         return super().chosen()
 
 
@@ -113,7 +113,7 @@ class c1_11_3(choice_abstract):
     target = "1-57"
 
     def chosen(self):
-        gk.core.paras[SINESTRO_TAME] += 1
+        gk.paras[SINESTRO_TAME] += 1
         return super().chosen()
 
 
@@ -132,7 +132,7 @@ class c1_12_1(choice_abstract):
         return "带有火焰纹路的红晶石"
 
     def chosen(self):
-        gk.core.paras[PROPS] = 1
+        gk.paras[PROPS] = 1
         return super().chosen()
 
 
@@ -143,7 +143,7 @@ class c1_12_2(choice_abstract):
         return "带有雪花纹路的蓝晶石"
 
     def chosen(self):
-        gk.core.paras[PROPS] = 2
+        gk.paras[PROPS] = 2
         return super().chosen()
 
 
@@ -154,7 +154,7 @@ class c1_12_3(choice_abstract):
         return "带有漩涡纹路的紫晶石"
 
     def chosen(self):
-        gk.core.paras[PROPS] = 3
+        gk.paras[PROPS] = 3
         return super().chosen()
 
 
@@ -165,7 +165,7 @@ class c1_12_4(choice_abstract):
         return "带有草叶纹路的绿晶石"
 
     def chosen(self):
-        gk.core.paras[PROPS] = 4
+        gk.paras[PROPS] = 4
         return super().chosen()
 
 
@@ -177,7 +177,7 @@ class c1_14_2(choice_abstract):
     target = "1-48"
 
     def chosen(self):
-        gk.core.paras[BARRY_LOVE] += 5
+        gk.paras[BARRY_LOVE] += 5
         return super().chosen()
 
 
@@ -230,7 +230,7 @@ class c1_24_1(choice_abstract):
         return "看看书架"
 
     def chosen(self):
-        gk.core.paras[PROPS] += 10
+        gk.paras[PROPS] += 10
         return super().chosen()
 
 
@@ -241,7 +241,7 @@ class c1_24_2(choice_abstract):
         return "看看卷轴"
 
     def chosen(self):
-        gk.core.paras[PROPS] += 20
+        gk.paras[PROPS] += 20
         return super().chosen()
 
 
@@ -252,7 +252,7 @@ class c1_24_3(choice_abstract):
         return "看看挂毯"
 
     def chosen(self):
-        gk.core.paras[PROPS] += 30
+        gk.paras[PROPS] += 30
         return super().chosen()
 
 
@@ -263,7 +263,7 @@ class c1_24_4(choice_abstract):
         return "看看徽章"
 
     def chosen(self):
-        gk.core.paras[PROPS] += 40
+        gk.paras[PROPS] += 40
         return super().chosen()
 
 
@@ -271,7 +271,7 @@ class c1_24_5(choice_abstract):
     target = "1-29"
 
     def chosen(self):
-        gk.core.paras[INTELLIGENCE] -= 2
+        gk.paras[INTELLIGENCE] -= 2
         return super().chosen()
 
 
@@ -283,10 +283,10 @@ class c1_29_2(choice_abstract):
     target = "1-34"
 
     def show(self):
-        return gk.core.paras[PROPS] // 10 == 1
+        return gk.paras[PROPS] // 10 == 1
 
     def chosen(self):
-        gk.core.paras[BRUCE_SHOW_UP] = 1
+        gk.paras[BRUCE_SHOW_UP] = 1
         return super().chosen()
 
 
@@ -294,14 +294,14 @@ class c1_31_1(choice_abstract):
     target = "1-32"
 
     def show(self):
-        return gk.core.paras[BRUCE_LOVE] >= 0
+        return gk.paras[BRUCE_LOVE] >= 0
 
 
 class c1_31_2(choice_abstract):
     target = "1-33"
 
     def chosen(self):
-        gk.core.paras[PROPS] = 0
+        gk.paras[PROPS] = 0
         return super().chosen()
 
 
@@ -312,10 +312,10 @@ class c1_34_1(choice_abstract):
         return "这是什么地方？"
 
     def show(self):
-        return gk.core.paras[TEMPORARY] < 2
+        return gk.paras[TEMPORARY] < 2
 
     def chosen(self):
-        gk.core.paras[TEMPORARY] += 1
+        gk.paras[TEMPORARY] += 1
         return super().chosen()
 
 
@@ -323,10 +323,10 @@ class c1_34_2(choice_abstract):
     target = "1-36"
 
     def show(self):
-        return gk.core.paras[TEMPORARY] < 2
+        return gk.paras[TEMPORARY] < 2
 
     def chosen(self):
-        gk.core.paras[TEMPORARY] += 1
+        gk.paras[TEMPORARY] += 1
         return super().chosen()
 
 
@@ -334,10 +334,10 @@ class c1_34_3(choice_abstract):
     target = "1-37"
 
     def show(self):
-        return gk.core.paras[TEMPORARY] == 2
+        return gk.paras[TEMPORARY] == 2
 
     def chosen(self):
-        gk.core.paras[TEMPORARY] = 0
+        gk.paras[TEMPORARY] = 0
         return super().chosen()
 
 
@@ -345,7 +345,7 @@ class c1_37_1(choice_abstract):
     target = "1-38"
 
     def chosen(self):
-        gk.core.paras[BRUCE_LOVE] -= 5
+        gk.paras[BRUCE_LOVE] -= 5
         return super().chosen()
 
 
@@ -353,7 +353,7 @@ class c1_37_2(choice_abstract):
     target = "1-39"
 
     def chosen(self):
-        gk.core.paras[BRUCE_LOVE] += 1
+        gk.paras[BRUCE_LOVE] += 1
         return super().chosen()
 
 
@@ -371,7 +371,7 @@ class c1_39_1(choice_abstract):
         return "四处走走"
 
     def show(self):
-        return gk.core.paras[KNOWLEDGE] >= 1
+        return gk.paras[KNOWLEDGE] >= 1
 
 
 class c1_39_2(choice_abstract):
@@ -381,7 +381,7 @@ class c1_39_2(choice_abstract):
         return "四处走走"
 
     def show(self):
-        return gk.core.paras[KNOWLEDGE] < 1
+        return gk.paras[KNOWLEDGE] < 1
 
 
 class c1_40_1(choice_abstract):
@@ -391,11 +391,11 @@ class c1_40_1(choice_abstract):
         return "仔细看看"
 
     def chosen(self):
-        gk.core.paras[SWORD_HOT_TIME] += 1
-        if gk.core.paras[BRUCE_SHOW_UP] == 1:
-            gk.core.paras[BRUCE_LOVE] += 10
+        gk.paras[SWORD_HOT_TIME] += 1
+        if gk.paras[BRUCE_SHOW_UP] == 1:
+            gk.paras[BRUCE_LOVE] += 10
         else:
-            gk.core.paras[BRUCE_LOVE] += 4
+            gk.paras[BRUCE_LOVE] += 4
         return super().chosen()
 
 
@@ -403,7 +403,7 @@ class c1_40_2(choice_abstract):
     target = "1-45"
 
     def chosen(self):
-        gk.core.paras[BRUCE_LOVE] += 2
+        gk.paras[BRUCE_LOVE] += 2
         return super().chosen()
 
 
@@ -418,7 +418,7 @@ class c1_41_1(choice_abstract):
     target = "1-42"
 
     def chosen(self):
-        gk.core.paras[KNOWLEDGE] += 5
+        gk.paras[KNOWLEDGE] += 5
         return super().chosen()
 
 
@@ -426,7 +426,7 @@ class c1_41_2(choice_abstract):
     target = "1-43"
 
     def chosen(self):
-        gk.core.paras[PROPS] = 0
+        gk.paras[PROPS] = 0
         return super().chosen()
 
 
@@ -455,14 +455,14 @@ class c1_49_2(choice_abstract):
         return "知道的太少"
 
     def show(self):
-        return gk.core.paras[SWORD_HOT_TIME] >= 1
+        return gk.paras[SWORD_HOT_TIME] >= 1
 
 
 class c1_49_3(choice_abstract):
     target = "1-51"
 
     def chosen(self):
-        gk.core.paras[KNOWLEDGE] += 1
+        gk.paras[KNOWLEDGE] += 1
         return super().chosen()
 
 
@@ -470,7 +470,7 @@ class c1_52_1(choice_abstract):
     target = "1-53"
 
     def chosen(self):
-        gk.core.paras[KNOWLEDGE] += 1
+        gk.paras[KNOWLEDGE] += 1
         return super().chosen()
 
 
@@ -478,7 +478,7 @@ class c1_52_2(choice_abstract):
     target = "1-54"
 
     def chosen(self):
-        gk.core.paras[TEAMMATE] = OLIVER_CODE
+        gk.paras[TEAMMATE] = OLIVER_CODE
         return super().chosen()
 
 
@@ -489,10 +489,10 @@ class c1_58_1(choice_abstract):
         return "你就这么在野外点火的？"
 
     def show(self):
-        return gk.core.paras[SINESTRO_TAME] >= 0
+        return gk.paras[SINESTRO_TAME] >= 0
 
     def chosen(self):
-        gk.core.paras[SINESTRO_TAME] += 2
+        gk.paras[SINESTRO_TAME] += 2
         return super().chosen()
 
 
@@ -500,7 +500,7 @@ class c1_58_2(choice_abstract):
     target = "1-60"
 
     def chosen(self):
-        gk.core.paras[SINESTRO_TAME] -= 1
+        gk.paras[SINESTRO_TAME] -= 1
         return super().chosen()
 
 
@@ -508,10 +508,10 @@ class c1_58_3(choice_abstract):
     target = "1-61"
 
     def show(self):
-        return gk.core.paras[SINESTRO_LOVE] >= 0
+        return gk.paras[SINESTRO_LOVE] >= 0
 
     def chosen(self):
-        gk.core.paras[SINESTRO_LOVE] -= 1
+        gk.paras[SINESTRO_LOVE] -= 1
         return super().chosen()
 
 
@@ -545,7 +545,7 @@ class c1_64_1(choice_abstract):
     target = "1-65"
 
     def chosen(self):
-        gk.core.paras[TEMPORARY] = 1
+        gk.paras[TEMPORARY] = 1
         return super().chosen()
 
 
@@ -560,10 +560,10 @@ class c1_66_1(choice_abstract):
         return "质问他是否与失踪有关"
 
     def show(self):
-        return gk.core.paras[TEMPORARY] == 1
+        return gk.paras[TEMPORARY] == 1
 
     def chosen(self):
-        gk.core.paras[TEMPORARY] = 0
+        gk.paras[TEMPORARY] = 0
         return super().chosen()
 
 
@@ -575,10 +575,10 @@ class c1_67_1(choice_abstract):
     target = "1-69"
 
     def show(self):
-        return gk.core.paras[TEMPORARY] < 2
+        return gk.paras[TEMPORARY] < 2
 
     def chosen(self):
-        gk.core.paras[TEMPORARY] += 1
+        gk.paras[TEMPORARY] += 1
         return super().chosen()
 
 
@@ -586,10 +586,10 @@ class c1_67_2(choice_abstract):
     target = "1-70"
 
     def show(self):
-        return gk.core.paras[TEMPORARY] < 2
+        return gk.paras[TEMPORARY] < 2
 
     def chosen(self):
-        gk.core.paras[TEMPORARY] += 1
+        gk.paras[TEMPORARY] += 1
         return super().chosen()
 
 
@@ -597,10 +597,10 @@ class c1_67_3(choice_abstract):
     target = "1-71"
 
     def show(self):
-        return gk.core.paras[TEMPORARY] == 2
+        return gk.paras[TEMPORARY] == 2
 
     def chosen(self):
-        gk.core.paras[TEMPORARY] = 0
+        gk.paras[TEMPORARY] = 0
         return super().chosen()
 
 
@@ -625,7 +625,7 @@ class c1_72_2(choice_abstract):
         return "摸他"
 
     def chosen(self):
-        gk.core.paras[TEMPORARY] += 2
+        gk.paras[TEMPORARY] += 2
         return super().chosen()
 
 
@@ -636,7 +636,7 @@ class c1_73_1(choice_abstract):
         return "地上"
 
     def chosen(self):
-        gk.core.paras[TEMPORARY] += 3
+        gk.paras[TEMPORARY] += 3
         return super().chosen()
 
 
@@ -654,7 +654,7 @@ class c1_74_1(choice_abstract):
         return "里面"
 
     def chosen(self):
-        gk.core.paras[TEMPORARY] += 5
+        gk.paras[TEMPORARY] += 5
         return super().chosen()
 
 
@@ -672,7 +672,7 @@ class c1_75_1(choice_abstract):
         return "体验如何"
 
     def chosen(self):
-        gk.core.paras[TEMPORARY] = 0
+        gk.paras[TEMPORARY] = 0
         return super().chosen()
 
 
@@ -683,7 +683,7 @@ class c1_75_2(choice_abstract):
         return "体验如何"
 
     def chosen(self):
-        gk.core.paras[TEMPORARY] = 0
+        gk.paras[TEMPORARY] = 0
         return super().chosen()
 
 
@@ -698,7 +698,7 @@ class c1_76_1(choice_abstract):
     target = "1-78"
 
     def chosen(self):
-        gk.core.paras[SINESTRO_TAME] -= 1
+        gk.paras[SINESTRO_TAME] -= 1
         return super().chosen()
 
 
@@ -710,8 +710,8 @@ class c1_76_3(choice_abstract):
     target = "1-80"
 
     def chosen(self):
-        gk.core.paras[SINESTRO_TAME] += 1
-        gk.core.paras[SINESTRO_LOVE] += 1
+        gk.paras[SINESTRO_TAME] += 1
+        gk.paras[SINESTRO_LOVE] += 1
         return super().chosen()
 
 
