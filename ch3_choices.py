@@ -24,6 +24,12 @@ class c3_2_1(choice_abstract):
 class c3_2_2(choice_abstract):
     target = "3-41"
 
+class c3_3_1(choice_abstract):
+    target = "3-43"
+
+    def chosen(self):
+        gk.paras[TEMPORARY] += 1
+        return super().chosen()
 
 class c3_5_1(choice_abstract):
     target = "3-6"
