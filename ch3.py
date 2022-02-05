@@ -1,3 +1,6 @@
+import re
+
+from click import option
 from ch3_choices import *
 from abstract import scene_abstract
 
@@ -8,6 +11,10 @@ class s3_1(scene_abstract):
 
 class s3_2(scene_abstract):
     options = [c3_2_1, c3_2_2]
+
+
+class s3_4(scene_abstract):
+    options = [c3_4_1, c3_4_2]
 
 
 class s3_5(scene_abstract):
@@ -94,3 +101,39 @@ class s3_45(scene_abstract):
 
 class s3_46(scene_abstract):
     options = [c3_46_1, c3_46_2]
+
+
+class s3_52(scene_abstract):
+    options = [c3_52_1, c3_52_2, c3_52_3, c3_52_4, c3_52_5, c3_52_6]
+
+
+class s3_58(scene_abstract):
+    options = [c3_58_1, c3_58_2, c3_58_3]
+
+
+class s3_59(scene_abstract):
+    options = [c3_59_1(), c3_59_2()]
+
+
+class s3_60(scene_abstract):
+    options = [c3_60_1, c3_60_2]
+
+
+class s3_61(scene_abstract):
+    options = [c3_61_1, c3_61_2]
+
+
+class s3_62(scene_abstract):
+    options = [c3_62_1, c3_62_2, c3_60_2]
+
+
+class s3_65(scene_abstract):
+    options = [c3_65_1, c3_65_2, c3_65_3]
+
+
+class s3_66(scene_abstract):
+    options = [c3_66_1, c3_66_2, c3_66_3]
+
+
+class s3_68(scene_abstract):
+    options = [c3_68_1, c3_68_2, c3_68_3]

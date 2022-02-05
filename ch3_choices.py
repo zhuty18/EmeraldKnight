@@ -24,12 +24,26 @@ class c3_2_1(choice_abstract):
 class c3_2_2(choice_abstract):
     target = "3-41"
 
+
 class c3_3_1(choice_abstract):
     target = "3-43"
 
     def chosen(self):
         gk.paras[TEMPORARY] += 1
         return super().chosen()
+
+
+class c3_4_1(choice_abstract):
+    target = "3-50"
+
+
+class c3_4_2(choice_abstract):
+    target = "3-51"
+
+
+class c3_4_3(choice_abstract):
+    target = "3-52"
+
 
 class c3_5_1(choice_abstract):
     target = "3-6"
@@ -524,3 +538,231 @@ class c3_48_1(choice_abstract):
 
 class c3_49_1(choice_abstract):
     target = "3-35"
+
+
+class c3_52_1(choice_abstract):
+    target = "3-53"
+
+    def show(self):
+        return gk.paras[TEMPORARY] % 2 == 0
+
+    def chosen(self):
+        gk.paras[TEMPORARY] += 1
+        return super().chosen()
+
+
+class c3_52_2(choice_abstract):
+    target = "3-54"
+
+    def show(self):
+        return (gk.paras[TEMPORARY] >> 1) % 2 == 0
+
+    def chosen(self):
+        gk.paras[TEMPORARY] += 2
+        return super().chosen()
+
+
+class c3_52_3(choice_abstract):
+    target = "3-55"
+
+    def show(self):
+        return (gk.paras[TEMPORARY] >> 2) % 2 == 0
+
+    def chosen(self):
+        gk.paras[TEMPORARY] += 4
+        return super().chosen()
+
+
+class c3_52_4(choice_abstract):
+    target = "3-56"
+
+    def show(self):
+        return (gk.paras[TEMPORARY] >> 3) % 2 == 0
+
+    def chosen(self):
+        gk.paras[TEMPORARY] += 8
+        return super().chosen()
+
+
+class c3_52_5(choice_abstract):
+    target = "3-57"
+
+    def show(self):
+        return (gk.paras[TEMPORARY] >> 4) % 2 == 0
+
+    def chosen(self):
+        gk.paras[TEMPORARY] += 16
+        gk.paras[KNOWLEDGE] += 2
+        return super().chosen()
+
+
+class c3_52_6(choice_abstract):
+    target = "3-58"
+
+    def show(self):
+        return gk.paras[TEMPORARY] % 16 == 15
+
+    def chosen(self):
+        gk.paras[TEMPORARY] = 0
+        return super().chosen()
+
+
+class c3_58_1(choice_abstract):
+    target = "4-1"
+
+    def text(self):
+        return "讨伐魔王"
+
+
+class c3_58_2(choice_abstract):
+    target = "3-60"
+
+    def show(self):
+        return gk.paras[BRUCE_SHOW_UP] == 0
+
+
+class c3_58_3(choice_abstract):
+    target = "3-61"
+
+    def show(self):
+        return gk.paras[BRUCE_SHOW_UP] == 1
+
+
+class c3_59_1(choice_abstract):
+    target = "4-1"
+
+    def text(self):
+        return "左边"
+
+
+class c3_59_2(choice_abstract):
+    target = "3-41"
+
+    def text(self):
+        return "右边"
+
+
+class c3_60_1(choice_abstract):
+    target = "3-62"
+
+
+class c3_60_2(choice_abstract):
+    target = "3-63"
+
+    def text(self):
+        return "回头"
+
+    def show(self):
+        return gk.paras[TEMPORARY] == 0
+
+    def chosen(self):
+        gk.paras[TEMPORARY] = 1
+        return super().chosen()
+
+
+class c3_61_1(choice_abstract):
+    target = "3-68"
+
+
+class c3_61_2(choice_abstract):
+    target = "3-69"
+
+
+class c3_62_1(choice_abstract):
+    target = "3-64"
+
+    def text(self):
+        return "向左"
+
+    def chosen(self):
+        gk.paras[TEMPORARY] = 0
+        return super().chosen()
+
+
+class c3_62_2(choice_abstract):
+    target = "3-65"
+
+    def chosen(self):
+        gk.paras[TEMPORARY] = 0
+        return super().chosen()
+
+
+class c3_63_1(choice_abstract):
+    target = "3-62"
+
+    def text(self):
+        return "回头"
+
+
+class c3_64_1(choice_abstract):
+    target = "5-1"
+
+
+class c3_65_1(choice_abstract):
+    target = "3-66"
+
+
+class c3_65_2(choice_abstract):
+    target = "3-64"
+
+    def text(self):
+        return "向下游"
+
+
+class c3_65_3(choice_abstract):
+    target = "3-64"
+
+    def text(self):
+        return "涉水走对岸的路"
+
+
+class c3_66_1(choice_abstract):
+    target = "3-64"
+
+    def text(self):
+        return "进森林"
+
+
+class c3_66_2(choice_abstract):
+    target = "3-67"
+
+
+class c3_66_3(choice_abstract):
+    target = "5-1"
+
+    def text(self):
+        return "左转"
+
+
+class c3_67_1(choice_abstract):
+    target = "5-1"
+
+    def text(self):
+        return "回头"
+
+
+class c3_68_1(choice_abstract):
+    target = "3-70"
+
+    def show(self):
+        return gk.paras[INTELLIGENCE] == 3
+
+    def chosen(self):
+        gk.paras[BRUCE_LOVE] += 2
+        return super().chosen()
+
+
+class c3_68_2(choice_abstract):
+    target = "3-71"
+
+
+class c3_68_3(choice_abstract):
+    target = "3-72"
+
+    def chosen(self):
+        gk.paras[BRUCE_LOVE] -= 3
+        return super().chosen()
+
+
+class c3_68_4(choice_abstract):
+    target = "3-73"
