@@ -733,6 +733,10 @@ class c3_66_3(choice_abstract):
     def text(self):
         return "左转"
 
+    def chosen(self):
+        gk.paras[INTELLIGENCE] += 3
+        return super().chosen()
+
 
 class c3_67_1(choice_abstract):
     target = "5-1"
@@ -766,3 +770,72 @@ class c3_68_3(choice_abstract):
 
 class c3_68_4(choice_abstract):
     target = "3-73"
+
+
+class c3_73_1(choice_abstract):
+    target = "3-74"
+
+    def chosen(self):
+        gk.paras[KNOWLEDGE] += 1
+        return super().chosen()
+
+
+class c3_73_2(choice_abstract):
+    target = "3-75"
+
+
+class c3_75_1(choice_abstract):
+    target = "3-76"
+
+    def chosen(self):
+        gk.paras[BRUCE_LOVE] -= 1
+        return super().chosen()
+
+
+class c3_75_2(choice_abstract):
+    target = "3-77"
+
+
+class c3_75_3(choice_abstract):
+    target = "3-77"
+
+    def text(self):
+        return "假装同意"
+
+    def chosen(self):
+        gk.paras[TEMPORARY] = 1
+        return super().chosen()
+
+
+class c3_75_4(choice_abstract):
+    target = "3-78"
+
+
+class c3_78_1(choice_abstract):
+    target = "3-79"
+
+    def show(self):
+        return gk.paras[TEMPORARY] == 1
+
+    def chosen(self):
+        gk.paras[BRUCE_LOVE] += 3
+        return super().chosen()
+
+
+class c3_78_2(choice_abstract):
+    target = "3-80"
+
+
+class c3_78_3(choice_abstract):
+    target = "3-81"
+
+    def chosen(self):
+        gk.paras[BRUCE_LOVE] += 1
+        return super().chosen()
+
+
+class c3_78_4(choice_abstract):
+    target = "5-3"
+    def chosen(self):
+        gk.paras[TEMPORARY] = 0
+        return super().chosen()

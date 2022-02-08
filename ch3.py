@@ -137,3 +137,15 @@ class s3_66(scene_abstract):
 
 class s3_68(scene_abstract):
     options = [c3_68_1, c3_68_2, c3_68_3]
+
+
+class s3_73(scene_abstract):
+    options = [c3_73_1, c3_73_2]
+
+
+class s3_75(scene_abstract):
+    options = [c3_75_1, c3_75_2, c3_75_3]
+
+
+class s3_78(scene_abstract):
+    options = [c3_78_1, c3_78_2, c3_78_3]

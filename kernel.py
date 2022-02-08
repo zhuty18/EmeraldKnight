@@ -3,7 +3,7 @@ from constant import gk, debug_para, default_para, sceneName, GAME_OVER, res_pat
 from choices import getChoice
 from abstract import choice_end, choice_unfinished
 
-VERSION = "0.3"
+VERSION = "0.4"
 
 
 class kernel:
