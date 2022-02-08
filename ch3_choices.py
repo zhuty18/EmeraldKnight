@@ -1,6 +1,3 @@
-import tarfile
-
-from matplotlib.pyplot import cla
 from constant import *
 from abstract import choice_abstract
 
@@ -119,6 +116,10 @@ class c3_18_2(choice_abstract):
 class c3_18_3(choice_abstract):
     target = "3-21"
 
+    def chosen(self):
+        gk.paras[SINESTRO_LOVE] += 1
+        return super().chosen()
+
 
 class c3_19_1(choice_abstract):
     target = "3-27"
@@ -146,6 +147,10 @@ class c3_20_2(choice_abstract):
 
     def text(self):
         return "阿琳是谁"
+
+    def chosen(self):
+        gk.paras[SINESTRO_LOVE] += 1
+        return super().chosen()
 
 
 class c3_21_1(choice_abstract):
@@ -179,10 +184,10 @@ class c3_23_2(choice_abstract):
     target = "3-26"
 
     def show(self):
-        return gk.paras[SINESTRO_TAME] == 6
+        return gk.paras[SINESTRO_TAME] == 7
 
     def chosen(self):
-        gk.paras[SINESTRO_LOVE] += 3
+        gk.paras[SINESTRO_LOVE] += 2
         return super().chosen()
 
 
@@ -836,6 +841,7 @@ class c3_78_3(choice_abstract):
 
 class c3_78_4(choice_abstract):
     target = "5-3"
+
     def chosen(self):
         gk.paras[TEMPORARY] = 0
         return super().chosen()

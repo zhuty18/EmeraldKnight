@@ -209,6 +209,7 @@ class EmeraldKnight:
         about.exec_()
 
     def debug(self):
+        print(gk.scene)
         print(gk.paras)
 
 

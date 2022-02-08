@@ -1,4 +1,5 @@
 import json
+from random import random
 
 BRUCE_STORY_LINE = "bsl"
 BRUCE_SHOW_UP = "bsu"
@@ -22,6 +23,7 @@ TEAMMATE = "tmm"
 BRUCE_CODE = 1
 SINESTRO_CODE = 2
 OLIVER_CODE = 3
+BARRY_CODE = 4
 
 GAME_OVER = "game over"
 
@@ -86,7 +88,7 @@ class gk:
     scene = ""
     paras = {}
 
-    def openPara(self, end):
+    def openPara(end):
         f = open("./save/0.eks", "r")
         p = json.loads(f.read())
         f.close()
@@ -94,3 +96,14 @@ class gk:
         f = open("./save/0.eks", "w")
         f.write(json.dumps(p) + "\n")
         f.close()
+
+    def fight():
+        hp = gk.paras[TEMPORARY]
+        hp += 3 * gk.paras[INTELLIGENCE]
+        hp += gk.paras[KNOWLEDGE]
+        hp += 5 * gk.paras[BRUCE_LOVE]
+        hp += 5 * (gk.paras[SINESTRO_LOVE] + gk.paras[SINESTRO_TAME])
+        hp += 20 * (gk.paras[TEAMMATE] != 0)
+        for i in range(10):
+            hp -= random() * 15
+        return hp > 0

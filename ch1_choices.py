@@ -241,7 +241,7 @@ class c1_24_2(choice_abstract):
         return "看看卷轴"
 
     def chosen(self):
-        gk.paras[PROPS] +=16
+        gk.paras[PROPS] += 16
         return super().chosen()
 
 
@@ -673,6 +673,7 @@ class c1_75_1(choice_abstract):
 
     def chosen(self):
         gk.paras[TEMPORARY] = 0
+        gk.paras[SINESTRO_LOVE] += 2
         return super().chosen()
 
 
@@ -691,6 +692,7 @@ class c1_75_3(choice_abstract):
     target = "end-4"
 
     def text(self):
+        gk.paras[TEMPORARY] = 0
         return "体验如何"
 
 
