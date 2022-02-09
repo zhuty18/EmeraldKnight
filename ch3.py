@@ -93,7 +93,7 @@ class s3_45(scene_abstract):
         elif gk.paras[TEMPORARY] == 2:
             return [c3_45_2()]
         else:
-            gk.paras[c3_45_3()]
+            return [c3_45_3()]
 
 
 class s3_46(scene_abstract):

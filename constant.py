@@ -105,7 +105,7 @@ class gk:
         hp += 5 * (gk.paras[SINESTRO_LOVE] + gk.paras[SINESTRO_TAME])
         hp += 20 * (gk.paras[TEAMMATE] != 0)
         for i in range(10):
-            hp -= random() * 15
+            hp -= random() * 16
         return hp > 0
 
 

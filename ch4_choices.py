@@ -81,6 +81,7 @@ class c4_6_4(choice_abstract):
 
     def chosen(self):
         gk.paras[PROPS] = 0
+        gk.paras[TEAMMATE] = BARRY_CODE
         return super().chosen()
 
 
