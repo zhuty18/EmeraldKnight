@@ -48,10 +48,8 @@ stroy_para = {
     CREDIT: 0,
     PEGASUS: 0,
 }
-# end = {END_NOTHING: 0}
 
 debug_para = {**character_para, **stroy_para}
-# debug_para = {**debug_para, **end}
 
 
 def res_path(fn):
@@ -64,10 +62,6 @@ def res_path(fn):
 
 
 def default_para():
-    # f = open("./save/0.eks", "r")
-    # default = json.loads(f.readline())
-    # f.close()
-    # return default
     return debug_para
 
 
@@ -88,14 +82,20 @@ class gk:
     scene = ""
     paras = {}
 
-    def openPara(end):
-        f = open("./save/0.eks", "r")
+    def openPara(para_name):
+        f = open(res_path("save/0.eks"), "r")
         p = json.loads(f.read())
         f.close()
-        p[end] = 1
-        f = open("./save/0.eks", "w")
+        p[para_name] = 1
+        f = open(res_path("save/0.eks"), "w")
         f.write(json.dumps(p) + "\n")
         f.close()
+
+    def readPara(para_name):
+        f = open(res_path("save/0.eks"), "r")
+        p = json.loads(f.read())
+        f.close()
+        return p[para_name]
 
     def fight():
         hp = gk.paras[TEMPORARY]
@@ -107,3 +107,14 @@ class gk:
         for i in range(10):
             hp -= random() * 15
         return hp > 0
+
+
+f = open(res_path("story/info.json"), "r", encoding="utf8")
+info_map = json.loads(f.read())
+f.close()
+
+
+def open_info_entry(name):
+    for i in info_map.keys():
+        if name in info_map[i]["scene"]:
+            gk.openPara(i)

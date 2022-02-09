@@ -1,5 +1,5 @@
 import json, os
-from constant import gk, debug_para, default_para, sceneName, GAME_OVER, res_path
+from constant import gk, debug_para, default_para, sceneName, GAME_OVER, res_path, open_info_entry
 from choices import getChoice
 from abstract import choice_end, choice_unfinished
 
@@ -16,8 +16,7 @@ class kernel:
     def load(self, name):
         if name == "0":
             gk.scene = "1-1"
-            gk.paras = debug_para.copy()
-            # gk.paras = default_para()
+            gk.paras = default_para()
         else:
             k = "./save/"
             with open(k + name + ".eks", "r") as f:
@@ -50,6 +49,7 @@ class kernel:
                 choice = self.getChoice()
                 if choice is None:
                     choice = [choice_unfinished()]
+                # open_info_entry(gk.scene)
                 return scenetext, choice
             except FileNotFoundError:
                 scenetext = "抱歉，这儿还没写呢。请先存档。"
@@ -59,4 +59,3 @@ class kernel:
         for i in debug_para.keys():
             if i not in gk.paras:
                 gk.paras[i] = 0
-
