@@ -215,6 +215,10 @@ class c3_29_1(choice_abstract):
     def text(self):
         return "告辞离开"
 
+    def chosen(self):
+        gk.paras[TEMPORARY] = 80
+        return super().chosen()
+
 
 class c3_30_1(choice_abstract):
     target = "3-2"
@@ -526,7 +530,7 @@ class c3_46_2(choice_abstract):
     target = "4-2"
 
     def chosen(self):
-        gk.paras[TEMPORARY] = 0
+        gk.paras[TEMPORARY] = 100
         return super().chosen()
 
 
@@ -537,7 +541,7 @@ class c3_48_1(choice_abstract):
         return "继续前进"
 
     def chosen(self):
-        gk.paras[TEMPORARY] = 0
+        gk.paras[TEMPORARY] = 80
         return super().chosen()
 
 
@@ -618,6 +622,10 @@ class c3_58_1(choice_abstract):
     def text(self):
         return "讨伐魔王"
 
+    def chosen(self):
+        gk.paras[TEMPORARY] = 80
+        return super().chosen()
+
 
 class c3_58_2(choice_abstract):
     target = "3-60"
@@ -638,6 +646,10 @@ class c3_59_1(choice_abstract):
 
     def text(self):
         return "左边"
+
+    def chosen(self):
+        gk.paras[TEMPORARY] = 80
+        return super().chosen()
 
 
 class c3_59_2(choice_abstract):
