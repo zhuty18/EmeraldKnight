@@ -49,12 +49,12 @@ class s4_21(scene_abstract):
     options = [c4_21_1, c4_21_2]
 
 
-class s4_23(scene_abstract):
-    options = [c4_23_1, c4_23_2]
-
-
 class s4_25(scene_abstract):
     options = [c4_25_1, c4_25_2, c4_25_3]
+
+
+class s4_27(scene_abstract):
+    options = [c4_27_1, c4_27_2]
 
 
 class s4_28(scene_abstract):

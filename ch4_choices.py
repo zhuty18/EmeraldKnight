@@ -174,20 +174,20 @@ class c4_14_1(choice_abstract):
     target = "4-17"
 
     def chosen(self):
-        gk.paras[SINESTRO_LOVE] += 1
+        gk.paras[SINESTRO_TAME] -= 1
         return super().chosen()
 
 
 class c4_14_2(choice_abstract):
     target = "4-18"
 
+    def chosen(self):
+        gk.paras[SINESTRO_LOVE] += 1
+        return super().chosen()
+
 
 class c4_14_3(choice_abstract):
     target = "4-19"
-
-    def chosen(self):
-        gk.paras[SINESTRO_TAME] -= 1
-        return super().chosen()
 
 
 class c4_14_4(choice_abstract):
@@ -195,7 +195,7 @@ class c4_14_4(choice_abstract):
 
 
 class c4_20_1(choice_abstract):
-    target = "4-21"
+    target = "4-29"
 
 
 class c4_20_2(choice_abstract):
@@ -209,10 +209,6 @@ class c4_20_2(choice_abstract):
 class c4_21_1(choice_abstract):
     target = "4-23"
 
-    def chosen(self):
-        gk.paras[TEAMMATE] = SINESTRO_CODE
-        return super().chosen()
-
 
 class c4_21_2(choice_abstract):
     target = "4-24"
@@ -225,22 +221,13 @@ class c4_21_2(choice_abstract):
 class c4_22_1(choice_abstract):
     target = "4-21"
 
-    def text(self):
-        return "去找魔王"
-
 
 class c4_23_1(choice_abstract):
     target = "4-25"
 
-    def show(self):
-        return gk.paras[TEAMMATE] == SINESTRO_CODE
-
 
 class c4_23_2(choice_abstract):
     target = "4-26"
-
-    def show(self):
-        return gk.paras[TEAMMATE] != SINESTRO_CODE
 
 
 class c4_25_1(choice_abstract):
@@ -271,14 +258,21 @@ class c4_27_1(choice_abstract):
     target = "end-11"
 
     def text(self):
-        return "一年之后"
+        return "再给他一次机会"
+
+
+class c4_27_2(choice_abstract):
+    target = "end-12"
+
+    def text(self):
+        return "瑟尔早该死了"
 
 
 class c4_28_1(choice_abstract):
     target = "end-8"
 
     def text(self):
-        return "战斗"
+        return "你想怎样"
 
     def show(self):
         return gk.paras[SINESTRO_TAME] == 8
@@ -288,7 +282,7 @@ class c4_28_2(choice_abstract):
     target = "end-9"
 
     def text(self):
-        return "战斗"
+        return "你想怎样"
 
     def show(self):
         return gk.paras[SINESTRO_TAME] < 8
