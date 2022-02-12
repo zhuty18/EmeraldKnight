@@ -1,4 +1,3 @@
-from click import option
 from ch4_choices import *
 from abstract import scene_abstract
 

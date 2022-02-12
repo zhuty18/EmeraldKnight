@@ -3,6 +3,7 @@ from ch1 import *
 from ch2 import *
 from ch3 import *
 from ch4 import *
+from ch5 import *
 
 all_choices = {
     "1-1": s1_1,
@@ -229,6 +230,8 @@ all_choices = {
     "4-27": s4_27,
     "4-28": s4_28,
     "4-29": c4_22_1,
+    "5-1": c5_1_1,
+    "5-2": s5_2,
 }
 
 

@@ -52,6 +52,7 @@ class EmeraldKnight:
         self.main.update()
 
     def hello(self):
+        #1afa29
         hello_str = "<font size=7 face='华文隶书' color='#25ee79'>翡翠骑士<br></font><font size=2>v" + VERSION + "<br><br></font>"
         hello_str += "<font size=3 face='华文仿宋'>"
         hello_str += "雪山之巅&nbsp;&nbsp;英魂渐远<br>"

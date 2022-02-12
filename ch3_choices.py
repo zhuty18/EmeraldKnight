@@ -856,4 +856,5 @@ class c3_78_4(choice_abstract):
 
     def chosen(self):
         gk.paras[TEMPORARY] = 0
+        gk.paras[TEAMMATE] = BRUCE_CODE
         return super().chosen()
