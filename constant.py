@@ -81,6 +81,7 @@ def sceneName(scene):
 class gk:
     scene = ""
     paras = {}
+    pos = 0
 
     def openPara(para_name):
         f = open(res_path("save/0.eks"), "r")

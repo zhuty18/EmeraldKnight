@@ -789,6 +789,10 @@ class c3_68_4(choice_abstract):
     target = "3-73"
 
 
+class c3_69_1(choice_abstract):
+    target = "3-60"
+
+
 class c3_73_1(choice_abstract):
     target = "3-74"
 

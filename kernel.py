@@ -47,8 +47,6 @@ class kernel:
                 scenetext = "    " + scenetext
                 scenetext = scenetext.replace("\n", "\n    ")
                 choice = self.getChoice()
-                if choice is None:
-                    choice = [choice_unfinished()]
                 # open_info_entry(gk.scene)
                 return scenetext, choice
             except FileNotFoundError:

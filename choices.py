@@ -188,7 +188,7 @@ all_choices = {
     "3-66": s3_66,
     "3-67": c3_67_1,
     "3-68": s3_68,
-    "3-69": c3_59_1,
+    "3-69": c3_69_1,
     "3-70": c3_68_4,
     "3-71": c3_68_4,
     "3-72": c3_68_4,
@@ -232,12 +232,48 @@ all_choices = {
     "4-29": c4_22_1,
     "5-1": c5_1_1,
     "5-2": s5_2,
+    "5-3": s5_3,
+    "5-4": s5_4,
+    "5-5": c5_2_4,
+    "5-6": c5_2_4,
+    "5-7": c5_2_4,
+    "5-8": c5_8_1,
+    "5-9": c5_4_4,
+    "5-10": c5_4_4,
+    "5-11": c5_4_4,
+    "5-12": s5_3,
+    "5-13": s5_3,
+    "5-14": s5_3,
+    "5-15": s5_15,
+    "5-16": c5_16_1,
+    "5-17": s5_15,
+    "5-18": s5_18,
+    "5-19": c5_16_1,
+    "5-20": c5_16_1,
+    "5-21": c5_16_1,
+    "5-22": c5_16_1,
+    "5-23": c5_16_1,
+    "5-24": c5_16_1,
+    "5-25": c5_16_1,
 }
+
+
+def castle_choices(i):
+    if i == 1:
+        return s5_15_1().load()
+    elif i == 2:
+        return s5_15_2().load()
+    elif i == 3:
+        return s5_15_3().load()
+    else:
+        return [choice_unfinished()]
 
 
 def getChoice(name):
     if name.__contains__("end"):
         return scene_end(name).load()
+    elif gk.pos != 0:
+        return castle_choices(gk.pos)
     else:
         k = all_choices.get(name)()
         if isinstance(k, scene_abstract):
