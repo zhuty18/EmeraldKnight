@@ -2,6 +2,16 @@ from ch5_choices import *
 from abstract import scene_abstract
 
 
+class s5_1(scene_abstract):
+    def load(self):
+        if gk.paras[TEAMMATE] == BRUCE_CODE:
+            return [c5_1_3()]
+        elif gk.paras[TEMPORARY] == 1:
+            return [c5_1_2()]
+        else:
+            return [c5_1_1()]
+
+
 class s5_2(scene_abstract):
     def load(self):
         if gk.paras[BRUCE_LOVE] >= 4:

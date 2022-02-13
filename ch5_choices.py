@@ -3,10 +3,19 @@ from abstract import choice_abstract
 
 
 class c5_1_1(choice_abstract):
+    target = "5-26"
+
+
+class c5_1_2(choice_abstract):
     target = "5-2"
 
-    def text(self):
-        return "进城"
+    def chosen(self):
+        gk.paras[TEMPORARY] = 0
+        return super().chosen()
+
+
+class c5_1_3(choice_abstract):
+    target = "5-27"
 
 
 class c5_2_1(choice_abstract):
@@ -185,4 +194,4 @@ class c5_16_1(choice_abstract):
 
 
 class c5_18_1(choice_abstract):
-    target = "5-26"
+    target = "5-28"

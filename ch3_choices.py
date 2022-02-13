@@ -462,7 +462,11 @@ class c3_38_1(choice_abstract):
 
 
 class c3_40_1(choice_abstract):
-    target = "5-2"
+    target = "5-1"
+
+    def chosen(self):
+        gk.paras[TEMPORARY] = 1
+        return super().chosen()
 
 
 class c3_41_1(choice_abstract):
@@ -856,7 +860,7 @@ class c3_78_3(choice_abstract):
 
 
 class c3_78_4(choice_abstract):
-    target = "5-3"
+    target = "5-1"
 
     def chosen(self):
         gk.paras[TEMPORARY] = 0
