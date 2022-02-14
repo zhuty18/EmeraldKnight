@@ -1,11 +1,11 @@
-from constant import GAME_OVER, sceneName, gk
+from constant import GAME_OVER, gk
 
 
 class choice_abstract:
     target = ""
 
     def text(self):
-        return sceneName(self.target)
+        return gk.sceneName(self.target)
 
     def show(self):
         return True

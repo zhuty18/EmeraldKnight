@@ -49,10 +49,9 @@ stroy_para = {
     PEGASUS: 0,
 }
 
-debug_para = {**character_para, **stroy_para}
-
 
 def res_path(fn):
+    '''相关文件路径'''
     import sys, os
     if getattr(sys, 'frozen', False):  #是否Bundle Resource
         root = sys._MEIPASS
@@ -61,28 +60,33 @@ def res_path(fn):
     return os.path.join(root, fn)
 
 
-def default_para():
-    return debug_para
-
-
-__sn__ = {}
-
-
-def sceneName(scene):
-    global __sn__
-    if len(__sn__) == 0:
-        import json
-        f = open(res_path("story/menu.json"), "r", encoding="utf8")
-        __sn__ = json.loads(f.read())
-        f.close()
-    return __sn__.get(scene, "找不到场景名")
-
-
 class gk:
+    '''全局静态类'''
+    debug_para = {**character_para, **stroy_para}
     scene = ""
     paras = {}
     pos = 0
+    sn = {}
 
+    @staticmethod
+    def init():
+        f = open(res_path("story/menu.json"), "r", encoding="utf8")
+        gk.sn = json.loads(f.read())
+        f.close()
+        f = open(res_path("story/info.json"), "r", encoding="utf8")
+        gk.info_map = json.loads(f.read())
+        f.close()
+
+    @staticmethod
+    def default_para():
+        return gk.debug_para
+
+    @staticmethod
+    def sceneName(scene):
+        '''场景名'''
+        return gk.sn.get(scene, "找不到场景名")
+
+    @staticmethod
     def openPara(para_name):
         f = open(res_path("save/0.eks"), "r")
         p = json.loads(f.read())
@@ -92,12 +96,14 @@ class gk:
         f.write(json.dumps(p) + "\n")
         f.close()
 
+    @staticmethod
     def readPara(para_name):
         f = open(res_path("save/0.eks"), "r")
         p = json.loads(f.read())
         f.close()
         return p[para_name]
 
+    @staticmethod
     def fight():
         hp = gk.paras[TEMPORARY]
         hp += 3 * gk.paras[INTELLIGENCE]
@@ -109,13 +115,8 @@ class gk:
             hp -= random() * 16
         return hp > 0
 
-
-f = open(res_path("story/info.json"), "r", encoding="utf8")
-info_map = json.loads(f.read())
-f.close()
-
-
-def open_info_entry(name):
-    for i in info_map.keys():
-        if name in info_map[i]["scene"]:
-            gk.openPara(i)
+    @staticmethod
+    def open_info_entry(name):
+        for i in gk.info_map.keys():
+            if name in gk.info_map[i]["scene"]:
+                gk.openPara(i)

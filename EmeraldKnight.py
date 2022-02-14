@@ -10,6 +10,7 @@ from constant import GAME_OVER, res_path
 
 class EmeraldKnight:
     def __init__(self):
+        gk.init()
         self.kernel = kernel()
         self.scenetext = ""
         self.choices = []

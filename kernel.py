@@ -1,7 +1,7 @@
 import json, os
-from constant import gk, debug_para, default_para, sceneName, GAME_OVER, res_path, open_info_entry
+from constant import gk, GAME_OVER, res_path
 from choices import getChoice
-from abstract import choice_end, choice_unfinished
+from abstract import choice_end
 
 VERSION = "0.5"
 
@@ -16,7 +16,7 @@ class kernel:
     def load(self, name):
         if name == "0":
             gk.scene = "1-1"
-            gk.paras = default_para()
+            gk.paras = gk.default_para()
         else:
             k = "./save/"
             with open(k + name + ".eks", "r") as f:
@@ -34,7 +34,7 @@ class kernel:
             f.write(json.dumps(j))
 
     def getSceneName(self, s):
-        return sceneName(s)
+        return gk.sceneName(s)
 
     def loadScene(self):
         if gk.scene == GAME_OVER:
@@ -54,6 +54,6 @@ class kernel:
                 return scenetext, [choice_end()]
 
     def refresh(self):
-        for i in debug_para.keys():
+        for i in gk.debug_para.keys():
             if i not in gk.paras:
                 gk.paras[i] = 0
