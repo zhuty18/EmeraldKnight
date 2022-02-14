@@ -37,35 +37,6 @@ class c5_2_4(choice_abstract):
 class c5_3_1(choice_abstract):
     target = "5-13"
 
-    def show(self):
-        return gk.paras[TEMPORARY] % 2 == 0
-
-    def chosen(self):
-        gk.paras[TEMPORARY] += 1
-        return super().chosen()
-
-
-class c5_3_2(choice_abstract):
-    target = "5-14"
-
-    def show(self):
-        return (gk.paras[TEMPORARY] >> 1) % 2 == 0
-
-    def chosen(self):
-        gk.paras[TEMPORARY] += 2
-        return super().chosen()
-
-
-class c5_3_3(choice_abstract):
-    target = "5-15"
-
-    def show(self):
-        return gk.paras[TEMPORARY] == 3
-
-    def chosen(self):
-        gk.paras[TEMPORARY] = 0
-        return super().chosen()
-
 
 class c5_4_1(choice_abstract):
     target = "5-9"
@@ -76,10 +47,6 @@ class c5_4_2(choice_abstract):
 
 
 class c5_4_3(choice_abstract):
-    target = "5-11"
-
-
-class c5_4_4(choice_abstract):
     target = "5-12"
 
 
@@ -90,7 +57,22 @@ class c5_8_1(choice_abstract):
         return "走吧"
 
 
+class c5_10_1(choice_abstract):
+    target = "5-11"
+
+
+class c5_13_1(choice_abstract):
+    target = "5-14"
+
+
+class c5_14_1(choice_abstract):
+    target = "5-15"
+
+
 class c5_15_1(choice_abstract):
+    def text(self):
+        return "主建筑"
+
     def chosen(self):
         gk.pos = 1
 
@@ -120,6 +102,9 @@ class c5_15_1_3(choice_abstract):
 
 
 class c5_15_2(choice_abstract):
+    def text(self):
+        return "东塔楼"
+
     def chosen(self):
         gk.pos = 2
 
@@ -144,6 +129,9 @@ class c5_15_2_2(choice_abstract):
 
 
 class c5_15_3(choice_abstract):
+    def text(self):
+        return "西塔楼"
+
     def chosen(self):
         gk.pos = 3
 
@@ -195,3 +183,7 @@ class c5_16_1(choice_abstract):
 
 class c5_18_1(choice_abstract):
     target = "5-28"
+
+    def chosen(self):
+        gk.paras[TEMPORARY] = 0
+        return super().chosen()

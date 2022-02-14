@@ -22,12 +22,21 @@ class s5_2(scene_abstract):
             return [c5_2_3()]
 
 
-class s5_3(scene_abstract):
-    options = [c5_3_1, c5_3_2, c5_3_3]
-
 
 class s5_4(scene_abstract):
-    options = [c5_4_1, c5_4_2, c5_4_3]
+    def load(self):
+        if gk.paras[BRUCE_LOVE] >= 4:
+            return [c5_4_1()]
+        else:
+            return [c5_4_2()]
+
+
+class s5_10(scene_abstract):
+    def load(self):
+        if gk.paras[BRUCE_SHOW_UP] == 1:
+            return [c5_10_1()]
+        else:
+            return [c5_4_3()]
 
 
 class s5_15(scene_abstract):
