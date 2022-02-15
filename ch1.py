@@ -118,7 +118,7 @@ class s1_49(scene_abstract):
 
 class s1_52(scene_abstract):
     def load(self):
-        if gk.paras[CREDIT] > 0:
+        if gk.paras[KNOWLEDGE] > 0:
             return [c1_52_1()]
         else:
             return [c1_52_2()]

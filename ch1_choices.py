@@ -78,12 +78,16 @@ class c1_6_2(choice_abstract):
     target = "1-18"
 
     def chosen(self):
-        gk.paras[CREDIT] += 3
+        gk.paras[KNOWLEDGE] += 3
         return super().chosen()
 
 
 class c1_7_1(choice_abstract):
     target = "1-14"
+
+    def chosen(self):
+        gk.paras[KNOWLEDGE] += 2
+        return super().chosen()
 
 
 class c1_7_2(choice_abstract):

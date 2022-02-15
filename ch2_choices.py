@@ -9,6 +9,7 @@ class c2_1_1(choice_abstract):
         return gk.paras[TEMPORARY] % 2 == 0
 
     def chosen(self):
+        gk.paras[KNOWLEDGE] += 1
         gk.paras[TEMPORARY] += 1
         return super().chosen()
 
@@ -20,6 +21,7 @@ class c2_1_2(choice_abstract):
         return (gk.paras[TEMPORARY] >> 1) % 2 == 0
 
     def chosen(self):
+        gk.paras[KNOWLEDGE] += 1
         gk.paras[TEMPORARY] += 2
         return super().chosen()
 
@@ -31,6 +33,7 @@ class c2_1_3(choice_abstract):
         return (gk.paras[TEMPORARY] >> 2) % 2 == 0
 
     def chosen(self):
+        gk.paras[KNOWLEDGE] += 1
         gk.paras[TEMPORARY] += 4
         return super().chosen()
 
@@ -42,6 +45,7 @@ class c2_1_4(choice_abstract):
         return gk.paras[TEMPORARY] == 7
 
     def chosen(self):
+        gk.paras[KNOWLEDGE] += 1
         gk.paras[TEMPORARY] = 0
         return super().chosen()
 
@@ -121,7 +125,7 @@ class c2_10_2(choice_abstract):
     target = "2-14"
 
     def chosen(self):
-        gk.paras[CREDIT] += 2
+        gk.paras[KNOWLEDGE] += 2
         return super().chosen()
 
 
@@ -180,9 +184,17 @@ class c2_14_2(choice_abstract):
 class c2_15_1(choice_abstract):
     target = "2-16"
 
+    def chosen(self):
+        gk.paras[TEAMMATE] = 0
+        return super().chosen()
+
 
 class c2_16_1(choice_abstract):
     target = "3-3"
+
+    def chosen(self):
+        gk.paras[KNOWLEDGE] += 2
+        return super().chosen()
 
 
 class c2_20_1(choice_abstract):

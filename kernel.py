@@ -16,6 +16,7 @@ class kernel:
     def load(self, name):
         if name == "0":
             gk.scene = "1-1"
+            gk.paras = gk.default_para()
         else:
             k = "./save/"
             with open(k + name + ".eks", "r") as f:

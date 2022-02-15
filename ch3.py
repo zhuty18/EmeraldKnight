@@ -121,7 +121,7 @@ class s3_61(scene_abstract):
 
 
 class s3_62(scene_abstract):
-    options = [c3_62_1, c3_62_2, c3_60_2]
+    options = [c3_62_1, c3_62_2, c3_62_3]
 
 
 class s3_65(scene_abstract):

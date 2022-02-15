@@ -1,3 +1,4 @@
+from copy import deepcopy
 import json
 from random import random
 
@@ -16,7 +17,7 @@ KNOWLEDGE = "knw"
 INTELLIGENCE = "int"
 TEMPORARY = "tmp"
 PROPS = "pro"
-CREDIT = "cre"
+# CREDIT = "cre"
 PEGASUS = "pgs"
 
 TEAMMATE = "tmm"
@@ -45,7 +46,6 @@ stroy_para = {
     INTELLIGENCE: 0,
     TEMPORARY: 0,
     PROPS: 0,
-    CREDIT: 0,
     PEGASUS: 0,
 }
 
@@ -76,11 +76,10 @@ class gk:
         f = open(res_path("story/info.json"), "r", encoding="utf8")
         gk.info_map = json.loads(f.read())
         f.close()
-        gk.paras = gk.default_para()
 
     @staticmethod
     def default_para():
-        return gk.debug_para
+        return deepcopy(gk.debug_para)
 
     @staticmethod
     def choiceName(scene):

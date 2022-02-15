@@ -22,7 +22,7 @@ class s2_8(scene_abstract):
     options = [c2_8_1, c2_8_2]
 
     def load(self):
-        if gk.paras[KNOWLEDGE] == 1 and gk.scene != "2-12":
+        if gk.paras[KNOWLEDGE] == 4 and gk.scene != "2-12":
             return [c2_8_3()]
         else:
             return super().load()

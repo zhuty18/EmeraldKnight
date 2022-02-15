@@ -17,6 +17,10 @@ class c3_1_2(choice_abstract):
 class c3_2_1(choice_abstract):
     target = "3-31"
 
+    def chosen(self):
+        gk.paras[KNOWLEDGE] += 3
+        return super().chosen()
+
 
 class c3_2_2(choice_abstract):
     target = "3-41"
@@ -32,6 +36,10 @@ class c3_3_1(choice_abstract):
 
 class c3_4_1(choice_abstract):
     target = "3-50"
+
+    def chosen(self):
+        gk.paras[KNOWLEDGE] += 1
+        return super().chosen()
 
 
 class c3_4_2(choice_abstract):
@@ -353,6 +361,7 @@ class c3_35_6(choice_abstract):
         gk.paras[PROPS] = 0
         gk.paras[TEMPORARY] = 0
         gk.paras[PEGASUS] = 1
+        gk.paras[INTELLIGENCE] += 3
         return super().chosen()
 
 
@@ -510,6 +519,10 @@ class c3_44_1(choice_abstract):
 class c3_45_1(choice_abstract):
     target = "3-46"
 
+    def chosen(self):
+        gk.paras[INTELLIGENCE] += 1
+        return super().chosen()
+
 
 class c3_45_2(choice_abstract):
     target = "3-47"
@@ -605,7 +618,7 @@ class c3_52_5(choice_abstract):
 
     def chosen(self):
         gk.paras[TEMPORARY] += 16
-        gk.paras[KNOWLEDGE] += 2
+        gk.paras[KNOWLEDGE] += 1
         return super().chosen()
 
 
@@ -668,6 +681,14 @@ class c3_60_1(choice_abstract):
 
 
 class c3_60_2(choice_abstract):
+    target = "3-63"
+
+    def chosen(self):
+        gk.paras[TEMPORARY] = 1
+        return super().chosen()
+
+
+class c3_62_3(choice_abstract):
     target = "3-63"
 
     def text(self):
@@ -752,10 +773,10 @@ class c3_66_3(choice_abstract):
     target = "5-1"
 
     def text(self):
-        return "左转"
+        return "右转"
 
     def chosen(self):
-        gk.paras[INTELLIGENCE] += 3
+        gk.paras[INTELLIGENCE] += 2
         return super().chosen()
 
 

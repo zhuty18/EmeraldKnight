@@ -93,10 +93,11 @@ class EmeraldKnight:
                     try:
                         t = time.localtime(j['time'])
                     except KeyError:
-                        j['time'] = os.path.getctime(fn)
+                        j['time'] = os.path.getmtime(fn)
                         t = time.localtime(j['time'])
                     s += time.strftime("%m.%d\t%H:%M", t)
                     s += "\n"
+                    s += sc + "\t"
                     s += self.kernel.getChapter(sc)
                     btn.setText(s)
                     btn.clicked.connect(partial(self.pick, k))
