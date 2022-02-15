@@ -1,4 +1,4 @@
-import json, os
+import json, os, time
 from constant import gk, GAME_OVER, res_path
 from choices import getChoice
 from abstract import choice_end
@@ -31,6 +31,7 @@ class kernel:
             j = json.loads('{}')
             j['scene'] = gk.scene
             j['paras'] = gk.paras
+            j['time'] = time.time()
             f.write(json.dumps(j))
 
     def getSceneName(self, s):
@@ -57,3 +58,20 @@ class kernel:
         for i in gk.debug_para.keys():
             if i not in gk.paras:
                 gk.paras[i] = 0
+
+    def getChapter(self, s):
+        ch = s.split('-')[0]
+        if ch == "end":
+            return "结局\t" + self.getSceneName(s)
+        if ch == "1":
+            return "第一章\t出发"
+        elif ch == "2":
+            return "第二章\t传说"
+        elif ch == "3":
+            return "第三章\t雪山"
+        elif ch == "4":
+            return "第四章\t远方"
+        elif ch == "5":
+            return "第五章\t危城"
+        elif ch == "6":
+            return "第六章\t孤光"

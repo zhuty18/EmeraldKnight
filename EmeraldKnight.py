@@ -1,5 +1,5 @@
 from functools import partial
-import json
+import json, time
 import PySide2.QtWidgets as qt
 import PySide2.QtCore as core
 import PySide2.QtGui as gui
@@ -87,15 +87,22 @@ class EmeraldKnight:
                 try:
                     with open("save/" + str(k) + ".eks", "r") as f:
                         j = json.loads(f.read())
-                        s = j['scene']
-                        s = "存档" + str(k) + "\t" + s + "\t" + self.kernel.getSceneName(s)
+                        sc = j['scene']
+                        s = "存档" + str(k) + "\t"
+                        try:
+                            t = j['time']
+                        except KeyError:
+                            j['time'] = time.time()
+                        s += time.strftime("%m.%d\t%H:%M", time.localtime(j['time']))
+                        s += "\n"
+                        s += self.kernel.getChapter(sc)
                         btn.setText(s)
                         btn.clicked.connect(partial(self.pick, k))
                 except FileNotFoundError:
                     s = "空存档"
                     btn.setText(s)
                     btn.clicked.connect(partial(self.pick, k))
-                btn.setMinimumSize(160, 20)
+                btn.setMinimumSize(140, 36)
                 v_layout.addWidget(btn)
             saves_layout.addLayout(v_layout)
             v_layout = qt.QVBoxLayout()
