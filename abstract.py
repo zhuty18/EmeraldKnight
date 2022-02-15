@@ -5,7 +5,7 @@ class choice_abstract:
     target = ""
 
     def text(self):
-        return gk.sceneName(self.target)
+        return gk.choiceName(self.target)
 
     def show(self):
         return True

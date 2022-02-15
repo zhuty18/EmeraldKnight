@@ -16,7 +16,6 @@ class kernel:
     def load(self, name):
         if name == "0":
             gk.scene = "1-1"
-            gk.paras = gk.default_para()
         else:
             k = "./save/"
             with open(k + name + ".eks", "r") as f:
@@ -33,9 +32,6 @@ class kernel:
             j['paras'] = gk.paras
             j['time'] = time.time()
             f.write(json.dumps(j))
-
-    def getSceneName(self, s):
-        return gk.sceneName(s)
 
     def loadScene(self):
         if gk.scene == GAME_OVER:
@@ -54,6 +50,7 @@ class kernel:
                 scenetext = "抱歉，这儿还没写呢。请先存档。"
                 return scenetext, [choice_end()]
 
+    # 不安全
     def refresh(self):
         for i in gk.debug_para.keys():
             if i not in gk.paras:
@@ -62,7 +59,7 @@ class kernel:
     def getChapter(self, s):
         ch = s.split('-')[0]
         if ch == "end":
-            return "结局\t" + self.getSceneName(s)
+            return "结局\t" + gk.choiceName(s)
         if ch == "1":
             return "第一章\t出发"
         elif ch == "2":

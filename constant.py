@@ -76,15 +76,16 @@ class gk:
         f = open(res_path("story/info.json"), "r", encoding="utf8")
         gk.info_map = json.loads(f.read())
         f.close()
+        gk.paras = gk.default_para()
 
     @staticmethod
     def default_para():
         return gk.debug_para
 
     @staticmethod
-    def sceneName(scene):
-        '''场景名'''
-        return gk.sn.get(scene, "找不到场景名")
+    def choiceName(scene):
+        '''选项名'''
+        return gk.sn.get(scene, "找不到选项名")
 
     @staticmethod
     def openPara(para_name):

@@ -12,7 +12,6 @@ class EmeraldKnight:
     def __init__(self):
         gk.init()
         self.kernel = kernel()
-        self.scenetext = ""
         self.choices = []
         self.loading = False
         self.saving = True
@@ -54,7 +53,8 @@ class EmeraldKnight:
 
     def hello(self):
         #1afa29
-        hello_str = "<font size=7 face='华文隶书' color='#25ee79'>翡翠骑士<br></font><font size=2>v" + VERSION + "<br><br></font>"
+        hello_str = "<font size=7 face='华文隶书' color='#25ee79'>翡翠骑士<br>"
+        hello_str += "</font><font size=2>v" + VERSION + "<br><br></font>"
         hello_str += "<font size=3 face='华文仿宋'>"
         hello_str += "雪山之巅&nbsp;&nbsp;英魂渐远<br>"
         hello_str += "危城影下&nbsp;&nbsp;一念不灭<br>"
@@ -84,20 +84,22 @@ class EmeraldKnight:
             for i in range(1, 11):
                 k = i + l * 10
                 btn = qt.QPushButton()
+                fn = "save/" + str(k) + ".eks"
                 try:
-                    with open("save/" + str(k) + ".eks", "r") as f:
+                    with open(fn, "r") as f:
                         j = json.loads(f.read())
-                        sc = j['scene']
-                        s = "存档" + str(k) + "\t"
-                        try:
-                            t = j['time']
-                        except KeyError:
-                            j['time'] = time.time()
-                        s += time.strftime("%m.%d\t%H:%M", time.localtime(j['time']))
-                        s += "\n"
-                        s += self.kernel.getChapter(sc)
-                        btn.setText(s)
-                        btn.clicked.connect(partial(self.pick, k))
+                    sc = j['scene']
+                    s = "存档" + str(k) + "\t"
+                    try:
+                        t = time.localtime(j['time'])
+                    except KeyError:
+                        j['time'] = os.path.getctime(fn)
+                        t = time.localtime(j['time'])
+                    s += time.strftime("%m.%d\t%H:%M", t)
+                    s += "\n"
+                    s += self.kernel.getChapter(sc)
+                    btn.setText(s)
+                    btn.clicked.connect(partial(self.pick, k))
                 except FileNotFoundError:
                     s = "空存档"
                     btn.setText(s)
@@ -139,7 +141,7 @@ class EmeraldKnight:
             except FileNotFoundError:
                 pass
         if havesave:
-            self.saving = True
+            self.saving = False
             self.loading = True
             self.pickSave()
         else:
@@ -147,7 +149,7 @@ class EmeraldKnight:
             m.critical(self.main, "警告！", "当前无可用存档！")
 
     def saveGame(self):
-        if self.scenetext == "":
+        if gk.scene == "0":
             m = qt.QMessageBox(self.main)
             m.critical(self.main, "警告！", "还没有进入游戏！")
         else:
@@ -163,15 +165,15 @@ class EmeraldKnight:
         self.loadScene()
 
     def loadScene(self):
-        self.scenetext, self.choices = self.kernel.loadScene()
-        if self.scenetext == GAME_OVER:
+        st, self.choices = self.kernel.loadScene()
+        if st == GAME_OVER:
             self.hello()
         else:
             game_layout = qt.QVBoxLayout()
-            self.scenetext = self.scenetext.replace("  ", "&nbsp;")
-            self.scenetext = self.scenetext.replace("\n", "<br>")
-            self.scenetext = "<p style='line-height:120%'>" + self.scenetext + "</p>"
-            text = qt.QLabel(self.scenetext)
+            st = st.replace("  ", "&nbsp;")
+            st = st.replace("\n", "<br>")
+            st = "<p style='line-height:120%'>" + st + "</p>"
+            text = qt.QLabel(st)
             text.setFont(self.font)
             text.setWordWrap(True)
             text.setAlignment(core.Qt.AlignTop)
@@ -190,7 +192,7 @@ class EmeraldKnight:
 
     def tips(self):
         m = qt.QMessageBox(self.main)
-        m.information(self.main, "提示", "现在还处于开发阶段，旧版本的存档可能无法在新存档中继续使用。")
+        m.information(self.main, "提示", "现在还处于开发阶段，游戏中可能有BUG。")
 
     def choose(self, c):
         self.choices[c].chosen()
@@ -205,7 +207,8 @@ class EmeraldKnight:
         s += "QQ: 34409508988<br>"
         s += "邮箱：13718054285@163.com<br><br>"
         s += "游戏地址：<br>"
-        s += "<a href=\"https://github.com/zhuty18/EmeraldKnight\">github.com/zhuty18/EmeraldKnight</a>"
+        s += "<a href=\"https://github.com/zhuty18/EmeraldKnight\">"
+        s += "github.com/zhuty18/EmeraldKnight</a>"
         about = qt.QDialog()
         about.setWindowTitle("游戏信息")
         layout = qt.QVBoxLayout()
