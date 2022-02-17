@@ -18,16 +18,16 @@ class kernel:
             gk.scene = "1-1"
             gk.paras = gk.default_para()
         else:
-            k = "./save/"
-            with open(k + name + ".eks", "r") as f:
+            k = "./save/" + name + ".eks"
+            with open(res_path(k), "r") as f:
                 j = json.loads(f.read())
                 gk.scene = j['scene']
                 gk.paras = j['paras']
             self.refresh()
 
     def save(self, name):
-        k = "./save/"
-        with open(k + name + ".eks", "w") as f:
+        k = "./save/" + name + ".eks"
+        with open(res_path(k), "w") as f:
             j = json.loads('{}')
             j['scene'] = gk.scene
             j['paras'] = gk.paras

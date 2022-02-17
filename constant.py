@@ -1,6 +1,8 @@
 from copy import deepcopy
-import json
+import json, os
 from random import random
+
+DEBUG = False
 
 BRUCE_STORY_LINE = "bsl"
 BRUCE_SHOW_UP = "bsu"
@@ -17,7 +19,6 @@ KNOWLEDGE = "knw"
 INTELLIGENCE = "int"
 TEMPORARY = "tmp"
 PROPS = "pro"
-# CREDIT = "cre"
 PEGASUS = "pgs"
 
 TEAMMATE = "tmm"
@@ -52,11 +53,11 @@ stroy_para = {
 
 def res_path(fn):
     '''相关文件路径'''
-    import sys, os
-    if getattr(sys, 'frozen', False):  #是否Bundle Resource
-        root = sys._MEIPASS
-    else:
+    if DEBUG:
         root = os.path.abspath(".")
+    else:
+        root = os.getenv("APPDATA")
+        root = os.path.join(root, "EmeraldKnight")
     return os.path.join(root, fn)
 
 
@@ -76,6 +77,14 @@ class gk:
         f = open(res_path("story/info.json"), "r", encoding="utf8")
         gk.info_map = json.loads(f.read())
         f.close()
+        if not os.path.exists(res_path("save")):
+            os.makedirs(res_path("save"))
+        try:
+            open(res_path("save/0.eks"), "r")
+        except FileNotFoundError:
+            f = open(res_path("save/0.eks"), "w")
+            f.write("{}")
+            f.close()
 
     @staticmethod
     def default_para():

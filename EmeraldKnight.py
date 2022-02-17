@@ -1,10 +1,10 @@
 from functools import partial
-import json, time
+import json, time, os
 import PySide2.QtWidgets as qt
 import PySide2.QtCore as core
 import PySide2.QtGui as gui
 
-from kernel import kernel, VERSION, gk
+from kernel import kernel, VERSION, gk, DEBUG
 from constant import GAME_OVER, res_path
 
 
@@ -40,8 +40,9 @@ class EmeraldKnight:
         exit.triggered.connect(self.exitGame)
         # exit = menu.addAction("刷新存档")
         # exit.triggered.connect(self.refresh)
-        exit = menu.addAction("打印变量")
-        exit.triggered.connect(self.debug)
+        if DEBUG:
+            exit = menu.addAction("打印变量")
+            exit.triggered.connect(self.debug)
         exit = menu.addAction("关于")
         exit.triggered.connect(self.about)
 
@@ -85,6 +86,7 @@ class EmeraldKnight:
                 k = i + l * 10
                 btn = qt.QPushButton()
                 fn = "save/" + str(k) + ".eks"
+                fn = res_path(fn)
                 try:
                     with open(fn, "r") as f:
                         j = json.loads(f.read())
@@ -118,7 +120,8 @@ class EmeraldKnight:
         self.dia.close()
         if self.loading:
             try:
-                open("save/" + str(i) + ".eks", "r")
+                fn = res_path("save/" + str(i) + ".eks")
+                open(fn, "r")
                 self.loading = False
                 # print("读档"+str(i))
                 self.startGame(str(i))
@@ -135,9 +138,10 @@ class EmeraldKnight:
 
     def loadGame(self):
         havesave = False
-        for i in range(1, 11):
+        for i in range(1, 31):
             try:
-                open("save/" + str(i) + ".eks", "r")
+                fn = res_path("save/" + str(i) + ".eks")
+                open(fn, "r")
                 havesave = True
             except FileNotFoundError:
                 pass
@@ -225,10 +229,6 @@ class EmeraldKnight:
         print(gk.scene)
         print(gk.paras)
 
-
-import os
-if not os.path.exists('./save'):
-    os.makedirs('./save')
 
 ek = EmeraldKnight()
 ek.app.exec_()
