@@ -2,7 +2,7 @@ from copy import deepcopy
 import json, os
 from random import random
 
-DEBUG = False
+DEBUG = True
 
 BRUCE_STORY_LINE = "bsl"
 BRUCE_SHOW_UP = "bsu"

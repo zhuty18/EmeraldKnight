@@ -234,7 +234,7 @@ class c4_25_1(choice_abstract):
     target = "4-27"
 
     def show(self):
-        return (gk.paras[SINESTRO_LOVE] == 8) and (gk.paras[SINESTRO_TAME] == 8)
+        return gk.paras[SINESTRO_TAME] == 8
 
 
 class c4_25_2(choice_abstract):
@@ -250,12 +250,12 @@ class c4_25_3(choice_abstract):
     def text(self):
         return "怎么了？"
 
-    def show(self):
-        return gk.paras[SINESTRO_TAME] < 8
-
 
 class c4_27_1(choice_abstract):
     target = "end-11"
+
+    def show(self):
+        return gk.paras[SINESTRO_LOVE] == 8
 
     def text(self):
         return "再给他一次机会"

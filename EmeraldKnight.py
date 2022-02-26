@@ -4,8 +4,8 @@ import PySide2.QtWidgets as qt
 import PySide2.QtCore as core
 import PySide2.QtGui as gui
 
-from kernel import kernel, VERSION, gk, DEBUG
-from constant import GAME_OVER, res_path
+from kernel import kernel, VERSION, gk
+from constant import GAME_OVER, res_path, DEBUG
 
 
 class EmeraldKnight:
@@ -99,7 +99,8 @@ class EmeraldKnight:
                         t = time.localtime(j['time'])
                     s += time.strftime("%m.%d\t%H:%M", t)
                     s += "\n"
-                    s += sc + "\t"
+                    if DEBUG:
+                        s += sc + "\t"
                     s += self.kernel.getChapter(sc)
                     btn.setText(s)
                     btn.clicked.connect(partial(self.pick, k))
@@ -143,6 +144,7 @@ class EmeraldKnight:
                 fn = res_path("save/" + str(i) + ".eks")
                 open(fn, "r")
                 havesave = True
+                break
             except FileNotFoundError:
                 pass
         if havesave:
