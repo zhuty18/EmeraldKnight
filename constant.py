@@ -20,6 +20,7 @@ INTELLIGENCE = "int"
 TEMPORARY = "tmp"
 PROPS = "pro"
 PEGASUS = "pgs"
+DRAGON_EGG = "dge"
 
 TEAMMATE = "tmm"
 BRUCE_CODE = 1
@@ -48,6 +49,7 @@ stroy_para = {
     TEMPORARY: 0,
     PROPS: 0,
     PEGASUS: 0,
+    DRAGON_EGG: 0,
 }
 
 
