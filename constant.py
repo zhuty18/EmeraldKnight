@@ -29,6 +29,7 @@ OLIVER_CODE = 3
 BARRY_CODE = 4
 
 GAME_OVER = "game over"
+FINAL_BATTLE = "final_battle"
 
 character_para = {
     BRUCE_STORY_LINE: 0,

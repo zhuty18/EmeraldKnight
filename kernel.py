@@ -1,9 +1,9 @@
 import json, os, time
-from constant import gk, GAME_OVER, res_path
+from constant import gk, GAME_OVER, res_path, FINAL_BATTLE
 from choices import getChoice
 from abstract import choice_end
 
-VERSION = "0.5"
+VERSION = "0.6"
 
 
 class kernel:
@@ -34,9 +34,11 @@ class kernel:
             j['time'] = time.time()
             f.write(json.dumps(j))
 
-    def loadScene(self):
+    def loadScene(self) -> tuple[str, list]:
         if gk.scene == GAME_OVER:
             return GAME_OVER, []
+        elif gk.scene == FINAL_BATTLE:
+            pass
         else:
             try:
                 fn = os.path.join("story", gk.scene + ".txt")
