@@ -88,7 +88,7 @@ class s5_44(scene_abstract):
 
 
 class s5_47(scene_abstract):
-    options = [c5_47_1, c5_47_2, c5_47_3]
+    options = [c5_47_1, c5_47_4, c5_47_2, c5_47_3]
 
 
 class s5_53(scene_abstract):

@@ -392,6 +392,13 @@ class c5_47_3(choice_abstract):
         return (gk.paras[TEMPORARY] >> 3) % 2 == 0
 
 
+class c5_47_4(choice_abstract):
+    target = "5-64"
+
+    def show(self):
+        return ((gk.paras[TEMPORARY] >> 3) % 2 == 1) and ((gk.paras[TEMPORARY] >> 2) % 2 == 0)
+
+
 class c5_48_1(choice_abstract):
     target = "5-52"
 
