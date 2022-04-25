@@ -23,7 +23,9 @@ class move:
         if random.randint(0, 500) < dodge:
             return 0, "被躲开了！"
         else:
-            r = int(src.attack * multiplier)
+            attack = src.attack
+            attack *= 0.8 + 0.4 * random.random()
+            r = int(attack * multiplier)
             return r, "造成了%d点伤害！" % r
 
 
@@ -48,19 +50,20 @@ class sinestro(character):
                 return self.special_attack
 
     def plain_attack(self, hal: character) -> str:
-        r, m = move.hurt(self, hal, 0.05)
+        r, m = move.hurt(self, hal, 0.1)
         hal.life -= r
         return "魔王向你发动进攻，" + m
 
     def special_attack(self, hal: character) -> str:
-        r, m = move.hurt(self, hal, 0.15)
+        r, m = move.hurt(self, hal, 0.30)
         hal.life -= r
         return "魔王对你使用了魔法，" + m
 
     def treat(self, hal: character) -> str:
-        self.life += 150
+        tmp = random.randint(120, 180)
+        self.life += tmp
         self.blood += 1
-        return "魔王身上黑雾攒动，回复了150点体力！"
+        return "魔王身上黑雾攒动，回复了%d点体力！" % tmp
 
 
 class hal(character):
@@ -86,25 +89,27 @@ class hal(character):
         return res
 
     def plain_attack(self, sinestro: character) -> str:
-        r, m = move.hurt(self, sinestro, 0.10)
+        r, m = move.hurt(self, sinestro, 0.20)
         sinestro.life -= r
         return "你向魔王发动进攻，" + m
 
     def special_attack(self, sinestro: character) -> str:
-        r, m = move.hurt(self, sinestro, 0.15)
+        r, m = move.hurt(self, sinestro, 0.30)
         sinestro.life -= r
         return "你借助飞马对魔王发起奇袭，" + m
 
     def sword_attack(self, sinestro: character) -> str:
         r, m = move.hurt(self, sinestro, 0.50)
         sinestro.life -= r
-        self.life -= 10
-        return "翡翠剑面对魔王放出强光，消耗了你的10点体力，" + m
+        tmp = random.randint(5, 15)
+        self.life -= tmp
+        return "翡翠剑面对魔王放出强光，消耗了你的%d点体力，" % tmp + m
 
     def treat(self, sinestro: character) -> str:
-        self.life += 30
+        tmp = random.randint(30, 50)
+        self.life += tmp
         self.blood += 1
-        return "你喝下治疗药水，回复了30点体力！"
+        return "你喝下治疗药水，回复了%d点体力！" % tmp
 
 
 class battle_choice(choice_abstract):
