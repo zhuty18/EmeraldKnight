@@ -1,4 +1,3 @@
-from matplotlib.pyplot import cla
 from ch5_choices import *
 from abstract import scene_abstract
 

@@ -2,6 +2,7 @@ from functools import partial
 from constant import *
 import random
 from abstract import choice_abstract
+from ending import end_choice, end_scene
 
 
 class character:
@@ -11,6 +12,9 @@ class character:
 
     def round(self):
         pass
+
+    def is_dead(self):
+        return self.life <= 0
 
 
 class move:
@@ -128,24 +132,27 @@ class battle:
             res.append(c)
         return res
 
-    def first_round(self):
+    def status(self):
         text = "魔王\nHP: %d / 500\n" % (self.sinestro.life)
         text += "\n\n"
-        text += "                              你\n"
+        text += " " * 46 + "你\n"
         s = "HP: %d" % self.hal.life
-        text += " " * (32 - len(s)) + s + "\n"
+        text += " " * (48 - len(s)) + s + "\n"
         text += "\n\n"
+        return text
+
+    def first_round(self):
+        text = self.status()
         text += "这场决定大陆未来的战斗，开始了！"
         return text, self.choices()
 
     def round(self):
         s_m = self.sinestro.take_act()(self.hal)
-        text = "魔王\nHP: %d / 500\n" % (self.sinestro.life)
-        text += "\n\n"
-        text += "                              你\n"
-        s = "HP: %d" % self.hal.life
-        text += " " * (32 - len(s)) + s + "\n"
-        text += "\n\n"
-        text += self.hal_text
-        text += "\n"
-        text += s_m.describe
+        text = self.status()
+        text += self.hal_text + "\n"
+        if self.sinestro.is_dead():
+            return text + "TODO", end_scene().load()
+        text += s_m
+        if self.hal.is_dead():
+            return text + "TODO2", [end_choice()]
+        return text, self.choices()

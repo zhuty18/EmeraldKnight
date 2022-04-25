@@ -1,4 +1,5 @@
 import json, os, time
+from battle import battle
 from constant import gk, GAME_OVER, res_path, FINAL_BATTLE
 from choices import getChoice
 from abstract import choice_end
@@ -9,6 +10,7 @@ VERSION = "0.6"
 class kernel:
     def __init__(self):
         gk.scene = "0"
+        self.battle=None
 
     def getChoice(self):
         return getChoice(gk.scene)
@@ -38,7 +40,11 @@ class kernel:
         if gk.scene == GAME_OVER:
             return GAME_OVER, []
         elif gk.scene == FINAL_BATTLE:
-            pass
+            if self.battle == None:
+                self.battle = battle()
+                return self.battle.first_round()
+            else:
+                return self.battle.round()
         else:
             try:
                 fn = os.path.join("story", gk.scene + ".txt")
