@@ -396,10 +396,6 @@ class c1_40_1(choice_abstract):
 
     def chosen(self):
         gk.paras[SWORD_HOT_TIME] += 1
-        if gk.paras[BRUCE_SHOW_UP] == 1:
-            gk.paras[BRUCE_LOVE] += 10
-        else:
-            gk.paras[BRUCE_LOVE] += 4
         return super().chosen()
 
 
@@ -437,12 +433,26 @@ class c1_41_2(choice_abstract):
 class c1_41_3(choice_abstract):
     target = "1-44"
 
+    def show(self):
+        return gk.paras[BRUCE_SHOW_UP] == 0
+
+    def chosen(self):
+        gk.paras[BRUCE_LOVE] += 4
+        return super().chosen()
+
 
 class c1_41_4(choice_abstract):
     target = "1-46"
 
     def text(self):
         return "那个人呢？"
+
+    def show(self):
+        return gk.paras[BRUCE_SHOW_UP] == 1
+
+    def chosen(self):
+        gk.paras[BRUCE_LOVE] += 10
+        return super().chosen()
 
 
 class c1_49_1(choice_abstract):

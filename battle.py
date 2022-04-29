@@ -38,16 +38,18 @@ class sinestro(character):
         self.life = 500
         self.blood = 0
 
-    def take_act(self):
+    def take_act(self, target: character):
+        res = None
         if self.blood == 0 and self.life < 250:
-            return self.treat
+            res = self.treat
         elif self.blood == 1 and self.life < 100:
-            return self.treat
+            res = self.treat
         else:
             if random.random() < 0.67:
-                return self.plain_attack
+                res = self.plain_attack
             else:
-                return self.special_attack
+                res = self.special_attack
+        return res(target)
 
     def plain_attack(self, hal: character) -> str:
         r, m = move.hurt(self, hal, 0.1)
@@ -152,7 +154,7 @@ class battle:
         return text, self.choices()
 
     def round(self):
-        s_m = self.sinestro.take_act()(self.hal)
+        s_m = self.sinestro.take_act(self.hal)
         text = self.status()
         text += self.hal_text + "\n"
         if self.sinestro.is_dead():

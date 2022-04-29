@@ -101,11 +101,7 @@ class s1_40(scene_abstract):
 
 
 class s1_41(scene_abstract):
-    def load(self):
-        if gk.paras[BRUCE_SHOW_UP] == 1:
-            return [c1_41_4()]
-        else:
-            return [c1_41_3()]
+    options=[c1_41_4,c1_41_3]
 
 
 class s1_46(scene_abstract):
