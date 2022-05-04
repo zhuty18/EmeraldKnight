@@ -19,4 +19,4 @@ class end_16(end_choice):
 
 
 class end_scene(scene_abstract):
-    options = [end_choice]
+    options = [end_16]

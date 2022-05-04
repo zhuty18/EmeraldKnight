@@ -31,7 +31,7 @@ class s1_7(scene_abstract):
 
 
 class s1_8(scene_abstract):
-    options = [c1_6_1, c1_8_2]
+    options = [c1_6_1, c1_8_1]
 
 
 class s1_11(scene_abstract):
@@ -55,7 +55,7 @@ class s1_17(scene_abstract):
 
 
 class s1_19(scene_abstract):
-    options = [c1_8_2, c1_19_2]
+    options = [c1_8_1, c1_19_1]
 
 
 class s1_24(scene_abstract):

@@ -94,7 +94,7 @@ class c1_7_2(choice_abstract):
     target = "1-17"
 
 
-class c1_8_2(choice_abstract):
+class c1_8_1(choice_abstract):
     target = "1-16"
 
     def text(self):
@@ -219,7 +219,7 @@ class c1_17_2(choice_abstract):
     target = "1-19"
 
 
-class c1_19_2(choice_abstract):
+class c1_19_1(choice_abstract):
     target = "1-15"
 
 
