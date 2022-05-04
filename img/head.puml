@@ -1,0 +1,126 @@
+@startuml head
+skinparam{
+    objectbackgroundColor White
+}
+hide empty members
+!function $wrap($text, $width=15)
+    !if %strlen($text) <= $width
+!$out = $text
+    !else
+        !$out = ""
+        !$pos = $width
+        !$cut = ""
+        !while %strlen($text) > $width
+            !$cut = $pos
+            !if $pos < 0
+                !$out = $out + %substr($text, 0, $width)
+                !$text = %substr($text, $width, %strlen($text) - $width +1)
+            !else
+                !$out = $out + %substr($text, 0, $cut)
+                !$text = %substr($text, $cut, %strlen($text) - $cut)
+            !endif
+            !if %strlen($text) > 0
+                !$out = $out + "\n"
+            !endif
+            !$pos = $width
+            !$cut = ""
+        !endwhile
+        !if %strlen($text) > 0
+            !$out = $out + $text
+        !endif
+    !endif
+!return $out
+!endfunction
+
+!function $node($ch,$index)
+!return $ch+"_"+$index
+!endfunction
+
+!function $node($ch,$index) return $ch+"_"+$index
+!function $node_near($index) return $node($now_at_ch,$index)
+!function $node_now() return $node($now_at_ch,$now_at_node)
+!function $node_end($index) return $node("end",$index)
+
+!function $choice($a,$b,$c=0)
+!if ($c==0)
+!return $a+"_"+$b
+!else
+!return $a+"_"+$b+"_"+$c
+!endif
+!endfunction
+
+!function $choice_near($b,$c) return $choice($node_near($b),$c)
+
+!procedure $tag($node,$name)
+    !if ($name == "end")
+$node <<(E,Red)>>
+class $node #LightBlue
+    !elseif ($name == "bruce")
+$node <<(B,Gold)>>
+class $node #LightGray
+    !elseif ($name=="sinestro")
+$node <<(S,Magenta)>>
+class $node #Gold
+    !endif
+!endprocedure
+
+!procedure $link($src,$dst,$index="None",$des="None",$type="None")
+    !$style=""
+    !if ($type=="bruce")
+        !$style="[thickness=2,#Gold]"
+    !elseif ($type=="sinestro")
+        !$style="[thickness=2,#Magenta]"
+    !endif
+    !if ($index=="None")
+$src -$style-> $dst
+    !elseif ($des=="None")
+$src -$style-> $dst:$index 
+    !else
+$src -$style-> $dst:$index\n$wrap($des,7)
+    !endif
+!endprocedure
+
+!procedure $link_this($dst,$index="None",$des="None",$type="None")
+$link($node_now(),$dst,$index,$des,$type)
+!endprocedure
+
+!procedure $link_self($dst,$des="None",$type="None")
+!if ($index=="None")
+$link($node_now(),$dst,$index,$des,$type)
+!else
+$link($node_now(),$dst,$choice($node_now(),$now_at_choice),$des,$type)
+!endif
+!$now_at_choice=$now_at_choice+1
+!endprocedure
+
+!procedure $new($node,$context,$type="None")
+    !if ($type=="None")
+object $node {
+    !else
+class $node {
+    !endif
+    $wrap($context)
+}
+$tag($node,$type)
+!endprocedure
+
+!procedure $new_there($context,$type="None")
+$new($node_now(),$context,$type)
+!endprocedure
+
+!procedure $new_end($index,$context)
+$new($node_end($index),$context,"end")
+!endprocedure
+
+!procedure $step($context,$type="None",$chapter=0)
+!if ($chapter==0)
+!$now_at_node=$now_at_node+1
+!$now_at_choice=1
+!else
+!$now_at_node=1
+!$now_at_ch=$chapter
+!$now_at_choice=1
+!endif
+$new_there($context,$type)
+!endprocedure
+@enduml
