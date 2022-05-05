@@ -34,7 +34,6 @@ $link_self($node_near(17),"回家睡觉")
 $step("摔晕了，醒来已经回到了小镇，巴里说是奥利把你送回来的")
 $link_self($node_near(16),"找人带路去龙骨雪山")
 $link_this($node_near(52),$choice_near(6,1),"去见他")
-1_8-->1_16:1-8-2\n找人带路去龙骨雪山
 $step("驯化度-")
 $link_this($node_near(11),$choice_near(4,3),"你哪位")
 $step("好感度+","sinestro")

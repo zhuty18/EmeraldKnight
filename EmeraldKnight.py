@@ -27,7 +27,8 @@ class EmeraldKnight:
         # self.tips()
 
     def setMenu(self):
-        self.main.setWindowIcon(gui.QIcon(res_path("icon.ico")))
+        self.icon = gui.QIcon(res_path("icon.ico"))
+        self.main.setWindowIcon(self.icon)
         self.main.setWindowTitle("翡翠骑士 v" + VERSION)
         menu = self.main.menuBar()
         new = menu.addAction("新的游戏")
@@ -38,8 +39,6 @@ class EmeraldKnight:
         load.triggered.connect(self.loadGame)
         exit = menu.addAction("退出游戏")
         exit.triggered.connect(self.exitGame)
-        # exit = menu.addAction("刷新存档")
-        # exit.triggered.connect(self.refresh)
         if DEBUG:
             exit = menu.addAction("打印变量")
             exit.triggered.connect(self.debug)
@@ -109,6 +108,7 @@ class EmeraldKnight:
                     btn.setText(s)
                     btn.clicked.connect(partial(self.pick, k))
                 btn.setMinimumSize(140, 36)
+                btn.setIcon(self.icon)
                 v_layout.addWidget(btn)
             saves_layout.addLayout(v_layout)
             v_layout = qt.QVBoxLayout()
@@ -204,9 +204,6 @@ class EmeraldKnight:
     def choose(self, c):
         self.choices[c].chosen()
         self.loadScene()
-
-    def refresh(self):
-        self.kernel.refresh()
 
     def about(self):
         s = "作者：兔子草<br><br>"

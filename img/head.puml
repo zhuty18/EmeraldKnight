@@ -2,6 +2,7 @@
 skinparam{
     objectbackgroundColor White
 }
+' set namespaceSeparator ::
 hide empty members
 !function $wrap($text, $width=15)
     !if %strlen($text) <= $width
@@ -32,22 +33,12 @@ hide empty members
 !return $out
 !endfunction
 
-!function $node($ch,$index)
-!return $ch+"_"+$index
-!endfunction
-
 !function $node($ch,$index) return $ch+"_"+$index
 !function $node_near($index) return $node($now_at_ch,$index)
 !function $node_now() return $node($now_at_ch,$now_at_node)
 !function $node_end($index) return $node("end",$index)
 
-!function $choice($a,$b,$c=0)
-!if ($c==0)
-!return $a+"_"+$b
-!else
-!return $a+"_"+$b+"_"+$c
-!endif
-!endfunction
+!function $choice($a,$b) return $a+"_"+$b
 
 !function $choice_near($b,$c) return $choice($node_near($b),$c)
 

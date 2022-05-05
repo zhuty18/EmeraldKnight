@@ -59,7 +59,6 @@ class kernel:
                 scenetext = "抱歉，这儿还没写呢。请先存档。"
                 return scenetext, [choice_end()]
 
-    # 不安全
     def refresh(self):
         for i in gk.debug_para.keys():
             if i not in gk.paras:
