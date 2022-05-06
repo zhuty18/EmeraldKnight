@@ -452,6 +452,7 @@ class c1_41_4(choice_abstract):
 
     def chosen(self):
         gk.paras[BRUCE_LOVE] += 10
+        gk.paras[BRUCE_INTRODUCE] = 1
         return super().chosen()
 
 

@@ -14,7 +14,7 @@ class s5_1(scene_abstract):
 
 class s5_2(scene_abstract):
     def load(self):
-        if gk.paras[BRUCE_LOVE] >= 4:
+        if gk.paras[BRUCE_INTRODUCE] == 1:
             return [c5_2_1()]
         elif gk.paras[BRUCE_SHOW_UP] == 1:
             return [c5_2_2()]
@@ -24,7 +24,7 @@ class s5_2(scene_abstract):
 
 class s5_4(scene_abstract):
     def load(self):
-        if gk.paras[BRUCE_LOVE] >= 4:
+        if gk.paras[BRUCE_INTRODUCE] == 1:
             return [c5_4_1()]
         else:
             return [c5_4_2()]

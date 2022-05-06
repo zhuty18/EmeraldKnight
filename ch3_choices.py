@@ -648,14 +648,14 @@ class c3_58_2(choice_abstract):
     target = "3-60"
 
     def show(self):
-        return gk.paras[BRUCE_SHOW_UP] == 0
+        return gk.paras[BRUCE_INTRODUCE] == 0
 
 
 class c3_58_3(choice_abstract):
     target = "3-61"
 
     def show(self):
-        return gk.paras[BRUCE_SHOW_UP] == 1
+        return gk.paras[BRUCE_INTRODUCE] == 1
 
 
 class c3_59_1(choice_abstract):

@@ -7,6 +7,7 @@ DEBUG = True
 BRUCE_STORY_LINE = "bsl"
 BRUCE_SHOW_UP = "bsu"
 BRUCE_LOVE = "brl"
+BRUCE_INTRODUCE = "bri"
 OLIVER_STORY_LINE = "osl"
 OLIVER_LOVE = "oll"
 SINESTRO_STORY_LINE = "ssl"
