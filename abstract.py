@@ -4,6 +4,9 @@ from constant import GAME_OVER, gk
 class choice_abstract:
     target: str = ""
 
+    def __init__(self, tar: str):
+        self.target = tar
+
     def text(self) -> str:
         return gk.targetName(self.target)
 

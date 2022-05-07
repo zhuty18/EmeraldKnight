@@ -11,7 +11,7 @@ class s2_2(scene_abstract):
 
 
 class s2_3(scene_abstract):
-    options = [c2_3_1, c2_3_2]
+    options = [c2_3_1, c2_3_2, c2_3_3]
 
 
 class s2_7(scene_abstract):

@@ -82,6 +82,13 @@ class c2_3_2(choice_abstract):
         return gk.paras[SWORD_HOT_TIME] == 1
 
 
+class c2_3_3(choice_abstract):
+    target = "7-1"
+
+    def show(self):
+        return gk.readPara("end-10") == 1
+
+
 class c2_7_1(choice_abstract):
     target = "3-2"
 

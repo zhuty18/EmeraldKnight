@@ -5,6 +5,7 @@ from ch3 import *
 from ch4 import *
 from ch5 import *
 from ch6 import *
+from ch7 import *
 
 all_choices = {
     "1-1": s1_1,
@@ -300,7 +301,15 @@ all_choices = {
     "6-3": c6_3_1,
     "6-4": c6_4_1,
     "6-5": c6_5_1,
-    # "6-1": c6_1_1,
+    "7-1": s7_1,
+    "7-2": s7_2,
+    "7-3": s7_3,
+    "7-4": c7_3_2,
+    "7-5": s7_5,
+    "7-6": s7_6,
+    "7-7": c7_8_1,
+    "7-8": c7_8_1,
+    "7-9": c7_8_1,
 }
 
 
