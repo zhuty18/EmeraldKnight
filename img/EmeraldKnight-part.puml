@@ -1,11 +1,6 @@
 @startuml Ch1
-title 翡翠骑士 第一章
 
-!include head.puml!0
-
-!$now_at_ch=0
-!$now_at_node=0
-!$now_at_choice=0
+!include head.puml
 
 $step("游戏开始","None",1)
 $link_self($node_near(2),"继续前进")
@@ -229,16 +224,8 @@ $link_self($node(3,1))
 
 @enduml
 @startuml Ch2
-title 翡翠骑士 第二章
 
-!include head.puml!0
-
-!$now_at_ch=0
-!$now_at_node=0
-!$now_at_choice=0
-2_0-->2_1
-2_0-->2_2
-2_0-->2_3
+!include head.puml
 
 $step("银鳞村，图书馆","None",2)
 $link_self($node_near(4),"魔法知识")
@@ -327,18 +314,9 @@ $link_this($node_near(15),$choice_near(14,1),"上次见是什么时候")
 
 @enduml
 @startuml Ch3
-title 翡翠骑士 第三章
 
 !include head.puml!0
 
-!$now_at_ch=0
-!$now_at_node=0
-!$now_at_choice=0
-
-3_0-->3_1
-3_0-->3_2
-3_0-->3_3
-3_0-->3_4
 $step("瑟尔指的路下面是一片峭壁，隐约能看见一些可以搭手的藤蔓","None",3)
 $link_self($node_near(5),"爬（驯服度+）","sinestro")
 $link_self($node_near(30),"不爬")
@@ -568,16 +546,8 @@ $link_this($node(5,1),$choice_near(78,4))
 
 @enduml
 @startuml Ch4
-title 翡翠骑士 第四章
 
 !include head.puml!0
-
-!$now_at_ch=0
-!$now_at_node=0
-!$now_at_choice=0
-
-4_0-->4_1
-4_0-->4_2
 
 $step("你在雪山上绕了挺久，终于找到路下山。（hp+80）","None",4)
 $link_self($node_near(3),"下山")
@@ -668,16 +638,8 @@ $link_this($node_near(21),$choice_near(22,1))
 
 @enduml
 @startuml Ch5
-title 翡翠骑士 第五-六章
 
 !include head.puml!0
-
-!$now_at_ch=0
-!$now_at_node=0
-!$now_at_choice=0
-
-5_0-->5_1
-5_0-->5_4
 
 $step("初见哥谭","None",5)
 $link_self($node_near(26),"（自己出现）")

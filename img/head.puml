@@ -4,6 +4,11 @@ skinparam{
 }
 ' set namespaceSeparator ::
 hide empty members
+
+!$now_at_ch=0
+!$now_at_node=0
+!$now_at_choice=0
+
 !function $wrap($text, $width=15)
     !if %strlen($text) <= $width
 !$out = $text
