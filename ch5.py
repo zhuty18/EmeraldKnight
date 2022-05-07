@@ -99,9 +99,8 @@ class s5_53(scene_abstract):
 
 
 class s5_55(scene_abstract):
-    options = [c5_55_1]
-
     def load(self):
+        self.options = [c5_55_1]
         if gk.paras[TEMPORARY] == 1:
             self.options.append(c5_55_2)
         else:

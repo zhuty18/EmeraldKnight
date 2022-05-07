@@ -485,3 +485,7 @@ class c5_59_1(choice_abstract):
 
 class c5_60_1(choice_abstract):
     target = "5-62"
+
+    def chosen(self):
+        gk.paras[TEMPORARY] += 1
+        return super().chosen()

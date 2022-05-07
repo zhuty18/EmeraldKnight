@@ -2,15 +2,15 @@ from constant import GAME_OVER, gk
 
 
 class choice_abstract:
-    target = ""
+    target: str = ""
 
-    def text(self):
-        return gk.choiceName(self.target)
+    def text(self) -> str:
+        return gk.targetName(self.target)
 
-    def show(self):
+    def show(self) -> bool:
         return True
 
-    def chosen(self):
+    def chosen(self) -> None:
         gk.scene = self.target
 
 
@@ -29,12 +29,12 @@ class choice_unfinished(choice_abstract):
 
 
 class scene_abstract:
-    options = []
+    options: list = []
 
-    def load(self):
+    def load(self) -> list[choice_abstract]:
         ls = []
         for i in self.options:
-            h = i()
+            h: choice_abstract = i()
             if h.show():
                 ls.append(h)
         return ls

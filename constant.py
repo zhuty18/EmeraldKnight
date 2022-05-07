@@ -36,6 +36,7 @@ character_para = {
     BRUCE_STORY_LINE: 0,
     BRUCE_SHOW_UP: 0,
     BRUCE_LOVE: 0,
+    BRUCE_INTRODUCE: 0,
     OLIVER_STORY_LINE: 0,
     OLIVER_LOVE: 0,
     SINESTRO_STORY_LINE: 0,
@@ -71,7 +72,8 @@ class gk:
     scene = ""
     paras = {}
     pos = 0
-    sn = {}
+    sn: dict[str, str] = {}
+    battle = None
 
     @staticmethod
     def init():
@@ -95,7 +97,7 @@ class gk:
         return deepcopy(gk.debug_para)
 
     @staticmethod
-    def choiceName(scene):
+    def targetName(scene) -> str:
         '''选项名'''
         return gk.sn.get(scene, "找不到选项名")
 

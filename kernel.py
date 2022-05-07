@@ -4,13 +4,12 @@ from constant import gk, GAME_OVER, res_path, FINAL_BATTLE
 from choices import getChoice
 from abstract import choice_end
 
-VERSION = "0.6"
+VERSION = "0.7"
 
 
 class kernel:
     def __init__(self):
         gk.scene = "0"
-        self.battle=None
 
     def getChoice(self):
         return getChoice(gk.scene)
@@ -40,16 +39,18 @@ class kernel:
         if gk.scene == GAME_OVER:
             return GAME_OVER, []
         elif gk.scene == FINAL_BATTLE:
-            if self.battle == None:
-                self.battle = battle()
-                return self.battle.first_round()
+            if gk.battle == None:
+                gk.battle = battle()
+                return gk.battle.first_round()
             else:
-                return self.battle.round()
+                return gk.battle.round()
         else:
             try:
                 fn = os.path.join("story", gk.scene + ".txt")
                 with open(res_path(fn), "r", encoding="utf8") as f:
                     scenetext = f.read()
+                if gk.scene.startswith("end"):
+                    scenetext += "\n\n结局——" + gk.targetName(gk.scene)
                 scenetext = "    " + scenetext
                 scenetext = scenetext.replace("\n", "\n    ")
                 choice = self.getChoice()
@@ -67,7 +68,7 @@ class kernel:
     def getChapter(self, s):
         ch = s.split('-')[0]
         if ch == "end":
-            return "结局\t" + gk.choiceName(s)
+            return "结局\t" + gk.targetName(s)
         if ch == "1":
             return "第一章\t出发"
         elif ch == "2":

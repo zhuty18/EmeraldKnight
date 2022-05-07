@@ -2,13 +2,16 @@ from functools import partial
 from constant import *
 import random
 from abstract import choice_abstract
-from ending import end_choice, end_scene
+from ending import end_scene, fail_choice
 
 
 class character:
-    attack = 100
-    life = 100
-    speed = 100
+    def __init__(self, atk, spd, mlf):
+        self.attack = atk
+        self.max_life = mlf
+        self.speed = spd
+        self.life = mlf
+        self.blood = 0
 
     def round(self):
         pass
@@ -33,10 +36,10 @@ class sinestro(character):
     def __init__(self):
         love = gk.paras[SINESTRO_LOVE]
         tame = gk.paras[SINESTRO_TAME]
-        self.attack = 100 - love * 5
-        self.speed = 100 - tame * 2
-        self.life = 500
-        self.blood = 0
+        attack = 100 - love * 5
+        speed = 100 - tame * 2
+        max_life = 500
+        super().__init__(attack, speed, max_life)
 
     def take_act(self, target: character):
         res = None
@@ -52,12 +55,12 @@ class sinestro(character):
         return res(target)
 
     def plain_attack(self, hal: character) -> str:
-        r, m = move.hurt(self, hal, 0.1)
+        r, m = move.hurt(self, hal, 0.10)
         hal.life -= r
         return "魔王向你发动进攻，" + m
 
     def special_attack(self, hal: character) -> str:
-        r, m = move.hurt(self, hal, 0.30)
+        r, m = move.hurt(self, hal, 0.25)
         hal.life -= r
         return "魔王对你使用了魔法，" + m
 
@@ -76,10 +79,10 @@ class hal(character):
         egg = gk.paras[DRAGON_EGG]
         know = gk.paras[KNOWLEDGE]
         self.pegasus = gk.paras[PEGASUS]
-        self.attack = 100 + (bru_love + intel) * 2 + egg * 10
-        self.speed = 100 + know
-        self.life = 100 + other_love * 10
-        self.blood = 0
+        attack = 100 + (bru_love + intel) * 2 + egg * 10
+        speed = 100 + know + self.pegasus * 20
+        max_life = 100 + other_love * 10
+        super().__init__(attack, speed, max_life)
 
     def moves(self) -> list[tuple]:
         res = [("普通攻击", self.plain_attack)]
@@ -88,10 +91,11 @@ class hal(character):
         res.append(("特殊攻击", self.sword_attack))
         if self.blood < 10:
             res.append(("治疗", self.treat))
+        res.append(("开挂", self.cheat))
         return res
 
     def plain_attack(self, sinestro: character) -> str:
-        r, m = move.hurt(self, sinestro, 0.20)
+        r, m = move.hurt(self, sinestro, 0.15)
         sinestro.life -= r
         return "你向魔王发动进攻，" + m
 
@@ -111,7 +115,14 @@ class hal(character):
         tmp = random.randint(30, 50)
         self.life += tmp
         self.blood += 1
-        return "你喝下治疗药水，回复了%d点体力！" % tmp
+        if self.life >= self.max_life:
+            tmp -= self.life - self.max_life
+            self.life = self.max_life
+        return "你吃下一颗雷电小球，回复了%d点体力！" % tmp
+
+    def cheat(self, sinestro: character) -> str:
+        sinestro.life = 0
+        return "你开挂绝杀！"
 
 
 class battle_choice(choice_abstract):
@@ -140,10 +151,10 @@ class battle:
         return res
 
     def status(self):
-        text = "魔王\nHP: %d / 500\n" % (self.sinestro.life)
+        text = "魔王\nHP: %d / %d\n" % (self.sinestro.life, self.sinestro.max_life)
         text += "\n\n"
         text += " " * 46 + "你\n"
-        s = "HP: %d" % self.hal.life
+        s = "HP: %d / %d" % (self.hal.life, self.hal.max_life)
         text += " " * (48 - len(s)) + s + "\n"
         text += "\n\n"
         return text
@@ -154,12 +165,12 @@ class battle:
         return text, self.choices()
 
     def round(self):
-        s_m = self.sinestro.take_act(self.hal)
         text = self.status()
         text += self.hal_text + "\n"
         if self.sinestro.is_dead():
-            return text + "TODO", end_scene().load()
+            return text + "魔王倒下了！", end_scene().load()
+        s_m = self.sinestro.take_act(self.hal)
         text += s_m
         if self.hal.is_dead():
-            return text + "TODO2", [end_choice()]
+            return text + "\n你被打败了！", [fail_choice()]
         return text, self.choices()

@@ -23,3 +23,7 @@ class c6_5_1(choice_abstract):
 
     def text(self):
         return "决战"
+
+    def chosen(self):
+        gk.battle = None
+        return super().chosen()
