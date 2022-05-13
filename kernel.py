@@ -4,7 +4,7 @@ from constant import gk, GAME_OVER, res_path, FINAL_BATTLE
 from choices import getChoice
 from abstract import choice_end
 
-VERSION = "0.7"
+VERSION = "0.8"
 
 
 class kernel:

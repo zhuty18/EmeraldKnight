@@ -109,7 +109,7 @@ class s3_58(scene_abstract):
 
 
 class s3_59(scene_abstract):
-    options = [c3_59_1(), c3_59_2()]
+    options = [c3_59_1, c3_59_2]
 
 
 class s3_60(scene_abstract):
