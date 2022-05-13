@@ -228,6 +228,8 @@ class EmeraldKnight:
         print(gk.scene)
         print(gk.paras)
 
-
-ek = EmeraldKnight()
-ek.app.exec_()
+if __name__=="__main__":
+    from sys import path
+    path.append("./script")
+    ek = EmeraldKnight()
+    ek.app.exec_()
