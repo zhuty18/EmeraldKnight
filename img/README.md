@@ -26,6 +26,10 @@
         <summary>第五、六章</summary>
         <img src="Ch5.png">
     </details>
+    <details>
+        <summary>第七章</summary>
+        <img src="Ch7.png">
+    </details>
 </details>
 
-<!-- java -DPLANTUML_LIMIT_SIZE=16384 -jar C:\ProgramData\chocolatey\lib\plantuml\tools\plantuml.jar -charset UTF-8 -Xml1024m EmeraldKnight-part.puml -->
+<!-- java -DPLANTUML_LIMIT_SIZE=16384 -jar C:\ProgramData\chocolatey\lib\plantuml\tools\plantuml.jar  -DPLANTUML_LIMIT_SIZE=32768 -charset UTF-8 -Xml1024m EmeraldKnight.puml -->

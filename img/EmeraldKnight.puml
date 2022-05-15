@@ -1,4 +1,4 @@
-@startuml 翡翠骑士
+@startuml EmeraldKnight
 title 翡翠骑士
 
 !include EmeraldKnight-part.puml!0
@@ -56,4 +56,11 @@ class 5_0<<(S,Red)>>
 
 5_0-->5_1
 5_0-->5_4
+@enduml
+@startuml Ch7
+title 翡翠骑士 第七章
+
+!include EmeraldKnight-part.puml!5
+
+
 @enduml
