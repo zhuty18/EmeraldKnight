@@ -32,7 +32,7 @@ v0.8 凯尔线（已完成）4k字
 
 v0.9 测试，发布python版本（应该没什么问题）
 
-v1.0 Android版本发布
+v1.0 Android版本发布（已完成）[见此](https://github.com/zhuty18/EmeraldKnight-Android)
 
 v1.1 web版本发布
 
