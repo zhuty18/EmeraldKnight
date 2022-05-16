@@ -73,6 +73,12 @@ class s5_32(scene_abstract):
 class s5_33(scene_abstract):
     options = [c5_33_1, c5_33_2, c5_33_3]
 
+    def load(self) -> list[choice_abstract]:
+        if (gk.paras[TEMPORARY] >> 1) % 8 == 3:
+            return s5_32().load
+        else:
+            return super().load()
+
 
 class s5_37(scene_abstract):
     options = [c5_37_1, c5_37_2]
