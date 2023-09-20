@@ -79,8 +79,8 @@ class EmeraldKnight:
         saves.setWindowTitle("当前存档")
         self.dia = saves
         saves_layout = qt.QHBoxLayout()
-        v_layout = qt.QVBoxLayout()
         for l in range(0, 3):
+            v_layout = qt.QVBoxLayout()
             for i in range(1, 11):
                 k = i + l * 10
                 btn = qt.QPushButton()
@@ -111,7 +111,6 @@ class EmeraldKnight:
                 btn.setIcon(self.icon)
                 v_layout.addWidget(btn)
             saves_layout.addLayout(v_layout)
-            v_layout = qt.QVBoxLayout()
         saves.setLayout(saves_layout)
         saves.show()
         saves.exec_()
