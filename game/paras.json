@@ -15,6 +15,10 @@
         {
             "name": "SCENE",
             "value": "SCENE"
+        },
+        {
+            "name": "EMPTY_SAVE",
+            "value": "空存档"
         }
     ],
     "para_list": [

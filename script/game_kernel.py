@@ -4,6 +4,7 @@
 
 import json
 import os
+import time
 
 
 class Choice:
@@ -113,7 +114,7 @@ class Kernel:
     FILE_SCENES = "scenes.json"  # 场景存储文件
     FILE_CHOICES = "choices.json"  # 选项存储文件
     PATH_STORY = "story"  # 故事相关文件路径
-    FILE_SCENE_NAMES = "menu.json"
+    FILE_NAMES = "menu.json"
     PATH_SAVE = "save"
     FILE_DEFAULT_SAVE = "0.eks"
 
@@ -123,10 +124,13 @@ class Kernel:
     SCENE_MAP = {}  # 场景表
     CHOICE_MAP = {}  # 选项表
     SCENE_NAME_MAP = {}  # 场景名表
+    END_NAME_MAP = {}  # 结局名表
+    CHAPTER_NAME_MAP = {}  # 章名表
 
     START_SCENE = ""
     START_OVER = ""
     SCENE = ""
+    EMPTY_SAVE = ""
 
     @staticmethod
     def res_path(file_dir, file_name=None):
@@ -177,27 +181,84 @@ class Kernel:
             Kernel.SCENE_MAP[i["id"]] = i
         for i in Kernel.read_file(Kernel.PATH_GAME, Kernel.FILE_CHOICES):
             Kernel.CHOICE_MAP[i["id"]] = i
-        for k, v in Kernel.read_file(
-            Kernel.PATH_STORY, Kernel.FILE_SCENE_NAMES
-        ).items():
+        for k, v in Kernel.read_file(Kernel.PATH_STORY, Kernel.FILE_NAMES)[
+            "scene_names"
+        ].items():
             Kernel.SCENE_NAME_MAP[k] = v
+        for k, v in Kernel.read_file(Kernel.PATH_STORY, Kernel.FILE_NAMES)[
+            "end_names"
+        ].items():
+            Kernel.END_NAME_MAP[k] = v
+        for k, v in Kernel.read_file(Kernel.PATH_STORY, Kernel.FILE_NAMES)[
+            "chapter_names"
+        ].items():
+            Kernel.CHAPTER_NAME_MAP[k] = v
 
         Kernel.START_SCENE = Kernel.DEFAULT_CONSTS["START_SCENE"]
         Kernel.START_OVER = Kernel.DEFAULT_CONSTS["START_OVER"]
         Kernel.SCENE = Kernel.DEFAULT_CONSTS["SCENE"]
+        Kernel.EMPTY_SAVE = Kernel.DEFAULT_CONSTS["EMPTY_SAVE"]
 
         self._scene = None  # 当前场景
         self._paras = {}  # 参数存储
 
         Kernel.KERNEL = self
 
-    def load_save(self, save_id):
+    def get_save_info(self, save_id):
+        """获取存档信息"""
+        save_path = Kernel.res_path(Kernel.PATH_SAVE, f"{save_id}.eks")
+        if os.path.exists(save_path):
+            save = Kernel.read_file(Kernel.PATH_SAVE, f"{save_id}.eks")
+            if save["scene"].split("-")[1] == "end":
+                save_pos = (
+                    Kernel.CHAPTER_NAME_MAP["end"]
+                    + Kernel.END_NAME_MAP[save["scene"]]
+                )
+            else:
+                save_pos = Kernel.CHAPTER_NAME_MAP[
+                    f"ch{save["scene"].split("-")[0]}"
+                ]
+            save_time = os.path.getmtime(
+                Kernel.res_path(Kernel.PATH_SAVE, f"{save_id}.eks")
+            )
+            save_time = time.strftime("%m.%d\t%H:%M", time.localtime(save_time))
+            if Kernel.DEBUG:
+                return f"{save["scene"]}{save_pos}\n{save_time}"
+            else:
+                return f"{save_pos}\n{save_time}"
+        else:
+            return Kernel.EMPTY_SAVE
+
+    def load_at(self, save_id):
         """加载存档"""
         if save_id == 0:
             # 新游戏，读取默认参数
             self.to_scene(Kernel.START_SCENE)
             for _, value in Kernel.DEFAULT_PARAS.items():
                 self._paras[value["id"]] = value["default_value"]
+        else:
+            save_file = Kernel.read_file(Kernel.PATH_SAVE, f"{save_id}.eks")
+            self._scene = Scene.get_by_id(save_file["scene"])
+            self._paras = save_file["paras"]
+            self.refresh_paras()
+
+    def save_at(self, save_id):
+        """保存存档"""
+        save_file = Kernel.read_file(Kernel.PATH_SAVE, f"{save_id}.eks")
+        with open(save_file, "w", encoding="utf-8") as f:
+            f.write(
+                json.dumps({"scene": self.get_scene_id(), "paras": self._paras})
+            )
+
+    def refresh_paras(self):
+        """刷新参数"""
+        for _, v in Kernel.DEFAULT_PARAS.items():
+            if v["id"] not in self._paras:
+                self._paras[v["id"]] = v["default_value"]
+            if "pro" in self._paras:
+                self._paras["pr1"] = self._paras["pro"] % 8
+                self._paras["pr2"] = self._paras["pro"] >> 3
+                self._paras.pop("pro")
 
     def change_para(self, para_name, change_act, change_by):
         """改变参数"""
@@ -243,6 +304,8 @@ class Kernel:
 
     def get_scene_id(self):
         """获取当前场景ID"""
+        if not self._scene:
+            return Kernel.START_OVER
         return self._scene.get_id()
 
     def get_scene_text(self):

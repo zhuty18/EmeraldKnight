@@ -1,8 +1,14 @@
+# coding = utf-8
+
+"""翡翠骑士游戏 v2.0"""
+
+import sys
 from functools import partial
 
 import PySide6.QtCore as core
 import PySide6.QtGui as gui
 import PySide6.QtWidgets as qt
+from EmeraldKnightCMD import EmeraldKnightCMD
 from game_kernel import Kernel
 
 
@@ -10,8 +16,7 @@ class EmeraldKnight:
     """游戏类"""
 
     def __init__(self):
-        Kernel()
-        self.gk = Kernel.KERNEL
+        self.gk = Kernel()
         self.app = qt.QApplication()
         self.main = qt.QMainWindow()
         self.main.resize(400, 640)
@@ -24,27 +29,27 @@ class EmeraldKnight:
 
     def run(self):
         """运行游戏"""
-        self.app.exec_()
+        self.app.exec()
 
     def set_menu(self):
         """初始化工具栏"""
-        self.icon = gui.QIcon(Kernel.res_path("", "icon.ico"))
+        self.icon = gui.QIcon(self.gk.res_path("", "icon.ico"))
         self.main.setWindowIcon(self.icon)
-        self.main.setWindowTitle("翡翠骑士 v" + Kernel.VERSION)
+        self.main.setWindowTitle("翡翠骑士 v" + self.gk.VERSION)
         menu_bar = self.main.menuBar()
         new_btn = menu_bar.addAction("新的游戏")
         new_btn.triggered.connect(self.new_game)
-        # save_btn = menu_bar.addAction("保存进度")
-        # save_btn.triggered.connect(self.save_game)
-        # load_btn = menu_bar.addAction("读取存档")
-        # load_btn.triggered.connect(self.load_game)
-        # exit_btn = menu_bar.addAction("退出游戏")
-        # exit_btn.triggered.connect(self.exit_game)
-        if Kernel.DEBUG:
+        save_btn = menu_bar.addAction("保存进度")
+        save_btn.triggered.connect(self.save_game)
+        load_btn = menu_bar.addAction("读取存档")
+        load_btn.triggered.connect(self.load_game)
+        exit_btn = menu_bar.addAction("退出游戏")
+        exit_btn.triggered.connect(self.exit_game)
+        if self.gk.DEBUG:
             debug_btn = menu_bar.addAction("打印变量")
             debug_btn.triggered.connect(self.debug_game)
-        # about_btn = menu_bar.addAction("关于")
-        # about_btn.triggered.connect(self.about_game)
+        about_btn = menu_bar.addAction("关于")
+        about_btn.triggered.connect(self.about_game)
 
     def update(self, layout):
         """刷新"""
@@ -55,7 +60,6 @@ class EmeraldKnight:
 
     def load_scene(self):
         """加载场景"""
-        print(self.gk.get_scene_id() == self.gk.START_OVER)
         if self.gk.get_scene_id() == self.gk.START_OVER:
             self.hello_page()
             return
@@ -86,7 +90,7 @@ class EmeraldKnight:
         # 1afa29
         hello_str = "<font size=7 face='华文隶书' color='#25ee79'>翡翠骑士<br>"
         hello_str += (
-            "</font><font size=2>v" + Kernel.VERSION + "<br><br></font>"
+            "</font><font size=2>v" + self.gk.VERSION + "<br><br></font>"
         )
         hello_str += "<font size=3 face='华文仿宋'>"
         hello_str += "雪山之巅&nbsp;&nbsp;英魂渐远<br>"
@@ -106,23 +110,98 @@ class EmeraldKnight:
 
     def new_game(self):
         """开始新游戏"""
-        self.load_game(0)
+        self.load_at(0)
 
-    def load_game(self, save_id):
+    def load_at(self, save_id, save_window=None):
         """从存档加载游戏"""
-        self.gk.load_save(save_id)
+        if save_id != 0:
+            if self.gk.get_save_info(save_id) == self.gk.EMPTY_SAVE:
+                m = qt.QMessageBox(self.main)
+                m.critical(self.main, "警告！", "不可读取空存档！")
+                return
+            if save_window:
+                save_window.close()
+        self.gk.load_at(save_id)
         self.load_scene()
+
+    def save_at(self, save_id, save_window):
+        """保存游戏"""
+        save_window.close()
+        self.gk.save_at(save_id)
 
     def choose(self, choice):
         """选择选项"""
         choice.chosen()
         self.load_scene()
 
+    def show_save(self, is_saving=True):
+        """显示存档界面"""
+        saves = qt.QDialog()
+        saves.setWindowTitle("当前存档")
+        saves_layout = qt.QHBoxLayout()
+        for l in range(3):
+            v_layout = qt.QVBoxLayout()
+            for i in range(10):
+                save_id = i + l * 10 + 1
+                btn = qt.QPushButton()
+                info = self.gk.get_save_info(save_id)
+                btn.setText(info)
+                if is_saving:
+                    btn.clicked.connect(partial(self.save_at, save_id, saves))
+                else:
+                    btn.clicked.connect(partial(self.load_at, save_id, saves))
+                btn.setMinimumSize(140, 36)
+                btn.setIcon(self.icon)
+                v_layout.addWidget(btn)
+            saves_layout.addLayout(v_layout)
+        saves.setLayout(saves_layout)
+        saves.show()
+        saves.exec()
+
+    def save_game(self):
+        """存档"""
+        if self.gk.get_scene_id() == self.gk.START_OVER:
+            m = qt.QMessageBox(self.main)
+            m.critical(self.main, "警告！", "还没有进入游戏！")
+        else:
+            self.show_save()
+
+    def load_game(self):
+        """读档"""
+        self.show_save(False)
+
     def debug_game(self):
         """调试"""
         self.gk.print_debug()
 
+    def exit_game(self):
+        """退出游戏"""
+        self.app.exit()
+
+    def about_game(self):
+        """介绍页"""
+        s = "作者：兔子草<br><br>"
+        s += "联系方式：<br>"
+        s += "QQ: 34409508988<br>"
+        s += "邮箱：13718054285@163.com<br><br>"
+        s += "游戏地址：<br>"
+        s += '<a href="https://github.com/zhuty18/EmeraldKnight">'
+        s += "github.com/zhuty18/EmeraldKnight</a>"
+        about = qt.QDialog()
+        about.setWindowTitle("游戏信息")
+        layout = qt.QVBoxLayout()
+        label = qt.QLabel()
+        label.setText(s)
+        label.setOpenExternalLinks(True)
+        layout.addWidget(label)
+        about.setLayout(layout)
+        about.show()
+        about.exec()
+
 
 if __name__ == "__main__":
-    ek = EmeraldKnight()
+    if len(sys.argv) == 1:
+        ek = EmeraldKnight()
+    else:
+        ek = EmeraldKnightCMD()
     ek.run()
