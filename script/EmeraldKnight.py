@@ -1,11 +1,13 @@
+import json
+import os
+import time
 from functools import partial
-import json, time, os
-import PySide2.QtWidgets as qt
-import PySide2.QtCore as core
-import PySide2.QtGui as gui
 
-from kernel import kernel, VERSION, gk
-from constant import GAME_OVER, res_path, DEBUG
+import PySide6.QtCore as core
+import PySide6.QtGui as gui
+import PySide6.QtWidgets as qt
+from constant import DEBUG, GAME_OVER, res_path
+from kernel import VERSION, gk, kernel
 
 
 class EmeraldKnight:
@@ -52,7 +54,7 @@ class EmeraldKnight:
         self.main.update()
 
     def hello(self):
-        #1afa29
+        # 1afa29
         hello_str = "<font size=7 face='华文隶书' color='#25ee79'>翡翠骑士<br>"
         hello_str += "</font><font size=2>v" + VERSION + "<br><br></font>"
         hello_str += "<font size=3 face='华文仿宋'>"
@@ -89,13 +91,13 @@ class EmeraldKnight:
                 try:
                     with open(fn, "r") as f:
                         j = json.loads(f.read())
-                    sc = j['scene']
+                    sc = j["scene"]
                     s = "存档" + str(k) + "\t"
                     try:
-                        t = time.localtime(j['time'])
+                        t = time.localtime(j["time"])
                     except KeyError:
-                        j['time'] = os.path.getmtime(fn)
-                        t = time.localtime(j['time'])
+                        j["time"] = os.path.getmtime(fn)
+                        t = time.localtime(j["time"])
                     s += time.strftime("%m.%d\t%H:%M", t)
                     s += "\n"
                     if DEBUG:
@@ -189,7 +191,7 @@ class EmeraldKnight:
             scroll.setFrameShape(qt.QScrollArea.NoFrame)
             game_layout.addWidget(scroll)
             for i in range(0, len(self.choices)):
-                s = chr(i + ord('A')) + "\t" + self.choices[i].text()
+                s = chr(i + ord("A")) + "\t" + self.choices[i].text()
                 btn = qt.QPushButton(s)
                 btn.setFont(self.font)
                 btn.clicked.connect(partial(self.choose, i))
@@ -198,7 +200,9 @@ class EmeraldKnight:
 
     def tips(self):
         m = qt.QMessageBox(self.main)
-        m.information(self.main, "提示", "现在还处于开发阶段，游戏中可能有BUG。")
+        m.information(
+            self.main, "提示", "现在还处于开发阶段，游戏中可能有BUG。"
+        )
 
     def choose(self, c):
         self.choices[c].chosen()
@@ -210,7 +214,7 @@ class EmeraldKnight:
         s += "QQ: 34409508988<br>"
         s += "邮箱：13718054285@163.com<br><br>"
         s += "游戏地址：<br>"
-        s += "<a href=\"https://github.com/zhuty18/EmeraldKnight\">"
+        s += '<a href="https://github.com/zhuty18/EmeraldKnight">'
         s += "github.com/zhuty18/EmeraldKnight</a>"
         about = qt.QDialog()
         about.setWindowTitle("游戏信息")
@@ -227,8 +231,10 @@ class EmeraldKnight:
         print(gk.scene)
         print(gk.paras)
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     from sys import path
+
     path.append("./script")
     ek = EmeraldKnight()
     ek.app.exec_()

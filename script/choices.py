@@ -1,4 +1,4 @@
-from abstract import scene_end, choice_unfinished
+from abstract import choice_unfinished, scene_end
 from ch1 import *
 from ch2 import *
 from ch3 import *

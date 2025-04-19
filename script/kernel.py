@@ -1,10 +1,13 @@
-import json, os, time
-from battle import battle
-from constant import gk, GAME_OVER, res_path, FINAL_BATTLE
-from choices import getChoice
-from abstract import choice_end
+import json
+import os
+import time
 
-VERSION = "0.8"
+from abstract import choice_end
+from battle import battle
+from choices import getChoice
+from constant import FINAL_BATTLE, GAME_OVER, gk, res_path
+
+VERSION = "2.0"
 
 
 class kernel:
@@ -22,17 +25,17 @@ class kernel:
             k = "./save/" + name + ".eks"
             with open(res_path(k), "r") as f:
                 j = json.loads(f.read())
-                gk.scene = j['scene']
-                gk.paras = j['paras']
+                gk.scene = j["scene"]
+                gk.paras = j["paras"]
             self.refresh()
 
     def save(self, name):
         k = "./save/" + name + ".eks"
         with open(res_path(k), "w") as f:
-            j = json.loads('{}')
-            j['scene'] = gk.scene
-            j['paras'] = gk.paras
-            j['time'] = time.time()
+            j = json.loads("{}")
+            j["scene"] = gk.scene
+            j["paras"] = gk.paras
+            j["time"] = time.time()
             f.write(json.dumps(j))
 
     def loadScene(self) -> tuple[str, list]:
@@ -66,7 +69,7 @@ class kernel:
                 gk.paras[i] = 0
 
     def getChapter(self, s):
-        ch = s.split('-')[0]
+        ch = s.split("-")[0]
         if ch == "end":
             return "结局\t" + gk.targetName(s)
         if ch == "1":
