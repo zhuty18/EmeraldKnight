@@ -109,10 +109,11 @@ class Kernel:
 
     KERNEL = None  # 游戏内核实例
 
+    CHAPTER = 1  # 章节数
     PATH_GAME = "game"  # 游戏相关文件路径
     FILE_PARAS = "paras.json"  # 参数存储文件
-    FILE_SCENES = "scenes.json"  # 场景存储文件
-    FILE_CHOICES = "choices.json"  # 选项存储文件
+    FILE_SCENES = "scenes_ch{ch}.json"  # 场景存储文件
+    FILE_CHOICES = "choices_ch{ch}.json"  # 选项存储文件
     PATH_STORY = "story"  # 故事相关文件路径
     FILE_NAMES = "menu.json"
     PATH_SAVE = "save"
@@ -177,10 +178,17 @@ class Kernel:
             "code_list"
         ]:
             Kernel.DEFAULT_CODES[i["name"]] = i["value"]
-        for i in Kernel.read_file(Kernel.PATH_GAME, Kernel.FILE_SCENES):
-            Kernel.SCENE_MAP[i["id"]] = i
-        for i in Kernel.read_file(Kernel.PATH_GAME, Kernel.FILE_CHOICES):
-            Kernel.CHOICE_MAP[i["id"]] = i
+        for ch in range(Kernel.CHAPTER):
+            for i in Kernel.read_file(
+                Kernel.PATH_GAME,
+                Kernel.FILE_SCENES.replace("{ch}", str(ch + 1)),
+            ):
+                Kernel.SCENE_MAP[i["id"]] = i
+            for i in Kernel.read_file(
+                Kernel.PATH_GAME,
+                Kernel.FILE_CHOICES.replace("{ch}", str(ch + 1)),
+            ):
+                Kernel.CHOICE_MAP[i["id"]] = i
         for k, v in Kernel.read_file(Kernel.PATH_STORY, Kernel.FILE_NAMES)[
             "scene_names"
         ].items():
