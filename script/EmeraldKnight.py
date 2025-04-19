@@ -1,62 +1,93 @@
-import json
-import os
-import time
 from functools import partial
 
 import PySide6.QtCore as core
 import PySide6.QtGui as gui
 import PySide6.QtWidgets as qt
-from constant import DEBUG, GAME_OVER, res_path
-from kernel import VERSION, gk, kernel
+from game_kernel import Kernel
 
 
 class EmeraldKnight:
+    """游戏类"""
+
     def __init__(self):
-        gk.init()
-        self.kernel = kernel()
-        self.choices = []
-        self.loading = False
-        self.saving = True
+        Kernel()
+        self.gk = Kernel.KERNEL
         self.app = qt.QApplication()
         self.main = qt.QMainWindow()
         self.main.resize(400, 640)
-        self.setMenu()
+        self.set_menu()
         self.font = gui.QFont()
         self.font.setPixelSize(14)
         self.font.setFamily("宋体")
         self.main.show()
-        self.hello()
-        # self.tips()
+        self.hello_page()
 
-    def setMenu(self):
-        self.icon = gui.QIcon(res_path("icon.ico"))
+    def run(self):
+        """运行游戏"""
+        self.app.exec_()
+
+    def set_menu(self):
+        """初始化工具栏"""
+        self.icon = gui.QIcon(Kernel.res_path("", "icon.ico"))
         self.main.setWindowIcon(self.icon)
-        self.main.setWindowTitle("翡翠骑士 v" + VERSION)
-        menu = self.main.menuBar()
-        new = menu.addAction("新的游戏")
-        new.triggered.connect(self.newGame)
-        save = menu.addAction("保存进度")
-        save.triggered.connect(self.saveGame)
-        load = menu.addAction("读取存档")
-        load.triggered.connect(self.loadGame)
-        exit = menu.addAction("退出游戏")
-        exit.triggered.connect(self.exitGame)
-        if DEBUG:
-            exit = menu.addAction("打印变量")
-            exit.triggered.connect(self.debug)
-        exit = menu.addAction("关于")
-        exit.triggered.connect(self.about)
+        self.main.setWindowTitle("翡翠骑士 v" + Kernel.VERSION)
+        menu_bar = self.main.menuBar()
+        new_btn = menu_bar.addAction("新的游戏")
+        new_btn.triggered.connect(self.new_game)
+        # save_btn = menu_bar.addAction("保存进度")
+        # save_btn.triggered.connect(self.save_game)
+        # load_btn = menu_bar.addAction("读取存档")
+        # load_btn.triggered.connect(self.load_game)
+        # exit_btn = menu_bar.addAction("退出游戏")
+        # exit_btn.triggered.connect(self.exit_game)
+        if Kernel.DEBUG:
+            debug_btn = menu_bar.addAction("打印变量")
+            debug_btn.triggered.connect(self.debug_game)
+        # about_btn = menu_bar.addAction("关于")
+        # about_btn.triggered.connect(self.about_game)
 
     def update(self, layout):
-        self.game = qt.QWidget(self.main)
-        self.game.setLayout(layout)
-        self.main.setCentralWidget(self.game)
+        """刷新"""
+        game = qt.QWidget(self.main)
+        game.setLayout(layout)
+        self.main.setCentralWidget(game)
         self.main.update()
 
-    def hello(self):
+    def load_scene(self):
+        """加载场景"""
+        print(self.gk.get_scene_id() == self.gk.START_OVER)
+        if self.gk.get_scene_id() == self.gk.START_OVER:
+            self.hello_page()
+            return
+        scene_text = self.gk.get_scene_text()
+        choices = self.gk.get_choices()
+        game_layout = qt.QVBoxLayout()
+        scene_text = scene_text.replace("  ", "&nbsp;")
+        scene_text = scene_text.replace("\n", "<br>")
+        scene_text = "<p style='line-height:120%'>" + scene_text + "</p>"
+        text = qt.QLabel(scene_text)
+        text.setFont(self.font)
+        text.setWordWrap(True)
+        text.setAlignment(core.Qt.AlignTop)
+        scroll = qt.QScrollArea()
+        scroll.setWidgetResizable(True)
+        scroll.setWidget(text)
+        scroll.setFrameShape(qt.QScrollArea.NoFrame)
+        game_layout.addWidget(scroll)
+        for index, choice in enumerate(choices):
+            btn = qt.QPushButton(f"{chr(index + ord('A'))}: {choice.text()}")
+            btn.setFont(self.font)
+            btn.clicked.connect(partial(self.choose, choice))
+            game_layout.addWidget(btn)
+        self.update(game_layout)
+
+    def hello_page(self):
+        """开始页"""
         # 1afa29
         hello_str = "<font size=7 face='华文隶书' color='#25ee79'>翡翠骑士<br>"
-        hello_str += "</font><font size=2>v" + VERSION + "<br><br></font>"
+        hello_str += (
+            "</font><font size=2>v" + Kernel.VERSION + "<br><br></font>"
+        )
         hello_str += "<font size=3 face='华文仿宋'>"
         hello_str += "雪山之巅&nbsp;&nbsp;英魂渐远<br>"
         hello_str += "危城影下&nbsp;&nbsp;一念不灭<br>"
@@ -73,168 +104,25 @@ class EmeraldKnight:
         hello_layout.addWidget(hello_label)
         self.update(hello_layout)
 
-    def newGame(self):
-        self.startGame("0")
+    def new_game(self):
+        """开始新游戏"""
+        self.load_game(0)
 
-    def showSave(self):
-        saves = qt.QDialog()
-        saves.setWindowTitle("当前存档")
-        self.dia = saves
-        saves_layout = qt.QHBoxLayout()
-        for l in range(0, 3):
-            v_layout = qt.QVBoxLayout()
-            for i in range(1, 11):
-                k = i + l * 10
-                btn = qt.QPushButton()
-                fn = "save/" + str(k) + ".eks"
-                fn = res_path(fn)
-                try:
-                    with open(fn, "r") as f:
-                        j = json.loads(f.read())
-                    sc = j["scene"]
-                    s = "存档" + str(k) + "\t"
-                    try:
-                        t = time.localtime(j["time"])
-                    except KeyError:
-                        j["time"] = os.path.getmtime(fn)
-                        t = time.localtime(j["time"])
-                    s += time.strftime("%m.%d\t%H:%M", t)
-                    s += "\n"
-                    if DEBUG:
-                        s += sc + "\t"
-                    s += self.kernel.getChapter(sc)
-                    btn.setText(s)
-                    btn.clicked.connect(partial(self.pick, k))
-                except FileNotFoundError:
-                    s = "空存档"
-                    btn.setText(s)
-                    btn.clicked.connect(partial(self.pick, k))
-                btn.setMinimumSize(140, 36)
-                btn.setIcon(self.icon)
-                v_layout.addWidget(btn)
-            saves_layout.addLayout(v_layout)
-        saves.setLayout(saves_layout)
-        saves.show()
-        saves.exec_()
+    def load_game(self, save_id):
+        """从存档加载游戏"""
+        self.gk.load_save(save_id)
+        self.load_scene()
 
-    def pick(self, i):
-        self.picked = i
-        self.dia.close()
-        if self.loading:
-            try:
-                fn = res_path("save/" + str(i) + ".eks")
-                open(fn, "r")
-                self.loading = False
-                # print("读档"+str(i))
-                self.startGame(str(i))
-            except FileNotFoundError:
-                m = qt.QMessageBox(self.main)
-                m.critical(self.main, "警告！", "不可读取空存档！")
-        elif self.saving:
-            self.kernel.save(str(i))
-            # print("保存成功！")
+    def choose(self, choice):
+        """选择选项"""
+        choice.chosen()
+        self.load_scene()
 
-    def pickSave(self):
-        self.picked = 0
-        self.showSave()
-
-    def loadGame(self):
-        havesave = False
-        for i in range(1, 31):
-            try:
-                fn = res_path("save/" + str(i) + ".eks")
-                open(fn, "r")
-                havesave = True
-                break
-            except FileNotFoundError:
-                pass
-        if havesave:
-            self.saving = False
-            self.loading = True
-            self.pickSave()
-        else:
-            m = qt.QMessageBox(self.main)
-            m.critical(self.main, "警告！", "当前无可用存档！")
-
-    def saveGame(self):
-        if gk.scene == "0":
-            m = qt.QMessageBox(self.main)
-            m.critical(self.main, "警告！", "还没有进入游戏！")
-        else:
-            self.loading = False
-            self.saving = True
-            self.pickSave()
-
-    def exitGame(self):
-        self.app.exit()
-
-    def startGame(self, name):
-        self.kernel.load(name)
-        self.loadScene()
-
-    def loadScene(self):
-        st, self.choices = self.kernel.loadScene()
-        if st == GAME_OVER:
-            self.hello()
-        else:
-            game_layout = qt.QVBoxLayout()
-            st = st.replace("  ", "&nbsp;")
-            st = st.replace("\n", "<br>")
-            st = "<p style='line-height:120%'>" + st + "</p>"
-            text = qt.QLabel(st)
-            text.setFont(self.font)
-            text.setWordWrap(True)
-            text.setAlignment(core.Qt.AlignTop)
-            scroll = qt.QScrollArea()
-            scroll.setWidgetResizable(True)
-            scroll.setWidget(text)
-            scroll.setFrameShape(qt.QScrollArea.NoFrame)
-            game_layout.addWidget(scroll)
-            for i in range(0, len(self.choices)):
-                s = chr(i + ord("A")) + "\t" + self.choices[i].text()
-                btn = qt.QPushButton(s)
-                btn.setFont(self.font)
-                btn.clicked.connect(partial(self.choose, i))
-                game_layout.addWidget(btn)
-            self.update(game_layout)
-
-    def tips(self):
-        m = qt.QMessageBox(self.main)
-        m.information(
-            self.main, "提示", "现在还处于开发阶段，游戏中可能有BUG。"
-        )
-
-    def choose(self, c):
-        self.choices[c].chosen()
-        self.loadScene()
-
-    def about(self):
-        s = "作者：兔子草<br><br>"
-        s += "联系方式：<br>"
-        s += "QQ: 34409508988<br>"
-        s += "邮箱：13718054285@163.com<br><br>"
-        s += "游戏地址：<br>"
-        s += '<a href="https://github.com/zhuty18/EmeraldKnight">'
-        s += "github.com/zhuty18/EmeraldKnight</a>"
-        about = qt.QDialog()
-        about.setWindowTitle("游戏信息")
-        layout = qt.QVBoxLayout()
-        label = qt.QLabel()
-        label.setText(s)
-        label.setOpenExternalLinks(True)
-        layout.addWidget(label)
-        about.setLayout(layout)
-        about.show()
-        about.exec_()
-
-    def debug(self):
-        print(gk.scene)
-        print(gk.paras)
+    def debug_game(self):
+        """调试"""
+        self.gk.print_debug()
 
 
 if __name__ == "__main__":
-    from sys import path
-
-    path.append("./script")
     ek = EmeraldKnight()
-    ek.app.exec_()
+    ek.run()

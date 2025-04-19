@@ -1,0 +1,151 @@
+{
+    "const_list": [
+        {
+            "name": "START_OVER",
+            "value": "game_over"
+        },
+        {
+            "name": "FINAL_BATTLE",
+            "value": "final_battle"
+        },
+        {
+            "name": "START_SCENE",
+            "value": "1-1"
+        },
+        {
+            "name": "SCENE",
+            "value": "SCENE"
+        }
+    ],
+    "para_list": [
+        {
+            "name": "BRUCE_STORY_LINE",
+            "id": "bsl",
+            "default_value": 0
+        },
+        {
+            "name": "BRUCE_SHOW_UP",
+            "id": "bsu",
+            "default_value": 0
+        },
+        {
+            "name": "BRUCE_LOVE",
+            "id": "brl",
+            "default_value": 0
+        },
+        {
+            "name": "BRUCE_INTRODUCE",
+            "id": "bri",
+            "default_value": 0
+        },
+        {
+            "name": "OLIVER_STORY_LINE",
+            "id": "osl",
+            "default_value": 0
+        },
+        {
+            "name": "OLIVER_LOVE",
+            "id": "oll",
+            "default_value": 0
+        },
+        {
+            "name": "SINESTRO_STORY_LINE",
+            "id": "ssl",
+            "default_value": 0
+        },
+        {
+            "name": "SINESTRO_LOVE",
+            "id": "sil",
+            "default_value": 0
+        },
+        {
+            "name": "SINESTRO_TAME",
+            "id": "sit",
+            "default_value": 0
+        },
+        {
+            "name": "BARRY_LOVE",
+            "id": "bal",
+            "default_value": 0
+        },
+        {
+            "name": "SWORD_HOT_TIME",
+            "id": "sht",
+            "default_value": 0
+        },
+        {
+            "name": "KNOWLEDGE",
+            "id": "knw",
+            "default_value": 0
+        },
+        {
+            "name": "INTELLIGENCE",
+            "id": "int",
+            "default_value": 0
+        },
+        {
+            "name": "TEMPORARY",
+            "id": "tmp",
+            "default_value": 0
+        },
+        {
+            "name": "PROP_1",
+            "id": "pr1",
+            "default_value": 0
+        },
+        {
+            "name": "PROP_2",
+            "id": "pr2",
+            "default_value": 0
+        },
+        {
+            "name": "PEGASUS",
+            "id": "pgs",
+            "default_value": 0
+        },
+        {
+            "name": "DRAGON_EGG",
+            "id": "dge",
+            "default_value": 0
+        },
+        {
+            "name": "TEAMMATE",
+            "id": "tmm",
+            "default_value": 0
+        }
+    ],
+    "code_list": [
+        {
+            "name": "PROP_CODE_1",
+            "value": 1
+        },
+        {
+            "name": "PROP_CODE_2",
+            "value": 2
+        },
+        {
+            "name": "PROP_CODE_3",
+            "value": 3
+        },
+        {
+            "name": "PROP_CODE_4",
+            "value": 4
+        },
+        {
+            "name": "BRUCE_CODE",
+            "value": 1
+        },
+        {
+            "name": "SINESTRO_CODE",
+            "value": 2
+        },
+        {
+            "name": "OLIVER_CODE",
+            "value": 3
+        },
+        {
+            "name": "BARRY_CODE",
+            "value": 4
+        }
+    ]
+}

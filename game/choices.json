@@ -1,0 +1,715 @@
+[
+    {
+        "id": "end",
+        "target": "game_over",
+        "text": "回到开始界面"
+    },
+    {
+        "id": "1-1-1",
+        "target": "1-2",
+        "action_1": "ADD",
+        "change_para_1": "SWORD_HOT_TIME",
+        "change_value_1": 1
+    },
+    {
+        "id": "1-1-2",
+        "target": "1-3"
+    },
+    {
+        "id": "1-1-3",
+        "target": "1-4"
+    },
+    {
+        "id": "1-2-1",
+        "target": "1-5",
+        "action_1": "ADD",
+        "change_para_1": "SWORD_HOT_TIME",
+        "change_value_1": 1
+    },
+    {
+        "id": "1-3-1",
+        "target": "1-6"
+    },
+    {
+        "id": "1-3-2",
+        "target": "1-7"
+    },
+    {
+        "id": "1-3-3",
+        "target": "1-8"
+    },
+    {
+        "id": "1-4-1",
+        "target": "1-9",
+        "action_1": "ADD",
+        "change_para_1": "SINESTRO_TAME",
+        "change_value_1": -1
+    },
+    {
+        "id": "1-4-2",
+        "target": "1-10",
+        "action_1": "ADD",
+        "change_para_1": "SINESTRO_LOVE",
+        "change_value_1": 1
+    },
+    {
+        "id": "1-4-3",
+        "target": "1-11"
+    },
+    {
+        "id": "1-5-1",
+        "target": "1-12"
+    },
+    {
+        "id": "1-5-2",
+        "target": "1-13",
+        "action_1": "ADD",
+        "change_para_1": "KNOWLEDGE",
+        "change_value_1": 1
+    },
+    {
+        "id": "1-6-1",
+        "target": "1-52"
+    },
+    {
+        "id": "1-6-2",
+        "target": "1-18",
+        "action_1": "ADD",
+        "change_para_1": "KNOWLEDGE",
+        "change_value_1": 3
+    },
+    {
+        "id": "1-7-1",
+        "target": "1-14",
+        "action_1": "ADD",
+        "change_para_1": "KNOWLEDGE",
+        "change_value_1": 2
+    },
+    {
+        "id": "1-7-2",
+        "target": "1-17"
+    },
+    {
+        "id": "1-8-1",
+        "target": "1-16",
+        "text": "找人带路去龙骨雪山"
+    },
+    {
+        "id": "1-11-1",
+        "target": "1-55",
+        "action_1": "ADD",
+        "change_para_1": "SINESTRO_LOVE",
+        "change_value_1": -1
+    },
+    {
+        "id": "1-11-2",
+        "target": "1-56"
+    },
+    {
+        "id": "1-11-3",
+        "target": "1-57",
+        "action_1": "ADD",
+        "change_para_1": "SINESTRO_TAME",
+        "change_value_1": 1
+    },
+    {
+        "id": "1-11-4",
+        "target": "1-58"
+    },
+    {
+        "id": "1-12-0",
+        "target": "1-24"
+    },
+    {
+        "id": "1-12-1",
+        "target": "1-20",
+        "text": "带有火焰纹路的红晶石",
+        "action_1": "SET",
+        "change_para_1": "PROP_1",
+        "change_value_1": "PROP_CODE_1"
+    },
+    {
+        "id": "1-12-2",
+        "target": "1-21",
+        "text": "带有雪花纹路的蓝晶石",
+        "action_1": "SET",
+        "change_para_1": "PROP_1",
+        "change_value_1": "PROP_CODE_2"
+    },
+    {
+        "id": "1-12-3",
+        "target": "1-22",
+        "text": "带有漩涡纹路的紫晶石",
+        "action_1": "SET",
+        "change_para_1": "PROP_1",
+        "change_value_1": "PROP_CODE_3"
+    },
+    {
+        "id": "1-12-4",
+        "target": "1-23",
+        "text": "带有草叶纹路的绿晶石",
+        "action_1": "SET",
+        "change_para_1": "PROP_1",
+        "change_value_1": "PROP_CODE_4"
+    },
+    {
+        "id": "1-14-1",
+        "target": "1-47"
+    },
+    {
+        "id": "1-14-2",
+        "target": "1-48",
+        "action_1": "ADD",
+        "change_para_1": "BARRY_LOVE",
+        "change_value_1": 5
+    },
+    {
+        "id": "1-14-3",
+        "target": "1-49"
+    },
+    {
+        "id": "1-15-1",
+        "target": "1-19",
+        "text": "重选"
+    },
+    {
+        "id": "1-16-1",
+        "target": "2-1"
+    },
+    {
+        "id": "1-16-2",
+        "target": "2-2"
+    },
+    {
+        "id": "1-16-3",
+        "target": "2-3"
+    },
+    {
+        "id": "1-17-1",
+        "target": "end-1",
+        "text": "不了"
+    },
+    {
+        "id": "1-17-2",
+        "target": "1-19"
+    },
+    {
+        "id": "1-19-1",
+        "target": "1-15"
+    },
+    {
+        "id": "1-24-0",
+        "target": "1-29"
+    },
+    {
+        "id": "1-24-1",
+        "target": "1-25",
+        "text": "看看书架",
+        "action_1": "SET",
+        "change_para_1": "PROP_2",
+        "change_value_1": "PROP_CODE_1"
+    },
+    {
+        "id": "1-24-2",
+        "target": "1-26",
+        "text": "看看卷轴",
+        "action_1": "SET",
+        "change_para_1": "PROP_2",
+        "change_value_1": "PROP_CODE_2"
+    },
+    {
+        "id": "1-24-3",
+        "target": "1-27",
+        "text": "看看挂毯",
+        "action_1": "SET",
+        "change_para_1": "PROP_2",
+        "change_value_1": "PROP_CODE_3"
+    },
+    {
+        "id": "1-24-4",
+        "target": "1-28",
+        "text": "看看徽章",
+        "action_1": "SET",
+        "change_para_1": "PROP_2",
+        "change_value_1": "PROP_CODE_4"
+    },
+    {
+        "id": "1-24-5",
+        "target": "1-29",
+        "action_1": "ADD",
+        "change_para_1": "INTELLIGENCE",
+        "change_value_1": -2
+    },
+    {
+        "id": "1-29-1",
+        "target": "1-30"
+    },
+    {
+        "id": "1-29-2",
+        "target": "1-34",
+        "action_1": "SET",
+        "change_para_1": "BRUCE_SHOW_UP",
+        "change_value_1": 1,
+        "show": "AND",
+        "show_action_1": "EQUAL",
+        "show_para_1": "PROP_2",
+        "show_value_1": "PROP_CODE_1"
+    },
+    {
+        "id": "1-31-1",
+        "target": "1-32",
+        "show": "AND",
+        "show_action_1": "MORE_EQUAL",
+        "show_para_1": "BRUCE_LOVE",
+        "show_value_1": 0
+    },
+    {
+        "id": "1-31-2",
+        "target": "1-33",
+        "action_1": "SET",
+        "change_para_1": "PROP_1",
+        "change_value_1": 0,
+        "action_2": "SET",
+        "change_para_2": "PROP_2",
+        "change_value_2": 0
+    },
+    {
+        "id": "1-34-1",
+        "target": "1-35",
+        "text": "这是什么地方？",
+        "action_1": "ADD",
+        "change_para_1": "TEMPORARY",
+        "change_value_1": 1,
+        "show": "AND",
+        "show_action_1": "LESS",
+        "show_para_1": "TEMPORARY",
+        "show_value_1": 2
+    },
+    {
+        "id": "1-34-2",
+        "target": "1-36",
+        "action_1": "ADD",
+        "change_para_1": "TEMPORARY",
+        "change_value_1": 1,
+        "show": "AND",
+        "show_action_1": "LESS",
+        "show_para_1": "TEMPORARY",
+        "show_value_1": 2
+    },
+    {
+        "id": "1-34-3",
+        "target": "1-37",
+        "action_1": "SET",
+        "change_para_1": "TEMPORARY",
+        "change_value_1": 0,
+        "show": "AND",
+        "show_action_1": "EQUAL",
+        "show_para_1": "TEMPORARY",
+        "show_value_1": 2
+    },
+    {
+        "id": "1-37-1",
+        "target": "1-38",
+        "action_1": "ADD",
+        "change_para_1": "BRUCE_LOVE",
+        "change_value_1": -5
+    },
+    {
+        "id": "1-37-2",
+        "target": "1-39",
+        "action_1": "ADD",
+        "change_para_1": "BRUCE_LOVE",
+        "change_value_1": 1
+    },
+    {
+        "id": "1-38-1",
+        "target": "1-31",
+        "text": "四处走走"
+    },
+    {
+        "id": "1-39-1",
+        "target": "1-40",
+        "text": "四处走走",
+        "show": "AND",
+        "show_action_1": "MORE_EQUAL",
+        "show_para_1": "KNOWLEDGE",
+        "show_value_1": 1
+    },
+    {
+        "id": "1-39-2",
+        "target": "1-31",
+        "text": "四处走走",
+        "show": "AND",
+        "show_action_1": "LESS",
+        "show_para_1": "KNOWLEDGE",
+        "show_value_1": 1
+    },
+    {
+        "id": "1-40-1",
+        "target": "1-41",
+        "text": "仔细看看",
+        "action_1": "ADD",
+        "change_para_1": "SWORD_HOT_TIME",
+        "change_value_1": 1,
+        "show": "AND",
+        "show_action_1": "EQUAL",
+        "show_para_1": "PROP_1",
+        "show_value_1": "PROP_CODE_4"
+    },
+    {
+        "id": "1-40-2",
+        "target": "1-45",
+        "action_1": "ADD",
+        "change_para_1": "BRUCE_LOVE",
+        "change_value_1": 2,
+        "show": "AND",
+        "show_action_1": "UNEQUAL",
+        "show_para_1": "PROP_1",
+        "show_value_1": "PROP_CODE_4",
+        "show_action_2": "EQUAL",
+        "show_para_2": "BRUCE_SHOW_UP",
+        "show_value_2": 1
+    },
+    {
+        "id": "1-40-3",
+        "target": "1-31",
+        "text": "起身走开",
+        "show": "AND",
+        "show_action_1": "UNEQUAL",
+        "show_para_1": "PROP_1",
+        "show_value_1": "PROP_CODE_4",
+        "show_action_2": "UNEQUAL",
+        "show_para_2": "BRUCE_SHOW_UP",
+        "show_value_2": 1
+    },
+    {
+        "id": "1-41-1",
+        "target": "1-42",
+        "action_1": "ADD",
+        "change_para_1": "KNOWLEDGE",
+        "change_value_1": 5
+    },
+    {
+        "id": "1-41-2",
+        "target": "1-43",
+        "action_1": "SET",
+        "change_para_1": "PROP_1",
+        "change_value_1": 0,
+        "action_2": "SET",
+        "change_para_2": "PROP_2",
+        "change_value_2": 0
+    },
+    {
+        "id": "1-41-3",
+        "target": "1-44",
+        "action_1": "ADD",
+        "change_para_1": "BRUCE_LOVE",
+        "change_value_1": 4,
+        "show": "AND",
+        "show_action_1": "EQUAL",
+        "show_para_1": "BRUCE_SHOW_UP",
+        "show_value_1": 0
+    },
+    {
+        "id": "1-41-4",
+        "target": "1-46",
+        "text": "那个人呢？",
+        "action_1": "ADD",
+        "change_para_1": "BRUCE_LOVE",
+        "change_value_1": 10,
+        "action_2": "SET",
+        "change_para_2": "BRUCE_INTRODUCE",
+        "change_value_2": 1,
+        "show": "AND",
+        "show_action_1": "EQUAL",
+        "show_para_1": "BRUCE_SHOW_UP",
+        "show_value_1": 1
+    },
+    {
+        "id": "1-49-1",
+        "target": "end-1",
+        "text": "我还不够强"
+    },
+    {
+        "id": "1-49-2",
+        "target": "1-50",
+        "text": "知道的太少",
+        "show": "AND",
+        "show_action_1": "MORE_EQUAL",
+        "show_para_1": "SWORD_HOT_TIME",
+        "show_value_1": 1
+    },
+    {
+        "id": "1-49-3",
+        "target": "1-51",
+        "action_1": "ADD",
+        "change_para_1": "KNOWLEDGE",
+        "change_value_1": 1
+    },
+    {
+        "id": "1-52-1",
+        "target": "1-53",
+        "action_1": "ADD",
+        "change_para_1": "KNOWLEDGE",
+        "change_value_1": 1,
+        "show": "AND",
+        "show_action_1": "MORE",
+        "show_para_1": "KNOWLEDGE",
+        "show_value_1": 0
+    },
+    {
+        "id": "1-52-2",
+        "target": "1-54",
+        "action_1": "SET",
+        "change_para_1": "TEAMMATE",
+        "change_value_1": "OLIVER_CODE",
+        "show": "OR",
+        "show_action_1": "LESS_EQUAL",
+        "show_para_1": "KNOWLEDGE",
+        "show_value_1": 0,
+        "show_action_2": "EQUAL",
+        "show_para_2": "SCENE",
+        "show_value_2": "1-53"
+    },
+    {
+        "id": "1-58-1",
+        "target": "1-59",
+        "text": "你就这么在野外点火的？",
+        "action_1": "ADD",
+        "change_para_1": "SINESTRO_TAME",
+        "change_value_1": 2,
+        "show": "AND",
+        "show_action_1": "MORE_EQUAL",
+        "show_para_1": "SINESTRO_TAME",
+        "show_value_1": 0
+    },
+    {
+        "id": "1-58-2",
+        "target": "1-60",
+        "action_1": "ADD",
+        "change_para_1": "SINESTRO_TAME",
+        "change_value_1": -1
+    },
+    {
+        "id": "1-58-3",
+        "target": "1-61",
+        "action_1": "ADD",
+        "change_para_1": "SINESTRO_LOVE",
+        "change_value_1": -1,
+        "show": "AND",
+        "show_action_1": "MORE_EQUAL",
+        "show_para_1": "SINESTRO_LOVE",
+        "show_value_1": 0
+    },
+    {
+        "id": "1-58-4",
+        "target": "1-62"
+    },
+    {
+        "id": "1-62-1",
+        "target": "1-63",
+        "text": "把他捆上",
+        "show": "OR",
+        "show_action_1": "MORE",
+        "show_para_1": "SINESTRO_LOVE",
+        "show_value_1": 0,
+        "show_action_2": "MORE",
+        "show_para_2": "SINESTRO_TAME",
+        "show_value_2": 0
+    },
+    {
+        "id": "1-62-2",
+        "target": "1-64",
+        "show": "AND",
+        "show_action_1": "LESS_EQUAL",
+        "show_para_1": "SINESTRO_LOVE",
+        "show_value_1": 0,
+        "show_action_2": "LESS_EQUAL",
+        "show_para_2": "SINESTRO_TAME",
+        "show_value_2": 0
+    },
+    {
+        "id": "1-63-1",
+        "target": "1-72"
+    },
+    {
+        "id": "1-63-2",
+        "target": "end-3",
+        "text": "拒绝"
+    },
+    {
+        "id": "1-64-1",
+        "target": "1-65",
+        "action_1": "SET",
+        "change_para_1": "TEMPORARY",
+        "change_value_1": 1
+    },
+    {
+        "id": "1-64-2",
+        "target": "1-66"
+    },
+    {
+        "id": "1-66-1",
+        "target": "1-67",
+        "text": "质问他是否与失踪有关",
+        "action_1": "SET",
+        "change_para_1": "TEMPORARY",
+        "change_value_1": 0,
+        "show": "AND",
+        "show_action_1": "EQUAL",
+        "show_para_1": "TEMPORARY",
+        "show_value_1": 1
+    },
+    {
+        "id": "1-66-2",
+        "target": "1-68"
+    },
+    {
+        "id": "1-67-1",
+        "target": "1-69",
+        "action_1": "ADD",
+        "change_para_1": "TEMPORARY",
+        "change_value_1": 1,
+        "show": "AND",
+        "show_action_1": "LESS",
+        "show_para_1": "TEMPORARY",
+        "show_value_1": 2
+    },
+    {
+        "id": "1-67-2",
+        "target": "1-70",
+        "action_1": "ADD",
+        "change_para_1": "TEMPORARY",
+        "change_value_1": 1,
+        "show": "AND",
+        "show_action_1": "LESS",
+        "show_para_1": "TEMPORARY",
+        "show_value_1": 2
+    },
+    {
+        "id": "1-67-3",
+        "target": "1-71",
+        "action_1": "SET",
+        "change_para_1": "TEMPORARY",
+        "change_value_1": 0,
+        "show": "AND",
+        "show_action_1": "EQUAL",
+        "show_para_1": "TEMPORARY",
+        "show_value_1": 2
+    },
+    {
+        "id": "1-71-1",
+        "target": "end-2",
+        "text": "杀了他"
+    },
+    {
+        "id": "1-72-1",
+        "target": "1-73",
+        "text": "吻他"
+    },
+    {
+        "id": "1-72-2",
+        "target": "1-73",
+        "text": "摸他",
+        "action_1": "ADD",
+        "change_para_1": "TEMPORARY",
+        "change_value_1": 2
+    },
+    {
+        "id": "1-73-1",
+        "target": "1-74",
+        "text": "地上",
+        "action_1": "ADD",
+        "change_para_1": "TEMPORARY",
+        "change_value_1": 3
+    },
+    {
+        "id": "1-73-2",
+        "target": "1-74",
+        "text": "墙上"
+    },
+    {
+        "id": "1-74-1",
+        "target": "1-75",
+        "text": "里面",
+        "action_1": "ADD",
+        "change_para_1": "TEMPORARY",
+        "change_value_1": 5
+    },
+    {
+        "id": "1-74-2",
+        "target": "1-75",
+        "text": "外面"
+    },
+    {
+        "id": "1-75-1",
+        "target": "1-76",
+        "text": "体验如何",
+        "action_1": "SET",
+        "change_para_1": "TEMPORARY",
+        "change_value_1": 0,
+        "action_2": "ADD",
+        "change_para_2": "SINESTRO_LOVE",
+        "change_value_2": 2,
+        "show": "AND",
+        "show_action_1": "EQUAL",
+        "show_para_1": "TEMPORARY",
+        "show_value_1": 10
+    },
+    {
+        "id": "1-75-2",
+        "target": "1-77",
+        "text": "体验如何",
+        "action_1": "SET",
+        "change_para_1": "TEMPORARY",
+        "change_value_1": 0,
+        "show": "AND",
+        "show_action_1": "MORE_EQUAL",
+        "show_para_1": "TEMPORARY",
+        "show_value_1": 5,
+        "show_action_2": "LESS",
+        "show_para_2": "TEMPORARY",
+        "show_value_2": 10
+    },
+    {
+        "id": "1-75-3",
+        "target": "end-4",
+        "text": "体验如何",
+        "action_1": "SET",
+        "change_para_1": "TEMPORARY",
+        "change_value_1": 0,
+        "show": "AND",
+        "show_action_1": "LESS",
+        "show_para_1": "TEMPORARY",
+        "show_value_1": 5
+    },
+    {
+        "id": "1-76-1",
+        "target": "1-78",
+        "action_1": "ADD",
+        "change_para_1": "SINESTRO_TAME",
+        "change_value_1": -1
+    },
+    {
+        "id": "1-76-2",
+        "target": "1-79"
+    },
+    {
+        "id": "1-76-3",
+        "target": "1-80",
+        "action_1": "ADD",
+        "change_para_1": "SINESTRO_TAME",
+        "change_value_1": 1,
+        "action_2": "ADD",
+        "change_para_2": "SINESTRO_LOVE",
+        "change_value_2": 1
+    },
+    {
+        "id": "1-76-4",
+        "target": "1-81"
+    },
+    {
+        "id": "1-81-1",
+        "target": "3-1"
+    }
+]
