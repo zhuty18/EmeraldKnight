@@ -104,20 +104,20 @@ class Scene:
 class Kernel:
     """游戏逻辑核"""
 
-    VERSION = "2.0"
-    DEBUG = True
+    VERSION = "2.0"  # 游戏版本
+    DEBUG = True  # 是否为调试模式
 
     KERNEL = None  # 游戏内核实例
 
-    CHAPTER = 2  # 章节数
+    CHAPTER = 3  # 章节数
     PATH_GAME = "game"  # 游戏相关文件路径
     FILE_PARAS = "paras.json"  # 参数存储文件
     FILE_SCENES = "scenes_ch{ch}.json"  # 场景存储文件
     FILE_CHOICES = "choices_ch{ch}.json"  # 选项存储文件
-    FILE_NAMES = "names.json"
+    FILE_NAMES = "names.json"  # 名称存储文件
     PATH_STORY = "story"  # 故事相关文件路径
-    PATH_SAVE = "save"
-    FILE_DEFAULT_SAVE = "0.eks"
+    PATH_SAVE = "save"  # 存档相关文件路径
+    FILE_DEFAULT_SAVE = "0.eks"  # 初始存档文件
 
     DEFAULT_PARAS = {}  # 参数表
     DEFAULT_CODES = {}  # 代码表
@@ -127,12 +127,12 @@ class Kernel:
     END_NAME_MAP = {}  # 结局名表
     CHAPTER_NAME_MAP = {}  # 章名表
 
-    START_SCENE = ""
-    START_OVER = ""
-    SCENE = ""
-    EMPTY_SAVE = ""
-    END = ""
-    STORY_END = ""
+    START_SCENE = ""  # 起始场景
+    START_OVER = ""  # 重开场景
+    SCENE = ""  # 场景变量名
+    END = ""  # 结局变量名
+    EMPTY_SAVE = ""  # 空存档字符串
+    STORY_END = ""  # 故事结尾补充字符串
 
     @staticmethod
     def res_path(file_dir, file_name=None):
@@ -302,16 +302,28 @@ class Kernel:
 
     def change_para(self, para_name, change_act, change_by):
         """改变参数"""
-        para_id = Kernel.DEFAULT_PARAS[para_name]["id"]
-        if isinstance(change_by, str):
-            value = Kernel.DEFAULT_CODES[change_by]
+        if change_act == "CONDITION":
+            if Kernel.KERNEL.check_condition(
+                para_name["para"],
+                para_name["check"],
+                para_name["value"],
+            ):
+                Kernel.KERNEL.change_para(
+                    change_by["para"],
+                    change_by["change"],
+                    change_by["value"],
+                )
         else:
-            value = change_by
-        match change_act:
-            case "ADD":
-                self._paras[para_id] += value
-            case "SET":
-                self._paras[para_id] = value
+            para_id = Kernel.DEFAULT_PARAS[para_name]["id"]
+            if isinstance(change_by, str):
+                value = Kernel.DEFAULT_CODES[change_by]
+            else:
+                value = change_by
+            match change_act:
+                case "ADD":
+                    self._paras[para_id] += value
+                case "SET":
+                    self._paras[para_id] = value
 
     def to_scene(self, scene_id):
         """改变场景"""
