@@ -1,0 +1,438 @@
+[
+    {
+        "id": "4-1-1",
+        "target": "4-3"
+    },
+    {
+        "id": "4-3-1",
+        "target": "4-4"
+    },
+    {
+        "id": "4-3-2",
+        "target": "4-5",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "KNOWLEDGE",
+                "value": 5
+            }
+        ]
+    },
+    {
+        "id": "4-3-3",
+        "target": "4-6"
+    },
+    {
+        "id": "4-4-1",
+        "target": "end-6",
+        "text": "答应"
+    },
+    {
+        "id": "4-4-2",
+        "target": "4-7"
+    },
+    {
+        "id": "4-5-1",
+        "target": "4-7",
+        "text": "出发"
+    },
+    {
+        "id": "4-6-1",
+        "target": "4-8",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "PROP_1",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "PROP_1",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "4-6-2",
+        "target": "4-9",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "PROP_1",
+                    "value": 2
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "PROP_1",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "id": "4-6-3",
+        "target": "4-10",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "PROP_1",
+                    "value": 3
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "PROP_1",
+                "value": 4
+            }
+        ]
+    },
+    {
+        "id": "4-6-4",
+        "target": "4-11",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "PROP_1",
+                    "value": 7
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "PROP_1",
+                "value": 0
+            },
+            {
+                "change": "SET",
+                "para": "TEAMMATE",
+                "value": "BARRY_CODE"
+            },
+            {
+                "change": "ADD",
+                "para": "BARRY_LOVE",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "4-7-1",
+        "target": "end-7",
+        "text": "战斗",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "LESS",
+                    "para": "SINESTRO_LOVE",
+                    "value": 5
+                },
+                {
+                    "check": "EQUAL",
+                    "para": "FIGHT",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "4-7-2",
+        "target": "4-13",
+        "text": "战斗",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "MORE_EQUAL",
+                    "para": "SINESTRO_LOVE",
+                    "value": 5
+                },
+                {
+                    "check": "EQUAL",
+                    "para": "FIGHT",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "4-7-3",
+        "target": "end-6",
+        "text": "战斗",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "FIGHT",
+                    "value": 0
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "4-11-1",
+        "target": "4-12",
+        "text": "战斗",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "FIGHT",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "4-11-2",
+        "target": "end-6",
+        "text": "战斗",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "FIGHT",
+                    "value": 0
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "4-12-1",
+        "target": "5-4"
+    },
+    {
+        "id": "4-13-1",
+        "target": "4-14",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "SINESTRO_LOVE",
+                "value": -1
+            }
+        ]
+    },
+    {
+        "id": "4-13-2",
+        "target": "4-15"
+    },
+    {
+        "id": "4-13-3",
+        "target": "4-16",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "SINESTRO_TAME",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "4-14-1",
+        "target": "4-17",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "SINESTRO_TAME",
+                "value": -1
+            }
+        ]
+    },
+    {
+        "id": "4-14-2",
+        "target": "4-18",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "SINESTRO_LOVE",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "4-14-3",
+        "target": "4-19"
+    },
+    {
+        "id": "4-14-4",
+        "target": "4-20"
+    },
+    {
+        "id": "4-20-1",
+        "target": "4-29"
+    },
+    {
+        "id": "4-20-2",
+        "target": "4-22",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "SINESTRO_TAME",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "4-21-1",
+        "target": "4-23"
+    },
+    {
+        "id": "4-21-2",
+        "target": "4-24",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "SINESTRO_LOVE",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "4-22-1",
+        "target": "4-21"
+    },
+    {
+        "id": "4-23-1",
+        "target": "4-25"
+    },
+    {
+        "id": "4-23-2",
+        "target": "4-26"
+    },
+    {
+        "id": "4-25-1",
+        "target": "4-27",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "SINESTRO_TAME",
+                    "value": 8
+                }
+            ]
+        }
+    },
+    {
+        "id": "4-25-2",
+        "target": "4-28",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "LESS",
+                    "para": "SINESTRO_LOVE",
+                    "value": 8
+                }
+            ]
+        }
+    },
+    {
+        "id": "4-25-3",
+        "target": "end-10",
+        "text": "怎么了？"
+    },
+    {
+        "id": "4-27-1",
+        "target": "end-11",
+        "text": "再给他一次机会",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "SINESTRO_LOVE",
+                    "value": 8
+                }
+            ]
+        }
+    },
+    {
+        "id": "4-27-2",
+        "target": "end-12",
+        "text": "瑟尔早该死了"
+    },
+    {
+        "id": "4-28-1",
+        "target": "end-8",
+        "text": "你想怎样",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "SINESTRO_TAME",
+                    "value": 8
+                }
+            ]
+        }
+    },
+    {
+        "id": "4-28-2",
+        "target": "end-9",
+        "text": "你想怎样",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "LESS",
+                    "para": "SINESTRO_TAME",
+                    "value": 8
+                }
+            ]
+        }
+    }
+]

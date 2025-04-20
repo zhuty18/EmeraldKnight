@@ -17,12 +17,16 @@
             "value": "SCENE"
         },
         {
-            "name": "EMPTY_SAVE",
-            "value": "空存档"
-        },
-        {
             "name": "END",
             "value": "END"
+        },
+        {
+            "name": "FIGHT",
+            "value": "FIGHT"
+        },
+        {
+            "name": "EMPTY_SAVE",
+            "value": "空存档"
         },
         {
             "name": "END_CHOICE",

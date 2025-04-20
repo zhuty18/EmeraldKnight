@@ -5,6 +5,7 @@
 import json
 import os
 import time
+from random import random
 
 
 class Choice:
@@ -109,7 +110,7 @@ class Kernel:
 
     KERNEL = None  # 游戏内核实例
 
-    CHAPTER = 3  # 章节数
+    CHAPTER = 4  # 章节数
     PATH_GAME = "game"  # 游戏相关文件路径
     FILE_PARAS = "paras.json"  # 参数存储文件
     FILE_SCENES = "scenes_ch{ch}.json"  # 场景存储文件
@@ -131,6 +132,7 @@ class Kernel:
     START_OVER = ""  # 重开场景
     SCENE = ""  # 场景变量名
     END = ""  # 结局变量名
+    FIGHT = ""  # 结局变量名
     EMPTY_SAVE = ""  # 空存档字符串
     STORY_END = ""  # 故事结尾补充字符串
 
@@ -235,12 +237,14 @@ class Kernel:
         Kernel.START_SCENE = Kernel.DEFAULT_CONSTS["START_SCENE"]
         Kernel.START_OVER = Kernel.DEFAULT_CONSTS["START_OVER"]
         Kernel.SCENE = Kernel.DEFAULT_CONSTS["SCENE"]
-        Kernel.EMPTY_SAVE = Kernel.DEFAULT_CONSTS["EMPTY_SAVE"]
         Kernel.END = Kernel.DEFAULT_CONSTS["END"]
+        Kernel.FIGHT = Kernel.DEFAULT_CONSTS["FIGHT"]
+        Kernel.EMPTY_SAVE = Kernel.DEFAULT_CONSTS["EMPTY_SAVE"]
         Kernel.STORY_END = Kernel.DEFAULT_CONSTS["STORY_END"]
 
         self._scene = None  # 当前场景
         self._paras = {}  # 参数存储
+        self._fight = {}  # 战斗结果
 
         Kernel.KERNEL = self
 
@@ -300,6 +304,10 @@ class Kernel:
                 self._paras["pr2"] = self._paras["pro"] >> 3
                 self._paras.pop("pro")
 
+    def get_para(self, para_name):
+        """获取参数值"""
+        return self._paras[Kernel.DEFAULT_PARAS[para_name]["id"]]
+
     def change_para(self, para_name, change_act, change_by):
         """改变参数"""
         if change_act == "CONDITION":
@@ -334,8 +342,9 @@ class Kernel:
         if para_name == Kernel.SCENE:
             check_para = self.get_scene_id()
         elif para_name != Kernel.END:
-            para_id = Kernel.DEFAULT_PARAS[para_name]["id"]
-            check_para = self._paras[para_id]
+            check_para = self.get_para(para_name)
+        elif check_by == Kernel.FIGHT:
+            check_para = self.fight_result()
         else:
             check_para = para_name
         if isinstance(check_by, str) and "CODE" in check_by:
@@ -376,6 +385,25 @@ class Kernel:
     def get_choices(self):
         """获取选项"""
         return self._scene.get_options()
+
+    def fight(self):
+        """过场战斗"""
+        hp = self.get_para("TEMPORARY")
+        hp += 3 * self.get_para("INTELLIGENCE")
+        hp += self.get_para("KNOWLEDGE")
+        hp += 5 * self.get_para("BRUCE_LOVE")
+        hp += 5 * self.get_para("SINESTRO_LOVE")
+        hp += 5 * self.get_para("SINESTRO_TAME")
+        hp += 20 * (1 if self.get_para("TEAMMATE") != 0 else 0)
+        for _ in range(10):
+            hp -= random() * 16
+        return hp > 0
+
+    def fight_result(self):
+        """战斗结果"""
+        if not self._scene.get_id() in self._fight:
+            self._fight[self._scene.get_id()] = int(self.fight())
+        return self._fight[self._scene.get_id()]
 
     def print_debug(self):
         """打印调试信息"""
