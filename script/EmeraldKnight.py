@@ -2,13 +2,11 @@
 
 """翡翠骑士游戏 v2.0"""
 
-import sys
 from functools import partial
 
 import PySide6.QtCore as core
 import PySide6.QtGui as gui
 import PySide6.QtWidgets as qt
-from EmeraldKnightCMD import EmeraldKnightCMD
 from game_kernel import Kernel
 
 
@@ -200,8 +198,5 @@ class EmeraldKnight:
 
 
 if __name__ == "__main__":
-    if len(sys.argv) == 1:
-        ek = EmeraldKnight()
-    else:
-        ek = EmeraldKnightCMD()
+    ek = EmeraldKnight()
     ek.run()

@@ -163,3 +163,8 @@ class EmeraldKnightCMD:
                     raise TypeError
             except TypeError:
                 print("请重新输入！")
+
+
+if __name__ == "__main__":
+    ek = EmeraldKnightCMD()
+    ek.run()
