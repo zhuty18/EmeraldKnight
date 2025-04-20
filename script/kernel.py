@@ -7,7 +7,7 @@ from battle import battle
 from choices import getChoice
 from constant import FINAL_BATTLE, GAME_OVER, gk, res_path
 
-VERSION = "2.0"
+VERSION = "0.9"
 
 
 class kernel:

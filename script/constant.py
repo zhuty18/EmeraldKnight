@@ -1,5 +1,6 @@
+import json
+import os
 from copy import deepcopy
-import json, os
 from random import random
 
 DEBUG = True
@@ -57,7 +58,7 @@ stroy_para = {
 
 
 def res_path(fn):
-    '''相关文件路径'''
+    """相关文件路径"""
     if DEBUG:
         root = os.path.abspath(".")
     else:
@@ -67,7 +68,8 @@ def res_path(fn):
 
 
 class gk:
-    '''全局静态类'''
+    """全局静态类"""
+
     debug_para = {**character_para, **stroy_para}
     scene = ""
     paras = {}
@@ -79,9 +81,6 @@ class gk:
     def init():
         f = open(res_path("story/menu.json"), "r", encoding="utf8")
         gk.sn = json.loads(f.read())
-        f.close()
-        f = open(res_path("story/info.json"), "r", encoding="utf8")
-        gk.info_map = json.loads(f.read())
         f.close()
         if not os.path.exists(res_path("save")):
             os.makedirs(res_path("save"))
@@ -98,7 +97,7 @@ class gk:
 
     @staticmethod
     def targetName(scene) -> str:
-        '''选项名'''
+        """选项名"""
         return gk.sn.get(scene, "找不到选项名")
 
     @staticmethod
@@ -129,9 +128,3 @@ class gk:
         for i in range(10):
             hp -= random() * 16
         return hp > 0
-
-    @staticmethod
-    def open_info_entry(name):
-        for i in gk.info_map.keys():
-            if name in gk.info_map[i]["scene"]:
-                gk.openPara(i)
