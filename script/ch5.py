@@ -1,5 +1,5 @@
-from ch5_choices import *
 from abstract import scene_abstract
+from ch5_choices import *
 
 
 class s5_1(scene_abstract):

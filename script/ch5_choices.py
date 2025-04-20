@@ -1,5 +1,5 @@
-from constant import *
 from abstract import choice_abstract
+from constant import *
 
 
 class c5_1_1(choice_abstract):
@@ -375,7 +375,9 @@ class c5_47_1(choice_abstract):
     target = "5-48"
 
     def show(self):
-        return ((gk.paras[TEMPORARY] >> 3) % 2 == 1) and ((gk.paras[TEMPORARY] >> 2) % 2 == 1)
+        return ((gk.paras[TEMPORARY] >> 3) % 2 == 1) and (
+            (gk.paras[TEMPORARY] >> 2) % 2 == 1
+        )
 
 
 class c5_47_2(choice_abstract):
@@ -396,7 +398,9 @@ class c5_47_4(choice_abstract):
     target = "5-64"
 
     def show(self):
-        return ((gk.paras[TEMPORARY] >> 3) % 2 == 1) and ((gk.paras[TEMPORARY] >> 2) % 2 == 0)
+        return ((gk.paras[TEMPORARY] >> 3) % 2 == 1) and (
+            (gk.paras[TEMPORARY] >> 2) % 2 == 0
+        )
 
 
 class c5_48_1(choice_abstract):

@@ -33,19 +33,10 @@ class Choice:
         """是否显示"""
         if not "show" in self._data:
             return True
-        res = True if self._data["show"]["op"] == "AND" else False
-        for condition in self._data["show"]["condition"]:
-            check = Kernel.KERNEL.check_condition(
-                condition["para"],
-                condition["check"],
-                condition["value"],
-            )
-            match self._data["show"]["op"]:
-                case "AND":
-                    res &= check
-                case "OR":
-                    res |= check
-        return res
+        return Kernel.KERNEL.check_is(
+            self._data["show"]["op"],
+            self._data["show"]["condition"],
+        )
 
     def chosen(self):
         """选择后"""
@@ -84,7 +75,10 @@ class Scene:
 
     def get_text(self):
         """获取文本"""
-        scene_text = Kernel.read_file("story", f"{self._data["id"]}.txt", False)
+        s_id = (
+            self._data["scene"] if "scene" in self._data else self._data["id"]
+        )
+        scene_text = Kernel.read_file("story", f"{s_id}.txt", False)
         if "end" in self._data["id"]:
             scene_text += Kernel.STORY_END + Kernel.get_end_name(
                 self._data["id"]
@@ -95,8 +89,15 @@ class Scene:
 
     def get_options(self):
         """获取选项"""
+        options = self._data["options"]
+        if "require" in self._data:
+            if Kernel.KERNEL.check_is(
+                self._data["require"]["op"],
+                self._data["require"]["condition"],
+            ):
+                options = self._data["require"]["match_options"]
         res = []
-        for c in [Choice.get_by_id(x) for x in self._data["options"]]:
+        for c in [Choice.get_by_id(x) for x in options]:
             if c.show():
                 res.append(c)
         return res
@@ -110,7 +111,7 @@ class Kernel:
 
     KERNEL = None  # 游戏内核实例
 
-    CHAPTER = 4  # 章节数
+    CHAPTER = 5  # 章节数
     PATH_GAME = "game"  # 游戏相关文件路径
     FILE_PARAS = "paras.json"  # 参数存储文件
     FILE_SCENES = "scenes_ch{ch}.json"  # 场景存储文件
@@ -316,11 +317,12 @@ class Kernel:
                 para_name["check"],
                 para_name["value"],
             ):
-                Kernel.KERNEL.change_para(
-                    change_by["para"],
-                    change_by["change"],
-                    change_by["value"],
-                )
+                for change in change_by:
+                    Kernel.KERNEL.change_para(
+                        change["para"],
+                        change["change"],
+                        change["value"],
+                    )
         else:
             para_id = Kernel.DEFAULT_PARAS[para_name]["id"]
             if isinstance(change_by, str):
@@ -338,7 +340,7 @@ class Kernel:
         self._scene = Scene.get_by_id(scene_id)
 
     def check_condition(self, para_name, check_act, check_by):
-        """条件检测"""
+        """单个条件检测"""
         if para_name == Kernel.SCENE:
             check_para = self.get_scene_id()
         elif para_name != Kernel.END:
@@ -371,6 +373,22 @@ class Kernel:
                 return check_para >> (value - 1) & 1 == 0
             case "CHECK_END":
                 return Kernel.check_end(f"end-{value}")
+
+    def check_is(self, show_op, show_condition):
+        """条件检测"""
+        res = True if show_op == "AND" else False
+        for condition in show_condition:
+            check = self.check_condition(
+                condition["para"],
+                condition["check"],
+                condition["value"],
+            )
+            match show_op:
+                case "AND":
+                    res &= check
+                case "OR":
+                    res |= check
+        return res
 
     def get_scene_id(self):
         """获取当前场景ID"""

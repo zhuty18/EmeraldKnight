@@ -558,11 +558,13 @@
                     "para": "PROP_1",
                     "value": 1
                 },
-                "value": {
-                    "change": "ADD",
-                    "para": "PROP_2",
-                    "value": 1
-                }
+                "value": [
+                    {
+                        "change": "ADD",
+                        "para": "PROP_2",
+                        "value": 1
+                    }
+                ]
             }
         ]
     },
@@ -578,11 +580,13 @@
                     "para": "PROP_1",
                     "value": 2
                 },
-                "value": {
-                    "change": "ADD",
-                    "para": "PROP_2",
-                    "value": 1
-                }
+                "value": [
+                    {
+                        "change": "ADD",
+                        "para": "PROP_2",
+                        "value": 1
+                    }
+                ]
             }
         ]
     },
@@ -598,11 +602,13 @@
                     "para": "PROP_1",
                     "value": 3
                 },
-                "value": {
-                    "change": "ADD",
-                    "para": "PROP_2",
-                    "value": 1
-                }
+                "value": [
+                    {
+                        "change": "ADD",
+                        "para": "PROP_2",
+                        "value": 1
+                    }
+                ]
             }
         ]
     },
@@ -618,11 +624,13 @@
                     "para": "PROP_1",
                     "value": 5
                 },
-                "value": {
-                    "change": "ADD",
-                    "para": "PROP_2",
-                    "value": 1
-                }
+                "value": [
+                    {
+                        "change": "ADD",
+                        "para": "PROP_2",
+                        "value": 1
+                    }
+                ]
             }
         ]
     },
@@ -643,11 +651,13 @@
                     "para": "PROP_1",
                     "value": 4
                 },
-                "value": {
-                    "change": "ADD",
-                    "para": "PROP_2",
-                    "value": 1
-                }
+                "value": [
+                    {
+                        "change": "ADD",
+                        "para": "PROP_2",
+                        "value": 1
+                    }
+                ]
             }
         ]
     },
@@ -1028,28 +1038,6 @@
         ]
     },
     {
-        "id": "3-62-3",
-        "target": "3-63",
-        "text": "回头",
-        "show": {
-            "op": "AND",
-            "condition": [
-                {
-                    "check": "EQUAL",
-                    "para": "TEMPORARY",
-                    "value": 1
-                }
-            ]
-        },
-        "choose": [
-            {
-                "change": "SET",
-                "para": "TEMPORARY",
-                "value": 1
-            }
-        ]
-    },
-    {
         "id": "3-61-1",
         "target": "3-68"
     },
@@ -1077,6 +1065,28 @@
                 "change": "SET",
                 "para": "TEMPORARY",
                 "value": 0
+            }
+        ]
+    },
+    {
+        "id": "3-62-3",
+        "target": "3-63",
+        "text": "回头",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "TEMPORARY",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 1
             }
         ]
     },

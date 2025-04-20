@@ -1,0 +1,969 @@
+[
+    {
+        "id": "5-1-1",
+        "target": "5-26",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "UNEQUAL",
+                    "para": "TEAMMATE",
+                    "value": "BRUCE_CODE"
+                },
+                {
+                    "check": "UNEQUAL",
+                    "para": "TEMPORARY",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-1-2",
+        "target": "5-2",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "UNEQUAL",
+                    "para": "TEAMMATE",
+                    "value": "BRUCE_CODE"
+                },
+                {
+                    "check": "EQUAL",
+                    "para": "TEMPORARY",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "5-1-3",
+        "target": "5-27",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "TEAMMATE",
+                    "value": "BRUCE_CODE"
+                },
+                {
+                    "check": "UNEQUAL",
+                    "para": "TEMPORARY",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-2-1",
+        "target": "5-5",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "BRUCE_INTRODUCE",
+                    "value": 1
+                },
+                {
+                    "check": "UNEQUAL",
+                    "para": "BRUCE_SHOW_UP",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-2-2",
+        "target": "5-6",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "UNEQUAL",
+                    "para": "BRUCE_INTRODUCE",
+                    "value": 1
+                },
+                {
+                    "check": "EQUAL",
+                    "para": "BRUCE_SHOW_UP",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-2-3",
+        "target": "5-7",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "UNEQUAL",
+                    "para": "BRUCE_INTRODUCE",
+                    "value": 1
+                },
+                {
+                    "check": "UNEQUAL",
+                    "para": "BRUCE_SHOW_UP",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-2-4",
+        "target": "5-8"
+    },
+    {
+        "id": "5-3-1",
+        "target": "5-13"
+    },
+    {
+        "id": "5-4-1",
+        "target": "5-9",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "BRUCE_INTRODUCE",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-4-2",
+        "target": "5-10",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "UNEQUAL",
+                    "para": "BRUCE_INTRODUCE",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-4-3",
+        "target": "5-12"
+    },
+    {
+        "id": "5-8-1",
+        "target": "5-3",
+        "text": "走吧"
+    },
+    {
+        "id": "5-10-1",
+        "target": "5-11",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "BRUCE_SHOW_UP",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-10-2",
+        "target": "5-12",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "UNEQUAL",
+                    "para": "BRUCE_SHOW_UP",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-13-1",
+        "target": "5-14"
+    },
+    {
+        "id": "5-14-1",
+        "target": "5-15"
+    },
+    {
+        "id": "5-15-1",
+        "target": "5-15-1"
+    },
+    {
+        "id": "5-15-1-1",
+        "target": "5-16"
+    },
+    {
+        "id": "5-15-1-2",
+        "target": "5-18"
+    },
+    {
+        "id": "5-15-1-3",
+        "target": "5-19"
+    },
+    {
+        "id": "5-15-2",
+        "target": "5-15-2"
+    },
+    {
+        "id": "5-15-2-1",
+        "target": "5-20"
+    },
+    {
+        "id": "5-15-2-2",
+        "target": "5-21",
+        "choose": [
+            {
+                "change": "CONDITION",
+                "para": {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 1
+                },
+                "value": [
+                    {
+                        "change": "ADD",
+                        "para": "TEMPORARY",
+                        "value": 1
+                    },
+                    {
+                        "change": "ADD",
+                        "para": "KNOWLEDGE",
+                        "value": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "5-15-3",
+        "target": "5-15-3"
+    },
+    {
+        "id": "5-15-3-1",
+        "target": "5-22",
+        "choose": [
+            {
+                "change": "CONDITION",
+                "para": {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 2
+                },
+                "value": [
+                    {
+                        "change": "ADD",
+                        "para": "TEMPORARY",
+                        "value": 2
+                    },
+                    {
+                        "change": "ADD",
+                        "para": "KNOWLEDGE",
+                        "value": 2
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "5-15-3-2",
+        "target": "5-23",
+        "choose": [
+            {
+                "change": "CONDITION",
+                "para": {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 3
+                },
+                "value": [
+                    {
+                        "change": "ADD",
+                        "para": "TEMPORARY",
+                        "value": 4
+                    },
+                    {
+                        "change": "ADD",
+                        "para": "INTELLIGENCE",
+                        "value": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "5-15-4",
+        "target": "5-24",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "DRAGON_EGG",
+                    "value": 0
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "DRAGON_EGG",
+                "value": 1
+            },
+            {
+                "change": "ADD",
+                "para": "KNOWLEDGE",
+                "value": 3
+            }
+        ]
+    },
+    {
+        "id": "5-15-5",
+        "target": "5-25",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "DRAGON_EGG",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-16-1",
+        "target": "5-17"
+    },
+    {
+        "id": "5-18-1",
+        "target": "5-28",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "5-26-1",
+        "target": "5-2",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "5-28-1",
+        "target": "5-29",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "MORE",
+                    "para": "INTELLIGENCE",
+                    "value": 2
+                },
+                {
+                    "check": "MORE",
+                    "para": "BRUCE_LOVE",
+                    "value": 8
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-28-2",
+        "target": "5-30",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "MORE",
+                    "para": "INTELLIGENCE",
+                    "value": 2
+                },
+                {
+                    "check": "LESS_EQUAL",
+                    "para": "BRUCE_LOVE",
+                    "value": 8
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-28-3",
+        "target": "5-31"
+    },
+    {
+        "id": "5-29-1",
+        "target": "5-32"
+    },
+    {
+        "id": "5-29-2",
+        "target": "end-13",
+        "text": "让布鲁斯去操心"
+    },
+    {
+        "id": "5-31-1",
+        "target": "end-13",
+        "text": "不再管了"
+    },
+    {
+        "id": "5-32-1",
+        "target": "5-33"
+    },
+    {
+        "id": "5-32-2",
+        "target": "5-40",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "5-32-3",
+        "target": "5-41",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "BINARY",
+                    "para": "TEMPORARY",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-32-4",
+        "target": "5-44"
+    },
+    {
+        "id": "5-32-5",
+        "target": "5-46",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "5-32-6",
+        "target": "5-47",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "BINARY",
+                    "para": "TEMPORARY",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-32-7",
+        "target": "5-51",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "DRAGON_EGG",
+                    "value": 1
+                },
+                {
+                    "check": "EQUAL",
+                    "para": "SCENE",
+                    "value": "5-32"
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "BRUCE_LOVE",
+                "value": 4
+            }
+        ]
+    },
+    {
+        "id": "5-33-1",
+        "target": "5-34",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 2
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "id": "5-33-2",
+        "target": "5-35",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 3
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 4
+            }
+        ]
+    },
+    {
+        "id": "5-33-3",
+        "target": "5-36",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "PROP_1",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "CONDITION",
+                "para": {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 4
+                },
+                "value": [
+                    {
+                        "change": "ADD",
+                        "para": "TEMPORARY",
+                        "value": 8
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "5-37-1",
+        "target": "5-38",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "PROP_1",
+                    "value": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-37-2",
+        "target": "5-39",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "PROP_1",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "PROP_1",
+                "value": 0
+            },
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "5-38-1",
+        "target": "end-13",
+        "text": "专心备战"
+    },
+    {
+        "id": "5-41-1",
+        "target": "5-42",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "BINARY",
+                    "para": "TEMPORARY",
+                    "value": 3
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-41-2",
+        "target": "5-43",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 3
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-44-1",
+        "target": "5-45",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "BINARY",
+                    "para": "TEMPORARY",
+                    "value": 2
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "CONDITION",
+                "para": {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 1
+                },
+                "value": [
+                    {
+                        "change": "ADD",
+                        "para": "TEMPORARY",
+                        "value": 1
+                    }
+                ]
+            },
+            {
+                "change": "SET",
+                "para": "PROP_1",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "5-44-2",
+        "target": "end-14",
+        "text": "跳下去",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 2
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-44-3",
+        "target": "5-63"
+    },
+    {
+        "id": "5-47-1",
+        "target": "5-48",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "BINARY",
+                    "para": "TEMPORARY",
+                    "value": 4
+                },
+                {
+                    "check": "BINARY",
+                    "para": "TEMPORARY",
+                    "value": 3
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-47-2",
+        "target": "5-49",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "BINARY",
+                    "para": "TEMPORARY",
+                    "value": 3
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-47-3",
+        "target": "5-50",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 4
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-47-4",
+        "target": "5-64",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "BINARY",
+                    "para": "TEMPORARY",
+                    "value": 4
+                },
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 3
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-48-1",
+        "target": "5-52",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 1
+            },
+            {
+                "change": "SET",
+                "para": "PROP_1",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "5-49-1",
+        "target": "5-37"
+    },
+    {
+        "id": "5-52-1",
+        "target": "5-53"
+    },
+    {
+        "id": "5-53-1",
+        "target": "5-54",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "PEGASUS",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-53-2",
+        "target": "5-55",
+        "show": {
+            "op": "OR",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "PEGASUS",
+                    "value": 0
+                },
+                {
+                    "check": "EQUAL",
+                    "para": "SCENE",
+                    "value": "5-54"
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-55-1",
+        "target": "5-56",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "5-55-2",
+        "target": "5-57",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "TEMPORARY",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-55-3",
+        "target": "5-58",
+        "show": {
+            "op": "OR",
+            "condition": [
+                {
+                    "check": "UNEQUAL",
+                    "para": "TEMPORARY",
+                    "value": 1
+                },
+                {
+                    "check": "EQUAL",
+                    "para": "SCENE",
+                    "value": "5-57"
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "5-58-1",
+        "target": "5-59"
+    },
+    {
+        "id": "5-58-2",
+        "target": "5-59",
+        "text": "西塔楼"
+    },
+    {
+        "id": "5-58-3",
+        "target": "5-59",
+        "text": "城堡一楼"
+    },
+    {
+        "id": "5-58-4",
+        "target": "5-60",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "DRAGON_EGG",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-58-5",
+        "target": "5-61",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "DRAGON_EGG",
+                    "value": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-59-1",
+        "target": "6-1",
+        "text": "备战"
+    },
+    {
+        "id": "5-60-1",
+        "target": "5-62",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 1
+            }
+        ]
+    }
+]
