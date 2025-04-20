@@ -7,6 +7,8 @@ import os
 import time
 from random import random
 
+from battle_scene import BattleScene
+
 
 class Choice:
     """选项"""
@@ -18,10 +20,6 @@ class Choice:
 
     def __init__(self, data):
         self._data = data
-
-    def get_id(self):
-        """获取选项ID"""
-        return self._data["id"]
 
     def text(self):
         """选项文本"""
@@ -64,6 +62,8 @@ class Scene:
                     "options": Kernel.SCENE_MAP[Kernel.START_OVER]["options"],
                 }
             )
+        elif scene_id == Kernel.FINAL_BATTLE:
+            return BattleScene()
         return Scene(Kernel.SCENE_MAP[scene_id])
 
     def __init__(self, data):
@@ -111,7 +111,7 @@ class Kernel:
 
     KERNEL = None  # 游戏内核实例
 
-    CHAPTER = 5  # 章节数
+    CHAPTER = 6  # 章节数
     PATH_GAME = "game"  # 游戏相关文件路径
     FILE_PARAS = "paras.json"  # 参数存储文件
     FILE_SCENES = "scenes_ch{ch}.json"  # 场景存储文件
@@ -128,14 +128,17 @@ class Kernel:
     CHOICE_MAP = {}  # 选项表
     END_NAME_MAP = {}  # 结局名表
     CHAPTER_NAME_MAP = {}  # 章名表
+    CHARACTER_MAP = {}  # 角色表
 
     START_SCENE = ""  # 起始场景
     START_OVER = ""  # 重开场景
+    FINAL_BATTLE = ""  # 重开场景
     SCENE = ""  # 场景变量名
     END = ""  # 结局变量名
     FIGHT = ""  # 结局变量名
     EMPTY_SAVE = ""  # 空存档字符串
     STORY_END = ""  # 故事结尾补充字符串
+    BATTLE_STORY = {}  # 决战相关字符串
 
     @staticmethod
     def res_path(file_dir, file_name=None):
@@ -209,6 +212,10 @@ class Kernel:
             "code_list"
         ]:
             Kernel.DEFAULT_CODES[i["name"]] = i["value"]
+        for i in Kernel.read_file(Kernel.PATH_GAME, Kernel.FILE_PARAS)[
+            "character_list"
+        ].items():
+            Kernel.CHARACTER_MAP[i["id"]] = i
 
         end_scene = Kernel.DEFAULT_CONSTS["END_SCENE"]
         Kernel.SCENE_MAP[end_scene["id"]] = end_scene
@@ -237,11 +244,13 @@ class Kernel:
 
         Kernel.START_SCENE = Kernel.DEFAULT_CONSTS["START_SCENE"]
         Kernel.START_OVER = Kernel.DEFAULT_CONSTS["START_OVER"]
+        Kernel.FINAL_BATTLE = Kernel.DEFAULT_CONSTS["FINAL_BATTLE"]
         Kernel.SCENE = Kernel.DEFAULT_CONSTS["SCENE"]
         Kernel.END = Kernel.DEFAULT_CONSTS["END"]
         Kernel.FIGHT = Kernel.DEFAULT_CONSTS["FIGHT"]
         Kernel.EMPTY_SAVE = Kernel.DEFAULT_CONSTS["EMPTY_SAVE"]
         Kernel.STORY_END = Kernel.DEFAULT_CONSTS["STORY_END"]
+        Kernel.BATTLE_STORY = Kernel.DEFAULT_CONSTS["BATTLE_STORY"]
 
         self._scene = None  # 当前场景
         self._paras = {}  # 参数存储

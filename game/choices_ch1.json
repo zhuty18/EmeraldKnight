@@ -159,7 +159,7 @@
             {
                 "change": "SET",
                 "para": "PROP_1",
-                "value": "PROP_CODE_1"
+                "value": 1
             }
         ]
     },
@@ -171,7 +171,7 @@
             {
                 "change": "SET",
                 "para": "PROP_1",
-                "value": "PROP_CODE_2"
+                "value": 2
             }
         ]
     },
@@ -183,7 +183,7 @@
             {
                 "change": "SET",
                 "para": "PROP_1",
-                "value": "PROP_CODE_3"
+                "value": 3
             }
         ]
     },
@@ -195,7 +195,7 @@
             {
                 "change": "SET",
                 "para": "PROP_1",
-                "value": "PROP_CODE_4"
+                "value": 4
             }
         ]
     },
@@ -260,7 +260,7 @@
             {
                 "change": "SET",
                 "para": "PROP_2",
-                "value": "PROP_CODE_1"
+                "value": 1
             }
         ]
     },
@@ -272,7 +272,7 @@
             {
                 "change": "SET",
                 "para": "PROP_2",
-                "value": "PROP_CODE_2"
+                "value": 2
             }
         ]
     },
@@ -284,7 +284,7 @@
             {
                 "change": "SET",
                 "para": "PROP_2",
-                "value": "PROP_CODE_3"
+                "value": 3
             }
         ]
     },
@@ -296,7 +296,7 @@
             {
                 "change": "SET",
                 "para": "PROP_2",
-                "value": "PROP_CODE_4"
+                "value": 4
             }
         ]
     },
@@ -324,7 +324,7 @@
                 {
                     "check": "EQUAL",
                     "para": "PROP_2",
-                    "value": "PROP_CODE_1"
+                    "value": 1
                 }
             ]
         },
@@ -497,7 +497,7 @@
                 {
                     "check": "EQUAL",
                     "para": "PROP_1",
-                    "value": "PROP_CODE_4"
+                    "value": 4
                 }
             ]
         },
@@ -518,7 +518,7 @@
                 {
                     "check": "UNEQUAL",
                     "para": "PROP_1",
-                    "value": "PROP_CODE_4"
+                    "value": 4
                 },
                 {
                     "check": "EQUAL",
@@ -545,7 +545,7 @@
                 {
                     "check": "UNEQUAL",
                     "para": "PROP_1",
-                    "value": "PROP_CODE_4"
+                    "value": 4
                 },
                 {
                     "check": "UNEQUAL",

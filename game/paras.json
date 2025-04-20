@@ -1,16 +1,33 @@
 {
     "const_list": [
         {
+            "name": "END_CHOICE",
+            "value": {
+                "id": "end",
+                "target": "game_over",
+                "text": "回到开始界面"
+            }
+        },
+        {
+            "name": "END_SCENE",
+            "value": {
+                "id": "game_over",
+                "options": [
+                    "end"
+                ]
+            }
+        },
+        {
+            "name": "START_SCENE",
+            "value": "1-1"
+        },
+        {
             "name": "START_OVER",
             "value": "game_over"
         },
         {
             "name": "FINAL_BATTLE",
             "value": "final_battle"
-        },
-        {
-            "name": "START_SCENE",
-            "value": "1-1"
         },
         {
             "name": "SCENE",
@@ -29,25 +46,22 @@
             "value": "空存档"
         },
         {
-            "name": "END_CHOICE",
-            "value": {
-                "id": "end",
-                "target": "game_over",
-                "text": "回到开始界面"
-            }
-        },
-        {
-            "name": "END_SCENE",
-            "value": {
-                "id": "game_over",
-                "options": [
-                    "end"
-                ]
-            }
-        },
-        {
             "name": "STORY_END",
             "value": "\n\n结局——"
+        },
+        {
+            "name": "BATTLE_STORY",
+            "value": {
+                "BLANK": "{NUMBER}",
+                "START": "这场决定大陆未来的战斗，开始了！",
+                "HURT": "造成了{NUMBER}点伤害！",
+                "HEAL": "回复了{NUMBER}点体力！",
+                "DODGE": "被躲开了！",
+                "WIN": "魔王倒下了！",
+                "LOSE": "\n你被打败了！",
+                "HERO": "HAL",
+                "ENEMY": "SINESTRO"
+            }
         }
     ],
     "para_list": [
@@ -149,22 +163,6 @@
     ],
     "code_list": [
         {
-            "name": "PROP_CODE_1",
-            "value": 1
-        },
-        {
-            "name": "PROP_CODE_2",
-            "value": 2
-        },
-        {
-            "name": "PROP_CODE_3",
-            "value": 3
-        },
-        {
-            "name": "PROP_CODE_4",
-            "value": 4
-        },
-        {
             "name": "BRUCE_CODE",
             "value": 1
         },
@@ -179,6 +177,78 @@
         {
             "name": "BARRY_CODE",
             "value": 4
+        }
+    ],
+    "character_list": [
+        {
+            "id": "SINESTRO",
+            "name": "魔王",
+            "type": "ENEMY",
+            "max_life": 500,
+            "actions": [
+                {
+                    "type": "ATTACK",
+                    "strength": 0.1,
+                    "chance": 2,
+                    "description": "魔王向你发动进攻，"
+                },
+                {
+                    "type": "ATTACK",
+                    "strength": 0.25,
+                    "chance": 1,
+                    "description": "魔王对你使用了魔法，"
+                },
+                {
+                    "type": "HEAL",
+                    "min": 120,
+                    "max": 180,
+                    "first": 250,
+                    "condition": 100,
+                    "description": "魔王身上黑雾攒动，"
+                }
+            ]
+        },
+        {
+            "id": "HAL",
+            "name": "你",
+            "type": "HERO",
+            "actions": [
+                {
+                    "type": "ATTACK",
+                    "strength": 0.15,
+                    "description": "你向魔王发动进攻，"
+                },
+                {
+                    "type": "ATTACK",
+                    "strength": 0.3,
+                    "description": "你借助飞马对魔王发起奇袭，",
+                    "show": {
+                        "check": "EQUAL",
+                        "para": "PEGASUS",
+                        "value": 1
+                    }
+                },
+                {
+                    "type": "ATTACK",
+                    "strength": 0.5,
+                    "description": "翡翠剑面对魔王放出强光，",
+                    "self_hurt": {
+                        "min": 5,
+                        "max": 15,
+                        "description": "消耗了你的{NUMBER}点体力，"
+                    }
+                },
+                {
+                    "type": "HEAL",
+                    "min": 30,
+                    "max": 50,
+                    "description": "你吃下一颗雷电小球，"
+                },
+                {
+                    "type": "CHEAT",
+                    "description": "你开挂绝杀！"
+                }
+            ]
         }
     ]
 }

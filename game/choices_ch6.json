@@ -1,0 +1,53 @@
+[
+    {
+        "id": "6-1-1",
+        "target": "6-2"
+    },
+    {
+        "id": "6-2-1",
+        "target": "6-3"
+    },
+    {
+        "id": "6-3-1",
+        "target": "6-4"
+    },
+    {
+        "id": "6-4-1",
+        "target": "6-5"
+    },
+    {
+        "id": "6-5-1",
+        "target": "FINAL_BATTLE",
+        "text": "决战"
+    },
+    {
+        "id": "6-6-1",
+        "target": "end-15",
+        "text": "战斗结束了"
+    },
+    {
+        "id": "6-6-2",
+        "target": "end-16",
+        "text": "战斗结束了",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "TEMPORARY",
+                    "value": 2
+                }
+            ]
+        }
+    },
+    {
+        "id": "6-6-3",
+        "target": "end-17",
+        "text": "战斗结束了"
+    },
+    {
+        "id": "6-6-4",
+        "target": "end-18",
+        "text": "战斗结束了"
+    }
+]

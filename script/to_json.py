@@ -1,7 +1,7 @@
 import json
 import re
 
-CHAPTER = 6
+CHAPTER = 7
 MAX_CHAPTER = 7
 
 
@@ -92,20 +92,19 @@ def format_scenes(ch):
         k: v
         for k, v in sorted(all_scenes.items(), key=lambda x: id_sort_by(x[0]))
     }
-    if scenes:
-        for j in range(int(all_scenes.keys()[-1].split("-")[-1])):
-            if f"{ch}-{j+1}" not in scene_set:
-                tmp = {
-                    "id": f"{ch}-{j+1}",
-                    "name": scene_names[f"{ch}-{j+1}"],
-                    "options": [all_scenes[f"{ch}-{j+1}"]],
-                }
-                if all_scenes[f"{ch}-{j+1}"].startswith("s"):
-                    tmp["options"] = get_same_scene(
-                        scenes, all_scenes[f"{ch}-{j+1}"].strip("s")
-                    )
-                scenes.append(sort_json(tmp))
-        scenes.sort(key=lambda x: id_sort_by(x["id"]))
+    for j in range(int(list(all_scenes.keys())[-1].split("-")[-1])):
+        if f"{ch}-{j+1}" not in scene_set:
+            tmp = {
+                "id": f"{ch}-{j+1}",
+                "name": scene_names[f"{ch}-{j+1}"],
+                "options": [all_scenes[f"{ch}-{j+1}"]],
+            }
+            if all_scenes[f"{ch}-{j+1}"].startswith("s"):
+                tmp["options"] = get_same_scene(
+                    scenes, all_scenes[f"{ch}-{j+1}"].strip("s")
+                )
+            scenes.append(sort_json(tmp))
+    scenes.sort(key=lambda x: id_sort_by(x["id"]))
 
     with open(f"game/scenes_ch{ch}_auto.json", "w", encoding="utf8") as f:
         f.write(json.dumps(scenes, ensure_ascii=False))
