@@ -19,6 +19,31 @@
         {
             "name": "EMPTY_SAVE",
             "value": "空存档"
+        },
+        {
+            "name": "END",
+            "value": "END"
+        },
+        {
+            "name": "END_CHOICE",
+            "value": {
+                "id": "end",
+                "target": "game_over",
+                "text": "回到开始界面"
+            }
+        },
+        {
+            "name": "END_SCENE",
+            "value": {
+                "id": "game_over",
+                "options": [
+                    "end"
+                ]
+            }
+        },
+        {
+            "name": "STORY_END",
+            "value": "\n\n结局——"
         }
     ],
     "para_list": [
