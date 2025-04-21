@@ -2,7 +2,7 @@
 
 """引擎测试"""
 
-from test_ek import EmeraldKnightTest, Logic
+from test_ek import EmeraldKnightTest
 
 
 class EKEngineTest(EmeraldKnightTest):
@@ -12,4 +12,4 @@ class EKEngineTest(EmeraldKnightTest):
         """测试初始场景"""
         game = self.get_game()
         game.new_game()
-        self.assertEqual(Logic.START_SCENE, game.get_scene_id())
+        self.assertEqual(game.get_logic().START_SCENE, game.get_scene_id())

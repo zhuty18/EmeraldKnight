@@ -10,7 +10,6 @@ sys.path.append("./script")
 sys.path.append("./script/game")
 
 from script.game.emerald_knight import EmeraldKnight
-from script.game.game_logic import Logic
 
 
 class EmeraldKnightTest(unittest.TestCase):
@@ -25,6 +24,7 @@ class EmeraldKnightTest(unittest.TestCase):
         """获取游戏实例"""
         ek = EmeraldKnight()
         return ek
+
 
 
 if __name__ == "__main__":

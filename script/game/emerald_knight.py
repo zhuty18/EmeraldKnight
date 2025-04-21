@@ -72,7 +72,10 @@ class EmeraldKnight:
         return self.gk.get_paras()
 
     def get_choices(self):
-        return
+        return self.gk.get_choices()
+
+    def get_logic(self):
+        return Logic
 
 
 if __name__ == "__main__":

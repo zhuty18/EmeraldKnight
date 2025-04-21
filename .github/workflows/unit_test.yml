@@ -21,7 +21,7 @@ jobs:
                   # Semantic version range syntax or exact version of a Python version
                   python-version: "3.12"
             - name: Test
-              run: python script/test/test.py
+              run: python script/test/test_ek.py
 
     # # Deployment job
     # deploy:
