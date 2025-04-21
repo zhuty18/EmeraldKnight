@@ -2,7 +2,6 @@
 
 """逻辑类"""
 import json
-import os
 from random import random
 
 
@@ -482,7 +481,6 @@ class Logic:
 
     KERNEL = None
 
-    CHAPTER = 6  # 章节数
     PATH_GAME = "game"  # 游戏相关文件路径
     FILE_PARAS = "paras.json"  # 参数存储文件
     FILE_SCENES = "scenes_ch{ch}.json"  # 场景存储文件
@@ -536,7 +534,7 @@ class Logic:
         Logic.SCENE_MAP[end_scene["id"]] = end_scene
         end_choice = Logic.DEFAULT_CONSTS["END_CHOICE"]
         Logic.CHOICE_MAP[end_choice["id"]] = end_choice
-        for ch in range(Logic.CHAPTER):
+        for ch in range(Logic.KERNEL.CHAPTER):
             for i in Logic.read_file(
                 Logic.PATH_GAME,
                 Logic.FILE_SCENES.replace("{ch}", str(ch + 1)),

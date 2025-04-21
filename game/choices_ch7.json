@@ -29,16 +29,33 @@
         "id": "7-5-1",
         "target": "7-6",
         "show": {
-            "op": "",
-            "condition": []
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "MORE_EQUAL",
+                    "para": "KNOWLEDGE",
+                    "value": 5
+                }
+            ]
         }
     },
     {
         "id": "7-5-2",
         "target": "7-8",
         "show": {
-            "op": "",
-            "condition": []
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "BRUCE_INTRODUCE",
+                    "value": 1
+                },
+                {
+                    "check": "LESS",
+                    "para": "KNOWLEDGE",
+                    "value": 5
+                }
+            ]
         }
     },
     {

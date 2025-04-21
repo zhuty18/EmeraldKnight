@@ -1,7 +1,7 @@
 import json
 import re
 
-CHAPTER = 7
+CHAPTER = 8
 MAX_CHAPTER = 7
 
 

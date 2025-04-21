@@ -16,6 +16,8 @@ class Kernel:
     VERSION = "2.0"  # 游戏版本
     DEBUG = True  # 是否为调试模式
 
+    CHAPTER = 7  # 章节数
+
     @staticmethod
     def res_path(file_dir, file_name=None):
         """相关文件路径"""
