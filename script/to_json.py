@@ -110,7 +110,7 @@ def format_scenes(ch):
         f.write(json.dumps(scenes, ensure_ascii=False))
 
 
-def key_piority(key):
+def key_priority(key):
     """键优先级"""
     keys = [
         "id",
@@ -177,7 +177,9 @@ def legal_check_op(op):
 
 def sort_json(x):
     """将json排序"""
-    return {k: v for k, v in sorted(x.items(), key=lambda t: key_piority(t[0]))}
+    return {
+        k: v for k, v in sorted(x.items(), key=lambda t: key_priority(t[0]))
+    }
 
 
 def check_condition(c_id, c):

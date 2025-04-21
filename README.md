@@ -50,7 +50,7 @@ v0.1 基础架构（已完成） (2020.07.20)
 
 ### 运行游戏
 
-`python EmeraldKnight.py`
+`python script/EmeraldKnight.py`
 
 ## 游戏攻略
 

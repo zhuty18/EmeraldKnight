@@ -4,16 +4,16 @@
 
 import json
 import os
-import time
 from random import random
 
-from game_logic import Choice, Logic, Scene
+from game_logic import Logic
+from story_battle import Choice, Scene
 
 
 class Kernel:
     """游戏逻辑核"""
 
-    VERSION = "2.0"  # 游戏版本
+    VERSION = "2.1"  # 游戏版本
     DEBUG = True  # 是否为调试模式
 
     CHAPTER = 7  # 章节数
@@ -29,8 +29,7 @@ class Kernel:
 
         if file_name:
             return os.path.join(root, file_dir, file_name)
-        else:
-            return os.path.join(root, file_dir)
+        return os.path.join(root, file_dir)
 
     def __init__(self):
         """初始化游戏内核"""
@@ -39,23 +38,6 @@ class Kernel:
         self._scene = None  # 当前场景
         self._paras = {}  # 参数存储
         self._fight = {}  # 战斗结果
-
-    def get_save_info(self, save_id):
-        """获取存档信息"""
-        save_path = Kernel.res_path(Logic.PATH_SAVE, f"{save_id}.eks")
-        if os.path.exists(save_path):
-            save = Logic.read_file(Logic.PATH_SAVE, f"{save_id}.eks")
-            save_pos = Logic.get_scene_chapter(save["scene"])
-            save_time = os.path.getmtime(
-                Kernel.res_path(Logic.PATH_SAVE, f"{save_id}.eks")
-            )
-            save_time = time.strftime("%m.%d\t%H:%M", time.localtime(save_time))
-            if Kernel.DEBUG:
-                return f"{save["scene"]}{save_pos}\n{save_time}"
-            else:
-                return f"{save_pos}\n{save_time}"
-        else:
-            return Logic.EMPTY_SAVE
 
     def load_at(self, save_id):
         """加载存档"""
@@ -66,7 +48,7 @@ class Kernel:
                 self._paras[value["id"]] = value["default_value"]
         else:
             save_file = Logic.read_file(Logic.PATH_SAVE, f"{save_id}.eks")
-            self._scene = Scene.get_by_id(save_file["scene"])
+            self._scene = Scene.get_existence(save_file["scene"])
             self._paras = save_file["paras"]
             self.refresh_paras()
 
@@ -123,7 +105,7 @@ class Kernel:
 
     def to_scene(self, scene_id):
         """改变场景"""
-        self._scene = Scene.get_by_id(scene_id)
+        self._scene = Scene.get_existence(scene_id)
 
     def check_condition(self, para_name, check_act, check_by):
         """单个条件检测"""
@@ -132,7 +114,7 @@ class Kernel:
         elif para_name == Logic.FIGHT:
             check_para = self.fight_result()
         elif para_name == Logic.CHOICE:
-            check_para = int(Choice.get_by_id(check_by).show())
+            check_para = int(Choice.get_existence(check_by).show())
         elif para_name != Logic.END:
             check_para = self.get_para(para_name)
         else:

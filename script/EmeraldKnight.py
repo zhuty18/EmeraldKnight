@@ -1,6 +1,6 @@
 # coding = utf-8
 
-"""翡翠骑士游戏 v2.0"""
+"""翡翠骑士游戏 v2"""
 
 from functools import partial
 
@@ -115,7 +115,7 @@ class EmeraldKnight:
     def load_at(self, save_id, save_window=None):
         """从存档加载游戏"""
         if save_id != 0:
-            if self.gk.get_save_info(save_id) == Logic.EMPTY_SAVE:
+            if Logic.get_save_info(save_id) == Logic.EMPTY_SAVE:
                 m = qt.QMessageBox(self.main)
                 m.critical(self.main, "警告！", "不可读取空存档！")
                 return
@@ -144,7 +144,7 @@ class EmeraldKnight:
             for i in range(10):
                 save_id = i + l * 10 + 1
                 btn = qt.QPushButton()
-                info = self.gk.get_save_info(save_id)
+                info = Logic.get_save_info(save_id)
                 btn.setText(info)
                 if is_saving:
                     btn.clicked.connect(partial(self.save_at, save_id, saves))

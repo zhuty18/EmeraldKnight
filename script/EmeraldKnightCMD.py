@@ -1,9 +1,11 @@
 # coding = utf-8
 
-"""翡翠骑士游戏 v2.0 命令行版本"""
+"""翡翠骑士游戏 v2 命令行版本"""
+
 import os
 
 from game_kernel import Kernel
+from game_logic import Logic
 
 
 class EmeraldKnightCMD:
@@ -19,7 +21,7 @@ class EmeraldKnightCMD:
 
     def load_scene(self):
         """加载场景"""
-        if self.gk.get_scene_id() == self.gk.START_OVER:
+        if self.gk.get_scene_id() == Logic.START_OVER:
             self.hello_page()
             return
         scene_text = self.gk.get_scene_text()
@@ -87,10 +89,7 @@ class EmeraldKnightCMD:
 
     def load_at(self, save_id):
         """从存档加载游戏"""
-        if (
-            save_id != 0
-            and self.gk.get_save_info(save_id) == self.gk.EMPTY_SAVE
-        ):
+        if save_id != 0 and Logic.get_save_info(save_id) == Logic.EMPTY_SAVE:
             print("存档不存在！")
             return
         self.gk.load_at(save_id)
@@ -101,9 +100,9 @@ class EmeraldKnightCMD:
         """读档"""
         has_save = False
         for i in range(30):
-            if self.gk.get_save_info(i + 1) != self.gk.EMPTY_SAVE:
+            if Logic.get_save_info(i + 1) != Logic.EMPTY_SAVE:
                 print(
-                    f"存档{i+1}\t{self.gk.get_save_info(i+1).replace("\n","\t")}"
+                    f"存档{i+1}\t{Logic.get_save_info(i+1).replace("\n","\t")}"
                 )
                 has_save = True
         if not has_save:
@@ -115,7 +114,7 @@ class EmeraldKnightCMD:
                     self.new_game()
                     break
                 elif t == "B":
-                    if self.gk.get_scene_id() == self.gk.START_OVER:
+                    if self.gk.get_scene_id() == Logic.START_OVER:
                         self.hello_page()
                     else:
                         self.load_scene()
@@ -129,7 +128,7 @@ class EmeraldKnightCMD:
             s = int(input("你要载入的存档编号为："))
             while True:
                 if os.path.exists(
-                    self.gk.res_path(self.gk.PATH_SAVE, f"{s}.eks")
+                    self.gk.res_path(Logic.PATH_SAVE, f"{s}.eks")
                 ):
                     self.load_at(s)
                     break
@@ -141,9 +140,9 @@ class EmeraldKnightCMD:
         """保存游戏"""
         for i in range(30):
             has_save = False
-            if self.gk.get_save_info(i + 1) != self.gk.EMPTY_SAVE:
+            if Logic.get_save_info(i + 1) != Logic.EMPTY_SAVE:
                 print(
-                    f"存档{i+1}\t{self.gk.get_save_info(i+1).replace("\n","\t")}"
+                    f"存档{i+1}\t{Logic.get_save_info(i+1).replace("\n","\t")}"
                 )
                 has_save = True
         if has_save:
