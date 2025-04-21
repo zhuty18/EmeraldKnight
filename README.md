@@ -2,7 +2,7 @@
 
 一个以最伟大的绿灯侠哈尔乔丹为主角的恋爱向文字avg游戏。（因为~~没图~~好像不太能过审所以不做成橙光）
 
-![](https://github.com/zhuty18/EmeraldKnight/actions/workflows/unit_test/badge.svg)
+![](https://github.com/zhuty18/EmeraldKnight/actions/workflows/unit_test.yml/badge.svg)
 
 ## 游戏简介
 

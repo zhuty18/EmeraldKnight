@@ -1,4 +1,4 @@
-name: 翡翠骑士单元测试
+name: 单元测试
 
 on:
     # Runs on pushes targeting the default branch
