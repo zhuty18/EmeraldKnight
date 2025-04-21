@@ -1,7 +1,6 @@
 **.log
 save
 .vscode/
-.github/**/**.yml
 __pycache__/
 build/
 dist

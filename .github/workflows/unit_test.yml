@@ -1,0 +1,36 @@
+name: 翡翠骑士单元测试
+
+on:
+    # Runs on pushes targeting the default branch
+    push:
+        branches: ["master"]
+    pull_request:
+        branches: ["master"]
+
+jobs:
+    # Build job
+    build:
+        name: 建立基础存档
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: Set up Python
+              uses: actions/setup-python@v5
+              with:
+                  # Semantic version range syntax or exact version of a Python version
+                  python-version: "3.12"
+            - name: Test
+              run: python script/test/test.py
+
+    # # Deployment job
+    # deploy:
+    #     environment:
+    #         name: github-pages
+    #         url: ${{ steps.deployment.outputs.page_url }}
+    #     runs-on: ubuntu-latest
+    #     needs: build
+    #     steps:
+    #         - name: Deploy to GitHub Pages
+    #           id: deployment
+    #           uses: actions/deploy-pages@v4
