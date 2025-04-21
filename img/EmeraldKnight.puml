@@ -1,12 +1,12 @@
 @startuml EmeraldKnight
 title 翡翠骑士
 
-!include EmeraldKnight-part.puml!0
-!include EmeraldKnight-part.puml!1
-!include EmeraldKnight-part.puml!2
-!include EmeraldKnight-part.puml!3
-!include EmeraldKnight-part.puml!4
-!include EmeraldKnight-part.puml!5
+!include EmeraldKnight_ch1.puml!0
+!include EmeraldKnight_ch2.puml!0
+!include EmeraldKnight_ch3.puml!0
+!include EmeraldKnight_ch4.puml!0
+!include EmeraldKnight_ch5.puml!0
+!include EmeraldKnight_ch7.puml!0
 
 @enduml
 @startuml Ch1
@@ -17,7 +17,7 @@ title 翡翠骑士 第一章
 @startuml Ch2
 title 翡翠骑士 第二章
 
-!include EmeraldKnight-part.puml!1
+!include EmeraldKnight_ch2.puml!0
 
 class 2_0<<(S,Red)>>
 
@@ -28,7 +28,7 @@ class 2_0<<(S,Red)>>
 @startuml Ch3
 title 翡翠骑士 第三章
 
-!include EmeraldKnight-part.puml!2
+!include EmeraldKnight_ch3.puml!0
 
 class 3_0<<(S,Red)>>
 
@@ -40,7 +40,7 @@ class 3_0<<(S,Red)>>
 @startuml Ch4
 title 翡翠骑士 第四章
 
-!include EmeraldKnight-part.puml!4
+!include EmeraldKnight_ch4.puml!0
 
 class 4_0<<(S,Red)>>
 
@@ -50,7 +50,7 @@ class 4_0<<(S,Red)>>
 @startuml Ch5
 title 翡翠骑士 第五-六章
 
-!include EmeraldKnight-part.puml!4
+!include EmeraldKnight_ch5.puml!0
 
 class 5_0<<(S,Red)>>
 
@@ -60,7 +60,7 @@ class 5_0<<(S,Red)>>
 @startuml Ch7
 title 翡翠骑士 第七章
 
-!include EmeraldKnight-part.puml!5
+!include EmeraldKnight_ch7.puml!0
 
 
 @enduml
