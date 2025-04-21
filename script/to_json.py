@@ -129,6 +129,8 @@ def key_piority(key):
         "require",
         "match_options",
         "options",
+        "options_win",
+        "options_lose",
     ]
     return keys.index(key)
 
@@ -141,6 +143,7 @@ def legal_para(para):
     paras.append("SCENE")
     paras.append("END")
     paras.append("FIGHT")
+    paras.append("CHOICE")
     return para in paras
 
 

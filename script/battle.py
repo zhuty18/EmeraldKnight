@@ -1,7 +1,8 @@
-from functools import partial
-from constant import *
 import random
+from functools import partial
+
 from abstract import choice_abstract
+from constant import *
 from ending import end_scene, fail_choice
 
 
@@ -21,7 +22,9 @@ class character:
 
 
 class move:
-    def hurt(src: character, tar: character, multiplier: float) -> tuple[int, str]:
+    def hurt(
+        src: character, tar: character, multiplier: float
+    ) -> tuple[int, str]:
         dodge = 50 + src.speed - tar.speed
         if random.randint(0, 500) < dodge:
             return 0, "被躲开了！"
@@ -151,7 +154,10 @@ class battle:
         return res
 
     def status(self):
-        text = "魔王\nHP: %d / %d\n" % (self.sinestro.life, self.sinestro.max_life)
+        text = "魔王\nHP: %d / %d\n" % (
+            self.sinestro.life,
+            self.sinestro.max_life,
+        )
         text += "\n\n"
         text += " " * 46 + "你\n"
         s = "HP: %d / %d" % (self.hal.life, self.hal.max_life)

@@ -8,6 +8,7 @@ import PySide6.QtCore as core
 import PySide6.QtGui as gui
 import PySide6.QtWidgets as qt
 from game_kernel import Kernel
+from game_logic import Logic
 
 
 class EmeraldKnight:
@@ -35,6 +36,7 @@ class EmeraldKnight:
         self.main.setWindowIcon(self.icon)
         self.main.setWindowTitle("翡翠骑士 v" + self.gk.VERSION)
         menu_bar = self.main.menuBar()
+        menu_bar.setNativeMenuBar(False)
         new_btn = menu_bar.addAction("新的游戏")
         new_btn.triggered.connect(self.new_game)
         save_btn = menu_bar.addAction("保存进度")
@@ -58,7 +60,7 @@ class EmeraldKnight:
 
     def load_scene(self):
         """加载场景"""
-        if self.gk.get_scene_id() == self.gk.START_OVER:
+        if self.gk.get_scene_id() == Logic.START_OVER:
             self.hello_page()
             return
         scene_text = self.gk.get_scene_text()
@@ -113,7 +115,7 @@ class EmeraldKnight:
     def load_at(self, save_id, save_window=None):
         """从存档加载游戏"""
         if save_id != 0:
-            if self.gk.get_save_info(save_id) == self.gk.EMPTY_SAVE:
+            if self.gk.get_save_info(save_id) == Logic.EMPTY_SAVE:
                 m = qt.QMessageBox(self.main)
                 m.critical(self.main, "警告！", "不可读取空存档！")
                 return
@@ -158,9 +160,12 @@ class EmeraldKnight:
 
     def save_game(self):
         """存档"""
-        if self.gk.get_scene_id() == self.gk.START_OVER:
+        if self.gk.get_scene_id() == Logic.START_OVER:
             m = qt.QMessageBox(self.main)
             m.critical(self.main, "警告！", "还没有进入游戏！")
+        elif self.gk.get_scene_id() == Logic.FINAL_BATTLE:
+            m = qt.QMessageBox(self.main)
+            m.critical(self.main, "警告！", "战斗中不可存档！")
         else:
             self.show_save()
 

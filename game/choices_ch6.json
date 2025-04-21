@@ -17,7 +17,7 @@
     },
     {
         "id": "6-5-1",
-        "target": "FINAL_BATTLE",
+        "target": "6-6",
         "text": "决战"
     },
     {
@@ -43,11 +43,41 @@
     {
         "id": "6-6-3",
         "target": "end-17",
-        "text": "战斗结束了"
+        "text": "战斗结束了",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "TEMPORARY",
+                    "value": 0
+                },
+                {
+                    "check": "EQUAL",
+                    "para": "BRUCE_LOVE",
+                    "value": 20
+                }
+            ]
+        }
     },
     {
         "id": "6-6-4",
         "target": "end-18",
-        "text": "战斗结束了"
+        "text": "战斗结束了",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "UNEQUAL",
+                    "para": "CHOICE",
+                    "value": "6-6-2"
+                },
+                {
+                    "check": "UNEQUAL",
+                    "para": "CHOICE",
+                    "value": "6-6-3"
+                }
+            ]
+        }
     }
 ]

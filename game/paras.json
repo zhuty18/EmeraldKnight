@@ -27,7 +27,7 @@
         },
         {
             "name": "FINAL_BATTLE",
-            "value": "final_battle"
+            "value": "6-6"
         },
         {
             "name": "SCENE",
@@ -40,6 +40,10 @@
         {
             "name": "FIGHT",
             "value": "FIGHT"
+        },
+        {
+            "name": "CHOICE",
+            "value": "CHOICE"
         },
         {
             "name": "EMPTY_SAVE",
@@ -204,6 +208,7 @@
                     "max": 180,
                     "first": 250,
                     "condition": 100,
+                    "time": 2,
                     "description": "魔王身上黑雾攒动，"
                 }
             ]
@@ -214,11 +219,13 @@
             "type": "HERO",
             "actions": [
                 {
+                    "name": "普通攻击",
                     "type": "ATTACK",
                     "strength": 0.15,
                     "description": "你向魔王发动进攻，"
                 },
                 {
+                    "name": "突袭",
                     "type": "ATTACK",
                     "strength": 0.3,
                     "description": "你借助飞马对魔王发起奇袭，",
@@ -229,6 +236,7 @@
                     }
                 },
                 {
+                    "name": "特殊攻击",
                     "type": "ATTACK",
                     "strength": 0.5,
                     "description": "翡翠剑面对魔王放出强光，",
@@ -239,12 +247,15 @@
                     }
                 },
                 {
+                    "name": "治疗",
                     "type": "HEAL",
                     "min": 30,
                     "max": 50,
+                    "time": 10,
                     "description": "你吃下一颗雷电小球，"
                 },
                 {
+                    "name": "开挂",
                     "type": "CHEAT",
                     "description": "你开挂绝杀！"
                 }
