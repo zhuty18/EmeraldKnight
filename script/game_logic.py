@@ -2,6 +2,7 @@
 
 """逻辑类"""
 import json
+import os
 from random import random
 
 
@@ -19,7 +20,7 @@ class Choice:
     def text(self):
         """选项文本"""
         if not "text" in self._data:
-            return Logic.scene_name(self._data["target"])
+            return Logic.get_scene_name(self._data["target"])
         return self._data["text"]
 
     def show(self):
@@ -73,7 +74,7 @@ class Scene:
         s_id = (
             self._data["scene"] if "scene" in self._data else self._data["id"]
         )
-        scene_text = Logic.read_file("story", f"{s_id}.txt", False)
+        scene_text = Logic.read_scene_text(s_id)
         if "end" in self._data["id"]:
             scene_text += Logic.STORY_END + Logic.get_end_name(self._data["id"])
         scene_text = "    " + scene_text
@@ -578,9 +579,33 @@ class Logic:
                 return f.read()
 
     @staticmethod
-    def scene_name(scene_id):
+    def get_scene_chapter(scene_id):
+        """获取场景章节"""
+        return scene_id.split("-")[0]
+
+    @staticmethod
+    def read_scene_text(scene_id):
+        """读取场景文本"""
+        return Logic.read_file(
+            os.path.join(Logic.PATH_STORY, Logic.get_scene_chapter(scene_id)),
+            f"{scene_id}.txt",
+            False,
+        )
+
+    @staticmethod
+    def get_scene_name(scene_id):
         """获取场景名"""
         return Logic.SCENE_MAP[scene_id]["name"]
+
+    @staticmethod
+    def get_chapter_name(scene_id):
+        """获取所在章节名"""
+        if Logic.get_scene_chapter(scene_id) == "end":
+            return Logic.CHAPTER_NAME_MAP["end"] + Logic.END_NAME_MAP[scene_id]
+        else:
+            return Logic.CHAPTER_NAME_MAP[
+                f"ch{Logic.get_scene_chapter(scene_id)}"
+            ]
 
     @staticmethod
     def mark_end(end_id):

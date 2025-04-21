@@ -45,15 +45,7 @@ class Kernel:
         save_path = Kernel.res_path(Logic.PATH_SAVE, f"{save_id}.eks")
         if os.path.exists(save_path):
             save = Logic.read_file(Logic.PATH_SAVE, f"{save_id}.eks")
-            if save["scene"].split("-")[1] == "end":
-                save_pos = (
-                    Logic.CHAPTER_NAME_MAP["end"]
-                    + Logic.END_NAME_MAP[save["scene"]]
-                )
-            else:
-                save_pos = Logic.CHAPTER_NAME_MAP[
-                    f"ch{save["scene"].split("-")[0]}"
-                ]
+            save_pos = Logic.get_scene_chapter(save["scene"])
             save_time = os.path.getmtime(
                 Kernel.res_path(Logic.PATH_SAVE, f"{save_id}.eks")
             )

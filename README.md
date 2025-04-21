@@ -14,7 +14,7 @@
 
 ## 开发进度
 
-v2.0 优化代码结构
+v2.0 优化代码结构（已完成）(2025.04.21)
 
 v1.0 Android版本发布（已完成）[见此](https://github.com/zhuty18/EmeraldKnight-Android) （2022.05.15）
 
