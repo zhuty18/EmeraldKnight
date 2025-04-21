@@ -12,10 +12,10 @@ class Logic:
 
     KERNEL = None
 
-    PATH_GAME = "game"  # 游戏相关文件路径
+    PATH_GAME = "data"  # 游戏相关文件路径
     FILE_PARAS = "paras.json"  # 参数存储文件
-    FILE_SCENES = "scenes_ch{ch}.json"  # 场景存储文件
-    FILE_CHOICES = "choices_ch{ch}.json"  # 选项存储文件
+    FILE_SCENES = "chapter/scenes_ch{ch}.json"  # 场景存储文件
+    FILE_CHOICES = "chapter/choices_ch{ch}.json"  # 选项存储文件
     FILE_NAMES = "names.json"  # 名称存储文件
     PATH_STORY = "story"  # 故事相关文件路径
     PATH_SAVE = "save"  # 存档相关文件路径

@@ -77,6 +77,10 @@ class Kernel:
         """获取参数值"""
         return self._paras[Logic.DEFAULT_PARAS[para_name]["id"]]
 
+    def get_paras(self):
+        """获取参数表"""
+        return self._paras
+
     def change_para(self, para_name, change_act, change_by):
         """改变参数"""
         if change_act == "CONDITION":

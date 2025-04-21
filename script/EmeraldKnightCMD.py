@@ -3,17 +3,17 @@
 """翡翠骑士游戏 v2 命令行版本"""
 
 import os
+import sys
 
-from game_kernel import Kernel
-from game_logic import Logic
+sys.path.append("./script")
+sys.path.append("./script/game")
+
+from game.emerald_knight import EmeraldKnight
+from game.game_logic import Logic
 
 
-class EmeraldKnightCMD:
+class EmeraldKnightCMD(EmeraldKnight):
     """命令行游戏"""
-
-    def __init__(self):
-        self.gk = Kernel()
-        self.choices = []
 
     def run(self):
         """运行游戏"""
@@ -25,16 +25,16 @@ class EmeraldKnightCMD:
             self.hello_page()
             return
         scene_text = self.gk.get_scene_text()
-        self.choices = self.gk.get_choices()
+        choices = self.gk.get_choices()
         print(scene_text)
-        for index, c in enumerate(self.choices):
+        for index, c in enumerate(choices):
             print(f"{chr(index+ord('A'))}\t{c.text()}")
         while True:
             s = input().capitalize()
             try:
                 t = ord(s[0]) - ord("A")
-                if t >= 0 and t < len(self.choices):
-                    self.choices[t].chosen()
+                if t >= 0 and t < len(choices):
+                    choices[t].chosen()
                     break
                 elif s == "S":
                     self.save_game()
@@ -87,7 +87,7 @@ class EmeraldKnightCMD:
         """开始新游戏"""
         self.load_at(0)
 
-    def load_at(self, save_id):
+    def load_at(self, save_id, _=None):
         """从存档加载游戏"""
         if save_id != 0 and Logic.get_save_info(save_id) == Logic.EMPTY_SAVE:
             print("存档不存在！")
@@ -96,8 +96,8 @@ class EmeraldKnightCMD:
         while True:
             self.load_scene()
 
-    def load_game(self):
-        """读档"""
+    def show_save(self, _=True):
+        """显示存档"""
         has_save = False
         for i in range(30):
             if Logic.get_save_info(i + 1) != Logic.EMPTY_SAVE:
@@ -105,6 +105,11 @@ class EmeraldKnightCMD:
                     f"存档{i+1}\t{Logic.get_save_info(i+1).replace("\n","\t")}"
                 )
                 has_save = True
+        return has_save
+
+    def load_game(self):
+        """读档"""
+        has_save = self.show_save()
         if not has_save:
             print("没有存档！")
             print("N\t新的游戏\nB\t返回\nQ\t退出游戏\n")
@@ -138,13 +143,7 @@ class EmeraldKnightCMD:
 
     def save_game(self):
         """保存游戏"""
-        for i in range(30):
-            has_save = False
-            if Logic.get_save_info(i + 1) != Logic.EMPTY_SAVE:
-                print(
-                    f"存档{i+1}\t{Logic.get_save_info(i+1).replace("\n","\t")}"
-                )
-                has_save = True
+        has_save = self.show_save()
         if has_save:
             print("\n以上是你的存档\n")
         print("请输入一个[1,30]内的整数来保存当前进度，输入B返回")
@@ -155,7 +154,7 @@ class EmeraldKnightCMD:
                     break
                 index = int(s)
                 if index > 0 and index <= 30:
-                    self.gk.save_at(index)
+                    self.save_at(index)
                     print("保存成功！")
                     break
                 else:

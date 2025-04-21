@@ -1,21 +1,26 @@
 # coding = utf-8
 
-"""翡翠骑士游戏 v2"""
+"""翡翠骑士游戏 v2 GUI版本"""
 
+import sys
 from functools import partial
 
 import PySide6.QtCore as core
 import PySide6.QtGui as gui
 import PySide6.QtWidgets as qt
-from game_kernel import Kernel
-from game_logic import Logic
+
+sys.path.append("./script")
+sys.path.append("./script/game")
+
+from game.emerald_knight import EmeraldKnight
+from game.game_logic import Logic
 
 
-class EmeraldKnight:
+class EmeraldKnightGUI(EmeraldKnight):
     """游戏类"""
 
     def __init__(self):
-        self.gk = Kernel()
+        super().__init__()
         self.app = qt.QApplication()
         self.main = qt.QMainWindow()
         self.main.resize(400, 640)
@@ -108,10 +113,6 @@ class EmeraldKnight:
         hello_layout.addWidget(hello_label)
         self.update(hello_layout)
 
-    def new_game(self):
-        """开始新游戏"""
-        self.load_at(0)
-
     def load_at(self, save_id, save_window=None):
         """从存档加载游戏"""
         if save_id != 0:
@@ -124,9 +125,10 @@ class EmeraldKnight:
         self.gk.load_at(save_id)
         self.load_scene()
 
-    def save_at(self, save_id, save_window):
+    def save_at(self, save_id, save_window=None):
         """保存游戏"""
-        save_window.close()
+        if save_window:
+            save_window.close()
         self.gk.save_at(save_id)
 
     def choose(self, choice):
@@ -203,5 +205,5 @@ class EmeraldKnight:
 
 
 if __name__ == "__main__":
-    ek = EmeraldKnight()
+    ek = EmeraldKnightGUI()
     ek.run()
