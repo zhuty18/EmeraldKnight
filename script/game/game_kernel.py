@@ -50,10 +50,6 @@ class Kernel:
         for _, v in Logic.DEFAULT_PARAS.items():
             if v["id"] not in self._paras:
                 self._paras[v["id"]] = v["default_value"]
-            if "pro" in self._paras:
-                self._paras["pr1"] = self._paras["pro"] % 8
-                self._paras["pr2"] = self._paras["pro"] >> 3
-                self._paras.pop("pro")
 
     def get_para(self, para_name):
         """获取参数值"""
@@ -187,9 +183,3 @@ class Kernel:
         if not self._scene.get_id() in self._fight:
             self._fight[self._scene.get_id()] = int(self.fight())
         return self._fight[self._scene.get_id()]
-
-    def print_debug(self):
-        """打印调试信息"""
-        print(f"当前场景ID: {self.get_scene_id()}")
-        print(f"当前变量: {self._paras}")
-        print(f"当前选项: {[x.get_id() for x in self.get_choices()]}")
