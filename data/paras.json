@@ -30,22 +30,6 @@
             "value": "6-6"
         },
         {
-            "name": "SCENE",
-            "value": "SCENE"
-        },
-        {
-            "name": "END",
-            "value": "END"
-        },
-        {
-            "name": "FIGHT",
-            "value": "FIGHT"
-        },
-        {
-            "name": "CHOICE",
-            "value": "CHOICE"
-        },
-        {
             "name": "EMPTY_SAVE",
             "value": "空存档"
         },
@@ -165,6 +149,24 @@
             "default_value": 0
         }
     ],
+    "function_para_list": [
+        {
+            "name": "SCENE",
+            "value": "SCENE"
+        },
+        {
+            "name": "END",
+            "value": "END"
+        },
+        {
+            "name": "FIGHT",
+            "value": "FIGHT"
+        },
+        {
+            "name": "CHOICE",
+            "value": "CHOICE"
+        }
+    ],
     "code_list": [
         {
             "name": "BRUCE_CODE",
@@ -191,18 +193,21 @@
             "max_life": 500,
             "actions": [
                 {
+                    "id": "SINESTRO_PLAIN_ATTACK",
                     "type": "ATTACK",
                     "strength": 0.1,
                     "chance": 2,
                     "description": "魔王向你发动进攻，"
                 },
                 {
+                    "id": "SINESTRO_MAGIC_ATTACK",
                     "type": "ATTACK",
                     "strength": 0.25,
                     "chance": 1,
                     "description": "魔王对你使用了魔法，"
                 },
                 {
+                    "id": "SINESTRO_HEAL",
                     "type": "HEAL",
                     "min": 120,
                     "max": 180,
@@ -219,12 +224,14 @@
             "type": "HERO",
             "actions": [
                 {
+                    "id": "HAL_PLAIN_ATTACK",
                     "name": "普通攻击",
                     "type": "ATTACK",
                     "strength": 0.15,
                     "description": "你向魔王发动进攻，"
                 },
                 {
+                    "id": "HAL_FLYING_ATTACK",
                     "name": "突袭",
                     "type": "ATTACK",
                     "strength": 0.3,
@@ -236,6 +243,7 @@
                     }
                 },
                 {
+                    "id": "HAL_SPECIAL_ATTACK",
                     "name": "特殊攻击",
                     "type": "ATTACK",
                     "strength": 0.5,
@@ -247,6 +255,7 @@
                     }
                 },
                 {
+                    "id": "HAL_HEAL",
                     "name": "治疗",
                     "type": "HEAL",
                     "min": 30,
@@ -255,6 +264,7 @@
                     "description": "你吃下一颗雷电小球，"
                 },
                 {
+                    "id": "HAL_CHEAT",
                     "name": "开挂",
                     "type": "CHEAT",
                     "description": "你开挂绝杀！"
