@@ -12,8 +12,6 @@ from version import CHAPTERS, DEBUG, VERSION
 class Logic:
     """逻辑类"""
 
-    KERNEL = None  # 内核实例
-
     VERSION = VERSION  # 游戏版本
     DEBUG = DEBUG  # 是否为调试模式
     CHAPTERS = CHAPTERS  # 当前章节数
@@ -46,7 +44,7 @@ class Logic:
     BATTLE_STORY = {}  # 决战相关字符串
 
     def __init__(self, kernel):
-        Logic.KERNEL = kernel
+        Logic._kernel = kernel
 
         for i in Logic.read_file(Logic.PATH_DATA, Logic.FILE_PARAS)[
             "const_list"
@@ -191,3 +189,8 @@ class Logic:
                 return f"{save_pos}\n{save_time}"
         else:
             return Logic.EMPTY_SAVE
+
+    @staticmethod
+    def get_kernel():
+        """获取逻辑核"""
+        return Logic._kernel
