@@ -6,22 +6,30 @@ import json
 import os
 import time
 
+from version import CHAPTERS, DEBUG, VERSION
+
 
 class Logic:
     """逻辑类"""
 
-    KERNEL = None
+    KERNEL = None  # 内核实例
 
-    PATH_GAME = "data"  # 游戏相关文件路径
+    VERSION = VERSION  # 游戏版本
+    DEBUG = DEBUG  # 是否为调试模式
+    CHAPTERS = CHAPTERS  # 当前章节数
+
+    PATH_DATA = "data"  # 游戏相关文件路径
     FILE_PARAS = "paras.json"  # 参数存储文件
-    FILE_SCENES = "chapter/scenes_ch{ch}.json"  # 场景存储文件
-    FILE_CHOICES = "chapter/choices_ch{ch}.json"  # 选项存储文件
     FILE_NAMES = "names.json"  # 名称存储文件
+    PATH_CHAPTER = "data/chapter"
+    FILE_SCENES = "scenes_ch{ch}.json"  # 场景存储文件
+    FILE_CHOICES = "choices_ch{ch}.json"  # 选项存储文件
     PATH_STORY = "story"  # 故事相关文件路径
     PATH_SAVE = "save"  # 存档相关文件路径
     FILE_DEFAULT_SAVE = "0.eks"  # 初始存档文件
 
     DEFAULT_PARAS = {}  # 参数表
+    DEFAULT_FUNCTION_PARAS = {}  # 功能参数表
     DEFAULT_CODES = {}  # 代码表
     DEFAULT_CONSTS = {}  # 常量表
     SCENE_MAP = {}  # 场景表
@@ -33,10 +41,6 @@ class Logic:
     START_SCENE = ""  # 起始场景
     START_OVER = ""  # 重开场景
     FINAL_BATTLE = ""  # 重开场景
-    SCENE = ""  # 场景变量名
-    END = ""  # 结局变量名
-    FIGHT = ""  # 战斗变量名
-    CHOICE = ""  # 选项变量名
     EMPTY_SAVE = ""  # 空存档字符串
     STORY_END = ""  # 故事结尾补充字符串
     BATTLE_STORY = {}  # 决战相关字符串
@@ -44,19 +48,23 @@ class Logic:
     def __init__(self, kernel):
         Logic.KERNEL = kernel
 
-        for i in Logic.read_file(Logic.PATH_GAME, Logic.FILE_PARAS)[
+        for i in Logic.read_file(Logic.PATH_DATA, Logic.FILE_PARAS)[
             "const_list"
         ]:
             Logic.DEFAULT_CONSTS[i["name"]] = i["value"]
-        for i in Logic.read_file(Logic.PATH_GAME, Logic.FILE_PARAS)[
+        for i in Logic.read_file(Logic.PATH_DATA, Logic.FILE_PARAS)[
             "para_list"
         ]:
             Logic.DEFAULT_PARAS[i["name"]] = i
-        for i in Logic.read_file(Logic.PATH_GAME, Logic.FILE_PARAS)[
+        for i in Logic.read_file(Logic.PATH_DATA, Logic.FILE_PARAS)[
             "code_list"
         ]:
             Logic.DEFAULT_CODES[i["name"]] = i["value"]
-        for i in Logic.read_file(Logic.PATH_GAME, Logic.FILE_PARAS)[
+        for i in Logic.read_file(Logic.PATH_DATA, Logic.FILE_PARAS)[
+            "function_para_list"
+        ]:
+            Logic.DEFAULT_FUNCTION_PARAS[i["name"]] = i["value"]
+        for i in Logic.read_file(Logic.PATH_DATA, Logic.FILE_PARAS)[
             "character_list"
         ]:
             Logic.CHARACTER_MAP[i["id"]] = i
@@ -65,23 +73,23 @@ class Logic:
         Logic.SCENE_MAP[end_scene["id"]] = end_scene
         end_choice = Logic.DEFAULT_CONSTS["END_CHOICE"]
         Logic.CHOICE_MAP[end_choice["id"]] = end_choice
-        for ch in range(Logic.KERNEL.CHAPTER):
+        for ch in range(Logic.CHAPTERS):
             for i in Logic.read_file(
-                Logic.PATH_GAME,
+                Logic.PATH_CHAPTER,
                 Logic.FILE_SCENES.replace("{ch}", str(ch + 1)),
             ):
                 Logic.SCENE_MAP[i["id"]] = i
             for i in Logic.read_file(
-                Logic.PATH_GAME,
+                Logic.PATH_CHAPTER,
                 Logic.FILE_CHOICES.replace("{ch}", str(ch + 1)),
             ):
                 Logic.CHOICE_MAP[i["id"]] = i
 
-        for k, v in Logic.read_file(Logic.PATH_GAME, Logic.FILE_NAMES)[
+        for k, v in Logic.read_file(Logic.PATH_DATA, Logic.FILE_NAMES)[
             "end_names"
         ].items():
             Logic.END_NAME_MAP[k] = v
-        for k, v in Logic.read_file(Logic.PATH_GAME, Logic.FILE_NAMES)[
+        for k, v in Logic.read_file(Logic.PATH_DATA, Logic.FILE_NAMES)[
             "chapter_names"
         ].items():
             Logic.CHAPTER_NAME_MAP[k] = v
@@ -89,19 +97,28 @@ class Logic:
         Logic.START_SCENE = Logic.DEFAULT_CONSTS["START_SCENE"]
         Logic.START_OVER = Logic.DEFAULT_CONSTS["START_OVER"]
         Logic.FINAL_BATTLE = Logic.DEFAULT_CONSTS["FINAL_BATTLE"]
-        Logic.SCENE = Logic.DEFAULT_CONSTS["SCENE"]
-        Logic.END = Logic.DEFAULT_CONSTS["END"]
-        Logic.FIGHT = Logic.DEFAULT_CONSTS["FIGHT"]
-        Logic.CHOICE = Logic.DEFAULT_CONSTS["CHOICE"]
         Logic.EMPTY_SAVE = Logic.DEFAULT_CONSTS["EMPTY_SAVE"]
         Logic.STORY_END = Logic.DEFAULT_CONSTS["STORY_END"]
         Logic.BATTLE_STORY = Logic.DEFAULT_CONSTS["BATTLE_STORY"]
 
     @staticmethod
+    def res_path(file_dir, file_name=None):
+        """相关文件路径"""
+        if Logic.DEBUG:
+            root = os.path.abspath(".")
+        else:
+            root = os.getenv("APPDATA")
+            root = os.path.join(root, "EmeraldKnight")
+
+        if file_name:
+            return os.path.join(root, file_dir, file_name)
+        return os.path.join(root, file_dir)
+
+    @staticmethod
     def read_file(file_dir, file_name, load_json=True):
         """读取文件"""
         with open(
-            Logic.KERNEL.res_path(file_dir, file_name), "r", encoding="utf8"
+            Logic.res_path(file_dir, file_name), "r", encoding="utf8"
         ) as f:
             if load_json:
                 return json.loads(f.read())
@@ -140,7 +157,7 @@ class Logic:
         static_save = Logic.read_file(Logic.PATH_SAVE, Logic.FILE_DEFAULT_SAVE)
         static_save[end_id] = 1
         with open(
-            Logic.KERNEL.res_path(Logic.PATH_SAVE, Logic.FILE_DEFAULT_SAVE),
+            Logic.res_path(Logic.PATH_SAVE, Logic.FILE_DEFAULT_SAVE),
             "w",
             encoding="utf8",
         ) as f:
@@ -160,15 +177,15 @@ class Logic:
     @staticmethod
     def get_save_info(save_id):
         """获取存档信息"""
-        save_path = Logic.KERNEL.res_path(Logic.PATH_SAVE, f"{save_id}.eks")
+        save_path = Logic.res_path(Logic.PATH_SAVE, f"{save_id}.eks")
         if os.path.exists(save_path):
             save = Logic.read_file(Logic.PATH_SAVE, f"{save_id}.eks")
             save_pos = Logic.get_chapter_name(save["scene"])
             save_time = os.path.getmtime(
-                Logic.KERNEL.res_path(Logic.PATH_SAVE, f"{save_id}.eks")
+                Logic.res_path(Logic.PATH_SAVE, f"{save_id}.eks")
             )
             save_time = time.strftime("%m.%d\t%H:%M", time.localtime(save_time))
-            if Logic.KERNEL.DEBUG:
+            if Logic.DEBUG:
                 return f"{save["scene"]}{save_pos}\n{save_time}"
             else:
                 return f"{save_pos}\n{save_time}"

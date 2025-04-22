@@ -3,7 +3,6 @@
 """游戏内核"""
 
 import json
-import os
 from random import random
 
 from game_logic import Logic
@@ -13,24 +12,6 @@ from story_battle import Choice, Scene
 class Kernel:
     """游戏逻辑核"""
 
-    VERSION = "2.1"  # 游戏版本
-    DEBUG = True  # 是否为调试模式
-
-    CHAPTER = 7  # 章节数
-
-    @staticmethod
-    def res_path(file_dir, file_name=None):
-        """相关文件路径"""
-        if Kernel.DEBUG:
-            root = os.path.abspath(".")
-        else:
-            root = os.getenv("APPDATA")
-            root = os.path.join(root, "EmeraldKnight")
-
-        if file_name:
-            return os.path.join(root, file_dir, file_name)
-        return os.path.join(root, file_dir)
-
     def __init__(self):
         """初始化游戏内核"""
         Logic(self)
@@ -38,6 +19,7 @@ class Kernel:
         self._scene = None  # 当前场景
         self._paras = {}  # 参数存储
         self._fight = {}  # 战斗结果
+        self.refresh_paras()
 
     def load_at(self, save_id):
         """加载存档"""
@@ -55,7 +37,7 @@ class Kernel:
     def save_at(self, save_id):
         """保存存档"""
         if self._scene != Logic.FINAL_BATTLE:
-            save_file = Kernel.res_path(Logic.PATH_SAVE, f"{save_id}.eks")
+            save_file = Logic.res_path(Logic.PATH_SAVE, f"{save_id}.eks")
             with open(save_file, "w", encoding="utf-8") as f:
                 f.write(
                     json.dumps(
@@ -81,6 +63,10 @@ class Kernel:
         """获取参数表"""
         return self._paras
 
+    def set_para(self, para_name, value):
+        """设置参数值"""
+        self._paras[Logic.DEFAULT_PARAS[para_name]["id"]] = value
+
     def change_para(self, para_name, change_act, change_by):
         """改变参数"""
         if change_act == "CONDITION":
@@ -96,16 +82,15 @@ class Kernel:
                         change["value"],
                     )
         else:
-            para_id = Logic.DEFAULT_PARAS[para_name]["id"]
             if isinstance(change_by, str):
                 value = Logic.DEFAULT_CODES[change_by]
             else:
                 value = change_by
             match change_act:
                 case "ADD":
-                    self._paras[para_id] += value
+                    self.set_para(para_name, self.get_para(para_name) + value)
                 case "SET":
-                    self._paras[para_id] = value
+                    self.set_para(para_name, value)
 
     def to_scene(self, scene_id):
         """改变场景"""
@@ -113,22 +98,26 @@ class Kernel:
 
     def check_condition(self, para_name, check_act, check_by):
         """单个条件检测"""
-        if para_name == Logic.SCENE:
-            check_para = self.get_scene_id()
-        elif para_name == Logic.FIGHT:
-            check_para = self.fight_result()
-        elif para_name == Logic.CHOICE:
-            check_para = int(Choice.get_existence(check_by).show())
-        elif para_name != Logic.END:
+        check_para = None
+        value = None
+        if para_name in Logic.DEFAULT_FUNCTION_PARAS:
+            match Logic.DEFAULT_FUNCTION_PARAS[para_name]:
+                case "SCENE":
+                    check_para = self.get_scene_id()
+                case "FIGHT":
+                    check_para = self.fight_result()
+                case "CHOICE":
+                    check_para = int(Choice.get_existence(check_by).show())
+                    value = 1
+                case "END":
+                    check_para = para_name
+        else:
             check_para = self.get_para(para_name)
-        else:
-            check_para = para_name
-        if isinstance(check_by, str) and "CODE" in check_by:
-            value = Logic.DEFAULT_CODES[check_by]
-        elif para_name == Logic.CHOICE:
-            value = 1
-        else:
-            value = check_by
+        if not value:
+            if isinstance(check_by, str) and "CODE" in check_by:
+                value = Logic.DEFAULT_CODES[check_by]
+            else:
+                value = check_by
 
         match check_act:
             case "EQUAL":

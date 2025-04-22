@@ -34,6 +34,7 @@ class EmeraldKnightCMD(EmeraldKnight):
             try:
                 t = ord(s[0]) - ord("A")
                 if t >= 0 and t < len(choices):
+                    # self.choose(choices[t])
                     choices[t].chosen()
                     break
                 elif s == "S":
@@ -55,7 +56,7 @@ class EmeraldKnightCMD(EmeraldKnight):
         print("感谢你打开这个游戏！")
         print("=======================")
         print("翡翠骑士\nEmerald Knight")
-        print("v" + self.gk.VERSION)
+        print("v" + Logic.VERSION)
         print()
         print("作者：兔子草")
         print("-----------------------")
@@ -133,7 +134,7 @@ class EmeraldKnightCMD(EmeraldKnight):
             s = int(input("你要载入的存档编号为："))
             while True:
                 if os.path.exists(
-                    self.gk.res_path(Logic.PATH_SAVE, f"{s}.eks")
+                    Logic.res_path(Logic.PATH_SAVE, f"{s}.eks")
                 ):
                     self.load_at(s)
                     break

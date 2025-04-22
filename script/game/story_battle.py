@@ -32,6 +32,7 @@ class BattleScene(Scene):
     """决战场景"""
 
     def __init__(self, data):
+        self._id = Logic.FINAL_BATTLE
         self._round = 0
         enemy_id = Logic.BATTLE_STORY["ENEMY"]
         enemy_data = Logic.CHARACTER_MAP[enemy_id]
@@ -42,9 +43,6 @@ class BattleScene(Scene):
 
         self._options_lose = data["options_lose"]
         self._options_win = data["options_win"]
-
-    def get_id(self):
-        return Logic.FINAL_BATTLE
 
     def get_enemy(self):
         """获取敌人"""

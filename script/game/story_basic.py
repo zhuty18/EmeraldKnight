@@ -92,10 +92,6 @@ class Scene(BasicLogic):
         return super().get_existence(para_1, para_2)
 
     @abstractmethod
-    def get_id(self):
-        """获取ID"""
-
-    @abstractmethod
     def get_text(self):
         """获取文本"""
 
@@ -119,9 +115,6 @@ class StoryScene(Scene):
         self._options = data["options"]
         self._require = data["require"] if "require" in data else None
 
-    def get_id(self):
-        return self._id
-
     def get_text(self):
         s_id = self._scene if self._scene else self._id
         scene_text = Logic.read_scene_text(s_id)
@@ -132,26 +125,18 @@ class StoryScene(Scene):
         return scene_text
 
     def get_options(self, options=None, choices=None):
-        """获取选项"""
-        if not choices:
-            if not options:
-                options = self._options
-            if self._require:
-                if Logic.KERNEL.check_is(
-                    self._require["op"], self._require["condition"]
-                ):
-                    options = self._require["match_options"]
-            choices = [Choice.get_existence(x) for x in options]
-        res = []
-        for c in choices:
-            if c.show():
-                res.append(c)
-        return res
+        option_list = self._options
+        if self._require:
+            if Logic.KERNEL.check_is(
+                self._require["op"], self._require["condition"]
+            ):
+                option_list = self._require["match_options"]
+        return super().get_options(options=option_list)
 
 
 def get_story_scene(scene_id, _):
     """获取故事场景"""
-    if "end" in scene_id:
+    if "end" in str(scene_id):
         Logic.mark_end(scene_id)
         return StoryScene(
             {

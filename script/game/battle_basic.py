@@ -21,6 +21,7 @@ class Character(BasicLogic):
         return super().get_existence(para_1, para_2)
 
     def __init__(self, data):
+        self._id = data["id"]
         self._attack = None
         self._speed = None
         self._life_max = None
@@ -99,6 +100,7 @@ class Action(BasicLogic):
         return super().get_existence(para_1, para_2)
 
     def __init__(self, data, owner):
+        self._id = data["id"]
         self._owner = owner
         self._description = data["description"]
 

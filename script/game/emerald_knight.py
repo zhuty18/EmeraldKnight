@@ -21,6 +21,7 @@ class EmeraldKnight:
 
     def hello_page(self):
         """开始页"""
+        return f"""翡翠骑士 v{Logic.VERSION}"""
 
     def new_game(self):
         """开始新游戏"""
@@ -64,18 +65,6 @@ class EmeraldKnight:
 
     def about_game(self):
         """介绍页"""
-
-    def get_scene_id(self):
-        return self.gk.get_scene_id()
-
-    def get_paras(self):
-        return self.gk.get_paras()
-
-    def get_choices(self):
-        return self.gk.get_choices()
-
-    def get_logic(self):
-        return Logic
 
 
 if __name__ == "__main__":

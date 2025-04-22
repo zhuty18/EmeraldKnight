@@ -29,3 +29,10 @@ class BasicLogic(ABC):
             if item:
                 return item
         return None
+
+    def get_id(self):
+        """获取实例ID"""
+        if hasattr(self, "_id"):
+            return self._id
+        else:
+            return self.__class__.__name__ + " ID"

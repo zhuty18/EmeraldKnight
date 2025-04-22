@@ -37,9 +37,9 @@ class EmeraldKnightGUI(EmeraldKnight):
 
     def set_menu(self):
         """初始化工具栏"""
-        self.icon = gui.QIcon(self.gk.res_path("", "icon.ico"))
+        self.icon = gui.QIcon(Logic.res_path("", "icon.ico"))
         self.main.setWindowIcon(self.icon)
-        self.main.setWindowTitle("翡翠骑士 v" + self.gk.VERSION)
+        self.main.setWindowTitle(super().hello_page())
         menu_bar = self.main.menuBar()
         menu_bar.setNativeMenuBar(False)
         new_btn = menu_bar.addAction("新的游戏")
@@ -50,7 +50,7 @@ class EmeraldKnightGUI(EmeraldKnight):
         load_btn.triggered.connect(self.load_game)
         exit_btn = menu_bar.addAction("退出游戏")
         exit_btn.triggered.connect(self.exit_game)
-        if self.gk.DEBUG:
+        if Logic.DEBUG:
             debug_btn = menu_bar.addAction("打印变量")
             debug_btn.triggered.connect(self.debug_game)
         about_btn = menu_bar.addAction("关于")
@@ -94,9 +94,7 @@ class EmeraldKnightGUI(EmeraldKnight):
         """开始页"""
         # 1afa29
         hello_str = "<font size=7 face='华文隶书' color='#25ee79'>翡翠骑士<br>"
-        hello_str += (
-            "</font><font size=2>v" + self.gk.VERSION + "<br><br></font>"
-        )
+        hello_str += "</font><font size=2>v" + Logic.VERSION + "<br><br></font>"
         hello_str += "<font size=3 face='华文仿宋'>"
         hello_str += "雪山之巅&nbsp;&nbsp;英魂渐远<br>"
         hello_str += "危城影下&nbsp;&nbsp;一念不灭<br>"
