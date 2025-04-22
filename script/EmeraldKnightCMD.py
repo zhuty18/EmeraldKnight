@@ -21,11 +21,11 @@ class EmeraldKnightCMD(EmeraldKnight):
 
     def load_scene(self):
         """加载场景"""
-        if self.gk.get_scene_id() == Logic.START_OVER:
+        if self._kernel.get_scene_id() == Logic.START_OVER:
             self.hello_page()
             return
-        scene_text = self.gk.get_scene_text()
-        choices = self.gk.get_choices()
+        scene_text = self._kernel.get_scene_text()
+        choices = self._kernel.get_choices()
         print(scene_text)
         for index, c in enumerate(choices):
             print(f"{chr(index+ord('A'))}\t{c.text()}")
@@ -44,7 +44,7 @@ class EmeraldKnightCMD(EmeraldKnight):
                     self.load_game()
                     break
                 elif s == "Q":
-                    self.gk.print_debug()
+                    self._kernel.print_debug()
                     quit()
                 else:
                     raise TypeError
@@ -93,7 +93,7 @@ class EmeraldKnightCMD(EmeraldKnight):
         if save_id != 0 and Logic.get_save_info(save_id) == Logic.EMPTY_SAVE:
             print("存档不存在！")
             return
-        self.gk.load_at(save_id)
+        self._kernel.load_at(save_id)
         while True:
             self.load_scene()
 
@@ -120,7 +120,7 @@ class EmeraldKnightCMD(EmeraldKnight):
                     self.new_game()
                     break
                 elif t == "B":
-                    if self.gk.get_scene_id() == Logic.START_OVER:
+                    if self._kernel.get_scene_id() == Logic.START_OVER:
                         self.hello_page()
                     else:
                         self.load_scene()
@@ -133,9 +133,7 @@ class EmeraldKnightCMD(EmeraldKnight):
             print()
             s = int(input("你要载入的存档编号为："))
             while True:
-                if os.path.exists(
-                    Logic.res_path(Logic.PATH_SAVE, f"{s}.eks")
-                ):
+                if os.path.exists(Logic.res_path(Logic.PATH_SAVE, f"{s}.eks")):
                     self.load_at(s)
                     break
                 else:

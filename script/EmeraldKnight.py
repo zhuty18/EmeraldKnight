@@ -65,11 +65,11 @@ class EmeraldKnightGUI(EmeraldKnight):
 
     def load_scene(self):
         """加载场景"""
-        if self.gk.get_scene_id() == Logic.START_OVER:
+        if self._kernel.get_scene_id() == Logic.START_OVER:
             self.hello_page()
             return
-        scene_text = self.gk.get_scene_text()
-        choices = self.gk.get_choices()
+        scene_text = self._kernel.get_scene_text()
+        choices = self._kernel.get_choices()
         game_layout = qt.QVBoxLayout()
         scene_text = scene_text.replace("  ", "&nbsp;")
         scene_text = scene_text.replace("\n", "<br>")
@@ -120,14 +120,14 @@ class EmeraldKnightGUI(EmeraldKnight):
                 return
             if save_window:
                 save_window.close()
-        self.gk.load_at(save_id)
+        self._kernel.load_at(save_id)
         self.load_scene()
 
     def save_at(self, save_id, save_window=None):
         """保存游戏"""
         if save_window:
             save_window.close()
-        self.gk.save_at(save_id)
+        self._kernel.save_at(save_id)
 
     def choose(self, choice):
         """选择选项"""
@@ -160,10 +160,10 @@ class EmeraldKnightGUI(EmeraldKnight):
 
     def save_game(self):
         """存档"""
-        if self.gk.get_scene_id() == Logic.START_OVER:
+        if self._kernel.get_scene_id() == Logic.START_OVER:
             m = qt.QMessageBox(self.main)
             m.critical(self.main, "警告！", "还没有进入游戏！")
-        elif self.gk.get_scene_id() == Logic.FINAL_BATTLE:
+        elif self._kernel.get_scene_id() == Logic.FINAL_BATTLE:
             m = qt.QMessageBox(self.main)
             m.critical(self.main, "警告！", "战斗中不可存档！")
         else:
@@ -175,7 +175,9 @@ class EmeraldKnightGUI(EmeraldKnight):
 
     def debug_game(self):
         """调试"""
-        self.gk.print_debug()
+        print(f"当前场景ID: {self._kernel.get_scene_id()}")
+        print(f"当前变量: {self._kernel.get_paras()}")
+        print(f"当前选项: {[x.get_id() for x in self._kernel.get_choices()]}")
 
     def exit_game(self):
         """退出游戏"""

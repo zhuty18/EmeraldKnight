@@ -10,7 +10,7 @@ class EmeraldKnight:
     """游戏基类"""
 
     def __init__(self):
-        self.gk = Kernel()
+        self._kernel = Kernel()
 
     def run(self):
         """运行游戏"""
@@ -29,12 +29,12 @@ class EmeraldKnight:
 
     def load_at(self, save_id, _=None):
         """从存档加载游戏"""
-        self.gk.load_at(save_id)
+        self._kernel.load_at(save_id)
         self.load_scene()
 
     def save_at(self, save_id, _=None):
         """保存游戏"""
-        self.gk.save_at(save_id)
+        self._kernel.save_at(save_id)
 
     def choose(self, choice):
         """选择选项"""
@@ -47,8 +47,8 @@ class EmeraldKnight:
     def save_game(self):
         """存档"""
         if (
-            self.gk.get_scene_id() != Logic.START_OVER
-            and self.gk.get_scene_id() != Logic.FINAL_BATTLE
+            self._kernel.get_scene_id() != Logic.START_OVER
+            and self._kernel.get_scene_id() != Logic.FINAL_BATTLE
         ):
             self.show_save()
 
@@ -58,15 +58,9 @@ class EmeraldKnight:
 
     def debug_game(self):
         """调试"""
-        self.gk.print_debug()
 
     def exit_game(self):
         """退出游戏"""
 
     def about_game(self):
         """介绍页"""
-
-
-if __name__ == "__main__":
-    ek = EmeraldKnight()
-    ek.run()
