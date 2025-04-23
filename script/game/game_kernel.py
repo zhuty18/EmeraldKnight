@@ -27,7 +27,7 @@ class Kernel:
             # 新游戏，读取默认参数
             self.to_scene(Logic.START_SCENE)
             for _, value in Logic.DEFAULT_PARAS.items():
-                self._paras[value["id"]] = value["default_value"]
+                self._paras[value["name"]] = value["default_value"]
         else:
             save_file = Logic.read_file(Logic.PATH_SAVE, f"{save_id}.eks")
             self._scene = Scene.get_existence(save_file["scene"])
@@ -48,12 +48,12 @@ class Kernel:
     def refresh_paras(self):
         """刷新参数"""
         for _, v in Logic.DEFAULT_PARAS.items():
-            if v["id"] not in self._paras:
-                self._paras[v["id"]] = v["default_value"]
+            if v["name"] not in self._paras:
+                self._paras[v["name"]] = v["default_value"]
 
     def get_para(self, para_name):
         """获取参数值"""
-        return self._paras[Logic.DEFAULT_PARAS[para_name]["id"]]
+        return self._paras[Logic.DEFAULT_PARAS[para_name]["name"]]
 
     def get_paras(self):
         """获取参数表"""
@@ -61,16 +61,12 @@ class Kernel:
 
     def set_para(self, para_name, value):
         """设置参数值"""
-        self._paras[Logic.DEFAULT_PARAS[para_name]["id"]] = value
+        self._paras[Logic.DEFAULT_PARAS[para_name]["name"]] = value
 
     def change_para(self, para_name, change_act, change_by):
         """改变参数"""
         if change_act == "CONDITION":
-            if self.check_condition(
-                para_name["para"],
-                para_name["check"],
-                para_name["value"],
-            ):
+            if self.check_is(para_name["op"], para_name["condition"]):
                 for change in change_by:
                     self.change_para(
                         change["para"],
@@ -94,6 +90,8 @@ class Kernel:
 
     def check_condition(self, para_name, check_act, check_by):
         """单个条件检测"""
+        if check_act == "CONDITION":
+            return self.check_is(para_name, check_by)
         check_para = None
         value = None
         if para_name in Logic.DEFAULT_FUNCTION_PARAS:
@@ -135,16 +133,16 @@ class Kernel:
             case "CHECK_END":
                 return Logic.check_end(f"end-{value}")
 
-    def check_is(self, show_op, show_condition):
+    def check_is(self, check_op, check_items):
         """条件检测"""
-        res = True if show_op == "AND" else False
-        for condition in show_condition:
+        res = True if check_op == "AND" else False
+        for condition in check_items:
             check = self.check_condition(
                 condition["para"],
                 condition["check"],
                 condition["value"],
             )
-            match show_op:
+            match check_op:
                 case "AND":
                     res &= check
                 case "OR":

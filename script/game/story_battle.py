@@ -21,7 +21,7 @@ class BattleChoice(Choice):
     def show(self):
         return self._move.is_available()
 
-    def chosen(self):
+    def choose(self):
         self._battle_scene.get_hero().set_text(
             self._move.execute(self._battle_scene.get_enemy())
         )

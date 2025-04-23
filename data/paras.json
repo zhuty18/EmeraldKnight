@@ -1,275 +1,135 @@
 {
-    "const_list": [
-        {
-            "name": "END_CHOICE",
-            "value": {
-                "id": "end",
-                "target": "game_over",
-                "text": "回到开始界面"
-            }
-        },
-        {
-            "name": "END_SCENE",
-            "value": {
-                "id": "game_over",
-                "options": [
-                    "end"
-                ]
-            }
-        },
-        {
-            "name": "START_SCENE",
-            "value": "1-1"
-        },
-        {
-            "name": "START_OVER",
-            "value": "game_over"
-        },
-        {
-            "name": "FINAL_BATTLE",
-            "value": "6-6"
-        },
-        {
-            "name": "EMPTY_SAVE",
-            "value": "空存档"
-        },
-        {
-            "name": "STORY_END",
-            "value": "\n\n结局——"
-        },
-        {
-            "name": "BATTLE_STORY",
-            "value": {
-                "BLANK": "{NUMBER}",
-                "START": "这场决定大陆未来的战斗，开始了！",
-                "HURT": "造成了{NUMBER}点伤害！",
-                "HEAL": "回复了{NUMBER}点体力！",
-                "DODGE": "被躲开了！",
-                "WIN": "魔王倒下了！",
-                "LOSE": "\n你被打败了！",
-                "HERO": "HAL",
-                "ENEMY": "SINESTRO"
-            }
-        }
-    ],
     "para_list": [
         {
-            "name": "BRUCE_STORY_LINE",
-            "id": "bsl",
+            "id": "BRUCE_STORY_LINE",
+            "name": "bsl",
             "default_value": 0
         },
         {
-            "name": "BRUCE_SHOW_UP",
-            "id": "bsu",
+            "id": "BRUCE_SHOW_UP",
+            "name": "bsu",
             "default_value": 0
         },
         {
-            "name": "BRUCE_LOVE",
-            "id": "brl",
+            "id": "BRUCE_LOVE",
+            "name": "brl",
             "default_value": 0
         },
         {
-            "name": "BRUCE_INTRODUCE",
-            "id": "bri",
+            "id": "BRUCE_INTRODUCE",
+            "name": "bri",
             "default_value": 0
         },
         {
-            "name": "OLIVER_STORY_LINE",
-            "id": "osl",
+            "id": "OLIVER_STORY_LINE",
+            "name": "osl",
             "default_value": 0
         },
         {
-            "name": "OLIVER_LOVE",
-            "id": "oll",
+            "id": "OLIVER_LOVE",
+            "name": "oll",
             "default_value": 0
         },
         {
-            "name": "SINESTRO_STORY_LINE",
-            "id": "ssl",
+            "id": "SINESTRO_STORY_LINE",
+            "name": "ssl",
             "default_value": 0
         },
         {
-            "name": "SINESTRO_LOVE",
-            "id": "sil",
+            "id": "SINESTRO_LOVE",
+            "name": "sil",
             "default_value": 0
         },
         {
-            "name": "SINESTRO_TAME",
-            "id": "sit",
+            "id": "SINESTRO_TAME",
+            "name": "sit",
             "default_value": 0
         },
         {
-            "name": "BARRY_LOVE",
-            "id": "bal",
+            "id": "BARRY_LOVE",
+            "name": "bal",
             "default_value": 0
         },
         {
-            "name": "SWORD_HOT_TIME",
-            "id": "sht",
+            "id": "SWORD_HOT_TIME",
+            "name": "sht",
             "default_value": 0
         },
         {
-            "name": "KNOWLEDGE",
-            "id": "knw",
+            "id": "KNOWLEDGE",
+            "name": "knw",
             "default_value": 0
         },
         {
-            "name": "INTELLIGENCE",
-            "id": "int",
+            "id": "INTELLIGENCE",
+            "name": "int",
             "default_value": 0
         },
         {
-            "name": "TEMPORARY",
-            "id": "tmp",
+            "id": "TEMPORARY",
+            "name": "tmp",
             "default_value": 0
         },
         {
-            "name": "PROP_1",
-            "id": "pr1",
+            "id": "PROP_1",
+            "name": "pr1",
             "default_value": 0
         },
         {
-            "name": "PROP_2",
-            "id": "pr2",
+            "id": "PROP_2",
+            "name": "pr2",
             "default_value": 0
         },
         {
-            "name": "PEGASUS",
-            "id": "pgs",
+            "id": "PEGASUS",
+            "name": "pgs",
             "default_value": 0
         },
         {
-            "name": "DRAGON_EGG",
-            "id": "dge",
+            "id": "DRAGON_EGG",
+            "name": "dge",
             "default_value": 0
         },
         {
-            "name": "TEAMMATE",
-            "id": "tmm",
+            "id": "TEAMMATE",
+            "name": "tmm",
             "default_value": 0
         }
     ],
     "function_para_list": [
         {
-            "name": "SCENE",
+            "id": "SCENE",
             "value": "SCENE"
         },
         {
-            "name": "END",
+            "id": "END",
             "value": "END"
         },
         {
-            "name": "FIGHT",
+            "id": "FIGHT",
             "value": "FIGHT"
         },
         {
-            "name": "CHOICE",
+            "id": "CHOICE",
             "value": "CHOICE"
         }
     ],
     "code_list": [
         {
-            "name": "BRUCE_CODE",
+            "id": "BRUCE_CODE",
             "value": 1
         },
         {
-            "name": "SINESTRO_CODE",
+            "id": "SINESTRO_CODE",
             "value": 2
         },
         {
-            "name": "OLIVER_CODE",
+            "id": "OLIVER_CODE",
             "value": 3
         },
         {
-            "name": "BARRY_CODE",
+            "id": "BARRY_CODE",
             "value": 4
-        }
-    ],
-    "character_list": [
-        {
-            "id": "SINESTRO",
-            "name": "魔王",
-            "type": "ENEMY",
-            "max_life": 500,
-            "actions": [
-                {
-                    "id": "SINESTRO_PLAIN_ATTACK",
-                    "type": "ATTACK",
-                    "strength": 0.1,
-                    "chance": 2,
-                    "description": "魔王向你发动进攻，"
-                },
-                {
-                    "id": "SINESTRO_MAGIC_ATTACK",
-                    "type": "ATTACK",
-                    "strength": 0.25,
-                    "chance": 1,
-                    "description": "魔王对你使用了魔法，"
-                },
-                {
-                    "id": "SINESTRO_HEAL",
-                    "type": "HEAL",
-                    "min": 120,
-                    "max": 180,
-                    "first": 250,
-                    "condition": 100,
-                    "time": 2,
-                    "description": "魔王身上黑雾攒动，"
-                }
-            ]
-        },
-        {
-            "id": "HAL",
-            "name": "你",
-            "type": "HERO",
-            "actions": [
-                {
-                    "id": "HAL_PLAIN_ATTACK",
-                    "name": "普通攻击",
-                    "type": "ATTACK",
-                    "strength": 0.15,
-                    "description": "你向魔王发动进攻，"
-                },
-                {
-                    "id": "HAL_FLYING_ATTACK",
-                    "name": "突袭",
-                    "type": "ATTACK",
-                    "strength": 0.3,
-                    "description": "你借助飞马对魔王发起奇袭，",
-                    "show": {
-                        "check": "EQUAL",
-                        "para": "PEGASUS",
-                        "value": 1
-                    }
-                },
-                {
-                    "id": "HAL_SPECIAL_ATTACK",
-                    "name": "特殊攻击",
-                    "type": "ATTACK",
-                    "strength": 0.5,
-                    "description": "翡翠剑面对魔王放出强光，",
-                    "self_hurt": {
-                        "min": 5,
-                        "max": 15,
-                        "description": "消耗了你的{NUMBER}点体力，"
-                    }
-                },
-                {
-                    "id": "HAL_HEAL",
-                    "name": "治疗",
-                    "type": "HEAL",
-                    "min": 30,
-                    "max": 50,
-                    "time": 10,
-                    "description": "你吃下一颗雷电小球，"
-                },
-                {
-                    "id": "HAL_CHEAT",
-                    "name": "开挂",
-                    "type": "CHEAT",
-                    "description": "你开挂绝杀！"
-                }
-            ]
         }
     ]
 }

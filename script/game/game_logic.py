@@ -17,12 +17,17 @@ class Logic:
     CHAPTERS = CHAPTERS  # 当前章节数
 
     PATH_DATA = "data"  # 游戏相关文件路径
-    FILE_PARAS = "paras.json"  # 参数存储文件
-    FILE_NAMES = "names.json"  # 名称存储文件
-    PATH_CHAPTER = "data/chapter"
-    FILE_SCENES = "scenes_ch{ch}.json"  # 场景存储文件
-    FILE_CHOICES = "choices_ch{ch}.json"  # 选项存储文件
+    FILE_CONSTS = "consts.json"  # 常量配置文件
+    FILE_PARAS = "paras.json"  # 参数配置文件
+    FILE_NAMES = "names.json"  # 名称配置文件
+    FILE_CHARACTERS = "characters.json"  # 角色配置文件
+
+    PATH_CHAPTER = "data/chapter"  # 章节相关文件路径
+    FILE_SCENES = "scenes_ch{ch}.json"  # 场景配置文件
+    FILE_CHOICES = "choices_ch{ch}.json"  # 选项配置文件
+
     PATH_STORY = "story"  # 故事相关文件路径
+
     PATH_SAVE = "save"  # 存档相关文件路径
     FILE_DEFAULT_SAVE = "0.eks"  # 初始存档文件
 
@@ -46,26 +51,20 @@ class Logic:
     def __init__(self, kernel):
         Logic._kernel = kernel
 
-        for i in Logic.read_file(Logic.PATH_DATA, Logic.FILE_PARAS)[
-            "const_list"
-        ]:
-            Logic.DEFAULT_CONSTS[i["name"]] = i["value"]
+        for i in Logic.read_file(Logic.PATH_DATA, Logic.FILE_CONSTS):
+            Logic.DEFAULT_CONSTS[i["id"]] = i["value"]
         for i in Logic.read_file(Logic.PATH_DATA, Logic.FILE_PARAS)[
             "para_list"
         ]:
-            Logic.DEFAULT_PARAS[i["name"]] = i
+            Logic.DEFAULT_PARAS[i["id"]] = i
         for i in Logic.read_file(Logic.PATH_DATA, Logic.FILE_PARAS)[
             "code_list"
         ]:
-            Logic.DEFAULT_CODES[i["name"]] = i["value"]
+            Logic.DEFAULT_CODES[i["id"]] = i["value"]
         for i in Logic.read_file(Logic.PATH_DATA, Logic.FILE_PARAS)[
             "function_para_list"
         ]:
-            Logic.DEFAULT_FUNCTION_PARAS[i["name"]] = i["value"]
-        for i in Logic.read_file(Logic.PATH_DATA, Logic.FILE_PARAS)[
-            "character_list"
-        ]:
-            Logic.CHARACTER_MAP[i["id"]] = i
+            Logic.DEFAULT_FUNCTION_PARAS[i["id"]] = i["value"]
 
         end_scene = Logic.DEFAULT_CONSTS["END_SCENE"]
         Logic.SCENE_MAP[end_scene["id"]] = end_scene
@@ -91,6 +90,9 @@ class Logic:
             "chapter_names"
         ].items():
             Logic.CHAPTER_NAME_MAP[k] = v
+
+        for i in Logic.read_file(Logic.PATH_DATA, Logic.FILE_CHARACTERS):
+            Logic.CHARACTER_MAP[i["id"]] = i
 
         Logic.START_SCENE = Logic.DEFAULT_CONSTS["START_SCENE"]
         Logic.START_OVER = Logic.DEFAULT_CONSTS["START_OVER"]

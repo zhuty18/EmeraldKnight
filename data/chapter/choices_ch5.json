@@ -232,9 +232,14 @@
             {
                 "change": "CONDITION",
                 "para": {
-                    "check": "NON_BINARY",
-                    "para": "TEMPORARY",
-                    "value": 1
+                    "op": "AND",
+                    "condition": [
+                        {
+                            "check": "NON_BINARY",
+                            "para": "TEMPORARY",
+                            "value": 1
+                        }
+                    ]
                 },
                 "value": [
                     {
@@ -262,9 +267,14 @@
             {
                 "change": "CONDITION",
                 "para": {
-                    "check": "NON_BINARY",
-                    "para": "TEMPORARY",
-                    "value": 2
+                    "op": "AND",
+                    "condition": [
+                        {
+                            "check": "NON_BINARY",
+                            "para": "TEMPORARY",
+                            "value": 2
+                        }
+                    ]
                 },
                 "value": [
                     {
@@ -288,9 +298,14 @@
             {
                 "change": "CONDITION",
                 "para": {
-                    "check": "NON_BINARY",
-                    "para": "TEMPORARY",
-                    "value": 3
+                    "op": "AND",
+                    "condition": [
+                        {
+                            "check": "NON_BINARY",
+                            "para": "TEMPORARY",
+                            "value": 3
+                        }
+                    ]
                 },
                 "value": [
                     {
@@ -592,9 +607,14 @@
             {
                 "change": "CONDITION",
                 "para": {
-                    "check": "NON_BINARY",
-                    "para": "TEMPORARY",
-                    "value": 4
+                    "op": "AND",
+                    "condition": [
+                        {
+                            "check": "NON_BINARY",
+                            "para": "TEMPORARY",
+                            "value": 4
+                        }
+                    ]
                 },
                 "value": [
                     {
@@ -696,9 +716,14 @@
             {
                 "change": "CONDITION",
                 "para": {
-                    "check": "NON_BINARY",
-                    "para": "TEMPORARY",
-                    "value": 1
+                    "op": "AND",
+                    "condition": [
+                        {
+                            "check": "NON_BINARY",
+                            "para": "TEMPORARY",
+                            "value": 1
+                        }
+                    ]
                 },
                 "value": [
                     {

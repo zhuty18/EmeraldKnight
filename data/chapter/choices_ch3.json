@@ -554,9 +554,14 @@
             {
                 "change": "CONDITION",
                 "para": {
-                    "check": "EQUAL",
-                    "para": "PROP_1",
-                    "value": 1
+                    "op": "AND",
+                    "condition": [
+                        {
+                            "check": "EQUAL",
+                            "para": "PROP_1",
+                            "value": 1
+                        }
+                    ]
                 },
                 "value": [
                     {
@@ -576,9 +581,14 @@
             {
                 "change": "CONDITION",
                 "para": {
-                    "check": "EQUAL",
-                    "para": "PROP_1",
-                    "value": 2
+                    "op": "AND",
+                    "condition": [
+                        {
+                            "check": "EQUAL",
+                            "para": "PROP_1",
+                            "value": 2
+                        }
+                    ]
                 },
                 "value": [
                     {
@@ -598,9 +608,14 @@
             {
                 "change": "CONDITION",
                 "para": {
-                    "check": "EQUAL",
-                    "para": "PROP_1",
-                    "value": 3
+                    "op": "AND",
+                    "condition": [
+                        {
+                            "check": "EQUAL",
+                            "para": "PROP_1",
+                            "value": 3
+                        }
+                    ]
                 },
                 "value": [
                     {
@@ -620,9 +635,14 @@
             {
                 "change": "CONDITION",
                 "para": {
-                    "check": "EQUAL",
-                    "para": "PROP_1",
-                    "value": 5
+                    "op": "AND",
+                    "condition": [
+                        {
+                            "check": "EQUAL",
+                            "para": "PROP_1",
+                            "value": 5
+                        }
+                    ]
                 },
                 "value": [
                     {
@@ -647,9 +667,14 @@
             {
                 "change": "CONDITION",
                 "para": {
-                    "check": "EQUAL",
-                    "para": "PROP_1",
-                    "value": 4
+                    "op": "AND",
+                    "condition": [
+                        {
+                            "check": "EQUAL",
+                            "para": "PROP_1",
+                            "value": 4
+                        }
+                    ]
                 },
                 "value": [
                     {

@@ -31,8 +31,8 @@ class Choice(BasicLogic):
         """是否显示"""
 
     @abstractmethod
-    def chosen(self):
-        """选择后"""
+    def choose(self):
+        """选择"""
 
 
 class StoryChoice(Choice):
@@ -60,7 +60,7 @@ class StoryChoice(Choice):
             self._show["op"], self._show["condition"]
         )
 
-    def chosen(self):
+    def choose(self):
         if self._choose:
             for action in self._choose:
                 Logic.get_kernel().change_para(

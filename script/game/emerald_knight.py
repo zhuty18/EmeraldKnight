@@ -38,7 +38,7 @@ class EmeraldKnight:
 
     def choose(self, choice):
         """选择选项"""
-        choice.chosen()
+        choice.choose()
         self.load_scene()
 
     def show_save(self, _=True):
