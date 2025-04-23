@@ -2,7 +2,7 @@
 
 一个以最伟大的绿灯侠哈尔乔丹为主角的恋爱向文字avg游戏。（因为~~没图~~好像不太能过审所以不做成橙光）
 
-![](https://github.com/zhuty18/EmeraldKnight/actions/workflows/unit_test.yml/badge.svg)
+[![Game Testing](https://github.com/zhuty18/EmeraldKnight/actions/workflows/unit_test.yml/badge.svg)](https://github.com/zhuty18/EmeraldKnight/actions/workflows/unit_test.yml)
 
 ## 游戏简介
 
@@ -60,6 +60,6 @@ v0.1 基础架构（已完成） (2020.07.20)
 
 ## 可能会继续开发的方向
 
-1. 巴里线：探寻翡翠剑和长老会的魔法奥秘 
+1. 巴里线：探寻翡翠剑和长老会的魔法奥秘
 2. 奥利线：在森林深处寻找能令大地复苏的宝物
 3. 克拉克线：驯龙高手
