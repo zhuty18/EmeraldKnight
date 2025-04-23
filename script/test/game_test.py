@@ -88,3 +88,10 @@ class EmeraldKnightTest(EmeraldKnight):
     def get_random_code(self):
         """获取随机代码名"""
         return str(random.choice(list(Logic.DEFAULT_CODES.keys())))
+
+    def choose_by_id(self, choice_id):
+        """按id选择选项"""
+        for c in self.get_choices():
+            if c.get_id() == choice_id:
+                c.chosen()
+                break

@@ -9,6 +9,8 @@ sys.path.append(".")
 sys.path.append("./script")
 sys.path.append("./script/game")
 
+import os
+
 from game_test import EmeraldKnightTest
 
 
@@ -17,21 +19,31 @@ class TestEmeraldKnight(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        return super().setUpClass()
+        logic = EmeraldKnightTest().get_logic()
+        with open(
+            logic.res_path(logic.PATH_SAVE, logic.FILE_DEFAULT_SAVE),
+            "w",
+            encoding="utf8",
+        ) as f:
+            f.write("{}")
+        saves = os.listdir(logic.res_path(logic.PATH_SAVE))
+        for save in saves:
+            save_id = save.split(".")[0]
+            try:
+                if int(save_id) > 30:
+                    raise ValueError
+            except ValueError:
+                os.remove(os.path.join(logic.res_path(logic.PATH_SAVE), save))
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.setUpClass()
 
     def setUp(self):
         """设置测试环境"""
         self._game = EmeraldKnightTest()
         self._kernel = self._game.get_kernel()
         self._logic = self._game.get_logic()
-        with open(
-            self._logic.res_path(
-                self._logic.PATH_SAVE, self._logic.FILE_DEFAULT_SAVE
-            ),
-            "w",
-            encoding="utf8",
-        ) as f:
-            f.write("{}")
 
 
 if __name__ == "__main__":

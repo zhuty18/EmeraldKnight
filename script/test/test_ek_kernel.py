@@ -71,13 +71,19 @@ class TestKernel(TestEmeraldKnight):
         k = self._game.get_random_para()
         self._game.set_para(k, 99)
         self._kernel.change_para(
-            {"check": "EQUAL", "para": k, "value": 99},
+            {
+                "op": "AND",
+                "condition": [{"check": "EQUAL", "para": k, "value": 99}],
+            },
             "CONDITION",
             [{"change": "ADD", "para": k, "value": 2}],
         )
         self.assertEqual(101, self._game.get_para(k))
         self._kernel.change_para(
-            {"check": "EQUAL", "para": k, "value": 99},
+            {
+                "op": "AND",
+                "condition": [{"check": "EQUAL", "para": k, "value": 99}],
+            },
             "CONDITION",
             [{"change": "ADD", "para": k, "value": 2}],
         )
