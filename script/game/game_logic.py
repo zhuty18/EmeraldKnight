@@ -101,6 +101,18 @@ class Logic:
         Logic.STORY_END = Logic.DEFAULT_CONSTS["STORY_END"]
         Logic.BATTLE_STORY = Logic.DEFAULT_CONSTS["BATTLE_STORY"]
 
+        if not os.path.exists(Logic.res_path(Logic.PATH_SAVE)):
+            os.mkdir(Logic.res_path(Logic.PATH_SAVE))
+        if not os.path.exists(
+            Logic.res_path(Logic.PATH_SAVE, Logic.FILE_DEFAULT_SAVE)
+        ):
+            with open(
+                Logic.res_path(Logic.PATH_SAVE, Logic.FILE_DEFAULT_SAVE),
+                "w",
+                encoding="utf8",
+            ) as f:
+                f.write("{}")
+
     @staticmethod
     def res_path(file_dir, file_name=None):
         """相关文件路径"""
