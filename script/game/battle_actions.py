@@ -21,14 +21,14 @@ class Attack(Action):
 
     def execute(self, target: Character):
         """执行攻击"""
-        exe_text = self._description
+        exe_text = self._text
         if self._self_hurt:
             self_hurt = int(
                 random() * (self._self_hurt["max"] - self._self_hurt["min"])
                 + self._self_hurt["min"]
             )
             self._owner.hurt(self_hurt)
-            exe_text += self._self_hurt["description"].replace(
+            exe_text += self._self_hurt["text"].replace(
                 Logic.BATTLE_STORY["BLANK"], str(self_hurt)
             )
         dodge = 50 + self._owner.get_speed() - target.get_speed()
@@ -62,7 +62,7 @@ class Heal(Action):
         self._used += 1
         heal = int(self._min + random() * (self._max - self._min))
         self._owner.heal(heal)
-        exe_text = self._description + Logic.BATTLE_STORY["HEAL"].replace(
+        exe_text = self._text + Logic.BATTLE_STORY["HEAL"].replace(
             Logic.BATTLE_STORY["BLANK"], str(heal)
         )
         return exe_text
@@ -84,7 +84,7 @@ class Cheat(Action):
     def execute(self, target):
         """作弊"""
         target.hurt(target.get_life())
-        return self._description
+        return self._text
 
 
 def get_actions(data, owner):

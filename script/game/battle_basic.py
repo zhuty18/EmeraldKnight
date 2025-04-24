@@ -102,7 +102,7 @@ class Action(BasicLogic):
     def __init__(self, data, owner):
         self._id = data["id"]
         self._owner = owner
-        self._description = data["description"]
+        self._text = data["text"]
 
         self._show = None
         if "show" in data:
@@ -128,7 +128,7 @@ class Action(BasicLogic):
 
     def execute(self, _: Character):
         """执行动作"""
-        return self._description
+        return self._text
 
     def get_name(self):
         """获取动作名"""
@@ -139,7 +139,7 @@ class Action(BasicLogic):
         if not self._show:
             return True
         else:
-            return Logic.KERNEL.check_condition(
+            return Logic.get_kernel().check_condition(
                 self._show["para"],
                 self._show["check"],
                 self._show["value"],

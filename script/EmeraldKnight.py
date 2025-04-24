@@ -23,6 +23,9 @@ class EmeraldKnightGUI(EmeraldKnight):
         self.app = qt.QApplication()
         self.main = qt.QMainWindow()
         self.main.resize(400, 640)
+        self.icon = gui.QIcon(Logic.res_path("", "icon.ico"))
+        self.main.setWindowIcon(self.icon)
+        self.main.setWindowTitle(super().hello_page())
         self.set_menu()
         self.font = gui.QFont()
         self.font.setPixelSize(14)
@@ -36,9 +39,6 @@ class EmeraldKnightGUI(EmeraldKnight):
 
     def set_menu(self):
         """初始化工具栏"""
-        self.icon = gui.QIcon(Logic.res_path("", "icon.ico"))
-        self.main.setWindowIcon(self.icon)
-        self.main.setWindowTitle(super().hello_page())
         menu_bar = self.main.menuBar()
         menu_bar.setNativeMenuBar(False)
         new_btn = menu_bar.addAction("新的游戏")

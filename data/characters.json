@@ -10,14 +10,14 @@
                 "type": "ATTACK",
                 "strength": 0.1,
                 "chance": 2,
-                "description": "魔王向你发动进攻，"
+                "text": "魔王向你发动进攻，"
             },
             {
                 "id": "SINESTRO_MAGIC_ATTACK",
                 "type": "ATTACK",
                 "strength": 0.25,
                 "chance": 1,
-                "description": "魔王对你使用了魔法，"
+                "text": "魔王对你使用了魔法，"
             },
             {
                 "id": "SINESTRO_HEAL",
@@ -27,7 +27,7 @@
                 "first": 250,
                 "condition": 100,
                 "time": 2,
-                "description": "魔王身上黑雾攒动，"
+                "text": "魔王身上黑雾攒动，"
             }
         ]
     },
@@ -41,14 +41,14 @@
                 "name": "普通攻击",
                 "type": "ATTACK",
                 "strength": 0.15,
-                "description": "你向魔王发动进攻，"
+                "text": "你向魔王发动进攻，"
             },
             {
                 "id": "HAL_FLYING_ATTACK",
                 "name": "突袭",
                 "type": "ATTACK",
                 "strength": 0.3,
-                "description": "你借助飞马对魔王发起奇袭，",
+                "text": "你借助飞马对魔王发起奇袭，",
                 "show": {
                     "check": "EQUAL",
                     "para": "PEGASUS",
@@ -60,11 +60,11 @@
                 "name": "特殊攻击",
                 "type": "ATTACK",
                 "strength": 0.5,
-                "description": "翡翠剑面对魔王放出强光，",
+                "text": "翡翠剑面对魔王放出强光，",
                 "self_hurt": {
                     "min": 5,
                     "max": 15,
-                    "description": "消耗了你的{NUMBER}点体力，"
+                    "text": "消耗了你的{NUMBER}点体力，"
                 }
             },
             {
@@ -74,13 +74,13 @@
                 "min": 30,
                 "max": 50,
                 "time": 10,
-                "description": "你吃下一颗雷电小球，"
+                "text": "你吃下一颗雷电小球，"
             },
             {
                 "id": "HAL_CHEAT",
                 "name": "开挂",
                 "type": "CHEAT",
-                "description": "你开挂绝杀！"
+                "text": "你开挂绝杀！"
             }
         ]
     }
