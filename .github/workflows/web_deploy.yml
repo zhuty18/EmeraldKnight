@@ -5,8 +5,9 @@ on:
         branches:
             - master
             - web
-    merge:
-        branches: master
+    pull-request:
+        branches:
+            - master
 
 permissions:
     contents: read
