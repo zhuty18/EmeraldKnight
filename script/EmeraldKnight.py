@@ -12,8 +12,7 @@ import PySide6.QtWidgets as qt
 sys.path.append("./script")
 sys.path.append("./script/game")
 
-from game.emerald_knight import EmeraldKnight
-from game.game_logic import Logic
+from game.emerald_knight import EmeraldKnight, Logic
 
 
 class EmeraldKnightGUI(EmeraldKnight):
@@ -136,7 +135,7 @@ class EmeraldKnightGUI(EmeraldKnight):
 
     def show_save(self, is_saving=True):
         """显示存档界面"""
-        saves = qt.QDialog()
+        saves = qt.QDialog(self.main)
         saves.setWindowTitle("当前存档")
         saves_layout = qt.QHBoxLayout()
         for l in range(3):
@@ -192,7 +191,7 @@ class EmeraldKnightGUI(EmeraldKnight):
         s += "游戏地址：<br>"
         s += '<a href="https://github.com/zhuty18/EmeraldKnight">'
         s += "github.com/zhuty18/EmeraldKnight</a>"
-        about = qt.QDialog()
+        about = qt.QDialog(self.main)
         about.setWindowTitle("游戏信息")
         layout = qt.QVBoxLayout()
         label = qt.QLabel()
