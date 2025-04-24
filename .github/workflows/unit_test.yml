@@ -10,7 +10,7 @@ on:
 jobs:
     # Build job
     build:
-        name: 建立基础存档
+        name: 测试代码并输出覆盖率
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
