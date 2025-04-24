@@ -16,8 +16,12 @@ class TestEngine(TestEmeraldKnight):
         """测试初始场景"""
         self._game.new_game()
         self.assertEqual(self._game.get_scene_id(), self._logic.START_SCENE)
+        self._game.get_choices()
+        self._kernel.get_scene_text()
 
     def test_battle_scene(self):
         """测试决战场景"""
         self._game.set_scene(self._logic.FINAL_BATTLE)
         self.assertEqual(self._game.get_scene_id(), self._logic.FINAL_BATTLE)
+        self._game.get_choices()
+        self._kernel.get_scene_text()
