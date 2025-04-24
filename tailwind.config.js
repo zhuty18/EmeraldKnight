@@ -9,6 +9,7 @@ module.exports = {
   },
   plugins: [require("daisyui")],
   daisyui: {
-    themes: ["light", "dark", "emerald"], // 可根据需要添加更多主题
+    themes: ["emerald","light","dark"],
+    darkTheme: "forest"
   },
 };

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>翡翠骑士</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@4.0.7/dist/full.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {},
+            },
+            plugins: [daisyui],
+        }; a
+    </script>
+</head>
+
+<body class="bg-base-100 text-base-content min-h-screen flex flex-col items-center justify-center p-4">
+    <div>
+        <h1 id="title" class="text-3xl font-bold mb-4 text-center">翡翠骑士</h1>
+        <h2 id="author" class="font-italic text-right mb-4 text-xl">作者</h2>
+        <div id="version" class="font-italic text-right">版本</div>
+        <div id="update" class="font-italic text-right"></div>
+    </div>
+    <div id="info" class="text-xl">
+        <div id="poem" class="text-center"></div>
+        <p><em>为了讨伐可怕的科瓦德魔王，你，哈尔·乔丹，带着一往无前的勇气，和欧阿宝库里的宝剑翡翠，孤身上路，开始了漫漫征程……</em></p>
+        <br>
+        <p>这是一款我个人开发的恋爱向文字avg游戏。以最伟大的绿灯侠哈尔乔丹为主角，CP倾向有且只有哈all。</p>
+        <br>
+        <p><a href="game.html">点此开始网页版游戏。</a></p>
+        <p><a
+                href="https://github.com/zhuty18/EmeraldKnight-Android/releases/latest/download/EmeraldKnight.apk">点此下载安卓apk安装包。</a>
+        </p>
+        <p><a id="project_repo" href="">点此查看项目仓库。</a></p>
+
+        <br>
+        <div class="text-right">
+            <p>联系方式：</p>
+            <p>QQ：<span id="qq"></span></p>
+            <p>邮件：<span id="email"></span></p>
+        </div>
+    </div>
+</body>
+<script>
+    fetch("./data/info.json")
+        .then((res) => res.json())
+        .then((data) => {
+            document.getElementById("title").textContent = data.name;
+            document.getElementById("author").textContent = "作者：" + data.author;
+            document.getElementById("version").textContent = "v" + data.version;
+            document.getElementById("update").textContent = "更新于" + data.update;
+            poem_div = document.getElementById("poem");
+            poem_div.textContent = "";
+            data.poem.forEach((item, index) => {
+                poem_div.insertAdjacentHTML("beforeend", "<p>" + item[0] + "，" + item[1] + "。" + "</p>")
+            })
+            document.getElementById("qq").textContent = data.contact_qq;
+            document.getElementById("email").textContent = data.contact_email;
+            document.getElementById("project_repo").href = data.project_url;
+        });
+</script>
+
+</html>
