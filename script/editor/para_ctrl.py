@@ -87,7 +87,7 @@ class ParameterController:
         ) as f:
             f.write(json.dumps(paras, ensure_ascii=False))
 
-    def set_para(self, para_name, para_id, para_default_value, description=""):
+    def set_para(self, para_id, para_name, para_default_value, description=""):
         """设置参数"""
         tmp = {
             "id": para_id.upper(),
@@ -101,6 +101,10 @@ class ParameterController:
         self._paras[para_id] = sort_data(tmp)
         self._paras = sort_data(self._paras)
         self.save_paras()
+
+    def delete_para(self, para_id):
+        """删除参数"""
+        self._paras.pop(para_id)
 
     def get_paras(self):
         """获取参数"""

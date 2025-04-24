@@ -2,8 +2,10 @@
 
 """游戏编辑器"""
 
-import PySide6.QtCore as core
-import PySide6.QtGui as gui
+# from functools import partial
+
+# import PySide6.QtCore as core
+# import PySide6.QtGui as gui
 import PySide6.QtWidgets as qt
 from para_ctrl import ParameterController
 
@@ -38,6 +40,8 @@ class GameEditor:
         menu_bar.setNativeMenuBar(False)
         paras_btn = menu_bar.addAction("打开参数")
         paras_btn.triggered.connect(self.open_paras)
+        paras_export_btn = menu_bar.addAction("导出参数")
+        paras_export_btn.triggered.connect(self._para_ctrl.export_paras)
 
     def open_paras(self):
         """打开参数表"""
