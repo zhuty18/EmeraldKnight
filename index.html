@@ -45,7 +45,7 @@
     </div>
 </body>
 <script>
-    fetch("./data/info.json")
+    fetch("data/info.json")
         .then((res) => res.json())
         .then((data) => {
             document.getElementById("title").textContent = data.name;
