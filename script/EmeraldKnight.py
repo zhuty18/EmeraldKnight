@@ -13,6 +13,7 @@ sys.path.append("./script")
 sys.path.append("./script/game")
 
 from game.emerald_knight import EmeraldKnight, Logic
+from game.version import GAME_INFO
 
 
 class EmeraldKnightGUI(EmeraldKnight):
@@ -23,7 +24,7 @@ class EmeraldKnightGUI(EmeraldKnight):
         self.app = qt.QApplication()
         self.main = qt.QMainWindow()
         self.main.resize(400, 640)
-        self.icon = gui.QIcon(Logic.res_path("", "icon.ico"))
+        self.icon = gui.QIcon(Logic.res_path("", GAME_INFO["icon"]))
         self.main.setWindowIcon(self.icon)
         self.main.setWindowTitle(super().hello_page())
         self.set_menu()
@@ -92,14 +93,13 @@ class EmeraldKnightGUI(EmeraldKnight):
     def hello_page(self):
         """开始页"""
         # 1afa29
-        hello_str = "<font size=7 face='华文隶书' color='#25ee79'>翡翠骑士<br>"
+        hello_str = f"<font size=7 face='华文隶书' color='#25ee79'>{Logic.GAME_NAME}<br>"
         hello_str += "</font><font size=2>v" + Logic.VERSION + "<br><br></font>"
         hello_str += "<font size=3 face='华文仿宋'>"
-        hello_str += "雪山之巅&nbsp;&nbsp;英魂渐远<br>"
-        hello_str += "危城影下&nbsp;&nbsp;一念不灭<br>"
-        hello_str += "剑心重铸&nbsp;&nbsp;翡翠长明<br>"
-        hello_str += "孤星陨灭&nbsp;&nbsp;万灵恸哭<br></font>"
-        hello_str += "<font size=2><br><br>作者：兔子草</font>"
+        for i in GAME_INFO["poem"]:
+            hello_str += "&nbsp;&nbsp;".join(i) + "<br>"
+        hello_str += "</font>"
+        hello_str += f"<font size=2><br><br>作者：{GAME_INFO['author']}</font>"
         hello_layout = qt.QVBoxLayout()
         hello_label = qt.QLabel()
         hello_label.setText(hello_str)
@@ -184,13 +184,13 @@ class EmeraldKnightGUI(EmeraldKnight):
 
     def about_game(self):
         """介绍页"""
-        s = "作者：兔子草<br><br>"
+        s = f"作者：{GAME_INFO["author"]}<br><br>"
         s += "联系方式：<br>"
-        s += "QQ: 34409508988<br>"
-        s += "邮箱：13718054285@163.com<br><br>"
+        s += f"QQ: {GAME_INFO["contact_qq"]}<br>"
+        s += f"邮箱：{GAME_INFO["contact_email"]}<br><br>"
         s += "游戏地址：<br>"
-        s += '<a href="https://github.com/zhuty18/EmeraldKnight">'
-        s += "github.com/zhuty18/EmeraldKnight</a>"
+        s += f'<a href="{GAME_INFO["home_url"]}">'
+        s += f"{GAME_INFO["home_url"]}</a>"
         about = qt.QDialog(self.main)
         about.setWindowTitle("游戏信息")
         layout = qt.QVBoxLayout()

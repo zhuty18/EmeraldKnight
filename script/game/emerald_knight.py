@@ -21,7 +21,7 @@ class EmeraldKnight:
 
     def hello_page(self):
         """开始页"""
-        return f"""翡翠骑士 v{Logic.VERSION}"""
+        return f"""{Logic.GAME_NAME} v{Logic.VERSION}"""
 
     def new_game(self):
         """开始新游戏"""

@@ -8,8 +8,8 @@ import sys
 sys.path.append("./script")
 sys.path.append("./script/game")
 
-from game.emerald_knight import EmeraldKnight
-from game.game_logic import Logic
+from game.emerald_knight import EmeraldKnight, Logic
+from game.version import GAME_INFO
 
 
 class EmeraldKnightCMD(EmeraldKnight):
@@ -55,15 +55,13 @@ class EmeraldKnightCMD(EmeraldKnight):
         """开始页"""
         print("感谢你打开这个游戏！")
         print("=======================")
-        print("翡翠骑士\nEmerald Knight")
+        print(f"{GAME_INFO["name"]}\n{GAME_INFO["name_en"]}")
         print("v" + Logic.VERSION)
         print()
-        print("作者：兔子草")
+        print(f"作者：{GAME_INFO["author"]}")
         print("-----------------------")
-        print("雪山之巅\t英魂渐远")
-        print("危城影下\t一念不灭")
-        print("剑心重铸\t翡翠长明")
-        print("孤星陨灭\t万灵恸哭")
+        for i in GAME_INFO["poem"]:
+            print("\t".join(i))
         print("=======================")
         print()
         print("N\t新的游戏")

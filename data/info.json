@@ -1,4 +1,30 @@
 {
     "name": "翡翠骑士",
-    "version": "2.0"
+    "name_en": "Emerald Knight",
+    "version": "2.1",
+    "chapters": 7,
+    "icon": "icon.ico",
+    "poem": [
+        [
+            "雪山之巅",
+            "英魂渐远"
+        ],
+        [
+            "危城影下",
+            "一念不灭"
+        ],
+        [
+            "剑心重铸",
+            "翡翠长明"
+        ],
+        [
+            "孤星陨灭",
+            "万灵恸哭"
+        ]
+    ],
+    "author": "兔子草",
+    "contact_qq": "3440950898",
+    "contact_email": "1371805428@163.com",
+    "home_url": "https://zhuty18.github.io/EmeraldKnight",
+    "project_url": "https://github.com/zhuty18/EmeraldKnight"
 }

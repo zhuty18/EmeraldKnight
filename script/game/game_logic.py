@@ -6,12 +6,13 @@ import json
 import os
 import time
 
-from version import CHAPTERS, DEBUG, VERSION
+from version import CHAPTERS, DEBUG, GAME_NAME, VERSION
 
 
 class Logic:
     """逻辑类"""
 
+    GAME_NAME = GAME_NAME  # 游戏名
     VERSION = VERSION  # 游戏版本
     DEBUG = DEBUG  # 是否为调试模式
     CHAPTERS = CHAPTERS  # 当前章节数
