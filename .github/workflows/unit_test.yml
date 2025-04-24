@@ -1,4 +1,4 @@
-name: Game Testing
+name: Game Test
 
 on:
     # Runs on pushes targeting the default branch

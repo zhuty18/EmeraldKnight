@@ -3,6 +3,7 @@
 一个以最伟大的绿灯侠哈尔乔丹为主角的恋爱向文字avg游戏。（因为~~没图~~好像不太能过审所以不做成橙光）
 
 [![Game Testing](https://github.com/zhuty18/EmeraldKnight/actions/workflows/unit_test.yml/badge.svg)](https://github.com/zhuty18/EmeraldKnight/actions/workflows/unit_test.yml)
+[![Web Version](https://github.com/zhuty18/EmeraldKnight/actions/workflows/web_deploy.yml/badge.svg)](https://github.com/zhuty18/EmeraldKnight/actions/workflows/web_deploy.yml)
 
 ## 游戏简介
 
@@ -12,7 +13,13 @@
 
 傻瓜式游戏，看文本，点选项。
 
-需要手动存档，档位有限。
+需要手动存档。
+
+当前版本：
+
+1. Python版本：运行起来较为麻烦
+2. Web版本：从[点此开始](https://zhuty18.github.io/EmeraldKnight)
+3. Android版本，可以扫码安装：![安卓版下载二维码](https://github.com/zhuty18/EmeraldKnight-Android/raw/master/apk.png)
 
 ## 开发进度
 
