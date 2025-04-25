@@ -9,6 +9,12 @@
 import PySide6.QtWidgets as qt
 from para_ctrl import ParameterController
 
+# TODO: 基础信息管理器
+# TODO: 章节管理器：结构&章、节名称
+# TODO: 故事剧情编辑器
+# TODO: 常量管理器
+# TODO: 对应弹窗、机制
+
 
 class GameEditor:
     """游戏编辑器"""
@@ -47,9 +53,11 @@ class GameEditor:
 
     def ask_chapter(self):
         """选择加载章节"""
+        # TODO: 弹窗，章节按钮
 
     def load_chapter(self, index):
         """加载章节"""
+        # TODO: 根据对应章数据加载章节内容并显示
 
     def open_paras(self):
         """打开参数表"""
