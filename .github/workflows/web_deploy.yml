@@ -69,9 +69,6 @@ jobs:
                   name: Home_Builds
                   path: _site
 
-            - name: Make directory
-              run: mkdir _site/web
-
             - name: Download built files
               uses: actions/download-artifact@v4
               with:
