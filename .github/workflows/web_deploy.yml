@@ -51,7 +51,7 @@ jobs:
                   npm run build
 
             - name: Upload built files
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               with:
                   path: web/dist
 
@@ -66,6 +66,8 @@ jobs:
         steps:
             - name: Download built files
               uses: actions/download-artifact@v4
+              with:
+                  path: web/dist
 
             - name: Setup Pages
               uses: actions/configure-pages@v5
