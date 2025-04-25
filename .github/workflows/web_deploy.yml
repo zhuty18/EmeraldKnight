@@ -26,6 +26,11 @@ jobs:
               with:
                   source: ./
                   destination: ./_site
+
+            - name: Upload built files
+              uses: actions/upload-pages-artifact@v3
+              with:
+                  path: _site
     build_web:
         runs-on: ubuntu-latest
         steps:
@@ -45,12 +50,20 @@ jobs:
                   npm install
                   npm run build
 
-    upload:
+            - name: Upload built files
+              uses: actions/upload-pages-artifact@v3
+              with:
+                  path: web/dist
+
+    deploy:
         needs:
             - build_home
             - build_web
         runs-on: ubuntu-latest
         steps:
+            - name: Download built files
+              uses: actions/download-pages-artifact@v4
+
             - name: Setup Pages
               uses: actions/configure-pages@v5
 
@@ -58,11 +71,6 @@ jobs:
               run: |
                   mkdir _site/web
                   cp -r web/dist/* _site/web/
-
-            - name: Upload built files
-              uses: actions/upload-pages-artifact@v3
-              with:
-                  path: _site
 
             - name: Deploy to GitHub Pages
               id: deployment
