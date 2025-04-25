@@ -2,7 +2,7 @@
 
 """编辑器设置"""
 
-PATH = "editor"
+PATH = "storybook"
 # 数据路径
-PATH_DATA = "editor/data"
+PATH_DATA = "storybook/data"
 FILE_PARAS = "paras.json"

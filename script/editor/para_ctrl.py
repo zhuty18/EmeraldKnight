@@ -10,8 +10,8 @@ sys.path.append(".")
 sys.path.append("./script")
 sys.path.append("./script/game")
 
-from data_sorting import sort_data
 from editor_setting import FILE_PARAS, PATH, PATH_DATA
+from utils import sort_data, write_data
 
 from script.game.game_logic import Logic
 
@@ -45,17 +45,12 @@ class ParameterController:
             os.mkdir(PATH)
         if not os.path.exists(PATH_DATA):
             os.mkdir(PATH_DATA)
-        with open(
-            os.path.join(PATH_DATA, FILE_PARAS),
-            "w",
-            encoding="utf-8",
-        ) as f:
-            para = {
-                "para_list": self._paras,
-                "function_para_list": self._function_paras,
-                "code_list": self._codes,
-            }
-            f.write(json.dumps(para, ensure_ascii=False))
+        para = {
+            "para_list": self._paras,
+            "function_para_list": self._function_paras,
+            "code_list": self._codes,
+        }
+        write_data(para, os.path.join(PATH_DATA, FILE_PARAS))
 
     def import_paras(self):
         """导入参数设置"""
@@ -76,16 +71,22 @@ class ParameterController:
     def export_paras(self):
         """导出参数设置"""
         paras = {
-            "para_list": self._paras,
-            "function_para_list": self._function_paras,
-            "code_list": "codes",
+            "para_list": [
+                {
+                    "id": t["id"],
+                    "name": t["name"],
+                    "default_value": t["default_value"],
+                }
+                for t in self._paras.values()
+            ],
+            "function_para_list": [
+                {"id": k, "value": v} for k, v in self._function_paras.items()
+            ],
+            "code_list": [
+                {"id": k, "value": v} for k, v in self._codes.items()
+            ],
         }
-        with open(
-            Logic.res_path(Logic.PATH_DATA, Logic.FILE_PARAS),
-            "w",
-            encoding="utf-8",
-        ) as f:
-            f.write(json.dumps(paras, ensure_ascii=False))
+        write_data(paras, Logic.res_path(Logic.PATH_DATA, Logic.FILE_PARAS))
 
     def set_para(self, para_id, para_name, para_default_value, description=""):
         """设置参数"""
@@ -98,8 +99,7 @@ class ParameterController:
             tmp["description"] = description
         if "description" not in tmp:
             tmp["description"] = ""
-        self._paras[para_id] = sort_data(tmp)
-        self._paras = sort_data(self._paras)
+        self._paras[para_id] = tmp
         self.save_paras()
 
     def delete_para(self, para_id):
