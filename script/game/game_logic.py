@@ -27,7 +27,7 @@ class Logic:
     FILE_SCENES = "scenes_ch{ch}.json"  # 场景配置文件
     FILE_CHOICES = "choices_ch{ch}.json"  # 选项配置文件
 
-    PATH_STORY = "story"  # 故事相关文件路径
+    PATH_STORY = "data/story"  # 故事相关文件路径
 
     PATH_SAVE = "save"  # 存档相关文件路径
     FILE_DEFAULT_SAVE = "0.eks"  # 初始存档文件

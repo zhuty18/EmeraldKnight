@@ -4,7 +4,7 @@
     "version": "2.1",
     "update": "2025.04.21",
     "chapters": 7,
-    "icon": "icon.ico",
+    "icon": "data/icon.ico",
     "poem": [
         [
             "雪山之巅",
