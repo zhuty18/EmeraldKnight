@@ -51,7 +51,7 @@ jobs:
                   npm run build
 
             - name: Upload built files
-              uses: actions/upload-pages-artifact@v3
+              uses: actions/upload-artifact@v3
               with:
                   path: web/dist
 
@@ -60,9 +60,12 @@ jobs:
             - build_home
             - build_web
         runs-on: ubuntu-latest
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
         steps:
             - name: Download built files
-              uses: actions/download-pages-artifact@v4
+              uses: actions/download-artifact@v4
 
             - name: Setup Pages
               uses: actions/configure-pages@v5
