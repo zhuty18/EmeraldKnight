@@ -18,19 +18,21 @@
 
 1. Python版本：运行起来较为麻烦，感兴趣的话[可以看看](https://github.com/zhuty18/EmeraldKnight/python)
 2. Web版本：[点此开始](https://zhuty18.github.io/EmeraldKnight/web)
-3. Android版本：[点此下载](https://github.com/zhuty18/EmeraldKnight/relases)
+3. Android版本：[点此下载](https://github.com/zhuty18/EmeraldKnight/releases/latest/download/EmeraldKnight.apk)
 
 ## 开发进度
 
-v2.1.1 自动发布Android版本的相关处理（进行中）
+v2.2 重构android版并发布
 
 v2.1 部署网页版（进行中）
+
+v2.0.2 自动发布Android版本的相关处理（进行中）
 
 v2.0.1 自动发布网页版的相关处理（已完成）（2025.04.25）
 
 v2.0 优化代码结构（已完成）(2025.04.21)
 
-~~v1.0 Android版本发布（已完成）[见此](https://github.com/zhuty18/EmeraldKnight-Android) （2022.05.15）~~将于v2.1.1后废弃
+~~v1.0 Android版本发布（已完成）[见此](https://github.com/zhuty18/EmeraldKnight-Android) （2022.05.15）~~ 已于v2.0.2后废弃
 
 v0.8 凯尔线（已完成）4k字 (2022.05.13)
 
