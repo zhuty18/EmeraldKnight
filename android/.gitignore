@@ -13,12 +13,3 @@
 .externalNativeBuild
 .cxx
 local.properties
-**.apk
-__pycache__
-test
-log
-save
-.vscode
-.github
-app-release.dm
-output-metadata.json
