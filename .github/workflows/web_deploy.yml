@@ -30,6 +30,7 @@ jobs:
             - name: Upload built files
               uses: actions/upload-artifact@v4
               with:
+                  name: Home_Builds
                   path: _site
     build_web:
         runs-on: ubuntu-latest
@@ -53,6 +54,7 @@ jobs:
             - name: Upload built files
               uses: actions/upload-artifact@v4
               with:
+                  name: Web_Builds
                   path: web/dist
 
     deploy:
