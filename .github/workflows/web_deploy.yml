@@ -15,30 +15,50 @@ permissions:
     id-token: write
 
 jobs:
-    deploy:
+    build_home:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
               uses: actions/checkout@v4
 
+            - name: Build Homepage with Jekyll
+              uses: actions/jekyll-build-pages@v1
+              with:
+                  source: ./
+                  destination: ./_site
+    build_web:
+        runs-on: ubuntu-latest
+        steps:
             - name: Setup Node.js
               uses: actions/setup-node@v4
               with:
                   node-version: 18
 
-            - name: Install dependencies
-              run: npm install
+            - name: Build Web
+              run: |
+                  cd web
+                  cp -r ../data ./public/data
+                  npm install
+                  npm run build
 
-            - name: Build project
-              run: npm run build
-
+    upload:
+        needs:
+            - build_home
+            - build_web
+        runs-on: ubuntu-latest
+        steps:
             - name: Setup Pages
               uses: actions/configure-pages@v5
+
+            - name: Move builds together
+              run: |
+                  mkdir _site/web
+                  cp -r web/dist/* _site/web/
 
             - name: Upload built files
               uses: actions/upload-pages-artifact@v3
               with:
-                  path: dist
+                  path: _site
 
             - name: Deploy to GitHub Pages
               id: deployment

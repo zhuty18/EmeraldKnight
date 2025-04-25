@@ -1,6 +1,6 @@
 # 翡翠骑士
 
-一个以最伟大的绿灯侠哈尔乔丹为主角的恋爱向文字avg游戏。（因为~~没图~~好像不太能过审所以不做成橙光）
+一个以最伟大的绿灯侠哈尔乔丹为主角的恋爱向文字avg游戏。CP倾向是哈All。
 
 [![Game Testing](https://github.com/zhuty18/EmeraldKnight/actions/workflows/unit_test.yml/badge.svg)](https://github.com/zhuty18/EmeraldKnight/actions/workflows/unit_test.yml)
 [![Web Version](https://github.com/zhuty18/EmeraldKnight/actions/workflows/web_deploy.yml/badge.svg)](https://github.com/zhuty18/EmeraldKnight/actions/workflows/web_deploy.yml)
@@ -15,10 +15,8 @@
 
 需要手动存档。
 
-当前版本：
-
-1. Python版本：运行起来较为麻烦
-2. Web版本：从[点此开始](https://zhuty18.github.io/EmeraldKnight)
+1. Python版本：运行起来较为麻烦，感兴趣的话[可以看看](https://github.com/zhuty18/EmeraldKnight/python)
+2. Web版本：从[点此开始](https://zhuty18.github.io/EmeraldKnight/web)
 3. Android版本，可以扫码安装：![安卓版下载二维码](https://github.com/zhuty18/EmeraldKnight-Android/raw/master/apk.png)
 
 ## 开发进度
@@ -46,28 +44,6 @@ v0.3 第二章（已完成）6k字 (2021.07.29)
 v0.2 第一章（已完成）1.6w字 (2021.07.22)
 
 v0.1 基础架构（已完成） (2020.07.20)
-
-## 游戏安装
-
-修正：由于版本包升级，从v2.0起，改用python3.12.4+pyside6在Windows11上开发
-
-~~本游戏使用python3.9.5+PySide2在Windows 10上开发，未进行进一步测试~~
-
-### 安装python
-
-在[这里](https://www.python.org/downloads/)下载操作系统对应的python包并安装
-
-### 安装依赖
-
-`python -m pip install --user -r requirements.txt`
-
-### 运行游戏
-
-`python script/EmeraldKnight.py`
-
-## 游戏攻略
-
-[这里](img/README.md)是游戏设计文件的图表，也就是攻略，严重影响游戏体验，建议不要看
 
 ## 可能会继续开发的方向
 
