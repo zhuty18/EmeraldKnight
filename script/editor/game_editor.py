@@ -38,10 +38,18 @@ class GameEditor:
         """设置菜单栏"""
         menu_bar = self._main_window.menuBar()
         menu_bar.setNativeMenuBar(False)
+        load_chapter_btn = menu_bar.addAction("打开章")
+        load_chapter_btn.triggered.connect(self.ask_chapter)
         paras_btn = menu_bar.addAction("打开参数")
         paras_btn.triggered.connect(self.open_paras)
         paras_export_btn = menu_bar.addAction("导出参数")
         paras_export_btn.triggered.connect(self._para_ctrl.export_paras)
+
+    def ask_chapter(self):
+        """选择加载章节"""
+
+    def load_chapter(self, index):
+        """加载章节"""
 
     def open_paras(self):
         """打开参数表"""
