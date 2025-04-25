@@ -16,14 +16,12 @@
 需要手动存档。
 
 1. Python版本：运行起来较为麻烦，感兴趣的话[可以看看](https://github.com/zhuty18/EmeraldKnight/python)
-2. Web版本：从[点此开始](https://zhuty18.github.io/EmeraldKnight/web)
+2. Web版本：[点此开始](https://zhuty18.github.io/EmeraldKnight/web)
 3. Android版本，可以扫码安装：![安卓版下载二维码](https://github.com/zhuty18/EmeraldKnight-Android/raw/master/apk.png)
 
 ## 开发进度
 
-v2.2 开发网页版
-
-v2.1 开发游戏编辑器（进行中）
+v2.1 部署网页版（进行中）
 
 v2.0 优化代码结构（已完成）(2025.04.21)
 
