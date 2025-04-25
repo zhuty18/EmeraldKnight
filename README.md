@@ -4,6 +4,7 @@
 
 [![Game Testing](https://github.com/zhuty18/EmeraldKnight/actions/workflows/unit_test.yml/badge.svg)](https://github.com/zhuty18/EmeraldKnight/actions/workflows/unit_test.yml)
 [![Web Version](https://github.com/zhuty18/EmeraldKnight/actions/workflows/web_deploy.yml/badge.svg)](https://github.com/zhuty18/EmeraldKnight/actions/workflows/web_deploy.yml)
+[![Android APK](https://github.com/zhuty18/EmeraldKnight/actions/workflows/release_android.yml/badge.svg)](https://github.com/zhuty18/EmeraldKnight/actions/workflows/release_android.yml)
 
 ## 游戏简介
 
