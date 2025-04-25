@@ -66,17 +66,20 @@ jobs:
             - name: Download built files
               uses: actions/download-artifact@v4
               with:
-                  path: |
-                      _site
-                      web/dist
+                  name: Home_Builds
+                  path: _site
+
+            - name: Make directory
+              run: mkdir _site/web
+
+            - name: Download built files
+              uses: actions/download-artifact@v4
+              with:
+                  name: Web_Builds
+                  path: _site/web
 
             - name: Setup Pages
               uses: actions/configure-pages@v5
-
-            - name: Move builds together
-              run: |
-                  mkdir _site/web
-                  cp -r web/dist/* _site/web/
 
             - name: Deploy to GitHub Pages
               id: deployment
