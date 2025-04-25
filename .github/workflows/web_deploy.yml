@@ -29,7 +29,6 @@ jobs:
     build_web:
         runs-on: ubuntu-latest
         steps:
-        steps:
             - name: Checkout
               uses: actions/checkout@v4
 
