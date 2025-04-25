@@ -2,6 +2,7 @@
     "name": "翡翠骑士",
     "name_en": "Emerald Knight",
     "version": "2.1",
+    "version_number": 1,
     "update": "2025.04.21",
     "chapters": 7,
     "icon": "data/icon.ico",
