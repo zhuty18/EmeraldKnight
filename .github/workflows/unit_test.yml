@@ -3,9 +3,13 @@ name: Game Test
 on:
     # Runs on pushes targeting the default branch
     push:
-        branches: ["master"]
+        branches:
+            - master
+            - develop
     pull_request:
-        branches: ["master"]
+        branches:
+            - master
+            - develop
 
 jobs:
     # Build job
