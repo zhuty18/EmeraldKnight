@@ -1,9 +1,10 @@
 package com.tuzicao.emeraldknight.game
 
+import android.content.Context
 import java.util.LinkedList
 
 
-class Kernel {
+class Kernel(val context:Context) {
 
     companion object {
         const val MaxSave = 100

@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity(),
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        kernel = Kernel()
+        kernel = Kernel(this)
         supportFragmentManager.beginTransaction()
             .replace(R.id.main_layout, HomeFragment())
             .commit()

@@ -1,7 +1,16 @@
 package com.tuzicao.emeraldknight.game
 
+import android.content.Context
+
 abstract class Choice {
-    private lateinit var _id: String
+    companion object{
+        fun getChoiceById(context: Context, c_id:String):Choice{
+            var data=
+            return StoryChoice(c_id)
+        }
+    }
+    private val _id: String=""
+
     open fun getID(): String {
         return _id
     }
@@ -10,8 +19,13 @@ abstract class Choice {
         return ""
     }
 
-    open fun choose() {}
     open fun show(): Boolean {
         return true
     }
+
+    open fun choose() {}
+}
+
+class StoryChoice(val _id: String,data:jsonObject):Choice(){
+
 }
