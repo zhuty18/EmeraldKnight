@@ -28,3 +28,5 @@ xmind
 .coverage
 android-v1
 my-release-key.jks
+android/app/src/main/res/drawable
+android/app/src/main/asset

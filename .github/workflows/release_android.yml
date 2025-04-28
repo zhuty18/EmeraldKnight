@@ -21,6 +21,9 @@ jobs:
                   distribution: "temurin"
                   java-version: 25
 
+            - name: Set up Python
+              uses: actions/setup-python@v5
+
             - name: Set up Android SDK
               uses: android-actions/setup-android@v3
 
@@ -35,9 +38,10 @@ jobs:
             - name: Grant Permission to Gradle
               run: chmod +x ./android/gradlew
 
-            - name: Build Signed APK
+            - name: Pack Data and Build Signed APK
               run: |
                   cd android
+                  python pack_data.py
                   ./gradlew assembleRelease
 
             - name: Rename APK
