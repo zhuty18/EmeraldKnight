@@ -64,3 +64,48 @@ if __name__ == "__main__":
         os.system(
             f"cp {os.path.join("../data",file)} {os.path.join("app/src/main/res/drawable",file)}"
         )
+
+    with open("../data/info.json", "r", encoding="utf-8") as f:
+        data = json.loads(f.read())
+    # 版本号等信息注入app/build.gradle.kts
+    with open("app/build.gradle.kts", "r", encoding="utf-8") as f:
+        bundle_data = f.read()
+    bundle_data = bundle_data.replace(
+        "versionCode = 1", f"versionCode = {data["version_number"]}"
+    )
+    bundle_data = bundle_data.replace(
+        'versionName = "1.0"', f'versionName = "{data["version"]}"'
+    )
+    with open("app/build.gradle.kts", "w", encoding="utf-8") as f:
+        f.write(bundle_data)
+
+    # 信息注入app/src/main/res/values/strings.xml
+    with open(
+        "app/src/main/res/values/strings.xml", "r", encoding="utf-8"
+    ) as f:
+        string_data = f.read()
+    string_data = string_data.replace(
+        '<string name="app_name">翡翠骑士</string>',
+        f'<string name="app_name">{data["name"]}</string>',
+    )
+    string_data = string_data.replace(
+        '<string name="version">v1.2</string>',
+        f'<string name="version">v{data["version"]}</string>',
+    )
+    poem = "\n".join(["#160;&#160;&#160;&#160;".join(i) for i in data["poem"]])
+    string_data = string_data.replace(
+        '<string name="poem">雪山之巅&#160;&#160;&#160;&#160;英魂渐远\n危城影下&#160;&#160;&#160;&#160;一念不灭\n剑心重铸&#160;&#160;&#160;&#160;翡翠长明\n孤星陨灭&#160;&#160;&#160;&#160;万灵恸哭</string>',
+        f'<string name="poem">{poem}</string>',
+    )
+    string_data = string_data.replace(
+        '<string name="author_info">作者：兔子草\nQQ：3440950898\n邮箱：13718054285@163.com</string>',
+        f'<string name="author_info">作者：{data["author"]}\nQQ：{data["contact_qq"]}\n邮箱：{data["contact_email"]}</string>',
+    )
+    string_data = string_data.replace(
+        '<string name="project_url">https://github.com/zhuty18/EmeraldKnight</string>',
+        f'<string name="project_url">{data["home_url"]}</string>',
+    )
+    with open(
+        "app/src/main/res/values/strings.xml", "w", encoding="utf-8"
+    ) as f:
+        f.write(string_data)

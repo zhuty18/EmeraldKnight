@@ -24,7 +24,7 @@
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/nav_header_desc"
+            android:contentDescription="@string/icon_desc"
             android:paddingTop="@dimen/nav_header_vertical_spacing"
             app:srcCompat="@drawable/icon" />
 
@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/nav_header_vertical_spacing"
-            android:text="@string/nav_header_title"
+            android:text="@string/app_name"
             android:textColor="@color/white"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textSize="24sp" />
@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text="@string/nav_header_subtitle" />
+            android:text="@string/project_url" />
     </LinearLayout>
 
 
@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/describe"
+            android:text="@string/author_info"
             android:textSize="24sp"
             android:textColor="@color/main_text"
             app:layout_constraintBottom_toBottomOf="parent"
