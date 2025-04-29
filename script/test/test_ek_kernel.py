@@ -35,36 +35,92 @@ class TestKernel(TestEmeraldKnight):
     def test_change_para(self):
         """测试配置改变参数值"""
         k = self._game.get_random_para()
-        self._kernel.change_para(k, "SET", 99)
+        self._kernel.change_para({"change": "SET", "para": k, "value": 99})
         self.assertEqual(99, self._game.get_para(k))
-        self._kernel.change_para(k, "ADD", 99)
+        self._kernel.change_para({"change": "ADD", "para": k, "value": 99})
         self.assertEqual(198, self._game.get_para(k))
 
     def test_condition_check(self):
         """测试配置条件检测"""
         k = self._game.get_random_para()
         self._game.set_para(k, 99)
-        self.assertTrue(self._kernel.check_condition(k, "EQUAL", 99))
-        self.assertFalse(self._kernel.check_condition(k, "UNEQUAL", 99))
-        self.assertFalse(self._kernel.check_condition(k, "MORE", 99))
-        self.assertTrue(self._kernel.check_condition(k, "MORE_EQUAL", 99))
-        self.assertFalse(self._kernel.check_condition(k, "LESS", 99))
-        self.assertTrue(self._kernel.check_condition(k, "LESS_EQUAL", 99))
+        self.assertTrue(
+            self._kernel.check_condition(
+                {"check": "EQUAL", "para": k, "value": 99}
+            )
+        )
+        self.assertFalse(
+            self._kernel.check_condition(
+                {"check": "UNEQUAL", "para": k, "value": 99}
+            )
+        )
+        self.assertFalse(
+            self._kernel.check_condition(
+                {"check": "MORE", "para": k, "value": 99}
+            )
+        )
+        self.assertTrue(
+            self._kernel.check_condition(
+                {"check": "MORE_EQUAL", "para": k, "value": 99}
+            )
+        )
+        self.assertFalse(
+            self._kernel.check_condition(
+                {"check": "LESS", "para": k, "value": 99}
+            )
+        )
+        self.assertTrue(
+            self._kernel.check_condition(
+                {"check": "LESS_EQUAL", "para": k, "value": 99}
+            )
+        )
 
         self._game.set_para(k, 3)
-        self.assertTrue(self._kernel.check_condition(k, "BINARY", 1))
-        self.assertFalse(self._kernel.check_condition(k, "NON_BINARY", 1))
-        self.assertTrue(self._kernel.check_condition(k, "BINARY", 2))
-        self.assertFalse(self._kernel.check_condition(k, "NON_BINARY", 2))
-        self.assertFalse(self._kernel.check_condition(k, "BINARY", 3))
-        self.assertTrue(self._kernel.check_condition(k, "NON_BINARY", 3))
+        self.assertTrue(
+            self._kernel.check_condition(
+                {"check": "BINARY", "para": k, "value": 1}
+            )
+        )
+        self.assertFalse(
+            self._kernel.check_condition(
+                {"check": "NON_BINARY", "para": k, "value": 1}
+            )
+        )
+        self.assertTrue(
+            self._kernel.check_condition(
+                {"check": "BINARY", "para": k, "value": 2}
+            )
+        )
+        self.assertFalse(
+            self._kernel.check_condition(
+                {"check": "NON_BINARY", "para": k, "value": 1}
+            )
+        )
+        self.assertFalse(
+            self._kernel.check_condition(
+                {"check": "BINARY", "para": k, "value": 3}
+            )
+        )
+        self.assertTrue(
+            self._kernel.check_condition(
+                {"check": "NON_BINARY", "para": k, "value": 3}
+            )
+        )
 
     def test_condition_end(self):
         """测试结局条件检测"""
         end = random.randint(1, self._game.get_ends())
-        self.assertFalse(self._kernel.check_condition("END", "CHECK_END", end))
+        self.assertFalse(
+            self._kernel.check_condition(
+                {"check": "CHECK_END", "para": "END", "value": end}
+            )
+        )
         self._game.set_scene(f"end-{end}")
-        self.assertTrue(self._kernel.check_condition("END", "CHECK_END", end))
+        self.assertTrue(
+            self._kernel.check_condition(
+                {"check": "CHECK_END", "para": "END", "value": end}
+            )
+        )
 
     def test_condition_change(self):
         """测试配置：条件改变"""
@@ -72,20 +128,24 @@ class TestKernel(TestEmeraldKnight):
         self._game.set_para(k, 99)
         self._kernel.change_para(
             {
-                "op": "AND",
-                "condition": [{"check": "EQUAL", "para": k, "value": 99}],
-            },
-            "CONDITION",
-            [{"change": "ADD", "para": k, "value": 2}],
+                "change": "CONDITION",
+                "para": {
+                    "op": "AND",
+                    "condition": [{"check": "EQUAL", "para": k, "value": 99}],
+                },
+                "value": [{"change": "ADD", "para": k, "value": 2}],
+            }
         )
         self.assertEqual(101, self._game.get_para(k))
         self._kernel.change_para(
             {
-                "op": "AND",
-                "condition": [{"check": "EQUAL", "para": k, "value": 99}],
-            },
-            "CONDITION",
-            [{"change": "ADD", "para": k, "value": 2}],
+                "change": "CONDITION",
+                "para": {
+                    "op": "AND",
+                    "condition": [{"check": "EQUAL", "para": k, "value": 99}],
+                },
+                "value": [{"change": "ADD", "para": k, "value": 2}],
+            }
         )
         self.assertEqual(101, self._game.get_para(k))
 
@@ -99,25 +159,32 @@ class TestKernel(TestEmeraldKnight):
         self._game.set_para(j, -99)
         self.assertTrue(
             self._kernel.check_is(
-                "AND", [{"check": "EQUAL", "para": i, "value": 99}]
+                {
+                    "op": "AND",
+                    "condition": [{"check": "EQUAL", "para": i, "value": 99}],
+                }
             )
         )
         self.assertFalse(
             self._kernel.check_is(
-                "AND",
-                [
-                    {"check": "EQUAL", "para": i, "value": 99},
-                    {"check": "EQUAL", "para": j, "value": 99},
-                ],
+                {
+                    "op": "AND",
+                    "condition": [
+                        {"check": "EQUAL", "para": i, "value": 99},
+                        {"check": "EQUAL", "para": j, "value": 99},
+                    ],
+                }
             )
         )
         self.assertTrue(
             self._kernel.check_is(
-                "OR",
-                [
-                    {"check": "EQUAL", "para": i, "value": 99},
-                    {"check": "EQUAL", "para": j, "value": 99},
-                ],
+                {
+                    "op": "OR",
+                    "condition": [
+                        {"check": "EQUAL", "para": i, "value": 99},
+                        {"check": "EQUAL", "para": j, "value": 99},
+                    ],
+                }
             )
         )
 
@@ -125,29 +192,45 @@ class TestKernel(TestEmeraldKnight):
         """测试代码值"""
         c = self._game.get_random_code()
         k = self._game.get_random_para()
-        self._kernel.change_para(k, "SET", c)
+        self._kernel.change_para({"change": "SET", "para": k, "value": c})
         self.assertEqual(self._logic.DEFAULT_CODES[c], self._game.get_para(k))
-        self.assertTrue(self._kernel.check_condition(k, "EQUAL", c))
+        self.assertTrue(
+            self._kernel.check_condition(
+                {"check": "EQUAL", "para": k, "value": c}
+            )
+        )
 
     def test_fight_win(self):
         """测试过场战斗"""
         self._game.random_scene()
         self._game.set_para("TEMPORARY", 10000)
         self.assertEqual(1, self._kernel.fight_result())
-        self.assertTrue(self._kernel.check_condition("FIGHT", "EQUAL", 1))
+        self.assertTrue(
+            self._kernel.check_condition(
+                {"check": "EQUAL", "para": "FIGHT", "value": 1}
+            )
+        )
 
     def test_fight_fail(self):
         """测试过场战斗"""
         self._game.random_scene()
         self._game.set_para("TEMPORARY", 0)
         self.assertEqual(0, self._kernel.fight_result())
-        self.assertFalse(self._kernel.check_condition("FIGHT", "EQUAL", 1))
+        self.assertFalse(
+            self._kernel.check_condition(
+                {"check": "EQUAL", "para": "FIGHT", "value": 1}
+            )
+        )
 
     def test_check_scene(self):
         """测试章节检测"""
         self._game.random_scene()
         self.assertTrue(
             self._kernel.check_condition(
-                "SCENE", "EQUAL", self._game.get_scene_id()
+                {
+                    "check": "EQUAL",
+                    "para": "SCENE",
+                    "value": self._game.get_scene_id(),
+                }
             )
         )

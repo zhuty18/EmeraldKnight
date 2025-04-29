@@ -63,16 +63,16 @@ class Kernel:
         """设置参数值"""
         self._paras[Logic.DEFAULT_PARAS[para_name]["name"]] = value
 
-    def change_para(self, para_name, change_act, change_by):
+    def change_para(self, action):
         """改变参数"""
+        para_name = action["para"]
+        change_act = action["change"]
+        change_by = action["value"]
+
         if change_act == "CONDITION":
-            if self.check_is(para_name["op"], para_name["condition"]):
+            if self.check_is(para_name):
                 for change in change_by:
-                    self.change_para(
-                        change["para"],
-                        change["change"],
-                        change["value"],
-                    )
+                    self.change_para(change)
         else:
             if isinstance(change_by, str):
                 value = Logic.DEFAULT_CODES[change_by]
@@ -88,10 +88,14 @@ class Kernel:
         """改变场景"""
         self._scene = Scene.get_existence(scene_id)
 
-    def check_condition(self, para_name, check_act, check_by):
+    def check_condition(self, check):
         """单个条件检测"""
+        para_name = check["para"]
+        check_act = check["check"]
+        check_by = check["value"]
+
         if check_act == "CONDITION":
-            return self.check_is(para_name, check_by)
+            return int(self.check_is(para_name)) == check_by
         check_para = None
         value = None
         if para_name in Logic.DEFAULT_FUNCTION_PARAS:
@@ -133,15 +137,13 @@ class Kernel:
             case "CHECK_END":
                 return Logic.check_end(f"end-{value}")
 
-    def check_is(self, check_op, check_items):
+    def check_is(self, check):
         """条件检测"""
+        check_op = check["op"]
+        check_items = check["condition"]
         res = True if check_op == "AND" else False
         for condition in check_items:
-            check = self.check_condition(
-                condition["para"],
-                condition["check"],
-                condition["value"],
-            )
+            check = self.check_condition(condition)
             match check_op:
                 case "AND":
                     res &= check

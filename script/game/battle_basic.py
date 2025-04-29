@@ -139,11 +139,7 @@ class Action(BasicLogic):
         if not self._show:
             return True
         else:
-            return Logic.get_kernel().check_condition(
-                self._show["para"],
-                self._show["check"],
-                self._show["value"],
-            )
+            return Logic.get_kernel().check_condition(self._show)
 
     def get_first(self):
         """获取首次条件"""

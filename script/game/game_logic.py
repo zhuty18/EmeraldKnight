@@ -44,7 +44,7 @@ class Logic:
 
     START_SCENE = ""  # 起始场景
     START_OVER = ""  # 重开场景
-    FINAL_BATTLE = ""  # 重开场景
+    FINAL_BATTLE = ""  # 战斗场景
     EMPTY_SAVE = ""  # 空存档字符串
     STORY_END = ""  # 故事结尾补充字符串
     BATTLE_STORY = {}  # 决战相关字符串
