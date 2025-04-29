@@ -63,11 +63,7 @@ class StoryChoice(Choice):
     def choose(self):
         if self._choose:
             for action in self._choose:
-                Logic.get_kernel().change_para(
-                    action["para"],
-                    action["change"],
-                    action["value"],
-                )
+                Logic.get_kernel().change_para(action)
         Logic.get_kernel().to_scene(self._target)
 
 
@@ -129,9 +125,7 @@ class StoryScene(Scene):
     def get_options(self, options=None, choices=None):
         option_list = self._options
         if self._require:
-            if Logic.get_kernel().check_is(
-                self._require["op"], self._require["condition"]
-            ):
+            if Logic.get_kernel().check_is(self._require):
                 option_list = self._require["match_options"]
         return super().get_options(options=option_list)
 
