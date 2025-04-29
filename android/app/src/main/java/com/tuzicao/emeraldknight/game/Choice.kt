@@ -1,31 +1,49 @@
 package com.tuzicao.emeraldknight.game
 
-import android.content.Context
+import org.json.JSONArray
+import org.json.JSONObject
 
-abstract class Choice {
-    companion object{
-        fun getChoiceById(context: Context, c_id:String):Choice{
-            var data=
-            return StoryChoice(c_id)
+abstract class Choice(private val id: String, private val data: JSONObject) {
+
+    companion object {
+        fun getChoiceById(cId: String): Choice {
+            return StoryChoice(cId, GameLogic.choiceMap[cId]!!)
         }
     }
-    private val _id: String=""
 
     open fun getID(): String {
-        return _id
+        return id
     }
 
-    open fun text(): String {
+    open fun getText(): String {
         return ""
     }
 
-    open fun show(): Boolean {
+    open fun isShow(): Boolean {
         return true
     }
 
-    open fun choose() {}
+    open fun beChosen() {}
 }
 
-class StoryChoice(val _id: String,data:jsonObject):Choice(){
+class StoryChoice(private val id: String, private val data: JSONObject) : Choice(id, data) {
+    val target: String = data.getString("target")
+    private val text: String =
+        if (data.has("text")) data.getString("text") else GameLogic.getSceneName(target)
+    val show: JSONObject? = if (data.has("show")) data.getJSONObject("show") else null
+    val choose: JSONArray? = if (data.has("choose")) data.getJSONArray("choose") else null
+    override fun getText(): String = text
+    override fun isShow(): Boolean {
+        return show?.let {
+            GameLogic.gameKernel.checkIs(show)
+        } ?: true
+    }
 
+    override fun beChosen() {
+        choose?.let {
+            for (i in 0 until choose.length()) {
+                GameLogic.gameKernel.changeAs(choose.getJSONObject(i))
+            }
+        }
+    }
 }

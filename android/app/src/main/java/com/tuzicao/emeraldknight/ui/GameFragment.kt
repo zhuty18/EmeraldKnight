@@ -2,7 +2,6 @@ package com.tuzicao.emeraldknight.ui
 
 import android.content.Context
 import android.os.Bundle
-import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,7 +51,7 @@ class GameFragment(
         for (i in choicesList.indices) {
             val choice = choicesList[i]
             val btn = Button(layout.context).apply {
-                text = choice.text()
+                text = choice.getText()
                 setOnClickListener {
                     listener?.choose(i)
                 }

@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import com.tuzicao.emeraldknight.R
+import com.tuzicao.emeraldknight.game.GameLogic
 import com.tuzicao.emeraldknight.game.Kernel
 import org.json.JSONException
 import org.json.JSONObject
@@ -56,7 +57,7 @@ class HomeFragment : Fragment() {
             val text = String(input, StandardCharsets.UTF_8)
             val json = JSONObject(text)
 
-            for (i in 0 until Kernel.MaxEnd) {
+            for (i in 0 until GameLogic.endNameMap.size) {
                 val index = i + 1
                 val endName = "end-$index"
                 val btn = Button(context)

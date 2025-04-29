@@ -1,18 +1,65 @@
 package com.tuzicao.emeraldknight.game
 
 import android.content.Context
+import org.json.JSONArray
+import org.json.JSONObject
+import java.io.File
 import java.util.LinkedList
 
 
-class Kernel(val context:Context) {
+class Kernel(val context: Context) {
 
     companion object {
-        const val MaxSave = 100
-        const val MaxEnd = 21
-
+        const val MAX_SAVE = 100
 
         fun getSceneName(id: String): String {
-            return ""
+            return GameLogic.getSceneName(id)
+        }
+    }
+
+    private var paraMap: HashMap<String, Int> = HashMap()
+
+    init {
+        GameLogic.initData(context, this)
+        val file = File(context.filesDir, "0.eks")
+        if (!file.exists()) {
+            file.writeText("{}")
+        }
+    }
+
+    fun getPara(paraId: String): Int {
+        return 0
+    }
+
+    fun setPara(para_id: String, value: Int) {
+
+    }
+
+    fun checkIs(toCheck: JSONObject): Boolean {
+        return true
+    }
+
+    fun changeAs(action: JSONObject) {
+        val act: String = action.getString("change")
+        if (act == "CONDITION") {
+            if (checkIs(action.getJSONObject("para"))) {
+                val change = action.getJSONArray("value")
+                for (i in 0 until change.length()) {
+                    changeAs(change.getJSONObject(i))
+                }
+            }
+        } else {
+            var value = action.get("value")
+            if (value is String) {
+                value = GameLogic.defaultCodes[action.getString("value")]!!
+            } else if (value !is Int) {
+                value = 0
+            }
+            val paraName: String = action.getString("para")
+            when (action.getString("change")) {
+                "ADD" -> setPara(paraName, getPara(paraName) + value)
+                "SET" -> setPara(paraName, value)
+            }
         }
     }
 

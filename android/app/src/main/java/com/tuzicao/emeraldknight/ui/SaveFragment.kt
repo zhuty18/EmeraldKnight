@@ -76,7 +76,7 @@ class SaveFragment(private val isSaving: Boolean) : Fragment() {
             tv.setText(R.string.menu_save)
             val layout: LinearLayout = requireView().findViewById(R.id.save_button_layout)
             layout.removeAllViews()
-            for (i in 0 until Kernel.MaxSave) {
+            for (i in 0 until Kernel.MAX_SAVE) {
                 val index = i + 1
                 val saveName = "$index.eks"
                 if (saveExist(saveName)) {
@@ -102,7 +102,7 @@ class SaveFragment(private val isSaving: Boolean) : Fragment() {
             tv.setText(R.string.menu_load)
             val layout: LinearLayout = requireView().findViewById(R.id.save_button_layout)
             layout.removeAllViews()
-            for (i in 0 until Kernel.MaxSave) {
+            for (i in 0 until Kernel.MAX_SAVE) {
                 val index = i + 1
                 val saveName = "$index.eks"
                 if (saveExist(saveName)) {

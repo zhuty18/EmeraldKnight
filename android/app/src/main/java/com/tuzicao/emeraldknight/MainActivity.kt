@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity(),
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        kernel = Kernel(this)
+        kernel = Kernel(this.applicationContext)
         supportFragmentManager.beginTransaction()
             .replace(R.id.main_layout, HomeFragment())
             .commit()
@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity(),
 
     override fun choose(i: Int) {
         Log.d("Emerald Knight", "choose $i")
-        choicesList[i].choose()
+        choicesList[i].beChosen()
         refreshGame()
     }
 
