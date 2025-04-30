@@ -156,7 +156,7 @@ class Logic:
         return scene_id.split("-")[0]
 
     @staticmethod
-    def read_scene_text(scene_id):
+    def get_scene_text(scene_id):
         """读取场景文本"""
         return Logic.SCENE_TEXT_MAP[scene_id]
 
