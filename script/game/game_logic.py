@@ -33,7 +33,7 @@ class Logic:
     FILE_DEFAULT_SAVE = "0.eks"  # 初始存档文件
 
     DEFAULT_PARAS = {}  # 参数表
-    DEFAULT_FUNCTION_PARAS = {}  # 功能参数表
+    DEFAULT_FUNC_PARAS = {}  # 功能参数表
     DEFAULT_CODES = {}  # 代码表
     DEFAULT_CONSTS = {}  # 常量表
     SCENE_MAP = {}  # 场景表
@@ -49,51 +49,56 @@ class Logic:
     STORY_END = ""  # 故事结尾补充字符串
     BATTLE_STORY = {}  # 决战相关字符串
 
+    @staticmethod
+    def load_data(data_all, storage, full_data=True):
+        """用id-全数据将数据加载进表"""
+        for i in data_all:
+            storage[i["id"]] = i if full_data else i["value"]
+
     def __init__(self, kernel):
         Logic._kernel = kernel
 
-        for i in Logic.read_file(Logic.PATH_DATA, Logic.FILE_CONSTS):
-            Logic.DEFAULT_CONSTS[i["id"]] = i["value"]
-        for i in Logic.read_file(Logic.PATH_DATA, Logic.FILE_PARAS)[
-            "para_list"
-        ]:
-            Logic.DEFAULT_PARAS[i["id"]] = i
-        for i in Logic.read_file(Logic.PATH_DATA, Logic.FILE_PARAS)[
-            "code_list"
-        ]:
-            Logic.DEFAULT_CODES[i["id"]] = i["value"]
-        for i in Logic.read_file(Logic.PATH_DATA, Logic.FILE_PARAS)[
-            "function_para_list"
-        ]:
-            Logic.DEFAULT_FUNCTION_PARAS[i["id"]] = i["value"]
+        Logic.load_data(
+            Logic.read_file(Logic.PATH_DATA, Logic.FILE_CONSTS),
+            Logic.DEFAULT_CONSTS,
+            False,
+        )
+
+        para_data = Logic.read_file(Logic.PATH_DATA, Logic.FILE_PARAS)
+        Logic.load_data(para_data["para_list"], Logic.DEFAULT_PARAS)
+        Logic.load_data(para_data["code_list"], Logic.DEFAULT_CODES, False)
+        Logic.load_data(para_data["func_list"], Logic.DEFAULT_FUNC_PARAS, False)
 
         end_scene = Logic.DEFAULT_CONSTS["END_SCENE"]
         Logic.SCENE_MAP[end_scene["id"]] = end_scene
         end_choice = Logic.DEFAULT_CONSTS["END_CHOICE"]
         Logic.CHOICE_MAP[end_choice["id"]] = end_choice
         for ch in range(Logic.CHAPTERS):
-            for i in Logic.read_file(
-                Logic.PATH_CHAPTER,
-                Logic.FILE_SCENES.replace("{ch}", str(ch + 1)),
-            ):
-                Logic.SCENE_MAP[i["id"]] = i
-            for i in Logic.read_file(
-                Logic.PATH_CHAPTER,
-                Logic.FILE_CHOICES.replace("{ch}", str(ch + 1)),
-            ):
-                Logic.CHOICE_MAP[i["id"]] = i
+            Logic.load_data(
+                Logic.read_file(
+                    Logic.PATH_CHAPTER,
+                    Logic.FILE_SCENES.replace("{ch}", str(ch + 1)),
+                ),
+                Logic.SCENE_MAP,
+            )
+            Logic.load_data(
+                Logic.read_file(
+                    Logic.PATH_CHAPTER,
+                    Logic.FILE_CHOICES.replace("{ch}", str(ch + 1)),
+                ),
+                Logic.CHOICE_MAP,
+            )
 
-        for k, v in Logic.read_file(Logic.PATH_DATA, Logic.FILE_NAMES)[
-            "end_names"
-        ].items():
-            Logic.END_NAME_MAP[k] = v
-        for k, v in Logic.read_file(Logic.PATH_DATA, Logic.FILE_NAMES)[
-            "chapter_names"
-        ].items():
-            Logic.CHAPTER_NAME_MAP[k] = v
+        name_data = Logic.read_file(Logic.PATH_DATA, Logic.FILE_NAMES)
+        Logic.load_data(name_data["end_names"], Logic.END_NAME_MAP, False)
+        Logic.load_data(
+            name_data["chapter_names"], Logic.CHAPTER_NAME_MAP, False
+        )
 
-        for i in Logic.read_file(Logic.PATH_DATA, Logic.FILE_CHARACTERS):
-            Logic.CHARACTER_MAP[i["id"]] = i
+        Logic.load_data(
+            Logic.read_file(Logic.PATH_DATA, Logic.FILE_CHARACTERS),
+            Logic.CHARACTER_MAP,
+        )
 
         Logic.START_SCENE = Logic.DEFAULT_CONSTS["START_SCENE"]
         Logic.START_OVER = Logic.DEFAULT_CONSTS["START_OVER"]
