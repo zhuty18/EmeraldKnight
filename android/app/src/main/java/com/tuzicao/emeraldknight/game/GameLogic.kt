@@ -39,12 +39,6 @@ class GameLogic {
             }
         }
 
-        private fun loadIdValue(array: JSONArray, map: HashMap<String, String>) {
-            for (i in 0 until array.length()) {
-                val item = array.getJSONObject(i)
-                map[item.getString("id")] = item.getString("value")
-            }
-        }
 
         fun initData(context: Context, kernel: Kernel) {
             gameKernel = kernel
@@ -76,23 +70,11 @@ class GameLogic {
             loadData(JSONArray(readJSON(context, "scenes.json")), sceneMap) { it }
             sceneMap[endScene.getString("id")] = endScene
 
-
             val names = JSONObject(readJSON(context, "names.json"))
-            val endNames = names.getJSONArray("end_names")
-            for (i in 0 until endNames.length()) {
-                val item = endNames.getJSONObject(i)
-                endNameMap[item.getString("id")] = item.getString("value")
-            }
-            val chapterNames = names.getJSONArray("chapter_names")
-            for (i in 0 until chapterNames.length()) {
-                val item = chapterNames.getJSONObject(i)
-                chapterNameMap[item.getString("id")] = item.getString("value")
-            }
+            loadData(names.getJSONArray("end_names"), endNameMap) { it.getString("value") }
+            loadData(names.getJSONArray("chapter_names"), chapterNameMap) { it.getString("value") }
 
-            val characters = JSONArray(readJSON(context, "characters.json"))
-            for (i in 0 until characters.length()) {
-                val item = characters.getJSONObject(i)
-            }
+            loadData(JSONArray(readJSON(context, "characters.json")), characterMap) { it }
 
             val file = File(context.filesDir, "0.eks")
             if (!file.exists()) {
@@ -102,6 +84,10 @@ class GameLogic {
 
         fun readJSON(context: Context, fileName: String): String {
             return context.assets.open(fileName).bufferedReader().use { it.readText() }
+        }
+
+        fun getSceneChapter(sId: String): String {
+            return sId.split("-")[0]
         }
 
         fun getSceneText(context: Context, sceneID: String): String {
