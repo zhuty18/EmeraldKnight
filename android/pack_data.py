@@ -29,18 +29,17 @@ if __name__ == "__main__":
         f.write(json.dumps(scenes, ensure_ascii=False, indent=4))
 
     # 所有场景文本打包为一个列表，存储在app/src/main/assets/scene_text.json
-    # [{"id":"场景id","text":"场景文本"}]
+    # [{"id":"场景id","value":"场景文本"}]
     scene_text = []
     chapter_list = os.listdir("../data/story")
-    for ch in chapter_list:
-        scene_list = os.listdir(f"../data/story/{ch}")
-        for i in scene_list:
-            if i.endswith(".txt"):
-                with open(
-                    f"../data/story/{ch}/{i}", "r", encoding="utf-8"
-                ) as f:
-                    scene_text.append({"id": i[:-4], "text": f.read()})
-    with open("app/src/main/assets/scene_text.json", "w", encoding="utf-8") as f:
+    for ch in range(1, info["chapters"] + 1):
+        with open(
+            f"../data/story/story_ch{ch}.json", "r", encoding="utf-8"
+        ) as f:
+            scene_text.extend(json.loads(f.read()))
+    with open(
+        "app/src/main/assets/scene_text.json", "w", encoding="utf-8"
+    ) as f:
         f.write(json.dumps(scene_text, ensure_ascii=False, indent=4))
 
     # 其他json配置文件移动到app/src/main/assets

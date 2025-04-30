@@ -28,6 +28,7 @@ class Logic:
     FILE_CHOICES = "choices_ch{ch}.json"  # 选项配置文件
 
     PATH_STORY = "data/story"  # 故事相关文件路径
+    FILE_STORYS = "story_ch{ch}.json"
 
     PATH_SAVE = "save"  # 存档相关文件路径
     FILE_DEFAULT_SAVE = "0.eks"  # 初始存档文件
@@ -36,8 +37,9 @@ class Logic:
     DEFAULT_FUNC_PARAS = {}  # 功能参数表
     DEFAULT_CODES = {}  # 代码表
     DEFAULT_CONSTS = {}  # 常量表
-    SCENE_MAP = {}  # 场景表
     CHOICE_MAP = {}  # 选项表
+    SCENE_MAP = {}  # 场景表
+    SCENE_TEXT_MAP = {}  # 场景内容表
     END_NAME_MAP = {}  # 结局名表
     CHAPTER_NAME_MAP = {}  # 章名表
     CHARACTER_MAP = {}  # 角色表
@@ -88,6 +90,14 @@ class Logic:
                 ),
                 Logic.CHOICE_MAP,
             )
+            Logic.load_data(
+                Logic.read_file(
+                    Logic.PATH_STORY,
+                    Logic.FILE_STORYS.replace("{ch}", str(ch + 1)),
+                ),
+                Logic.SCENE_TEXT_MAP,
+                False,
+            )
 
         name_data = Logic.read_file(Logic.PATH_DATA, Logic.FILE_NAMES)
         Logic.load_data(name_data["end_names"], Logic.END_NAME_MAP, False)
@@ -133,15 +143,12 @@ class Logic:
         return os.path.join(root, file_dir)
 
     @staticmethod
-    def read_file(file_dir, file_name, load_json=True):
+    def read_file(file_dir, file_name):
         """读取文件"""
         with open(
             Logic.res_path(file_dir, file_name), "r", encoding="utf8"
         ) as f:
-            if load_json:
-                return json.loads(f.read())
-            else:
-                return f.read()
+            return json.loads(f.read())
 
     @staticmethod
     def get_scene_chapter(scene_id):
@@ -151,11 +158,7 @@ class Logic:
     @staticmethod
     def read_scene_text(scene_id):
         """读取场景文本"""
-        return Logic.read_file(
-            os.path.join(Logic.PATH_STORY, Logic.get_scene_chapter(scene_id)),
-            f"{scene_id}.txt",
-            False,
-        )
+        return Logic.SCENE_TEXT_MAP[scene_id]
 
     @staticmethod
     def get_scene_name(scene_id):
