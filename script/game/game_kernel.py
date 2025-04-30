@@ -21,23 +21,49 @@ class Kernel:
         self._fight = {}  # 战斗结果
         self.refresh_paras()
 
+    def get_scene_id(self):
+        """获取当前场景ID"""
+        if not self._scene:
+            return Logic.START_OVER
+        return self._scene.get_id()
+
+    def get_scene_text(self):
+        """获取场景文本"""
+        return self._scene.get_text()
+
+    def get_choices(self):
+        """获取选项"""
+        return self._scene.get_options()
+
     def to_scene(self, scene_id):
         """改变场景"""
         self._scene = Scene.get_existence(scene_id)
 
+    def get_para(self, para_name):
+        """获取参数值"""
+        return self._paras[Logic.DEFAULT_PARAS[para_name]["name"]]
+
+    def get_paras(self):
+        """获取参数表"""
+        return self._paras
+
+    def set_para(self, para_name, value):
+        """设置参数值"""
+        self._paras[Logic.DEFAULT_PARAS[para_name]["name"]] = value
+
     def refresh_paras(self):
         """刷新参数"""
-        for _, v in Logic.DEFAULT_PARAS.items():
+        for k, v in Logic.DEFAULT_PARAS.items():
             if v["name"] not in self._paras:
-                self._paras[v["name"]] = v["default_value"]
+                self.set_para(k, v["default_value"])
 
     def load_at(self, save_id):
         """加载存档"""
         if save_id == 0:
             # 新游戏，读取默认参数
             self.to_scene(Logic.START_SCENE)
-            for _, value in Logic.DEFAULT_PARAS.items():
-                self._paras[value["name"]] = value["default_value"]
+            for k, v in Logic.DEFAULT_PARAS.items():
+                self.set_para(k, v["default_value"])
         else:
             save_file = Logic.read_file(Logic.PATH_SAVE, f"{save_id}.eks")
             self.to_scene(save_file["scene"])
@@ -55,17 +81,24 @@ class Kernel:
                     )
                 )
 
-    def get_para(self, para_name):
-        """获取参数值"""
-        return self._paras[Logic.DEFAULT_PARAS[para_name]["name"]]
+    def fight(self):
+        """过场战斗"""
+        hp = self.get_para("TEMPORARY")
+        hp += 3 * self.get_para("INTELLIGENCE")
+        hp += self.get_para("KNOWLEDGE")
+        hp += 5 * self.get_para("BRUCE_LOVE")
+        hp += 5 * self.get_para("SINESTRO_LOVE")
+        hp += 5 * self.get_para("SINESTRO_TAME")
+        hp += 20 * (1 if self.get_para("TEAMMATE") != 0 else 0)
+        for _ in range(10):
+            hp -= random() * 16
+        return hp > 0
 
-    def get_paras(self):
-        """获取参数表"""
-        return self._paras
-
-    def set_para(self, para_name, value):
-        """设置参数值"""
-        self._paras[Logic.DEFAULT_PARAS[para_name]["name"]] = value
+    def fight_result(self):
+        """战斗结果"""
+        if not self._scene.get_id() in self._fight:
+            self._fight[self._scene.get_id()] = int(self.fight())
+        return self._fight[self._scene.get_id()]
 
     def check_condition(self, check):
         """单个条件检测"""
@@ -119,16 +152,12 @@ class Kernel:
     def check_is(self, check):
         """条件检测"""
         check_op = check["op"]
-        check_items = check["condition"]
-        res = True if check_op == "AND" else False
-        for condition in check_items:
-            check = self.check_condition(condition)
-            match check_op:
-                case "AND":
-                    res &= check
-                case "OR":
-                    res |= check
-        return res
+        check_items = [self.check_condition(c) for c in check["condition"]]
+        match check_op:
+            case "AND":
+                return all(check_items)
+            case "OR":
+                return any(check_items)
 
     def change_para(self, action):
         """改变参数"""
@@ -150,36 +179,3 @@ class Kernel:
                     self.set_para(para_name, self.get_para(para_name) + value)
                 case "SET":
                     self.set_para(para_name, value)
-
-    def get_scene_id(self):
-        """获取当前场景ID"""
-        if not self._scene:
-            return Logic.START_OVER
-        return self._scene.get_id()
-
-    def get_scene_text(self):
-        """获取场景文本"""
-        return self._scene.get_text()
-
-    def get_choices(self):
-        """获取选项"""
-        return self._scene.get_options()
-
-    def fight(self):
-        """过场战斗"""
-        hp = self.get_para("TEMPORARY")
-        hp += 3 * self.get_para("INTELLIGENCE")
-        hp += self.get_para("KNOWLEDGE")
-        hp += 5 * self.get_para("BRUCE_LOVE")
-        hp += 5 * self.get_para("SINESTRO_LOVE")
-        hp += 5 * self.get_para("SINESTRO_TAME")
-        hp += 20 * (1 if self.get_para("TEAMMATE") != 0 else 0)
-        for _ in range(10):
-            hp -= random() * 16
-        return hp > 0
-
-    def fight_result(self):
-        """战斗结果"""
-        if not self._scene.get_id() in self._fight:
-            self._fight[self._scene.get_id()] = int(self.fight())
-        return self._fight[self._scene.get_id()]
