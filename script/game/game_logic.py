@@ -90,7 +90,7 @@ class Logic:
         para_data = Logic.read_file(Logic.PATH_DATA, Logic.FILE_PARAS)
         Logic.load_data(para_data["para_list"], Logic.DEFAULT_PARAS)
         Logic.load_data(para_data["code_list"], Logic.DEFAULT_CODES, False)
-        Logic.load_data(para_data["func_list"], Logic.DEFAULT_FUNC_PARAS, False)
+        Logic.DEFAULT_FUNC_PARAS = para_data["func_list"]
 
         end_scene = Logic.DEFAULT_CONSTS["END_SCENE"]
         Logic.SCENE_MAP[end_scene["id"]] = end_scene

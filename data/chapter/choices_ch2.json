@@ -173,9 +173,9 @@
             "op": "AND",
             "condition": [
                 {
-                    "check": "CHECK_END",
-                    "para": "END",
-                    "value": 10
+                    "check": "EQUAL",
+                    "para": "end-10",
+                    "value": 1
                 }
             ]
         }

@@ -97,22 +97,9 @@
         }
     ],
     "func_list": [
-        {
-            "id": "SCENE",
-            "value": "SCENE"
-        },
-        {
-            "id": "END",
-            "value": "END"
-        },
-        {
-            "id": "FIGHT",
-            "value": "FIGHT"
-        },
-        {
-            "id": "CHOICE",
-            "value": "CHOICE"
-        }
+        "SCENE",
+        "FIGHT",
+        "CHOICE"
     ],
     "code_list": [
         {

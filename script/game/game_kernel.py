@@ -40,13 +40,13 @@ class Kernel:
                 self._paras[value["name"]] = value["default_value"]
         else:
             save_file = Logic.read_file(Logic.PATH_SAVE, f"{save_id}.eks")
-            self._scene = Scene.get_existence(save_file["scene"])
+            self.to_scene(save_file["scene"])
             self._paras = save_file["paras"]
             self.refresh_paras()
 
     def save_at(self, save_id):
         """保存存档"""
-        if self._scene != Logic.FINAL_BATTLE:
+        if self._scene.get_id() != Logic.FINAL_BATTLE:
             save_file = Logic.res_path(Logic.PATH_SAVE, f"{save_id}.eks")
             with open(save_file, "w", encoding="utf-8") as f:
                 f.write(
@@ -78,7 +78,7 @@ class Kernel:
         check_para = None
         value = None
         if para_name in Logic.DEFAULT_FUNC_PARAS:
-            match Logic.DEFAULT_FUNC_PARAS[para_name]:
+            match para_name:
                 case "SCENE":
                     check_para = self.get_scene_id()
                 case "FIGHT":
@@ -86,8 +86,8 @@ class Kernel:
                 case "CHOICE":
                     check_para = int(Choice.get_existence(check_by).show())
                     value = 1
-                case "END":
-                    check_para = para_name
+        elif para_name.contains("end"):
+            check_para = int(Logic.check_end(para_name))
         else:
             check_para = self.get_para(para_name)
         if not value:
@@ -114,7 +114,7 @@ class Kernel:
             case "NON_BINARY":
                 return check_para >> (value - 1) & 1 == 0
             case "CHECK_END":
-                return Logic.check_end(f"end-{value}")
+                return check_para == value
 
     def check_is(self, check):
         """条件检测"""
