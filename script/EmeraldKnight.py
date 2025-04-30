@@ -128,11 +128,6 @@ class EmeraldKnightGUI(EmeraldKnight):
             save_window.close()
         self._kernel.save_at(save_id)
 
-    def choose(self, choice):
-        """选择选项"""
-        choice.chosen()
-        self.load_scene()
-
     def show_save(self, is_saving=True):
         """显示存档界面"""
         saves = qt.QDialog(self.main)
