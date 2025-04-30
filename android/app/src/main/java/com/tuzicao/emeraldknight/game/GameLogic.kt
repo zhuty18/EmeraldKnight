@@ -93,15 +93,18 @@ class GameLogic {
             val file = File(context.filesDir, "0.eks")
             if (!file.exists()) {
                 file.writeText("{}")
+            } else if (file.readText() == "") {
+                file.writeText("{}")
+            } else {
+                val endStatus = JSONObject(file.readText())
+                if (endStatus.length() > 0) {
+                    val keys = endStatus.keys()
+                    while (keys.hasNext()) {
+                        val key = keys.next()
+                        endStatusMap[key] = endStatus.getInt(key)
+                    }
+                }
             }
-            val endStatus = JSONObject(file.readText())
-            val keys = endStatus.keys()
-            while (keys.hasNext()) {
-                val key = keys.next()
-                endStatusMap[key] = endStatus.getInt(key)
-            }
-
-
         }
 
         fun getStartScene(): String = constMap["START_SCENE"]!!
@@ -109,7 +112,6 @@ class GameLogic {
         fun getFinalBattle(): String = constMap["FINAL_BATTLE"]!!
         fun getEmptySave(): String = constMap["EMPTY_SAVE"]!!
         fun getStoryEnd(): String = constMap["STORY_END"]!!
-        fun getBattleStory(): JSONObject = battleStory
 
         fun getSceneChapter(sceneId: String): String = sceneId.split("-")[0]
 

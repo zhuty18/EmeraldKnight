@@ -28,7 +28,7 @@ class Kernel(context: Context) {
 
     fun getSceneId(): String {
         return scene?.let {
-            scene!!.getId()
+            scene!!.id
         } ?: GameLogic.getStartOver()
     }
 
@@ -77,10 +77,10 @@ class Kernel(context: Context) {
     }
 
     fun saveAt(context: Context, saveId: Int) {
-        if (scene!!.getId() == GameLogic.getFinalBattle()) {
+        if (scene!!.id == GameLogic.getFinalBattle()) {
             val saveFile = File(context.filesDir, "$saveId.eks")
             val saveInfo = JSONObject()
-            saveInfo.put("scene", scene!!.getId())
+            saveInfo.put("scene", scene!!.id)
             saveInfo.put("paras", JSONObject(paraMap as Map<*, *>))
             saveFile.writeText(saveInfo.toString())
         }
@@ -101,10 +101,10 @@ class Kernel(context: Context) {
     }
 
     fun getFightResult(): Int {
-        if (!fightResult.containsKey(scene!!.getId())) {
-            fightResult[scene!!.getId()] = if (fightNow()) 1 else 0
+        if (!fightResult.containsKey(scene!!.id)) {
+            fightResult[scene!!.id] = if (fightNow()) 1 else 0
         }
-        return fightResult[scene!!.getId()]!!
+        return fightResult[scene!!.id]!!
     }
 
     fun checkCondition(toCheck: JSONObject): Boolean {
@@ -193,5 +193,9 @@ class Kernel(context: Context) {
 
     fun isOn(): Boolean = (getSceneId() != GameLogic.getStartOver())
     fun isBattle(): Boolean = (getSceneId() == GameLogic.getFinalBattle())
+
+    fun openEnd(context: Context) {
+        GameLogic.markEnd(context, getSceneId())
+    }
 
 }

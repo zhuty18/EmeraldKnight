@@ -25,22 +25,23 @@ abstract class Scene(data: JSONObject) {
 
     val id: String = data.getString("id")
 
-    fun getId(): String = id
     open fun getText(): String = ""
     open fun getOptions(
         optionList: LinkedList<String>? = null,
         choices: LinkedList<Choice>? = null
     ): LinkedList<Choice> {
-        val choiceList = choices ?: LinkedList()
-        choices ?: {
+        val choiceList = choices ?: run {
+            val choiceList = LinkedList<Choice>()
             for (i in 0 until optionList!!.size) {
                 choiceList.add(Choice.getById(optionList[i]))
             }
+            choiceList
         }
-        val res: LinkedList<Choice> = LinkedList()
-        for (i in 0 until choiceList.size) {
-            if (choiceList[i].isShow()) {
-                res.add(choiceList[i])
+
+        val res = LinkedList<Choice>()
+        for (choice in choiceList) {
+            if (choice.isShow()) {
+                res.add(choice)
             }
         }
         return res

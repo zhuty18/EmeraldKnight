@@ -75,6 +75,9 @@ class MainActivity : AppCompatActivity(),
         if (!atGame || !kernel.isOn()) {
             switchFragment(HomeFragment())
         } else {
+            if(kernel.getSceneId().contains("end")){
+                kernel.openEnd(this)
+            }
             val sceneText = kernel.getSceneText()
             choicesList = kernel.getChoices()
             switchFragment(GameFragment(sceneText, choicesList))
