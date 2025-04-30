@@ -1,20 +1,23 @@
 package com.tuzicao.emeraldknight.game
 
-import android.annotation.SuppressLint
 import android.content.Context
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class GameLogic {
     companion object {
+        private var constMap: HashMap<String, String> = HashMap()
+
         var defaultParas: HashMap<String, JSONObject> = HashMap()
         var defaultFuncs: HashMap<String, String> = HashMap()
         var defaultCodes: HashMap<String, Int> = HashMap()
-        var constMap: HashMap<String, String> = HashMap()
 
         var choiceMap: HashMap<String, JSONObject> = HashMap()
         var sceneMap: HashMap<String, JSONObject> = HashMap()
+        var sceneTextMap: HashMap<String, String> = HashMap()
         var endNameMap: HashMap<String, String> = HashMap()
         var chapterNameMap: HashMap<String, String> = HashMap()
 
@@ -24,7 +27,6 @@ class GameLogic {
         lateinit var endChoice: JSONObject
         lateinit var endScene: JSONObject
 
-        @SuppressLint("StaticFieldLeak")
         lateinit var gameKernel: Kernel
 
         private fun <V> loadData(
@@ -38,7 +40,6 @@ class GameLogic {
                 map[key] = extractor(item)
             }
         }
-
 
         fun initData(context: Context, kernel: Kernel) {
             gameKernel = kernel
@@ -69,6 +70,10 @@ class GameLogic {
             choiceMap[endChoice.getString("id")] = endChoice
             loadData(JSONArray(readJSON(context, "scenes.json")), sceneMap) { it }
             sceneMap[endScene.getString("id")] = endScene
+            loadData(
+                JSONArray(readJSON(context, "scene_text.json")),
+                sceneTextMap
+            ) { it.getString("value") }
 
             val names = JSONObject(readJSON(context, "names.json"))
             loadData(names.getJSONArray("end_names"), endNameMap) { it.getString("value") }
@@ -86,30 +91,59 @@ class GameLogic {
             return context.assets.open(fileName).bufferedReader().use { it.readText() }
         }
 
-        fun getSceneChapter(sId: String): String {
-            return sId.split("-")[0]
-        }
-
-        fun getSceneText(context: Context, sceneID: String): String {
-            val sceneTexts = JSONArray(readJSON(context, "scene_text.json"))
-            for (i in 0 until sceneTexts.length()) {
-                val item = sceneTexts.getJSONObject(i)
-                if (item.getString("id").equals(sceneID)) {
-                    return item.getString("text")
-                }
-            }
-            return ""
-        }
-
-        fun getSceneName(sceneID: String): String {
-            return sceneMap[sceneID]!!.getString("name")
-        }
-
         fun getStartScene(): String = constMap["START_SCENE"]!!
         fun getStartOver(): String = constMap["START_OVER"]!!
         fun getFinalBattle(): String = constMap["FINAL_BATTLE"]!!
         fun getEmptySave(): String = constMap["EMPTY_SAVE"]!!
         fun getStoryEnd(): String = constMap["STORY_END"]!!
         fun getBattleStory(): JSONObject = battleStory
+
+        fun getSceneChapter(sceneId: String): String {
+            return sceneId.split("-")[0]
+        }
+
+        fun getSceneText(sceneId: String): String {
+            return sceneTextMap[sceneId]!!
+        }
+
+        fun getSceneName(sceneId: String): String {
+            return sceneMap[sceneId]!!.getString("name")
+        }
+
+        fun getChapterName(sceneId: String): String {
+            if (getSceneChapter(sceneId) == "end") {
+                return chapterNameMap["end"]!! + endNameMap[sceneId]!!
+            }
+            return chapterNameMap["ch${getSceneChapter(sceneId)}"]!!
+        }
+
+        fun markEnd(context: Context, endId: String) {
+            val file = File(context.filesDir, "0.eks")
+            val endStatus = JSONObject(file.readText())
+            endStatus.put(endId, 1)
+            file.writeText(endStatus.toString())
+        }
+
+        fun checkEnd(context: Context, endId: String): Boolean {
+            val file = File(context.filesDir, "0.eks")
+            val endStatus = JSONObject(file.readText())
+            return endStatus.optInt(endId, 0) == 1
+        }
+
+        fun getEndName(endId: String): String {
+            return endNameMap[endId]!!
+        }
+
+        fun getSaveInfo(context: Context, saveId: Int): String {
+            val file = File(context.filesDir, "$saveId.eks")
+            if (file.exists()) {
+                val saveInfo = JSONObject(file.readText())
+                val formatter = SimpleDateFormat("MM.dd HH:mm", Locale.getDefault())
+                val saveTime = formatter.format(file.lastModified())
+                return getChapterName(saveInfo.getString("scene")) + "\n" + saveTime
+            } else {
+                return getEmptySave()
+            }
+        }
     }
 }

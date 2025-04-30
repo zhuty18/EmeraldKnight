@@ -5,7 +5,7 @@ import org.json.JSONObject
 import java.util.LinkedList
 
 
-class Kernel(val context: Context) {
+class Kernel(context: Context) {
 
     companion object {
         const val MAX_SAVE = 100

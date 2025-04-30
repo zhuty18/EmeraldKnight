@@ -3,15 +3,15 @@ package com.tuzicao.emeraldknight.game
 import org.json.JSONArray
 import org.json.JSONObject
 
-abstract class Choice(private val id: String, private val data: JSONObject) {
+abstract class Choice(private val id: String, data: JSONObject) {
 
     companion object {
-        fun getChoiceById(cId: String): Choice {
-            return StoryChoice(cId, GameLogic.choiceMap[cId]!!)
+        fun getChoiceById(choiceId: String): Choice {
+            return StoryChoice(choiceId, GameLogic.choiceMap[choiceId]!!)
         }
     }
 
-    open fun getID(): String {
+    fun getID(): String {
         return id
     }
 
@@ -26,7 +26,7 @@ abstract class Choice(private val id: String, private val data: JSONObject) {
     open fun beChosen() {}
 }
 
-class StoryChoice(private val id: String, private val data: JSONObject) : Choice(id, data) {
+class StoryChoice(private val id: String, data: JSONObject) : Choice(id, data) {
     val target: String = data.getString("target")
     private val text: String =
         if (data.has("text")) data.getString("text") else GameLogic.getSceneName(target)
