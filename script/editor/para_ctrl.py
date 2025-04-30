@@ -36,7 +36,7 @@ class ParameterController:
             ) as f:
                 para = json.loads(f.read())
                 self._paras = sort_data(para["para_list"])
-                self._function_paras = sort_data(para["function_para_list"])
+                self._function_paras = sort_data(para["func_list"])
                 self._codes = sort_data(para["code_list"])
 
     def save_paras(self):
@@ -52,7 +52,7 @@ class ParameterController:
         ) as f:
             para = {
                 "para_list": self._paras,
-                "function_para_list": self._function_paras,
+                "func_list": self._function_paras,
                 "code_list": self._codes,
             }
             f.write(json.dumps(para, ensure_ascii=False))
@@ -68,7 +68,7 @@ class ParameterController:
                 para = json.loads(f.read())
             for i in para["para_list"]:
                 self.set_para(i["name"], i["id"], i["default_value"])
-            for i in para["function_para_list"]:
+            for i in para["func_list"]:
                 self._function_paras[i["id"]] = i["value"]
             for i in para["code_list"]:
                 self._codes[i["id"]] = i["value"]
@@ -77,7 +77,7 @@ class ParameterController:
         """导出参数设置"""
         paras = {
             "para_list": self._paras,
-            "function_para_list": self._function_paras,
+            "func_list": self._function_paras,
             "code_list": "codes",
         }
         with open(

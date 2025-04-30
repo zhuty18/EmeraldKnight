@@ -96,7 +96,7 @@
             "default_value": 0
         }
     ],
-    "function_para_list": [
+    "func_list": [
         {
             "id": "SCENE",
             "value": "SCENE"

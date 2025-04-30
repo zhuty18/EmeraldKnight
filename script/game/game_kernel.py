@@ -98,8 +98,8 @@ class Kernel:
             return int(self.check_is(para_name)) == check_by
         check_para = None
         value = None
-        if para_name in Logic.DEFAULT_FUNCTION_PARAS:
-            match Logic.DEFAULT_FUNCTION_PARAS[para_name]:
+        if para_name in Logic.DEFAULT_FUNC_PARAS:
+            match Logic.DEFAULT_FUNC_PARAS[para_name]:
                 case "SCENE":
                     check_para = self.get_scene_id()
                 case "FIGHT":
