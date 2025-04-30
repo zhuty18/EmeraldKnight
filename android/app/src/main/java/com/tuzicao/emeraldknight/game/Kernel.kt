@@ -1,9 +1,7 @@
 package com.tuzicao.emeraldknight.game
 
 import android.content.Context
-import org.json.JSONArray
 import org.json.JSONObject
-import java.io.File
 import java.util.LinkedList
 
 
@@ -21,10 +19,6 @@ class Kernel(val context: Context) {
 
     init {
         GameLogic.initData(context, this)
-        val file = File(context.filesDir, "0.eks")
-        if (!file.exists()) {
-            file.writeText("{}")
-        }
     }
 
     fun getPara(paraId: String): Int {
