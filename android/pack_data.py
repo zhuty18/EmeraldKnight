@@ -37,6 +37,8 @@ if __name__ == "__main__":
             f"../data/story/story_ch{ch}.json", "r", encoding="utf-8"
         ) as f:
             scene_text.extend(json.loads(f.read()))
+    with open("../data/story/story_end.json", "r", encoding="utf-8") as f:
+        scene_text.extend(json.loads(f.read()))
     with open(
         "app/src/main/assets/scene_text.json", "w", encoding="utf-8"
     ) as f:
