@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity(),
         if (!kernel.isOn()) {
             Toast.makeText(this, "不在游戏中，存储失败！", Toast.LENGTH_LONG).show()
         } else {
-            kernel.save(i)
+            kernel.saveAt(this, i)
             Toast.makeText(this, "存储成功！", Toast.LENGTH_SHORT).show()
             save()
         }
@@ -67,11 +67,7 @@ class MainActivity : AppCompatActivity(),
 
     override fun loadGame(i: Int) {
         atGame = true
-        if (i == 0) {
-            kernel.new()
-        } else {
-            kernel.load(i)
-        }
+        kernel.loadAt(this, i)
         refreshGame()
     }
 
@@ -97,7 +93,7 @@ class MainActivity : AppCompatActivity(),
     }
 
     fun save() {
-        if (kernel.inBattle() || kernel.getScene().startsWith("end")) {
+        if (kernel.isBattle() || kernel.getSceneId().startsWith("end")) {
             Toast.makeText(this, "当前无法保存！", Toast.LENGTH_SHORT).show()
         } else {
             atGame = false

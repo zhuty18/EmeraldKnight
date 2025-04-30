@@ -5,29 +5,36 @@ import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
 import java.text.SimpleDateFormat
+import java.util.LinkedList
 import java.util.Locale
 
 class GameLogic {
     companion object {
-        private var constMap: HashMap<String, String> = HashMap()
+        private val constMap: HashMap<String, String> = HashMap()
 
-        var defaultParas: HashMap<String, JSONObject> = HashMap()
-        var defaultFuncs: HashMap<String, String> = HashMap()
-        var defaultCodes: HashMap<String, Int> = HashMap()
+        val defaultParas: HashMap<String, JSONObject> = HashMap()
+        val defaultFuncs: LinkedList<String> = LinkedList()
+        val defaultCodes: HashMap<String, Int> = HashMap()
 
-        var choiceMap: HashMap<String, JSONObject> = HashMap()
-        var sceneMap: HashMap<String, JSONObject> = HashMap()
-        var sceneTextMap: HashMap<String, String> = HashMap()
-        var endNameMap: HashMap<String, String> = HashMap()
-        var chapterNameMap: HashMap<String, String> = HashMap()
+        val choiceMap: HashMap<String, JSONObject> = HashMap()
+        val sceneMap: HashMap<String, JSONObject> = HashMap()
+        val sceneTextMap: HashMap<String, String> = HashMap()
+        val endNameMap: HashMap<String, String> = HashMap()
+        val chapterNameMap: HashMap<String, String> = HashMap()
 
-        var characterMap: HashMap<String, JSONObject> = HashMap()
+        val characterMap: HashMap<String, JSONObject> = HashMap()
+
+        val endStatusMap: HashMap<String, Int> = HashMap()
 
         lateinit var battleStory: JSONObject
         lateinit var endChoice: JSONObject
         lateinit var endScene: JSONObject
 
         lateinit var gameKernel: Kernel
+
+        private fun readJSON(context: Context, fileName: String): String {
+            return context.assets.open(fileName).bufferedReader().use { it.readText() }
+        }
 
         private fun <V> loadData(
             array: JSONArray,
@@ -64,7 +71,9 @@ class GameLogic {
             val paras = JSONObject(readJSON(context, "paras.json"))
             loadData(paras.getJSONArray("para_list"), defaultParas) { it }
             loadData(paras.getJSONArray("code_list"), defaultCodes) { it.getInt("value") }
-            loadData(paras.getJSONArray("func_list"), defaultFuncs) { it.getString("value") }
+            for (i in 0 until paras.getJSONArray("func_list").length()) {
+                defaultFuncs.add(paras.getJSONArray("func_list").getString(i))
+            }
 
             loadData(JSONArray(readJSON(context, "choices.json")), choiceMap) { it }
             choiceMap[endChoice.getString("id")] = endChoice
@@ -85,10 +94,14 @@ class GameLogic {
             if (!file.exists()) {
                 file.writeText("{}")
             }
-        }
+            val endStatus = JSONObject(file.readText())
+            val keys = endStatus.keys()
+            while (keys.hasNext()) {
+                val key = keys.next()
+                endStatusMap[key] = endStatus.getInt(key)
+            }
 
-        fun readJSON(context: Context, fileName: String): String {
-            return context.assets.open(fileName).bufferedReader().use { it.readText() }
+
         }
 
         fun getStartScene(): String = constMap["START_SCENE"]!!
@@ -98,17 +111,12 @@ class GameLogic {
         fun getStoryEnd(): String = constMap["STORY_END"]!!
         fun getBattleStory(): JSONObject = battleStory
 
-        fun getSceneChapter(sceneId: String): String {
-            return sceneId.split("-")[0]
-        }
+        fun getSceneChapter(sceneId: String): String = sceneId.split("-")[0]
 
-        fun getSceneText(sceneId: String): String {
-            return sceneTextMap[sceneId]!!
-        }
+        fun getSceneText(sceneId: String): String = sceneTextMap[sceneId]!!
 
-        fun getSceneName(sceneId: String): String {
-            return sceneMap[sceneId]!!.getString("name")
-        }
+        fun getSceneName(sceneId: String): String = sceneMap[sceneId]!!.getString("name")
+        fun getEndName(endId: String): String = endNameMap[endId]!!
 
         fun getChapterName(sceneId: String): String {
             if (getSceneChapter(sceneId) == "end") {
@@ -117,21 +125,16 @@ class GameLogic {
             return chapterNameMap["ch${getSceneChapter(sceneId)}"]!!
         }
 
-        fun getEndName(endId: String): String {
-            return endNameMap[endId]!!
-        }
-
         fun markEnd(context: Context, endId: String) {
+            endStatusMap[endId] = 1
             val file = File(context.filesDir, "0.eks")
             val endStatus = JSONObject(file.readText())
             endStatus.put(endId, 1)
             file.writeText(endStatus.toString())
         }
 
-        fun checkEnd(context: Context, endId: String): Boolean {
-            val file = File(context.filesDir, "0.eks")
-            val endStatus = JSONObject(file.readText())
-            return endStatus.optInt(endId, 0) == 1
+        fun checkEnd(endId: String): Boolean {
+            return endStatusMap.getOrDefault(endId, 0) == 1
         }
 
         fun getSaveInfo(context: Context, saveId: Int): String {
