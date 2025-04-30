@@ -1,6 +1,7 @@
 package com.tuzicao.emeraldknight.game
 
 import android.content.Context
+import android.util.Log
 import org.json.JSONObject
 import java.io.File
 import java.util.LinkedList
@@ -77,7 +78,7 @@ class Kernel(context: Context) {
     }
 
     fun saveAt(context: Context, saveId: Int) {
-        if (scene!!.id == GameLogic.getFinalBattle()) {
+        if (scene!!.id != GameLogic.getFinalBattle()) {
             val saveFile = File(context.filesDir, "$saveId.eks")
             val saveInfo = JSONObject()
             saveInfo.put("scene", scene!!.id)
