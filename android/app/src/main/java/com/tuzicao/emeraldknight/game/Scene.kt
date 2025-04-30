@@ -1,12 +1,15 @@
 package com.tuzicao.emeraldknight.game
 
+import com.tuzicao.emeraldknight.game.battle.BattleScene
 import org.json.JSONObject
 import java.util.LinkedList
 
 abstract class Scene(data: JSONObject) {
     companion object {
         fun getById(sceneId: String): Scene {
-            return if (sceneId.contains("end")) {
+            return if (sceneId == GameLogic.getFinalBattle()) {
+                BattleScene(GameLogic.sceneMap[sceneId]!!)
+            } else if (sceneId.contains("end")) {
                 StoryScene(
                     JSONObject(
                         mapOf(
@@ -25,7 +28,7 @@ abstract class Scene(data: JSONObject) {
 
     val id: String = data.getString("id")
 
-    open fun getText(): String = ""
+    abstract fun getText(): String
     open fun getOptions(
         optionList: LinkedList<String>? = null,
         choices: LinkedList<Choice>? = null

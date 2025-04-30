@@ -108,24 +108,25 @@ class Kernel(context: Context) {
     }
 
     fun checkCondition(toCheck: JSONObject): Boolean {
-        val checkAct = toCheck.getString("check")
-        if (checkAct == "CONDITION") {
+        val checkAct = CheckType.valueOf(toCheck.getString("check"))
+        if (checkAct == CheckType.CONDITION) {
             return (if (checkIs(toCheck.getJSONObject("para"))) 1 else 0) == toCheck.getInt("value")
         } else {
             val paraName = toCheck.getString("para")
             val checkValue: Any = when {
-                GameLogic.defaultFuncs.contains(paraName) -> when (paraName) {
-                    "SCENE" -> getSceneId()
-                    "FIGHT" -> getFightResult()
-                    "CHOICE" -> if (Choice.getById(toCheck.getString("value")).isShow()) 1 else 0
-                    else -> paraName
+                GameLogic.defaultFuncs.contains(paraName) -> when (FuncParas.valueOf(paraName)) {
+                    FuncParas.SCENE -> getSceneId()
+                    FuncParas.FIGHT -> getFightResult()
+                    FuncParas.CHOICE -> if (Choice.getById(toCheck.getString("value"))
+                            .isShow()
+                    ) 1 else 0
                 }
 
                 paraName.contains("end") -> if (GameLogic.checkEnd(paraName)) 1 else 0
                 else -> getPara(paraName)
             }
             val targetValue: Any = when {
-                paraName == "CHOICE" -> 1
+                FuncParas.valueOf(paraName) == FuncParas.CHOICE -> 1
                 toCheck.get("value") is String && GameLogic.defaultCodes.containsKey(
                     toCheck.getString(
                         "value"
@@ -137,15 +138,15 @@ class Kernel(context: Context) {
             }
 
             return when (checkAct) {
-                "EQUAL" -> checkValue == targetValue
-                "UNEQUAL" -> checkValue != targetValue
-                "MORE" -> checkValue as Int > targetValue as Int
-                "MORE_EQUAL" -> checkValue as Int >= targetValue as Int
-                "LESS" -> (checkValue as Int) < targetValue as Int
-                "LESS_EQUAL" -> checkValue as Int <= targetValue as Int
-                "BINARY" -> ((checkValue as Int shr (targetValue as Int - 1)) and 1) == 1
-                "NON_BINARY" -> ((checkValue as Int shr (targetValue as Int - 1)) and 1) == 0
-                else -> false
+                CheckType.EQUAL -> checkValue == targetValue
+                CheckType.UNEQUAL -> checkValue != targetValue
+                CheckType.MORE -> checkValue as Int > targetValue as Int
+                CheckType.MORE_EQUAL -> checkValue as Int >= targetValue as Int
+                CheckType.LESS -> (checkValue as Int) < targetValue as Int
+                CheckType.LESS_EQUAL -> checkValue as Int <= targetValue as Int
+                CheckType.BINARY -> ((checkValue as Int shr (targetValue as Int - 1)) and 1) == 1
+                CheckType.NON_BINARY -> ((checkValue as Int shr (targetValue as Int - 1)) and 1) == 0
+                else -> error("Unexpected check: $checkAct")
             }
         }
 
@@ -158,16 +159,15 @@ class Kernel(context: Context) {
         val checks = (0 until checkItems.length()).map {
             checkCondition(checkItems.getJSONObject(it))
         }
-        return when (checkOp) {
-            "AND" -> checks.all { it }
-            "OR" -> checks.any { it }
-            else -> false
+        return when (CheckOpType.valueOf(checkOp)) {
+            CheckOpType.AND -> checks.all { it }
+            CheckOpType.OR -> checks.any { it }
         }
     }
 
     fun changeAs(action: JSONObject) {
-        val act: String = action.getString("change")
-        if (act == "CONDITION") {
+        val act = ChangeType.valueOf(action.getString("change"))
+        if (act == ChangeType.CONDITION) {
             if (checkIs(action.getJSONObject("para"))) {
                 val change = action.getJSONArray("value")
                 for (i in 0 until change.length()) {
@@ -182,9 +182,10 @@ class Kernel(context: Context) {
                 value = 0
             }
             val paraName: String = action.getString("para")
-            when (action.getString("change")) {
-                "ADD" -> setPara(paraName, getPara(paraName) + value)
-                "SET" -> setPara(paraName, value)
+            when (act) {
+                ChangeType.ADD -> setPara(paraName, getPara(paraName) + value)
+                ChangeType.SET -> setPara(paraName, value)
+                else -> error("Unexpected change: $act")
             }
         }
     }

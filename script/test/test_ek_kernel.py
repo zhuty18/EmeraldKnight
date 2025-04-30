@@ -109,16 +109,15 @@ class TestKernel(TestEmeraldKnight):
 
     def test_condition_end(self):
         """测试结局条件检测"""
-        end = random.randint(1, self._game.get_ends())
         self.assertFalse(
             self._kernel.check_condition(
-                {"check": "CHECK_END", "para": "END", "value": end}
+                {"check": "UNEQUAL", "para": "end-99", "value": 0}
             )
         )
-        self._game.set_scene(f"end-{end}")
+        self._logic.mark_end("end-99")
         self.assertTrue(
             self._kernel.check_condition(
-                {"check": "CHECK_END", "para": "END", "value": end}
+                {"check": "EQUAL", "para": "end-99", "value": 1}
             )
         )
 

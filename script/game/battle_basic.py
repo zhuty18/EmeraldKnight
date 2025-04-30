@@ -15,8 +15,8 @@ class Character(BasicLogic):
         获取角色实例
 
         参数:
-            para_1: 角色id
-            para_2: 角色json配置
+            para_1: 角色json配置
+            para_2: None
         """
         return super().get_existence(para_1, para_2)
 
@@ -122,11 +122,7 @@ class Action(BasicLogic):
         if "chance" in data:
             self._chance = data["chance"]
 
-    def set_owner(self, owner):
-        """设置动作主体"""
-        self._owner = owner
-
-    def execute(self, _: Character):
+    def execute(self, _: Character = None):
         """执行动作"""
         return self._text
 
@@ -147,7 +143,7 @@ class Action(BasicLogic):
 
     def get_condition(self):
         """获取触发条件"""
-        return self._first
+        return self._condition
 
     def get_chance(self):
         """获取触发几率"""

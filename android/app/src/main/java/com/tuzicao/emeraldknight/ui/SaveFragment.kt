@@ -10,15 +10,9 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.tuzicao.emeraldknight.R
+import com.tuzicao.emeraldknight.game.GameLogic
 import com.tuzicao.emeraldknight.game.Kernel
-import org.json.JSONException
-import org.json.JSONObject
 import java.io.File
-import java.io.IOException
-import java.io.InputStreamReader
-import java.nio.charset.StandardCharsets
-import java.text.SimpleDateFormat
-import java.util.*
 
 class SaveFragment(private val isSaving: Boolean) : Fragment() {
 
@@ -49,27 +43,6 @@ class SaveFragment(private val isSaving: Boolean) : Fragment() {
         return file.exists()
     }
 
-    private fun saveName(fileName: String): String {
-        try {
-            val fis = context?.openFileInput(fileName)
-            val isr = InputStreamReader(fis, StandardCharsets.UTF_8)
-            val input = CharArray(fis?.available() ?: 0)
-            isr.read(input)
-            isr.close()
-            fis?.close()
-            val text = String(input)
-            val json = JSONObject(text)
-            val date = Date(json.getLong("time"))
-            val ft = SimpleDateFormat("MM.dd HH:mm")
-            return json.getString("title") + "\n" + ft.format(date)
-        } catch (e: IOException) {
-            e.printStackTrace()
-        } catch (e: JSONException) {
-            e.printStackTrace()
-        }
-        return ""
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val tv: TextView = requireView().findViewById(R.id.save_title_text)
         if (isSaving) {
@@ -79,9 +52,10 @@ class SaveFragment(private val isSaving: Boolean) : Fragment() {
             for (i in 0 until Kernel.MAX_SAVE) {
                 val index = i + 1
                 val saveName = "$index.eks"
+                val saveInfo = GameLogic.getSaveInfo(requireContext(), index)
                 if (saveExist(saveName)) {
                     val btn = Button(layout.context).apply {
-                        text = saveName(saveName)
+                        text = saveInfo
                         setOnClickListener {
                             listener?.saveGame(index)
                         }
@@ -89,7 +63,7 @@ class SaveFragment(private val isSaving: Boolean) : Fragment() {
                     layout.addView(btn)
                 } else {
                     val btn = Button(layout.context).apply {
-                        text = getString(R.string.empty_save)
+                        text = GameLogic.getEmptySave()
                         setOnClickListener {
                             listener?.saveGame(index)
                         }
@@ -105,9 +79,10 @@ class SaveFragment(private val isSaving: Boolean) : Fragment() {
             for (i in 0 until Kernel.MAX_SAVE) {
                 val index = i + 1
                 val saveName = "$index.eks"
+                val saveInfo = GameLogic.getSaveInfo(requireContext(), index)
                 if (saveExist(saveName)) {
                     val btn = Button(layout.context).apply {
-                        text = saveName(saveName)
+                        text = saveInfo
                         setOnClickListener {
                             listener?.loadGame(index)
                         }

@@ -26,7 +26,7 @@ class GameLogic {
 
         val endStatusMap: HashMap<String, Int> = HashMap()
 
-        lateinit var battleStory: JSONObject
+        private lateinit var battleStory: JSONObject
         lateinit var endChoice: JSONObject
         lateinit var endScene: JSONObject
 
@@ -112,6 +112,8 @@ class GameLogic {
         fun getFinalBattle(): String = constMap["FINAL_BATTLE"]!!
         fun getEmptySave(): String = constMap["EMPTY_SAVE"]!!
         fun getStoryEnd(): String = constMap["STORY_END"]!!
+
+        fun getBattleOf(key: String) = battleStory.getString(key)
 
         fun getSceneChapter(sceneId: String): String = sceneId.split("-")[0]
 

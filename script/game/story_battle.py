@@ -34,12 +34,12 @@ class BattleScene(Scene):
     def __init__(self, data):
         self._id = Logic.FINAL_BATTLE
         self._round = 0
-        enemy_id = Logic.BATTLE_STORY["ENEMY"]
-        enemy_data = Logic.CHARACTER_MAP[enemy_id]
-        self._enemy = Character.get_existence(enemy_id, enemy_data)
-        hero_id = Logic.BATTLE_STORY["HERO"]
-        hero_data = Logic.CHARACTER_MAP[hero_id]
-        self._hero = Character.get_existence(hero_id, hero_data)
+        self._enemy = Character.get_existence(
+            Logic.CHARACTER_MAP[Logic.BATTLE_STORY["ENEMY"]]
+        )
+        self._hero = Character.get_existence(
+            Logic.CHARACTER_MAP[Logic.BATTLE_STORY["HERO"]]
+        )
 
         self._options_lose = data["options_lose"]
         self._options_win = data["options_win"]

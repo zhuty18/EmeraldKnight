@@ -11,10 +11,6 @@ import androidx.fragment.app.Fragment
 import com.tuzicao.emeraldknight.R
 import com.tuzicao.emeraldknight.game.GameLogic
 import com.tuzicao.emeraldknight.game.Kernel
-import org.json.JSONException
-import org.json.JSONObject
-import java.io.IOException
-import java.nio.charset.StandardCharsets
 
 class HomeFragment : Fragment() {
 
@@ -42,39 +38,27 @@ class HomeFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val sbtn = view.findViewById<Button>(R.id.start_button)
-        sbtn.setOnClickListener {
+        val startBtn = view.findViewById<Button>(R.id.start_button)
+        startBtn.setOnClickListener {
             listener.startGame()
         }
 
         val layout = view.findViewById<LinearLayout>(R.id.history_layout)
         layout.removeAllViews()
 
-        try {
-            val fis = requireContext().openFileInput("0.eks")
-            val input = fis.readBytes()
-            fis.close()
-            val text = String(input, StandardCharsets.UTF_8)
-            val json = JSONObject(text)
-
-            for (i in 0 until GameLogic.endNameMap.size) {
-                val index = i + 1
-                val endName = "end-$index"
-                val btn = Button(context)
-                if (json.optInt(endName, 0) == 1) {
-                    btn.text = "结局$index ${Kernel.getSceneName(endName)}"
-                    btn.setOnClickListener {
-                        listener.loadEnd(index)
-                    }
-                } else {
-                    btn.text = "结局$index 未解锁"
+        for (i in 0 until GameLogic.endNameMap.size) {
+            val index = i + 1
+            val endName = "end-$index"
+            val btn = Button(context)
+            if (GameLogic.checkEnd(endName)) {
+                btn.text = "结局$index ${Kernel.getSceneName(endName)}"
+                btn.setOnClickListener {
+                    listener.loadEnd(index)
                 }
-                layout.addView(btn)
+            } else {
+                btn.text = "结局$index 未解锁"
             }
-        } catch (e: IOException) {
-            e.printStackTrace()
-        } catch (e: JSONException) {
-            e.printStackTrace()
+            layout.addView(btn)
         }
     }
 }

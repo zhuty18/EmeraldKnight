@@ -3,7 +3,7 @@ package com.tuzicao.emeraldknight.game
 import org.json.JSONObject
 
 
-abstract class Choice(data: JSONObject) {
+abstract class Choice(val id: String) {
 
     companion object {
         fun getById(choiceId: String): Choice {
@@ -11,12 +11,10 @@ abstract class Choice(data: JSONObject) {
         }
     }
 
-    val id: String = data.getString("id")
+    abstract fun getText(): String
 
-    open fun getText(): String = ""
+    abstract fun isShow(): Boolean
 
-    open fun isShow(): Boolean = true
-
-    open fun beChosen() {}
+    abstract fun beChosen()
 }
 

@@ -3,7 +3,7 @@ package com.tuzicao.emeraldknight.game
 import org.json.JSONArray
 import org.json.JSONObject
 
-class StoryChoice(data: JSONObject) : Choice(data) {
+class StoryChoice(data: JSONObject) : Choice(data.getString("id")) {
     private val target: String = data.getString("target")
     private val text: String =
         if (data.has("text")) data.getString("text") else GameLogic.getSceneName(target)

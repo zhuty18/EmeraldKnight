@@ -12,9 +12,9 @@ class Hero(Character):
     """英雄类"""
 
     @staticmethod
-    def get_hero(hero_id, data):
+    def get_hero(data):
         """获取英雄"""
-        match hero_id:
+        match data["id"]:
             case "HAL":
                 return Hal(data)
 
@@ -49,9 +49,9 @@ class Enemy(Character):
     """敌人类"""
 
     @staticmethod
-    def get_enemy(enemy_id, data):
+    def get_enemy(data):
         """获取敌人"""
-        match enemy_id:
+        match data["id"]:
             case "SINESTRO":
                 return Sinestro(data)
 
@@ -59,7 +59,7 @@ class Enemy(Character):
         chance = []
         for act in self._actions:
             if act.is_heal() and self.need_heal(act) and act.is_available():
-                return act.execute(target)
+                return act.execute()
             elif act.get_chance():
                 chance.append((act.get_chance(), act))
         dice = sum([x[0] for x in chance]) * random()
@@ -90,22 +90,22 @@ class Sinestro(Enemy):
         self._attack = 100
         self._attack -= Logic.get_kernel().get_para("SINESTRO_LOVE") * 5
         self._speed = 100
-        self._speed -= Logic.get_kernel().get_para("SINESTRO_LOVE") * 2
+        self._speed -= Logic.get_kernel().get_para("SINESTRO_TAME") * 2
         self._life_max = data["max_life"]
         self.set()
 
 
-def get_hero(character_id, character_data):
+def get_hero(character_data, _):
     """获取主角实例"""
     if character_data["type"] == "HERO":
-        return Hero.get_hero(character_id, character_data)
+        return Hero.get_hero(character_data)
     return None
 
 
-def get_enemy(character_id, character_data):
+def get_enemy(character_data, _):
     """获取敌人实例"""
     if character_data["type"] == "ENEMY":
-        return Enemy.get_enemy(character_id, character_data)
+        return Enemy.get_enemy(character_data)
     return None
 
 
