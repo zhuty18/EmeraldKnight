@@ -117,6 +117,10 @@ class GameLogic {
             return chapterNameMap["ch${getSceneChapter(sceneId)}"]!!
         }
 
+        fun getEndName(endId: String): String {
+            return endNameMap[endId]!!
+        }
+
         fun markEnd(context: Context, endId: String) {
             val file = File(context.filesDir, "0.eks")
             val endStatus = JSONObject(file.readText())
@@ -128,10 +132,6 @@ class GameLogic {
             val file = File(context.filesDir, "0.eks")
             val endStatus = JSONObject(file.readText())
             return endStatus.optInt(endId, 0) == 1
-        }
-
-        fun getEndName(endId: String): String {
-            return endNameMap[endId]!!
         }
 
         fun getSaveInfo(context: Context, saveId: Int): String {

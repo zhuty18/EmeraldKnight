@@ -21,6 +21,16 @@ class Kernel:
         self._fight = {}  # 战斗结果
         self.refresh_paras()
 
+    def to_scene(self, scene_id):
+        """改变场景"""
+        self._scene = Scene.get_existence(scene_id)
+
+    def refresh_paras(self):
+        """刷新参数"""
+        for _, v in Logic.DEFAULT_PARAS.items():
+            if v["name"] not in self._paras:
+                self._paras[v["name"]] = v["default_value"]
+
     def load_at(self, save_id):
         """加载存档"""
         if save_id == 0:
@@ -45,12 +55,6 @@ class Kernel:
                     )
                 )
 
-    def refresh_paras(self):
-        """刷新参数"""
-        for _, v in Logic.DEFAULT_PARAS.items():
-            if v["name"] not in self._paras:
-                self._paras[v["name"]] = v["default_value"]
-
     def get_para(self, para_name):
         """获取参数值"""
         return self._paras[Logic.DEFAULT_PARAS[para_name]["name"]]
@@ -62,31 +66,6 @@ class Kernel:
     def set_para(self, para_name, value):
         """设置参数值"""
         self._paras[Logic.DEFAULT_PARAS[para_name]["name"]] = value
-
-    def change_para(self, action):
-        """改变参数"""
-        para_name = action["para"]
-        change_act = action["change"]
-        change_by = action["value"]
-
-        if change_act == "CONDITION":
-            if self.check_is(para_name):
-                for change in change_by:
-                    self.change_para(change)
-        else:
-            if isinstance(change_by, str):
-                value = Logic.DEFAULT_CODES[change_by]
-            else:
-                value = change_by
-            match change_act:
-                case "ADD":
-                    self.set_para(para_name, self.get_para(para_name) + value)
-                case "SET":
-                    self.set_para(para_name, value)
-
-    def to_scene(self, scene_id):
-        """改变场景"""
-        self._scene = Scene.get_existence(scene_id)
 
     def check_condition(self, check):
         """单个条件检测"""
@@ -150,6 +129,27 @@ class Kernel:
                 case "OR":
                     res |= check
         return res
+
+    def change_para(self, action):
+        """改变参数"""
+        para_name = action["para"]
+        change_act = action["change"]
+        change_by = action["value"]
+
+        if change_act == "CONDITION":
+            if self.check_is(para_name):
+                for change in change_by:
+                    self.change_para(change)
+        else:
+            if isinstance(change_by, str):
+                value = Logic.DEFAULT_CODES[change_by]
+            else:
+                value = change_by
+            match change_act:
+                case "ADD":
+                    self.set_para(para_name, self.get_para(para_name) + value)
+                case "SET":
+                    self.set_para(para_name, value)
 
     def get_scene_id(self):
         """获取当前场景ID"""

@@ -52,6 +52,27 @@ class Logic:
     BATTLE_STORY = {}  # 决战相关字符串
 
     @staticmethod
+    def res_path(file_dir, file_name=None):
+        """相关文件路径"""
+        if Logic.DEBUG:
+            root = os.path.abspath(".")
+        else:
+            root = os.getenv("APPDATA")
+            root = os.path.join(root, "EmeraldKnight")
+
+        if file_name:
+            return os.path.join(root, file_dir, file_name)
+        return os.path.join(root, file_dir)
+
+    @staticmethod
+    def read_file(file_dir, file_name):
+        """读取文件"""
+        with open(
+            Logic.res_path(file_dir, file_name), "r", encoding="utf8"
+        ) as f:
+            return json.loads(f.read())
+
+    @staticmethod
     def load_data(data_all, storage, full_data=True):
         """用id-全数据将数据加载进表"""
         for i in data_all:
@@ -130,27 +151,6 @@ class Logic:
                 f.write("{}")
 
     @staticmethod
-    def res_path(file_dir, file_name=None):
-        """相关文件路径"""
-        if Logic.DEBUG:
-            root = os.path.abspath(".")
-        else:
-            root = os.getenv("APPDATA")
-            root = os.path.join(root, "EmeraldKnight")
-
-        if file_name:
-            return os.path.join(root, file_dir, file_name)
-        return os.path.join(root, file_dir)
-
-    @staticmethod
-    def read_file(file_dir, file_name):
-        """读取文件"""
-        with open(
-            Logic.res_path(file_dir, file_name), "r", encoding="utf8"
-        ) as f:
-            return json.loads(f.read())
-
-    @staticmethod
     def get_scene_chapter(scene_id):
         """获取场景章节"""
         return scene_id.split("-")[0]
@@ -164,6 +164,11 @@ class Logic:
     def get_scene_name(scene_id):
         """获取场景名"""
         return Logic.SCENE_MAP[scene_id]["name"]
+
+    @staticmethod
+    def get_end_name(end_id):
+        """获取结局名称"""
+        return Logic.END_NAME_MAP[end_id]
 
     @staticmethod
     def get_chapter_name(scene_id):
@@ -189,11 +194,6 @@ class Logic:
         """检查结局是否解锁"""
         static_save = Logic.read_file(Logic.PATH_SAVE, Logic.FILE_DEFAULT_SAVE)
         return static_save.get(end_id, 0) == 1
-
-    @staticmethod
-    def get_end_name(end_id):
-        """获取结局名称"""
-        return Logic.END_NAME_MAP[end_id]
 
     @staticmethod
     def get_save_info(save_id):
