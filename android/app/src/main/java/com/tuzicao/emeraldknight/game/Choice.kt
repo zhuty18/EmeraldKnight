@@ -2,15 +2,16 @@ package com.tuzicao.emeraldknight.game
 
 import org.json.JSONObject
 
-abstract class Choice(private val id: String, data: JSONObject) {
+
+abstract class Choice(data: JSONObject) {
 
     companion object {
         fun getById(choiceId: String): Choice {
-            return StoryChoice(choiceId, GameLogic.choiceMap[choiceId]!!)
+            return StoryChoice(GameLogic.choiceMap[choiceId]!!)
         }
     }
 
-    fun getId(): String = id
+    val id: String = data.getString("id")
 
     open fun getText(): String = ""
 
