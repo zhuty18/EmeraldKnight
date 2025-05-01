@@ -12,8 +12,12 @@ class Kernel(context: Context) {
     companion object {
         const val MAX_SAVE = 100
 
-        fun getSceneName(id: String): String {
-            return GameLogic.getSceneName(id)
+        fun getSceneName(sceneId: String): String {
+            return if (sceneId.contains("end")) {
+                GameLogic.getEndName(sceneId)
+            } else {
+                GameLogic.sceneMap[sceneId]!!.getString("name")
+            }
         }
     }
 

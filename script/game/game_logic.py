@@ -29,6 +29,7 @@ class Logic:
 
     PATH_STORY = "data/story"  # 故事相关文件路径
     FILE_STORYS = "story_ch{ch}.json"
+    FILE_STORY_END = "story_end.json"
 
     PATH_SAVE = "save"  # 存档相关文件路径
     FILE_DEFAULT_SAVE = "0.eks"  # 初始存档文件
@@ -119,6 +120,11 @@ class Logic:
                 Logic.SCENE_TEXT_MAP,
                 False,
             )
+        Logic.load_data(
+            Logic.read_file(Logic.PATH_STORY, Logic.FILE_STORY_END),
+            Logic.SCENE_TEXT_MAP,
+            False,
+        )
 
         name_data = Logic.read_file(Logic.PATH_DATA, Logic.FILE_NAMES)
         Logic.load_data(name_data["end_names"], Logic.END_NAME_MAP, False)
