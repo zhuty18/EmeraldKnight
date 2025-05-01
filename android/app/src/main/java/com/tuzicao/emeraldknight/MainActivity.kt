@@ -1,5 +1,7 @@
 package com.tuzicao.emeraldknight
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -10,6 +12,7 @@ import com.tuzicao.emeraldknight.game.Kernel
 import com.tuzicao.emeraldknight.game.Choice
 import com.tuzicao.emeraldknight.ui.*
 import java.util.LinkedList
+import androidx.core.net.toUri
 
 class MainActivity : AppCompatActivity(),
     HomeFragment.FragmentListener,
@@ -75,7 +78,7 @@ class MainActivity : AppCompatActivity(),
         if (!atGame || !kernel.isOn()) {
             switchFragment(HomeFragment())
         } else {
-            if(kernel.getSceneId().contains("end")){
+            if (kernel.getSceneId().contains("end")) {
                 kernel.openEnd(this)
             }
             val sceneText = kernel.getSceneText()
@@ -122,5 +125,11 @@ class MainActivity : AppCompatActivity(),
 
     override fun openCheat() {
         switchFragment(CheatFragment())
+    }
+
+    override fun openProject() {
+        val intent: Intent =
+            Intent(Intent.ACTION_VIEW, this.getString(R.string.project_url).toUri())
+        startActivity(intent)
     }
 }

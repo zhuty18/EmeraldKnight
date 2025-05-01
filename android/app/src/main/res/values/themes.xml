@@ -3,6 +3,10 @@
 
     <style name="Theme.EmeraldKnight" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:windowFullscreen">false</item>
-        <item name="android:colorPrimary">@color/emerald</item>
+        <item name="colorPrimary">@color/emerald</item>
+        <item name="colorAccent">@color/emerald_soft</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" >@color/emerald_soft</item>
+        <!-- Customize your theme here. -->
     </style>
 </resources>

@@ -87,7 +87,7 @@ if __name__ == "__main__":
         f'<string name="app_name">{data["name"]}</string>',
     )
     string_data = string_data.replace(
-        '<string name="version">v1.2</string>',
+        '<string name="version">v2.1</string>',
         f'<string name="version">v{data["version"]}</string>',
     )
     poem = "\n".join(["#160;&#160;&#160;&#160;".join(i) for i in data["poem"]])
@@ -96,8 +96,12 @@ if __name__ == "__main__":
         f'<string name="poem">{poem}</string>',
     )
     string_data = string_data.replace(
-        '<string name="author_info">作者：兔子草\nQQ：3440950898\n邮箱：13718054285@163.com</string>',
-        f'<string name="author_info">作者：{data["author"]}\nQQ：{data["contact_qq"]}\n邮箱：{data["contact_email"]}</string>',
+        '<string name="author">by 兔子草</string>',
+        f'<string name="author">by {data["author"]}</string>',
+    )
+    string_data = string_data.replace(
+        '<string name="author_info">QQ：3440950898\n邮箱：13718054285@163.com</string>',
+        f'<string name="author_info">QQ：{data["contact_qq"]}\n邮箱：{data["contact_email"]}</string>',
     )
     string_data = string_data.replace(
         '<string name="project_url">https://github.com/zhuty18/EmeraldKnight</string>',

@@ -7,6 +7,7 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@color/emerald_back"
@@ -20,38 +21,76 @@
         app:layout_constraintHeight_percent="0.25"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/icon_desc"
-            android:paddingTop="@dimen/nav_header_vertical_spacing"
-            app:srcCompat="@drawable/icon" />
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/icon_desc"
+                android:paddingTop="@dimen/nav_header_vertical_spacing"
+                app:srcCompat="@drawable/icon" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/page_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/open_page" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/nav_header_vertical_spacing"
             android:text="@string/app_name"
-            android:textColor="@color/white"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/white"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:text="@string/project_url" />
-    </LinearLayout>
+            android:text="@string/project_url"
+            android:textColor="@color/white" />
 
+        <LinearLayout
+            android:layout_width="291dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.75"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:layout_editor_absoluteX="39dp">
+
+        <TextView
+            android:id="@+id/about_author_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/author"
+            android:textColor="@color/main_text"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="29dp" />
 
         <TextView
             android:id="@+id/about_text"
@@ -59,10 +98,10 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/author_info"
-            android:textSize="24sp"
             android:textColor="@color/main_text"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/about_author_text"
+            tools:layout_editor_absoluteX="0dp" />
 
         <Button
             android:id="@+id/cheat_button"
@@ -73,8 +112,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/about_text"
-            app:layout_constraintVertical_bias="0.8" />
+            app:layout_constraintTop_toBottomOf="@+id/about_text" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

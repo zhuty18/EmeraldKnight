@@ -14,6 +14,7 @@ class AboutFragment : Fragment() {
 
     interface AboutFragmentListener {
         fun openCheat()
+        fun openProject()
     }
 
     override fun onAttach(context: Context) {
@@ -33,9 +34,13 @@ class AboutFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val btn: Button = view.findViewById(R.id.cheat_button)
-        btn.setOnClickListener {
+        val cheat_btn: Button = view.findViewById(R.id.cheat_button)
+        cheat_btn.setOnClickListener {
             listener?.openCheat()
+        }
+        val page_btn:Button =view.findViewById(R.id.page_btn)
+        page_btn.setOnClickListener{
+            listener?.openProject()
         }
     }
 }
