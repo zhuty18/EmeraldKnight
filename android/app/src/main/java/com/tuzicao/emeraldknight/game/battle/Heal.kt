@@ -14,7 +14,7 @@ class Heal(data: JSONObject, owner: Character) : Action(data, owner) {
         used += 1
         val healValue: Int = healMin + (Random().nextDouble() * (healMax - healMin)).toInt()
         owner.heal(healValue)
-        return text + GameLogic.getBattleOf("Heal")
+        return text + GameLogic.getBattleOf("HEAL")
             .replace(GameLogic.getBattleOf("BLANK"), healValue.toString())
     }
 

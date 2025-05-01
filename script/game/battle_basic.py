@@ -135,7 +135,7 @@ class Action(BasicLogic):
         if not self._show:
             return True
         else:
-            return Logic.get_kernel().check_condition(self._show)
+            return Logic.get_kernel().check_is(self._show)
 
     def get_first(self):
         """获取首次条件"""

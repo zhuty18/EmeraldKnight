@@ -1,5 +1,6 @@
 package com.tuzicao.emeraldknight.game.battle
 
+import android.util.Log
 import com.tuzicao.emeraldknight.game.ActionType
 import com.tuzicao.emeraldknight.game.GameLogic
 import org.json.JSONObject

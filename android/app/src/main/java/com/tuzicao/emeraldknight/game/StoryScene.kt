@@ -18,8 +18,8 @@ class StoryScene(data: JSONObject) : Scene(data) {
         if (id.contains("end")) {
             sceneText += GameLogic.getStoryEnd() + GameLogic.getEndName(id)
         }
-        sceneText = "        $sceneText"
-        sceneText = sceneText.replace("\n", "\n        ")
+        sceneText = "\t\t\t\t$sceneText"
+        sceneText = sceneText.replace("\n", "\n\t\t\t\t")
         return sceneText
     }
 

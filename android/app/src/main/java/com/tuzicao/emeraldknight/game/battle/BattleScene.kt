@@ -30,18 +30,18 @@ class BattleScene(data: JSONObject) : Scene(data) {
     }
 
     override fun getText(): String {
-        return if (round == 0) {
-            getBattleStatus() + GameLogic.getBattleOf("START")
+        if (round == 0) {
+            return getBattleStatus() + GameLogic.getBattleOf("START")
         } else {
             var message = hero.takeAct()
             if (enemy.isDead()) {
-                getBattleStatus() + message + GameLogic.getBattleOf("WIN")
+                return getBattleStatus() + message + GameLogic.getBattleOf("WIN")
             }
-            message += enemy.takeAct(hero)
+            message += "\n" + enemy.takeAct(hero)
             if (hero.isDead()) {
-                getBattleStatus() + message + GameLogic.getBattleOf("LOSE")
+                return getBattleStatus() + message + GameLogic.getBattleOf("LOSE")
             }
-            getBattleStatus() + message
+            return getBattleStatus() + message
         }
     }
 
