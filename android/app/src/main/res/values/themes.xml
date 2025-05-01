@@ -6,7 +6,7 @@
         <item name="colorPrimary">@color/emerald</item>
         <item name="colorAccent">@color/emerald_soft</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" >@color/emerald_soft</item>
+        <item name="android:statusBarColor" >@color/emerald_back</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>
