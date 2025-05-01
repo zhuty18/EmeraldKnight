@@ -4,6 +4,7 @@
 
 import json
 import os
+import shutil
 
 if __name__ == "__main__":
     # 所有选项打包为一个列表，存储在app/src/main/assets/choices.json里
@@ -50,9 +51,7 @@ if __name__ == "__main__":
     if None in json_files:
         json_files.remove(None)
     for file in json_files:
-        os.system(
-            f"cp {os.path.join("../data",file)} {os.path.join("app/src/main/assets",file)}"
-        )
+        shutil.copyfile(f"../data/{file}", f"app/src/main/assets/{file}")
 
     # 图标文件移动到app/src/main/res/drawable
     icon_files = os.listdir("../data")
@@ -62,9 +61,7 @@ if __name__ == "__main__":
     if not os.path.exists("app/src/main/res/drawable"):
         os.mkdir("app/src/main/res/drawable")
     for file in icon_files:
-        os.system(
-            f"cp {os.path.join("../data",file)} {os.path.join("app/src/main/res/drawable",file)}"
-        )
+        shutil.copyfile(f"../data/{file}", f"app/src/main/res/drawable/{file}")
 
     with open("../data/info.json", "r", encoding="utf-8") as f:
         data = json.loads(f.read())
