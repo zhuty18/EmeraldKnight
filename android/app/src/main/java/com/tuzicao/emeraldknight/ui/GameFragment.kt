@@ -43,7 +43,7 @@ class GameFragment(
         super.onViewCreated(view, savedInstanceState)
 
         val tv: TextView = requireView().findViewById(R.id.game_text)
-        tv.text = sceneText
+        "\u3000\u3000$sceneText".replace("\n", "\n\u3000\u3000").also { tv.text = it }
 
         val layout: LinearLayout = requireView().findViewById(R.id.game_choice_layout)
         layout.removeAllViews()
