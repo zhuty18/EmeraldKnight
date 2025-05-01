@@ -59,6 +59,7 @@ class Kernel:
 
     def load_at(self, save_id):
         """加载存档"""
+        self._fight = {}
         if save_id == 0:
             # 新游戏，读取默认参数
             self.to_scene(Logic.START_SCENE)

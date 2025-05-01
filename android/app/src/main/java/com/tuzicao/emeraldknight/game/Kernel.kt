@@ -1,7 +1,6 @@
 package com.tuzicao.emeraldknight.game
 
 import android.content.Context
-import android.util.Log
 import org.json.JSONObject
 import java.io.File
 import java.util.LinkedList
@@ -58,10 +57,11 @@ class Kernel(context: Context) {
     }
 
     fun loadAt(context: Context, saveId: Int) {
+        fightResult.clear()
         if (saveId == 0) {
             toScene(GameLogic.getStartScene())
+            paraMap.clear()
             for (item in GameLogic.defaultParas.values) {
-                paraMap.clear()
                 setPara(item.getString("id"), item.getInt("default_value"))
             }
         } else {
