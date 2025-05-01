@@ -69,112 +69,81 @@ if __name__ == "__main__":
     # 版本号等信息注入app/build.gradle.kts
     with open("app/build.gradle.kts", "r", encoding="utf-8") as f:
         bundle_data = f.read()
-    write_data = bundle_data
-    bundle_data = bundle_data.split("\n")
-    for line in bundle_data:
-        if "versionCode" in line:
-            version_code = re.findall(
-                re.compile(r"versionCode = (\d+)", re.S), line
-            )[0]
-            write_data = write_data.replace(
-                line, line.replace(version_code, str(data["version_number"]))
-            )
-        elif "versionName" in line:
-            version_name = re.findall(
-                re.compile(r'versionName = "(.+)"', re.S), line
-            )[0]
-            write_data = write_data.replace(
-                line, line.replace(version_name, data["version"])
-            )
+    version_code = re.findall(r"versionCode = (\d+)\n", bundle_data)[0]
+    bundle_data = bundle_data.replace(
+        f"versionCode = {version_code}",
+        f'versionCode = {data["version_number"]}',
+    )
+
+    version_name = re.findall(r'versionName = "(.+)"\n', bundle_data)[0]
+    bundle_data = bundle_data.replace(
+        f'versionName = "{version_name}"',
+        f'versionName = "{data["version"]}"',
+    )
     with open("app/build.gradle.kts", "w", encoding="utf-8") as f:
-        f.write(write_data)
+        f.write(bundle_data)
 
     # 信息注入app/src/main/res/values/strings.xml
     with open(
         "app/src/main/res/values/strings.xml", "r", encoding="utf-8"
     ) as f:
         string_data = f.read()
-    write_data = string_data
-    string_data = string_data.split("\n")
-    for line in string_data:
-        ori_name = re.findall(
-            re.compile(r'<string name="app_name">(.*)</string>', re.S), line
-        )
-        if ori_name:
-            ori_name = ori_name[0]
-            write_data = write_data.replace(
-                line, line.replace(ori_name, data["name"])
-            )
+    name = re.findall(
+        r'<string name="app_name">(.*)</string>',
+        string_data,
+    )
+    string_data = string_data.replace(
+        f'<string name="app_name">{name[0]}</string>',
+        f'<string name="app_name">{data["name"]}</string>',
+    )
 
-        version = re.findall(
-            re.compile(r'<string name="version">v(.*)</string>', re.S), line
-        )
-        if version:
-            version = version[0]
-            write_data = write_data.replace(
-                line, line.replace(version, data["version"])
-            )
+    version = re.findall(r'<string name="version">v(.*)</string>', string_data)[
+        0
+    ]
+    string_data = string_data.replace(
+        f'<string name="version">v{version}</string>',
+        f'<string name="version">v{data["version"]}</string>',
+    )
 
-        old_poem = re.findall(
-            re.compile(r'<string name="poem">(.*)</string>', re.S), line
-        )
-        if old_poem:
-            old_poem = old_poem[0]
-            write_data = write_data.replace(
-                line,
-                line.replace(
-                    old_poem,
-                    "\\n".join(
-                        [
-                            "&#160;&#160;&#160;&#160;".join(i)
-                            for i in data["poem"]
-                        ]
-                    ),
-                ),
-            )
-        author = re.findall(
-            re.compile(r'<string name="author">by (.*)</string>', re.S), line
-        )
-        if author:
-            author = author[0]
-            write_data = write_data.replace(
-                line, line.replace(author, data["author"])
-            )
+    poem = re.findall(r'<string name="poem">(.*)</string>', string_data)[0]
+    string_data = string_data.replace(
+        f'<string name="poem">{poem}</string>',
+        f'<string name="poem">{"\\n".join(["&#160;&#160;&#160;&#160;".join(line)for line in data["poem"]])}</string>',
+    )
 
-        contact_qq = re.findall(
-            re.compile(
-                r'<string name="author_info">QQ：(.*)\n.*</string>', re.S
-            ),
-            line,
-        )
-        if contact_qq:
-            contact_qq = contact_qq[0]
-            write_data = write_data.replace(
-                line, line.replace(contact_qq, data["contact_qq"])
-            )
+    author = re.findall(r'<string name="author">by (.*)</string>', string_data)[
+        0
+    ]
+    string_data = string_data.replace(
+        f'<string name="author">by {author}</string>',
+        f'<string name="author">by {data["author"]}</string>',
+    )
 
-        contact_email = re.findall(
-            re.compile(
-                r'<string name="author_info">.*邮箱：(.*)</string>', re.S
-            ),
-            line,
-        )
-        if contact_email:
-            contact_email = contact_email[0]
-            write_data = write_data.replace(
-                line, line.replace(contact_email, data["contact_email"])
-            )
+    contact_qq = re.findall(
+        r'<string name="author_info">QQ：(.*)\\n(.*)</string>', string_data
+    )[0]
+    string_data = string_data.replace(
+        f'<string name="author_info">QQ：{contact_qq[0]}\\n{contact_qq[1]}</string>',
+        f'<string name="author_info">QQ：{data["contact_qq"]}\\n{contact_qq[1]}</string>',
+    )
 
-        project_url = re.findall(
-            re.compile(r'<string name="project_url">(.*)</string>', re.S),
-            line,
-        )
-        if project_url:
-            project_url = project_url[0]
-            write_data = write_data.replace(
-                line, line.replace(project_url, data["home_url"])
-            )
+    contact_email = re.findall(
+        r'<string name="author_info">(.*)邮箱：(.*)</string>', string_data
+    )[0]
+    string_data = string_data.replace(
+        f'<string name="author_info">{contact_email[0]}邮箱：{contact_email[1]}</string>',
+        f'<string name="author_info">{contact_email[0]}邮箱：{data["contact_email"]}</string>',
+    )
+
+    project_url = re.findall(
+        r'<string name="project_url">(.*)</string>', string_data
+    )[0]
+    string_data = string_data.replace(
+        f'<string name="project_url">{project_url}</string>',
+        f'<string name="project_url">{data["home_url"]}</string>',
+    )
+
     with open(
         "app/src/main/res/values/strings.xml", "w", encoding="utf-8"
     ) as f:
-        f.write(write_data)
+        f.write(string_data)
