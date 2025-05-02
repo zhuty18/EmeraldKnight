@@ -23,8 +23,8 @@ class BattleScene(data: JSONObject) : Scene(data) {
         var battleText = "${enemy.name}\n"
         battleText += "HP: ${enemy.life} / ${enemy.lifeMax}\n\n"
         val s = "HP: ${hero.life} / ${hero.lifeMax}"
-        battleText += "${" ".repeat(46)}${hero.name}\n"
-        battleText += "${" ".repeat(48 - s.length)}$s\n"
+        battleText += "${"\t".repeat(33)}${hero.name}\n"
+        battleText += "${"\t".repeat(35 - s.length)}$s\n"
         battleText += "\n\n"
         return battleText
     }

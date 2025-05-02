@@ -109,13 +109,11 @@ class StoryScene(Scene):
 
     def __init__(self, data):
         self._id = data["id"]
-        self._scene = data["scene"] if "scene" in data else None
         self._options = data["options"]
         self._require = data["require"] if "require" in data else None
 
     def get_text(self):
-        s_id = self._scene if self._scene else self._id
-        scene_text = Logic.get_scene_text(s_id)
+        scene_text = Logic.get_scene_text(self._id)
         if "end" in self._id:
             scene_text += Logic.STORY_END + Logic.get_end_name(self._id)
         scene_text = "    " + scene_text

@@ -16,15 +16,15 @@
 
 需要手动存档。
 
-1. Python版本：运行起来较为麻烦，感兴趣的话[可以看看](https://github.com/zhuty18/EmeraldKnight/python)
-2. Web版本：[点此开始](https://zhuty18.github.io/EmeraldKnight/web)
-3. Android版本：[点此下载](https://github.com/zhuty18/EmeraldKnight/releases/latest/download/EmeraldKnight.apk)
+1. Web版本：[点此开始](https://zhuty18.github.io/EmeraldKnight/web)
+2. Android版本：[点此下载](https://github.com/zhuty18/EmeraldKnight/releases/latest/download/EmeraldKnight.apk)
+3. Python版本：运行起来较为麻烦，感兴趣的话[可以看看](https://github.com/zhuty18/EmeraldKnight/python)
 
 ## 开发进度
 
 v2.2  部署网页版（进行中）
 
-v2.1 重构android版并发布（测试中）（2025.04.30）
+v2.1 重构android版并发布（测试中）（2025.04.30）（v2.1.5完成测试）（2025.05.02）
 
 v2.0.2 自动发布Android版本的相关处理（进行中）
 

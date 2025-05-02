@@ -5,7 +5,6 @@ import java.util.LinkedList
 
 
 class StoryScene(data: JSONObject) : Scene(data) {
-    private val scene: String? = if (data.has("scene")) data.getString("scene") else null
     private val options: LinkedList<String> =
         LinkedList(List(data.getJSONArray("options").length()) {
             data.getJSONArray("options").getString(it)
@@ -14,7 +13,7 @@ class StoryScene(data: JSONObject) : Scene(data) {
         if (data.has("require")) data.getJSONObject("require") else null
 
     override fun getText(): String {
-        var sceneText = GameLogic.getSceneText(scene ?: id)
+        var sceneText = GameLogic.getSceneText(id)
         if (id.contains("end")) {
             sceneText += GameLogic.getStoryEnd() + GameLogic.getEndName(id)
         }
@@ -27,8 +26,8 @@ class StoryScene(data: JSONObject) : Scene(data) {
     ): LinkedList<Choice> {
         require?.let {
             if (GameLogic.gameKernel.checkIs(require)) {
-                val matchOption = LinkedList(List(require.getJSONArray("options").length()) {
-                    require.getJSONArray("options").getString(it)
+                val matchOption = LinkedList(List(require.getJSONArray("match_options").length()) {
+                    require.getJSONArray("match_options").getString(it)
                 })
                 return super.getOptions(matchOption, null)
             }

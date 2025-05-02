@@ -131,7 +131,7 @@ class Kernel(context: Context) {
                 else -> getPara(paraName)
             }
             val targetValue: Any = when {
-                FuncParas.valueOf(paraName) == FuncParas.CHOICE -> 1
+                GameLogic.defaultFuncs.contains(paraName) && FuncParas.valueOf(paraName) == FuncParas.CHOICE -> 1
                 toCheck.get("value") is String && GameLogic.defaultCodes.containsKey(
                     toCheck.getString(
                         "value"
