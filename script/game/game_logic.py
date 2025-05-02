@@ -23,13 +23,9 @@ class Logic:
     FILE_NAMES = "names.json"  # 名称配置文件
     FILE_CHARACTERS = "characters.json"  # 角色配置文件
 
-    PATH_CHAPTER = "data/chapter"  # 章节相关文件路径
-    FILE_SCENES = "scenes_ch{ch}.json"  # 场景配置文件
-    FILE_CHOICES = "choices_ch{ch}.json"  # 选项配置文件
-
-    PATH_STORY = "data/story"  # 故事相关文件路径
-    FILE_STORYS = "story_ch{ch}.json"
-    FILE_STORY_END = "story_end.json"
+    FILE_SCENES = "scenes.json"  # 场景配置文件
+    FILE_CHOICES = "choices.json"  # 选项配置文件
+    FILE_STORYS = "story_text.json"  # 场景故事配置文件
 
     PATH_SAVE = "save"  # 存档相关文件路径
     FILE_DEFAULT_SAVE = "0.eks"  # 初始存档文件
@@ -97,31 +93,17 @@ class Logic:
         Logic.SCENE_MAP[end_scene["id"]] = end_scene
         end_choice = Logic.DEFAULT_CONSTS["END_CHOICE"]
         Logic.CHOICE_MAP[end_choice["id"]] = end_choice
-        for ch in range(Logic.CHAPTERS):
-            Logic.load_data(
-                Logic.read_file(
-                    Logic.PATH_CHAPTER,
-                    Logic.FILE_SCENES.replace("{ch}", str(ch + 1)),
-                ),
-                Logic.SCENE_MAP,
-            )
-            Logic.load_data(
-                Logic.read_file(
-                    Logic.PATH_CHAPTER,
-                    Logic.FILE_CHOICES.replace("{ch}", str(ch + 1)),
-                ),
-                Logic.CHOICE_MAP,
-            )
-            Logic.load_data(
-                Logic.read_file(
-                    Logic.PATH_STORY,
-                    Logic.FILE_STORYS.replace("{ch}", str(ch + 1)),
-                ),
-                Logic.SCENE_TEXT_MAP,
-                False,
-            )
+
         Logic.load_data(
-            Logic.read_file(Logic.PATH_STORY, Logic.FILE_STORY_END),
+            Logic.read_file(Logic.PATH_DATA, Logic.FILE_SCENES),
+            Logic.SCENE_MAP,
+        )
+        Logic.load_data(
+            Logic.read_file(Logic.PATH_DATA, Logic.FILE_CHOICES),
+            Logic.CHOICE_MAP,
+        )
+        Logic.load_data(
+            Logic.read_file(Logic.PATH_DATA, Logic.FILE_STORYS),
             Logic.SCENE_TEXT_MAP,
             False,
         )

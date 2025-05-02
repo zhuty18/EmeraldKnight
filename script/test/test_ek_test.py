@@ -10,29 +10,6 @@ from test_ek import TestEmeraldKnight
 class TestTest(TestEmeraldKnight):
     """测试版游戏测试"""
 
-    def test_get_chapters(self):
-        """测试获取配置数据量"""
-        file_list = os.listdir(self._logic.res_path(self._logic.PATH_CHAPTER))
-
-        choice_list = []
-        scene_list = []
-        for file in file_list:
-            if "choices" in file:
-                choice_list.append(file)
-            elif "scenes" in file:
-                scene_list.append(file)
-        self.assertEqual(len(choice_list), len(scene_list))
-        self.assertEqual(len(scene_list), self._game.get_max_chapter())
-
-        for file in scene_list:
-            scenes = self._logic.read_file(self._logic.PATH_CHAPTER, file)
-            self.assertEqual(
-                len(scenes),
-                self._game.get_chapter_max_scene(
-                    self._logic.get_scene_chapter(scenes[0]["id"])
-                ),
-            )
-
     def test_set_scene_id(self):
         """测试章节位置设置"""
         chapters = [str(i + 1) for i in range(self._game.get_max_chapter())]

@@ -80,7 +80,7 @@ class GameLogic {
             loadData(JSONArray(readJSON(context, "scenes.json")), sceneMap) { it }
             sceneMap[endScene.getString("id")] = endScene
             loadData(
-                JSONArray(readJSON(context, "scene_text.json")),
+                JSONArray(readJSON(context, "story_text.json")),
                 sceneTextMap
             ) { it.getString("value") }
 
