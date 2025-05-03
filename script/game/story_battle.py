@@ -15,6 +15,9 @@ class BattleChoice(Choice):
         self._battle_scene = battle_scene
         self._move = move
 
+    def get_id(self):
+        return self._move.get_id()
+
     def text(self):
         return self._move.get_name()
 

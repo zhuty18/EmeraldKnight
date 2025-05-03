@@ -25,6 +25,8 @@ class TestKernel(TestEmeraldKnight):
         paras = self._game.get_paras()
         scene_id = self._game.get_scene_id()
         self._game.save_at(99)
+        self._logic.get_save_info(99)
+        self._logic.get_save_info(100)
         self._game.set_para(self._game.get_random_para(), 101)
         self._game.set_para(self._game.get_random_para(), 101)
         self._game.set_para(self._game.get_random_para(), 101)
