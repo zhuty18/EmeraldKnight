@@ -73,9 +73,44 @@ class TestEngine(TestEmeraldKnight):
     def test_enemy_fight(self):
         """测试敌人战斗"""
         self._game.set_scene(self._logic.FINAL_BATTLE)
+        self._kernel.get_scene_text()
         self._game.get_choices()[0].choose()
         self._kernel.get_scene_text()
         self._kernel.get_choices()
+
+    def test_enemy_heal_1(self):
+        """测试敌人治疗1"""
+        self._game.set_scene(self._logic.FINAL_BATTLE)
+        enemy = self._kernel._scene.get_enemy()
+        enemy.hurt(300)
+        enemy.take_act(self._kernel._scene.get_hero())
+        self.assertGreater(enemy.get_life(), 200)
+
+    def test_enemy_heal_2(self):
+        """测试敌人治疗2"""
+        self._game.set_scene(self._logic.FINAL_BATTLE)
+        enemy = self._kernel._scene.get_enemy()
+        enemy.hurt(300)
+        enemy.take_act(self._kernel._scene.get_hero())
+        enemy._life = 1
+        enemy.take_act(self._kernel._scene.get_hero())
+        self.assertGreater(enemy.get_life(), 1)
+
+    def test_win(self):
+        """测试胜利"""
+        self._game.set_scene(self._logic.FINAL_BATTLE)
+        self._game.get_choices()[0].choose()
+        self._kernel._scene.get_enemy()._life = 0
+        self._kernel.get_scene_text()
+        self.assertTrue("end" in self._game.get_choices()[0]._target)
+
+    def test_lose(self):
+        """测试失败"""
+        self._game.set_scene(self._logic.FINAL_BATTLE)
+        self._game.get_choices()[0].choose()
+        self._kernel._scene.get_hero()._life = 0
+        self._kernel.get_scene_text()
+        self.assertEqual(self._game.get_choices()[0].get_id(), "6-6-1")
 
     def test_end_1(self):
         """测试结局1"""
@@ -89,5 +124,6 @@ class TestEngine(TestEmeraldKnight):
         self.assertTrue(self._game.choose_by_id("1-17-1"))
         self.assertEqual(self._game.get_scene_id(), "end-1")
         self._kernel.get_scene_text()
+        self._logic.get_chapter_name(self._game.get_scene_id())
         self.assertTrue(self._game.choose_by_id("end"))
         self.assertEqual(self._game.get_scene_id(), "game_over")

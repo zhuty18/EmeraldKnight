@@ -47,7 +47,7 @@ class TestEmeraldKnight(unittest.TestCase):
         self._logic = self._game.get_logic()
 
 
-if __name__ == "__main__":
-    suite = unittest.defaultTestLoader.discover("script/test", "test_ek*.py")
-    runner = unittest.TextTestRunner()
-    runner.run(suite)
+# if __name__ == "__main__":
+#     suite = unittest.defaultTestLoader.discover("script/test", "test_ek*.py")
+#     runner = unittest.TextTestRunner()
+#     runner.run(suite)

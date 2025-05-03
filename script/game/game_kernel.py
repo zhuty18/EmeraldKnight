@@ -147,8 +147,6 @@ class Kernel:
                 return check_para >> (value - 1) & 1 == 1
             case "NON_BINARY":
                 return check_para >> (value - 1) & 1 == 0
-            case "CHECK_END":
-                return check_para == value
 
     def check_is(self, check):
         """条件检测"""

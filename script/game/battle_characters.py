@@ -22,9 +22,6 @@ class Hero(Character):
         """获取选项"""
         return self._actions
 
-    def is_hero(self):
-        return True
-
 
 class Hal(Hero):
     """主角类"""
@@ -55,7 +52,7 @@ class Enemy(Character):
             case "SINESTRO":
                 return Sinestro(data)
 
-    def tack_act(self, target):
+    def take_act(self, target):
         chance = []
         for act in self._actions:
             if act.is_heal() and self.need_heal(act) and act.is_available():
@@ -77,9 +74,6 @@ class Enemy(Character):
             return self._life < act.get_condition()
         else:
             return False
-
-    def is_enemy(self):
-        return True
 
 
 class Sinestro(Enemy):

@@ -56,9 +56,7 @@ class StoryChoice(Choice):
     def show(self):
         if not self._show:
             return True
-        return Logic.get_kernel().check_is(
-            self._show["op"], self._show["condition"]
-        )
+        return Logic.get_kernel().check_is(self._show)
 
     def choose(self):
         if self._choose:

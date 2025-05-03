@@ -36,3 +36,9 @@ class TestTest(TestEmeraldKnight):
         for k in self._logic.DEFAULT_PARAS.keys():
             self._game.set_para(k, 99)
             self.assertEqual(99, self._game.get_para(k))
+
+    def test_choice_by_id(self):
+        """测试根据ID选择选项"""
+        self._game.new_game()
+        self.assertTrue(self._game.choose_by_id("1-1-1"))
+        self.assertFalse(self._game.choose_by_id("1-1-1"))

@@ -35,6 +35,8 @@ class EmeraldKnightTest(EmeraldKnight):
 
     def get_choices(self):
         """获取场景选项"""
+        for c in self._kernel.get_choices():
+            c.text()
         return self._kernel.get_choices()
 
     def get_paras(self):
@@ -79,6 +81,7 @@ class EmeraldKnightTest(EmeraldKnight):
         """按id选择选项"""
         for c in self.get_choices():
             if c.get_id() == choice_id:
+                c.text()
                 c.choose()
                 return True
         return False
