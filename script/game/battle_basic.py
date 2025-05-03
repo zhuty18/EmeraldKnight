@@ -2,6 +2,8 @@
 
 """战斗基类"""
 
+from abc import abstractmethod
+
 from game_logic import Logic
 from logic_basic import BasicLogic
 
@@ -56,7 +58,7 @@ class Character(BasicLogic):
         """获取最大生命值"""
         return self._life_max
 
-    def tack_act(self, _):
+    def take_act(self, _):
         """进行回合"""
         return self._record
 
@@ -75,14 +77,6 @@ class Character(BasicLogic):
     def set_text(self, message):
         """更新记录"""
         self._record = message
-
-    def is_hero(self):
-        """是否为英雄"""
-        return False
-
-    def is_enemy(self):
-        """是否为敌人"""
-        return False
 
 
 class Action(BasicLogic):
@@ -104,13 +98,8 @@ class Action(BasicLogic):
         self._owner = owner
         self._text = data["text"]
 
-        self._show = None
-        if "show" in data:
-            self._show = data["show"]
-
-        self._name = None
-        if "name" in data:
-            self._name = data["name"]
+        self._name = data["name"] if "name" in data else None
+        self._show = data["show"] if "show" in data else None
 
         self._condition = None
         self._first = None
@@ -122,9 +111,9 @@ class Action(BasicLogic):
         if "chance" in data:
             self._chance = data["chance"]
 
-    def execute(self, _: Character = None):
+    @abstractmethod
+    def execute(self, target: Character = None):
         """执行动作"""
-        return self._text
 
     def get_name(self):
         """获取动作名"""

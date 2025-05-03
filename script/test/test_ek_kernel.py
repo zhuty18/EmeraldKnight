@@ -2,9 +2,6 @@
 
 """内核测试"""
 
-
-import random
-
 from test_ek import TestEmeraldKnight
 
 
@@ -13,18 +10,16 @@ class TestKernel(TestEmeraldKnight):
 
     def test_save_game(self):
         """测试存读档场景"""
-        self._game.random_scene()
-        while (
-            self._logic.get_scene_chapter(self._game.get_scene_id()) == "6"
-            or self._logic.get_scene_chapter(self._game.get_scene_id()) == "end"
-        ):
-            self._game.random_scene()
         self._game.set_para(self._game.get_random_para(), 99)
         self._game.set_para(self._game.get_random_para(), 99)
         self._game.set_para(self._game.get_random_para(), 99)
         paras = self._game.get_paras()
+        for i in range(self._game.get_max_chapter()):
+            self._game.set_scene(f"{i+1}-1")
+            self._game.save_at(99)
+            self._logic.get_save_info(99)
         scene_id = self._game.get_scene_id()
-        self._game.save_at(99)
+        self._logic.get_save_info(100)
         self._game.set_para(self._game.get_random_para(), 101)
         self._game.set_para(self._game.get_random_para(), 101)
         self._game.set_para(self._game.get_random_para(), 101)
@@ -118,6 +113,27 @@ class TestKernel(TestEmeraldKnight):
         self.assertTrue(
             self._kernel.check_condition(
                 {"check": "EQUAL", "para": "end-99", "value": 1}
+            )
+        )
+
+    def test_check_condition(self):
+        """测试配置：条件生效"""
+        self.assertTrue(
+            self._kernel.check_condition(
+                {
+                    "check": "CONDITION",
+                    "para": {
+                        "op": "AND",
+                        "condition": [
+                            {
+                                "check": "EQUAL",
+                                "para": self._game.get_random_para(),
+                                "value": 0,
+                            }
+                        ],
+                    },
+                    "value": 1,
+                }
             )
         )
 
@@ -230,6 +246,19 @@ class TestKernel(TestEmeraldKnight):
                     "check": "EQUAL",
                     "para": "SCENE",
                     "value": self._game.get_scene_id(),
+                }
+            )
+        )
+
+    def test_check_choice(self):
+        """测试选项检测"""
+        self._game.random_scene()
+        self.assertTrue(
+            self._kernel.check_condition(
+                {
+                    "check": "EQUAL",
+                    "para": "CHOICE",
+                    "value": "1-1-1",
                 }
             )
         )

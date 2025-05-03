@@ -19,7 +19,7 @@ class Attack(Action):
         else:
             self._self_hurt = None
 
-    def execute(self, target: Character):
+    def execute(self, target: Character = None):
         """执行攻击"""
         exe_text = self._text
         if self._self_hurt:
@@ -57,7 +57,7 @@ class Heal(Action):
         self._time = data["time"]
         self._used = 0
 
-    def execute(self, _):
+    def execute(self, _=None):
         """执行治疗"""
         self._used += 1
         heal = int(self._min + random() * (self._max - self._min))
@@ -81,7 +81,7 @@ class Heal(Action):
 class Cheat(Action):
     """作弊动作"""
 
-    def execute(self, target):
+    def execute(self, target=None):
         """作弊"""
         target.hurt(target.get_life())
         return self._text

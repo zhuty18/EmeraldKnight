@@ -8,49 +8,13 @@ import re
 import shutil
 
 if __name__ == "__main__":
-    # 所有选项打包为一个列表，存储在app/src/main/assets/choices.json里
-    # 所有场景打包为一个列表，存储在app/src/main/assets/scenes.json里
-    with open("../data/info.json", "r", encoding="utf-8") as f:
-        info = json.loads(f.read())
-    scenes = []
-    choices = []
-    for ch in range(1, info["chapters"] + 1):
-        with open(
-            f"../data/chapter/choices_ch{ch}.json", "r", encoding="utf-8"
-        ) as f:
-            choices.extend(json.loads(f.read()))
-        with open(
-            f"../data/chapter/scenes_ch{ch}.json", "r", encoding="utf-8"
-        ) as f:
-            scenes.extend(json.loads(f.read()))
-    if not os.path.exists("app/src/main/assets"):
-        os.mkdir("app/src/main/assets")
-    with open("app/src/main/assets/choices.json", "w", encoding="utf-8") as f:
-        f.write(json.dumps(choices, ensure_ascii=False, indent=4))
-    with open("app/src/main/assets/scenes.json", "w", encoding="utf-8") as f:
-        f.write(json.dumps(scenes, ensure_ascii=False, indent=4))
-
-    # 所有场景文本打包为一个列表，存储在app/src/main/assets/scene_text.json
-    # [{"id":"场景id","value":"场景文本"}]
-    scene_text = []
-    chapter_list = os.listdir("../data/story")
-    for ch in range(1, info["chapters"] + 1):
-        with open(
-            f"../data/story/story_ch{ch}.json", "r", encoding="utf-8"
-        ) as f:
-            scene_text.extend(json.loads(f.read()))
-    with open("../data/story/story_end.json", "r", encoding="utf-8") as f:
-        scene_text.extend(json.loads(f.read()))
-    with open(
-        "app/src/main/assets/scene_text.json", "w", encoding="utf-8"
-    ) as f:
-        f.write(json.dumps(scene_text, ensure_ascii=False, indent=4))
-
-    # 其他json配置文件移动到app/src/main/assets
+    # json配置文件复制到app/src/main/assets
     json_files = os.listdir("../data")
     json_files = {x if x.endswith(".json") else None for x in json_files}
     if None in json_files:
         json_files.remove(None)
+    if not os.path.exists("app/src/main/assets"):
+        os.mkdir("app/src/main/assets")
     for file in json_files:
         shutil.copyfile(f"../data/{file}", f"app/src/main/assets/{file}")
 

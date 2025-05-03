@@ -15,6 +15,9 @@ class BattleChoice(Choice):
         self._battle_scene = battle_scene
         self._move = move
 
+    def get_id(self):
+        return self._move.get_id()
+
     def text(self):
         return self._move.get_name()
 
@@ -70,12 +73,12 @@ class BattleScene(Scene):
     def get_text(self):
         if self._round == 0:
             return self.get_battle_status() + Logic.BATTLE_STORY["START"]
-        message = self._hero.tack_act(None)
+        message = self._hero.take_act(None)
         if self._enemy.is_dead():
             return (
                 self.get_battle_status() + message + Logic.BATTLE_STORY["WIN"]
             )
-        message += "\n" + self._enemy.tack_act(self._hero)
+        message += "\n" + self._enemy.take_act(self._hero)
         if self._hero.is_dead():
             return (
                 self.get_battle_status() + message + Logic.BATTLE_STORY["LOSE"]
