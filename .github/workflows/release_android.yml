@@ -38,10 +38,14 @@ jobs:
             - name: Grant Permission to Gradle
               run: chmod +x ./android/gradlew
 
-            - name: Pack Data and Build Signed APK
+            - name: Pack Data
               run: |
                   cd android
                   python pack_data.py
+
+            - name: Build Signed APK
+              run: |
+                  cd android
                   ./gradlew assembleRelease
 
             - name: Rename APK
