@@ -1,9 +1,9 @@
 {
     "name": "翡翠骑士",
     "name_en": "Emerald Knight",
-    "version": "2.1",
-    "version_number": 1,
-    "update": "2025.04.21",
+    "version": "2.1.6",
+    "version_number": 7,
+    "update": "2025.05.03",
     "chapters": 7,
     "icon": "data/icon.ico",
     "poem": [
@@ -26,7 +26,7 @@
     ],
     "author": "兔子草",
     "contact_qq": "3440950898",
-    "contact_email": "1371805428@163.com",
+    "contact_email": "13718054285@163.com",
     "home_url": "https://zhuty18.github.io/EmeraldKnight",
     "project_url": "https://github.com/zhuty18/EmeraldKnight"
 }

@@ -56,18 +56,12 @@ class StoryChoice(Choice):
     def show(self):
         if not self._show:
             return True
-        return Logic.get_kernel().check_is(
-            self._show["op"], self._show["condition"]
-        )
+        return Logic.get_kernel().check_is(self._show)
 
     def choose(self):
         if self._choose:
             for action in self._choose:
-                Logic.get_kernel().change_para(
-                    action["para"],
-                    action["change"],
-                    action["value"],
-                )
+                Logic.get_kernel().change_para(action)
         Logic.get_kernel().to_scene(self._target)
 
 
@@ -113,13 +107,11 @@ class StoryScene(Scene):
 
     def __init__(self, data):
         self._id = data["id"]
-        self._scene = data["scene"] if "scene" in data else None
         self._options = data["options"]
         self._require = data["require"] if "require" in data else None
 
     def get_text(self):
-        s_id = self._scene if self._scene else self._id
-        scene_text = Logic.read_scene_text(s_id)
+        scene_text = Logic.get_scene_text(self._id)
         if "end" in self._id:
             scene_text += Logic.STORY_END + Logic.get_end_name(self._id)
         scene_text = "    " + scene_text
@@ -129,9 +121,7 @@ class StoryScene(Scene):
     def get_options(self, options=None, choices=None):
         option_list = self._options
         if self._require:
-            if Logic.get_kernel().check_is(
-                self._require["op"], self._require["condition"]
-            ):
+            if Logic.get_kernel().check_is(self._require):
                 option_list = self._require["match_options"]
         return super().get_options(options=option_list)
 

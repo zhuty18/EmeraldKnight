@@ -50,9 +50,14 @@
                 "strength": 0.3,
                 "text": "你借助飞马对魔王发起奇袭，",
                 "show": {
-                    "check": "EQUAL",
-                    "para": "PEGASUS",
-                    "value": 1
+                    "op": "AND",
+                    "condition": [
+                        {
+                            "check": "EQUAL",
+                            "para": "PEGASUS",
+                            "value": 1
+                        }
+                    ]
                 }
             },
             {

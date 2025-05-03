@@ -11,4 +11,5 @@
     <color name="emerald_soft">#1AA854</color>
     <color name="emerald_back">#007f27</color>
     <color name="main_text">#CACACA</color>
+    <color name="btn_color">#2F2F2F</color>
 </resources>

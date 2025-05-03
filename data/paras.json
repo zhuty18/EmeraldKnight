@@ -96,23 +96,10 @@
             "default_value": 0
         }
     ],
-    "function_para_list": [
-        {
-            "id": "CHOICE",
-            "value": "CHOICE"
-        },
-        {
-            "id": "END",
-            "value": "END"
-        },
-        {
-            "id": "FIGHT",
-            "value": "FIGHT"
-        },
-        {
-            "id": "SCENE",
-            "value": "SCENE"
-        }
+    "func_list": [
+        "SCENE",
+        "FIGHT",
+        "CHOICE"
     ],
     "code_list": [
         {

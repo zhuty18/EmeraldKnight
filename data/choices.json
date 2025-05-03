@@ -1,0 +1,4511 @@
+[
+    {
+        "id": "1-1-1",
+        "target": "1-2",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "SWORD_HOT_TIME",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "1-1-2",
+        "target": "1-3"
+    },
+    {
+        "id": "1-1-3",
+        "target": "1-4"
+    },
+    {
+        "id": "1-2-1",
+        "target": "1-5",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "SWORD_HOT_TIME",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "1-3-1",
+        "target": "1-6"
+    },
+    {
+        "id": "1-3-2",
+        "target": "1-7"
+    },
+    {
+        "id": "1-3-3",
+        "target": "1-8"
+    },
+    {
+        "id": "1-4-1",
+        "target": "1-9",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "SINESTRO_TAME",
+                "value": -1
+            }
+        ]
+    },
+    {
+        "id": "1-4-2",
+        "target": "1-10",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "SINESTRO_LOVE",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "1-4-3",
+        "target": "1-11"
+    },
+    {
+        "id": "1-5-1",
+        "target": "1-12"
+    },
+    {
+        "id": "1-5-2",
+        "target": "1-13",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "KNOWLEDGE",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "1-6-1",
+        "target": "1-52"
+    },
+    {
+        "id": "1-6-2",
+        "target": "1-18",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "KNOWLEDGE",
+                "value": 3
+            }
+        ]
+    },
+    {
+        "id": "1-7-1",
+        "target": "1-14",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "KNOWLEDGE",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "id": "1-7-2",
+        "target": "1-17"
+    },
+    {
+        "id": "1-8-1",
+        "target": "1-16",
+        "text": "找人带路去龙骨雪山"
+    },
+    {
+        "id": "1-11-1",
+        "target": "1-55",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "SINESTRO_LOVE",
+                "value": -1
+            }
+        ]
+    },
+    {
+        "id": "1-11-2",
+        "target": "1-56"
+    },
+    {
+        "id": "1-11-3",
+        "target": "1-57",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "SINESTRO_TAME",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "1-11-4",
+        "target": "1-58"
+    },
+    {
+        "id": "1-12-0",
+        "target": "1-24"
+    },
+    {
+        "id": "1-12-1",
+        "target": "1-20",
+        "text": "带有火焰纹路的红晶石",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "PROP_1",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "1-12-2",
+        "target": "1-21",
+        "text": "带有雪花纹路的蓝晶石",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "PROP_1",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "id": "1-12-3",
+        "target": "1-22",
+        "text": "带有漩涡纹路的紫晶石",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "PROP_1",
+                "value": 3
+            }
+        ]
+    },
+    {
+        "id": "1-12-4",
+        "target": "1-23",
+        "text": "带有草叶纹路的绿晶石",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "PROP_1",
+                "value": 4
+            }
+        ]
+    },
+    {
+        "id": "1-14-1",
+        "target": "1-47"
+    },
+    {
+        "id": "1-14-2",
+        "target": "1-48",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "BARRY_LOVE",
+                "value": 5
+            }
+        ]
+    },
+    {
+        "id": "1-14-3",
+        "target": "1-49"
+    },
+    {
+        "id": "1-15-1",
+        "target": "1-19",
+        "text": "重选"
+    },
+    {
+        "id": "1-16-1",
+        "target": "2-1"
+    },
+    {
+        "id": "1-16-2",
+        "target": "2-2"
+    },
+    {
+        "id": "1-16-3",
+        "target": "2-3"
+    },
+    {
+        "id": "1-17-1",
+        "target": "end-1",
+        "text": "不了"
+    },
+    {
+        "id": "1-17-2",
+        "target": "1-19"
+    },
+    {
+        "id": "1-19-1",
+        "target": "1-15"
+    },
+    {
+        "id": "1-24-0",
+        "target": "1-29"
+    },
+    {
+        "id": "1-24-1",
+        "target": "1-25",
+        "text": "看看书架",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "PROP_2",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "1-24-2",
+        "target": "1-26",
+        "text": "看看卷轴",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "PROP_2",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "id": "1-24-3",
+        "target": "1-27",
+        "text": "看看挂毯",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "PROP_2",
+                "value": 3
+            }
+        ]
+    },
+    {
+        "id": "1-24-4",
+        "target": "1-28",
+        "text": "看看徽章",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "PROP_2",
+                "value": 4
+            }
+        ]
+    },
+    {
+        "id": "1-24-5",
+        "target": "1-29",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "INTELLIGENCE",
+                "value": -2
+            }
+        ]
+    },
+    {
+        "id": "1-29-1",
+        "target": "1-30"
+    },
+    {
+        "id": "1-29-2",
+        "target": "1-34",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "PROP_2",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "BRUCE_SHOW_UP",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "1-31-1",
+        "target": "1-32",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "MORE_EQUAL",
+                    "para": "BRUCE_LOVE",
+                    "value": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "1-31-2",
+        "target": "1-33",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "PROP_1",
+                "value": 0
+            },
+            {
+                "change": "SET",
+                "para": "PROP_2",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "1-34-1",
+        "target": "1-35",
+        "text": "这是什么地方？",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "LESS",
+                    "para": "TEMPORARY",
+                    "value": 2
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "1-34-2",
+        "target": "1-36",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "LESS",
+                    "para": "TEMPORARY",
+                    "value": 2
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "1-34-3",
+        "target": "1-37",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "TEMPORARY",
+                    "value": 2
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "1-37-1",
+        "target": "1-38",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "BRUCE_LOVE",
+                "value": -5
+            }
+        ]
+    },
+    {
+        "id": "1-37-2",
+        "target": "1-39",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "BRUCE_LOVE",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "1-38-1",
+        "target": "1-31",
+        "text": "四处走走"
+    },
+    {
+        "id": "1-39-1",
+        "target": "1-40",
+        "text": "四处走走",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "MORE_EQUAL",
+                    "para": "KNOWLEDGE",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "1-39-2",
+        "target": "1-31",
+        "text": "四处走走",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "LESS",
+                    "para": "KNOWLEDGE",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "1-40-1",
+        "target": "1-41",
+        "text": "仔细看看",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "PROP_1",
+                    "value": 4
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "SWORD_HOT_TIME",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "1-40-2",
+        "target": "1-45",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "UNEQUAL",
+                    "para": "PROP_1",
+                    "value": 4
+                },
+                {
+                    "check": "EQUAL",
+                    "para": "BRUCE_SHOW_UP",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "BRUCE_LOVE",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "id": "1-40-3",
+        "target": "1-31",
+        "text": "起身走开",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "UNEQUAL",
+                    "para": "PROP_1",
+                    "value": 4
+                },
+                {
+                    "check": "UNEQUAL",
+                    "para": "BRUCE_SHOW_UP",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "1-41-1",
+        "target": "1-42",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "KNOWLEDGE",
+                "value": 5
+            }
+        ]
+    },
+    {
+        "id": "1-41-2",
+        "target": "1-43",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "PROP_1",
+                "value": 0
+            },
+            {
+                "change": "SET",
+                "para": "PROP_2",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "1-41-3",
+        "target": "1-44",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "BRUCE_SHOW_UP",
+                    "value": 0
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "BRUCE_LOVE",
+                "value": 4
+            }
+        ]
+    },
+    {
+        "id": "1-41-4",
+        "target": "1-46",
+        "text": "那个人呢？",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "BRUCE_SHOW_UP",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "BRUCE_LOVE",
+                "value": 10
+            },
+            {
+                "change": "SET",
+                "para": "BRUCE_INTRODUCE",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "1-49-1",
+        "target": "end-1",
+        "text": "我还不够强"
+    },
+    {
+        "id": "1-49-2",
+        "target": "1-50",
+        "text": "知道的太少",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "MORE_EQUAL",
+                    "para": "SWORD_HOT_TIME",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "1-49-3",
+        "target": "1-51",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "KNOWLEDGE",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "1-52-1",
+        "target": "1-53",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "MORE",
+                    "para": "KNOWLEDGE",
+                    "value": 0
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "KNOWLEDGE",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "1-52-2",
+        "target": "1-54",
+        "show": {
+            "op": "OR",
+            "condition": [
+                {
+                    "check": "LESS_EQUAL",
+                    "para": "KNOWLEDGE",
+                    "value": 0
+                },
+                {
+                    "check": "EQUAL",
+                    "para": "SCENE",
+                    "value": "1-53"
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEAMMATE",
+                "value": "OLIVER_CODE"
+            }
+        ]
+    },
+    {
+        "id": "1-58-1",
+        "target": "1-59",
+        "text": "你就这么在野外点火的？",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "MORE_EQUAL",
+                    "para": "SINESTRO_TAME",
+                    "value": 0
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "SINESTRO_TAME",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "id": "1-58-2",
+        "target": "1-60",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "SINESTRO_TAME",
+                "value": -1
+            }
+        ]
+    },
+    {
+        "id": "1-58-3",
+        "target": "1-61",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "MORE_EQUAL",
+                    "para": "SINESTRO_LOVE",
+                    "value": 0
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "SINESTRO_LOVE",
+                "value": -1
+            }
+        ]
+    },
+    {
+        "id": "1-58-4",
+        "target": "1-62"
+    },
+    {
+        "id": "1-62-1",
+        "target": "1-63",
+        "text": "把他捆上",
+        "show": {
+            "op": "OR",
+            "condition": [
+                {
+                    "check": "MORE",
+                    "para": "SINESTRO_LOVE",
+                    "value": 0
+                },
+                {
+                    "check": "MORE",
+                    "para": "SINESTRO_TAME",
+                    "value": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "1-62-2",
+        "target": "1-64",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "LESS_EQUAL",
+                    "para": "SINESTRO_LOVE",
+                    "value": 0
+                },
+                {
+                    "check": "LESS_EQUAL",
+                    "para": "SINESTRO_TAME",
+                    "value": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "1-63-1",
+        "target": "1-72"
+    },
+    {
+        "id": "1-63-2",
+        "target": "end-3",
+        "text": "拒绝"
+    },
+    {
+        "id": "1-64-1",
+        "target": "1-65",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "1-64-2",
+        "target": "1-66"
+    },
+    {
+        "id": "1-66-1",
+        "target": "1-67",
+        "text": "质问他是否与失踪有关",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "TEMPORARY",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "1-66-2",
+        "target": "1-68"
+    },
+    {
+        "id": "1-67-1",
+        "target": "1-69",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "LESS",
+                    "para": "TEMPORARY",
+                    "value": 2
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "1-67-2",
+        "target": "1-70",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "LESS",
+                    "para": "TEMPORARY",
+                    "value": 2
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "1-67-3",
+        "target": "1-71",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "TEMPORARY",
+                    "value": 2
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "1-71-1",
+        "target": "end-2",
+        "text": "杀了他"
+    },
+    {
+        "id": "1-72-1",
+        "target": "1-73",
+        "text": "吻他"
+    },
+    {
+        "id": "1-72-2",
+        "target": "1-73",
+        "text": "摸他",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "id": "1-73-1",
+        "target": "1-74",
+        "text": "地上",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 3
+            }
+        ]
+    },
+    {
+        "id": "1-73-2",
+        "target": "1-74",
+        "text": "墙上"
+    },
+    {
+        "id": "1-74-1",
+        "target": "1-75",
+        "text": "里面",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 5
+            }
+        ]
+    },
+    {
+        "id": "1-74-2",
+        "target": "1-75",
+        "text": "外面"
+    },
+    {
+        "id": "1-75-1",
+        "target": "1-76",
+        "text": "体验如何",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "TEMPORARY",
+                    "value": 10
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            },
+            {
+                "change": "ADD",
+                "para": "SINESTRO_LOVE",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "id": "1-75-2",
+        "target": "1-77",
+        "text": "体验如何",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "MORE_EQUAL",
+                    "para": "TEMPORARY",
+                    "value": 5
+                },
+                {
+                    "check": "LESS",
+                    "para": "TEMPORARY",
+                    "value": 10
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "1-75-3",
+        "target": "end-4",
+        "text": "体验如何",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "LESS",
+                    "para": "TEMPORARY",
+                    "value": 5
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "1-76-1",
+        "target": "1-78",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "SINESTRO_TAME",
+                "value": -1
+            }
+        ]
+    },
+    {
+        "id": "1-76-2",
+        "target": "1-79"
+    },
+    {
+        "id": "1-76-3",
+        "target": "1-80",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "SINESTRO_TAME",
+                "value": 1
+            },
+            {
+                "change": "ADD",
+                "para": "SINESTRO_LOVE",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "1-76-4",
+        "target": "1-81"
+    },
+    {
+        "id": "1-81-1",
+        "target": "3-1"
+    },
+    {
+        "id": "2-1-1",
+        "target": "2-4",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "KNOWLEDGE",
+                "value": 1
+            },
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "2-1-2",
+        "target": "2-5",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 2
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "KNOWLEDGE",
+                "value": 1
+            },
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "id": "2-1-3",
+        "target": "2-6",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 3
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "KNOWLEDGE",
+                "value": 1
+            },
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 4
+            }
+        ]
+    },
+    {
+        "id": "2-1-4",
+        "target": "2-7",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "TEMPORARY",
+                    "value": 7
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "KNOWLEDGE",
+                "value": 1
+            },
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "2-2-1",
+        "target": "2-8",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "TEAMMATE",
+                    "value": "OLIVER_CODE"
+                }
+            ]
+        }
+    },
+    {
+        "id": "2-2-2",
+        "target": "2-9",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "UNEQUAL",
+                    "para": "TEAMMATE",
+                    "value": "OLIVER_CODE"
+                }
+            ]
+        }
+    },
+    {
+        "id": "2-3-1",
+        "target": "2-24",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "SWORD_HOT_TIME",
+                    "value": 3
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "SWORD_HOT_TIME",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "2-3-2",
+        "target": "2-25",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "SWORD_HOT_TIME",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "2-3-3",
+        "target": "7-1",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "end-10",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "2-7-1",
+        "target": "3-2"
+    },
+    {
+        "id": "2-8-1",
+        "target": "2-10",
+        "show": {
+            "op": "OR",
+            "condition": [
+                {
+                    "check": "UNEQUAL",
+                    "para": "KNOWLEDGE",
+                    "value": 4
+                },
+                {
+                    "check": "EQUAL",
+                    "para": "SCENE",
+                    "value": "2-12"
+                }
+            ]
+        }
+    },
+    {
+        "id": "2-8-2",
+        "target": "2-11",
+        "show": {
+            "op": "OR",
+            "condition": [
+                {
+                    "check": "UNEQUAL",
+                    "para": "KNOWLEDGE",
+                    "value": 4
+                },
+                {
+                    "check": "EQUAL",
+                    "para": "SCENE",
+                    "value": "2-12"
+                }
+            ]
+        }
+    },
+    {
+        "id": "2-8-3",
+        "target": "2-12",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "KNOWLEDGE",
+                    "value": 4
+                },
+                {
+                    "check": "UNEQUAL",
+                    "para": "SCENE",
+                    "value": "2-12"
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "OLIVER_LOVE",
+                "value": 3
+            }
+        ]
+    },
+    {
+        "id": "2-9-1",
+        "target": "2-20",
+        "text": "我走了，去翻龙骨雪山",
+        "show": {
+            "op": "OR",
+            "condition": [
+                {
+                    "check": "UNEQUAL",
+                    "para": "KNOWLEDGE",
+                    "value": 1
+                },
+                {
+                    "check": "EQUAL",
+                    "para": "SCENE",
+                    "value": "2-19"
+                }
+            ]
+        }
+    },
+    {
+        "id": "2-9-2",
+        "target": "2-21",
+        "show": {
+            "op": "OR",
+            "condition": [
+                {
+                    "check": "UNEQUAL",
+                    "para": "KNOWLEDGE",
+                    "value": 1
+                },
+                {
+                    "check": "EQUAL",
+                    "para": "SCENE",
+                    "value": "2-19"
+                }
+            ]
+        }
+    },
+    {
+        "id": "2-9-3",
+        "target": "2-19",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "KNOWLEDGE",
+                    "value": 1
+                },
+                {
+                    "check": "UNEQUAL",
+                    "para": "SCENE",
+                    "value": "2-19"
+                }
+            ]
+        }
+    },
+    {
+        "id": "2-10-1",
+        "target": "2-13"
+    },
+    {
+        "id": "2-10-2",
+        "target": "2-14",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "KNOWLEDGE",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "id": "2-11-1",
+        "target": "2-17",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "KNOWLEDGE",
+                "value": 1
+            },
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "2-11-2",
+        "target": "2-18",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 2
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "id": "2-11-3",
+        "target": "2-10",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "TEMPORARY",
+                    "value": 3
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "2-14-1",
+        "target": "2-15"
+    },
+    {
+        "id": "2-14-2",
+        "target": "2-33",
+        "text": "它是不是有什么不同寻常的地方",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "MORE",
+                    "para": "SWORD_HOT_TIME",
+                    "value": 0
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "INTELLIGENCE",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "id": "2-15-1",
+        "target": "2-16",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEAMMATE",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "2-16-1",
+        "target": "3-3",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "KNOWLEDGE",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "id": "2-20-1",
+        "target": "2-22",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "KNOWLEDGE",
+                "value": 3
+            }
+        ]
+    },
+    {
+        "id": "2-20-2",
+        "target": "2-23"
+    },
+    {
+        "id": "2-21-1",
+        "target": "2-20",
+        "text": "我走了，去翻龙骨雪山"
+    },
+    {
+        "id": "2-24-1",
+        "target": "2-26"
+    },
+    {
+        "id": "2-24-2",
+        "target": "2-27",
+        "text": "这下面是不是有黑暗力量？",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "MORE",
+                    "para": "KNOWLEDGE",
+                    "value": 5
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "INTELLIGENCE",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "id": "2-25-1",
+        "target": "2-28"
+    },
+    {
+        "id": "2-28-1",
+        "target": "2-29"
+    },
+    {
+        "id": "2-28-2",
+        "target": "2-30",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "INTELLIGENCE",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "2-29-1",
+        "target": "2-30"
+    },
+    {
+        "id": "2-30-1",
+        "target": "2-31"
+    },
+    {
+        "id": "2-30-2",
+        "target": "2-32",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "INTELLIGENCE",
+                "value": -1
+            }
+        ]
+    },
+    {
+        "id": "2-31-1",
+        "target": "3-4"
+    },
+    {
+        "id": "3-1-1",
+        "target": "3-5",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "SINESTRO_TAME",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "3-1-2",
+        "target": "3-30"
+    },
+    {
+        "id": "3-2-1",
+        "target": "3-31",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "KNOWLEDGE",
+                "value": 3
+            }
+        ]
+    },
+    {
+        "id": "3-2-2",
+        "target": "3-41"
+    },
+    {
+        "id": "3-3-1",
+        "target": "3-43",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "3-4-1",
+        "target": "3-50",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "KNOWLEDGE",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "3-4-2",
+        "target": "3-51"
+    },
+    {
+        "id": "3-4-3",
+        "target": "3-52"
+    },
+    {
+        "id": "3-5-1",
+        "target": "3-6"
+    },
+    {
+        "id": "3-5-2",
+        "target": "3-7"
+    },
+    {
+        "id": "3-6-1",
+        "target": "3-8"
+    },
+    {
+        "id": "3-6-2",
+        "target": "3-9"
+    },
+    {
+        "id": "3-8-1",
+        "target": "3-10"
+    },
+    {
+        "id": "3-8-2",
+        "target": "3-11"
+    },
+    {
+        "id": "3-10-1",
+        "target": "3-12"
+    },
+    {
+        "id": "3-10-2",
+        "target": "3-13"
+    },
+    {
+        "id": "3-12-1",
+        "target": "3-14",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "SINESTRO_TAME",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "id": "3-12-2",
+        "target": "3-15"
+    },
+    {
+        "id": "3-14-1",
+        "target": "3-16"
+    },
+    {
+        "id": "3-16-1",
+        "target": "3-17"
+    },
+    {
+        "id": "3-16-2",
+        "target": "end-5",
+        "text": "直接跳"
+    },
+    {
+        "id": "3-17-1",
+        "target": "3-18"
+    },
+    {
+        "id": "3-18-1",
+        "target": "3-19"
+    },
+    {
+        "id": "3-18-2",
+        "target": "3-20"
+    },
+    {
+        "id": "3-18-3",
+        "target": "3-21",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "SINESTRO_LOVE",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "3-19-1",
+        "target": "3-27",
+        "text": "我捡到了他的信"
+    },
+    {
+        "id": "3-19-2",
+        "target": "3-22",
+        "text": "我以为他会在山上"
+    },
+    {
+        "id": "3-20-1",
+        "target": "3-22",
+        "text": "瑟尔在这里吗"
+    },
+    {
+        "id": "3-20-2",
+        "target": "3-21",
+        "text": "阿琳是谁",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "SINESTRO_LOVE",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "3-21-1",
+        "target": "3-27"
+    },
+    {
+        "id": "3-21-2",
+        "target": "3-28"
+    },
+    {
+        "id": "3-22-1",
+        "target": "3-23"
+    },
+    {
+        "id": "3-22-2",
+        "target": "3-24"
+    },
+    {
+        "id": "3-22-3",
+        "target": "3-27",
+        "text": "我还捡到了他的信"
+    },
+    {
+        "id": "3-23-1",
+        "target": "3-25"
+    },
+    {
+        "id": "3-23-2",
+        "target": "3-26",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "SINESTRO_TAME",
+                    "value": 7
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "SINESTRO_LOVE",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "id": "3-24-1",
+        "target": "3-23",
+        "text": "告诉他全过程"
+    },
+    {
+        "id": "3-27-1",
+        "target": "3-23",
+        "text": "信上的瑟尔又是谁？"
+    },
+    {
+        "id": "3-28-1",
+        "target": "3-29"
+    },
+    {
+        "id": "3-29-1",
+        "target": "4-1",
+        "text": "告辞离开",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 80
+            }
+        ]
+    },
+    {
+        "id": "3-30-1",
+        "target": "3-2"
+    },
+    {
+        "id": "3-31-1",
+        "target": "3-32",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "3-31-2",
+        "target": "3-33",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 2
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "id": "3-31-3",
+        "target": "3-34",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 3
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 4
+            }
+        ]
+    },
+    {
+        "id": "3-31-4",
+        "target": "3-49",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "TEMPORARY",
+                    "value": 7
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "3-35-1",
+        "target": "3-36",
+        "text": "处理羽毛",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "PROP_1",
+                "value": 1
+            },
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "3-35-2",
+        "target": "3-36",
+        "text": "处理金属",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 2
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "PROP_1",
+                "value": 2
+            },
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "id": "3-35-3",
+        "target": "3-36",
+        "text": "处理骨头",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 3
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "PROP_1",
+                "value": 3
+            },
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 4
+            }
+        ]
+    },
+    {
+        "id": "3-35-4",
+        "target": "3-37",
+        "text": "附魔翅膀",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 4
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "PROP_1",
+                "value": 4
+            },
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 8
+            }
+        ]
+    },
+    {
+        "id": "3-35-5",
+        "target": "3-37",
+        "text": "附魔身体",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 5
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "PROP_1",
+                "value": 5
+            },
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 16
+            }
+        ]
+    },
+    {
+        "id": "3-35-6",
+        "target": "3-38",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "TEMPORARY",
+                    "value": 31
+                },
+                {
+                    "check": "EQUAL",
+                    "para": "PROP_2",
+                    "value": 5
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "PROP_1",
+                "value": 0
+            },
+            {
+                "change": "SET",
+                "para": "PROP_2",
+                "value": 0
+            },
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            },
+            {
+                "change": "SET",
+                "para": "PEGASUS",
+                "value": 1
+            },
+            {
+                "change": "ADD",
+                "para": "INTELLIGENCE",
+                "value": 3
+            }
+        ]
+    },
+    {
+        "id": "3-35-7",
+        "target": "3-39",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "TEMPORARY",
+                    "value": 31
+                },
+                {
+                    "check": "UNEQUAL",
+                    "para": "PROP_2",
+                    "value": 5
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "PROP_1",
+                "value": 0
+            },
+            {
+                "change": "SET",
+                "para": "PROP_2",
+                "value": 0
+            },
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "3-36-1",
+        "target": "3-35",
+        "text": "清洁",
+        "choose": [
+            {
+                "change": "CONDITION",
+                "para": {
+                    "op": "AND",
+                    "condition": [
+                        {
+                            "check": "EQUAL",
+                            "para": "PROP_1",
+                            "value": 1
+                        }
+                    ]
+                },
+                "value": [
+                    {
+                        "change": "ADD",
+                        "para": "PROP_2",
+                        "value": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "3-36-2",
+        "target": "3-35",
+        "text": "熔化",
+        "choose": [
+            {
+                "change": "CONDITION",
+                "para": {
+                    "op": "AND",
+                    "condition": [
+                        {
+                            "check": "EQUAL",
+                            "para": "PROP_1",
+                            "value": 2
+                        }
+                    ]
+                },
+                "value": [
+                    {
+                        "change": "ADD",
+                        "para": "PROP_2",
+                        "value": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "3-36-3",
+        "target": "3-35",
+        "text": "粉碎",
+        "choose": [
+            {
+                "change": "CONDITION",
+                "para": {
+                    "op": "AND",
+                    "condition": [
+                        {
+                            "check": "EQUAL",
+                            "para": "PROP_1",
+                            "value": 3
+                        }
+                    ]
+                },
+                "value": [
+                    {
+                        "change": "ADD",
+                        "para": "PROP_2",
+                        "value": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "3-37-1",
+        "target": "3-35",
+        "text": "水属性",
+        "choose": [
+            {
+                "change": "CONDITION",
+                "para": {
+                    "op": "AND",
+                    "condition": [
+                        {
+                            "check": "EQUAL",
+                            "para": "PROP_1",
+                            "value": 5
+                        }
+                    ]
+                },
+                "value": [
+                    {
+                        "change": "ADD",
+                        "para": "PROP_2",
+                        "value": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "3-37-2",
+        "target": "3-35",
+        "text": "火属性"
+    },
+    {
+        "id": "3-37-3",
+        "target": "3-35",
+        "text": "风属性",
+        "choose": [
+            {
+                "change": "CONDITION",
+                "para": {
+                    "op": "AND",
+                    "condition": [
+                        {
+                            "check": "EQUAL",
+                            "para": "PROP_1",
+                            "value": 4
+                        }
+                    ]
+                },
+                "value": [
+                    {
+                        "change": "ADD",
+                        "para": "PROP_2",
+                        "value": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "3-37-4",
+        "target": "3-35",
+        "text": "土属性"
+    },
+    {
+        "id": "3-37-5",
+        "target": "3-35",
+        "text": "雷属性"
+    },
+    {
+        "id": "3-37-6",
+        "target": "3-35",
+        "text": "空间属性"
+    },
+    {
+        "id": "3-38-1",
+        "target": "3-40"
+    },
+    {
+        "id": "3-40-1",
+        "target": "5-1",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "3-41-1",
+        "target": "3-42",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "3-41-2",
+        "target": "3-43",
+        "text": "不拿"
+    },
+    {
+        "id": "3-42-1",
+        "target": "3-43"
+    },
+    {
+        "id": "3-43-1",
+        "target": "3-44",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "id": "3-43-2",
+        "target": "3-45",
+        "text": "不进"
+    },
+    {
+        "id": "3-44-1",
+        "target": "3-45"
+    },
+    {
+        "id": "3-45-1",
+        "target": "3-46",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "TEMPORARY",
+                    "value": 3
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "INTELLIGENCE",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "3-45-2",
+        "target": "3-47",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "TEMPORARY",
+                    "value": 2
+                }
+            ]
+        }
+    },
+    {
+        "id": "3-45-3",
+        "target": "3-48",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "LESS",
+                    "para": "TEMPORARY",
+                    "value": 2
+                }
+            ]
+        }
+    },
+    {
+        "id": "3-46-1",
+        "target": "5-1",
+        "text": "那座城",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "3-46-2",
+        "target": "4-2",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 100
+            }
+        ]
+    },
+    {
+        "id": "3-48-1",
+        "target": "4-1",
+        "text": "继续前进",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 80
+            }
+        ]
+    },
+    {
+        "id": "3-49-1",
+        "target": "3-35"
+    },
+    {
+        "id": "3-52-1",
+        "target": "3-53",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "3-52-2",
+        "target": "3-54",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 2
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "id": "3-52-3",
+        "target": "3-55",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 3
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 4
+            }
+        ]
+    },
+    {
+        "id": "3-52-4",
+        "target": "3-56",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 4
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 8
+            }
+        ]
+    },
+    {
+        "id": "3-52-5",
+        "target": "3-57",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 5
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 16
+            },
+            {
+                "change": "ADD",
+                "para": "KNOWLEDGE",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "3-52-6",
+        "target": "3-58",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "BINARY",
+                    "para": "TEMPORARY",
+                    "value": 1
+                },
+                {
+                    "check": "BINARY",
+                    "para": "TEMPORARY",
+                    "value": 2
+                },
+                {
+                    "check": "BINARY",
+                    "para": "TEMPORARY",
+                    "value": 3
+                },
+                {
+                    "check": "BINARY",
+                    "para": "TEMPORARY",
+                    "value": 4
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "3-58-1",
+        "target": "4-1",
+        "text": "讨伐魔王",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 80
+            }
+        ]
+    },
+    {
+        "id": "3-58-2",
+        "target": "3-60",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "BRUCE_INTRODUCE",
+                    "value": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "3-58-3",
+        "target": "3-61",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "BRUCE_INTRODUCE",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "3-59-1",
+        "target": "4-1",
+        "text": "左边",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 80
+            }
+        ]
+    },
+    {
+        "id": "3-59-2",
+        "target": "3-41",
+        "text": "右边"
+    },
+    {
+        "id": "3-60-1",
+        "target": "3-62"
+    },
+    {
+        "id": "3-60-2",
+        "target": "3-63",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "3-61-1",
+        "target": "3-68"
+    },
+    {
+        "id": "3-61-2",
+        "target": "3-69"
+    },
+    {
+        "id": "3-62-1",
+        "target": "3-64",
+        "text": "向左",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "3-62-2",
+        "target": "3-65",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "3-62-3",
+        "target": "3-63",
+        "text": "回头",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "TEMPORARY",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "3-63-1",
+        "target": "3-62",
+        "text": "回头"
+    },
+    {
+        "id": "3-64-1",
+        "target": "5-1"
+    },
+    {
+        "id": "3-65-1",
+        "target": "3-66"
+    },
+    {
+        "id": "3-65-2",
+        "target": "3-64",
+        "text": "向下游"
+    },
+    {
+        "id": "3-65-3",
+        "target": "3-64",
+        "text": "涉水走对岸的路"
+    },
+    {
+        "id": "3-66-1",
+        "target": "3-64",
+        "text": "进森林"
+    },
+    {
+        "id": "3-66-2",
+        "target": "3-67"
+    },
+    {
+        "id": "3-66-3",
+        "target": "5-1",
+        "text": "右转",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "INTELLIGENCE",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "id": "3-67-1",
+        "target": "5-1",
+        "text": "回头"
+    },
+    {
+        "id": "3-68-1",
+        "target": "3-70",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "INTELLIGENCE",
+                    "value": 3
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "BRUCE_LOVE",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "id": "3-68-2",
+        "target": "3-71"
+    },
+    {
+        "id": "3-68-3",
+        "target": "3-72",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "BRUCE_LOVE",
+                "value": -3
+            }
+        ]
+    },
+    {
+        "id": "3-68-4",
+        "target": "3-73"
+    },
+    {
+        "id": "3-69-1",
+        "target": "3-60"
+    },
+    {
+        "id": "3-73-1",
+        "target": "3-74",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "KNOWLEDGE",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "3-73-2",
+        "target": "3-75"
+    },
+    {
+        "id": "3-75-1",
+        "target": "3-76",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "BRUCE_LOVE",
+                "value": -1
+            }
+        ]
+    },
+    {
+        "id": "3-75-2",
+        "target": "3-77"
+    },
+    {
+        "id": "3-75-3",
+        "target": "3-77",
+        "text": "假装同意",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "3-75-4",
+        "target": "3-78"
+    },
+    {
+        "id": "3-78-1",
+        "target": "3-79",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "TEMPORARY",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "BRUCE_LOVE",
+                "value": 3
+            }
+        ]
+    },
+    {
+        "id": "3-78-2",
+        "target": "3-80"
+    },
+    {
+        "id": "3-78-3",
+        "target": "3-81",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "BRUCE_LOVE",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "3-78-4",
+        "target": "5-1",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            },
+            {
+                "change": "SET",
+                "para": "TEAMMATE",
+                "value": "BRUCE_CODE"
+            }
+        ]
+    },
+    {
+        "id": "4-1-1",
+        "target": "4-3"
+    },
+    {
+        "id": "4-3-1",
+        "target": "4-4"
+    },
+    {
+        "id": "4-3-2",
+        "target": "4-5",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "KNOWLEDGE",
+                "value": 5
+            }
+        ]
+    },
+    {
+        "id": "4-3-3",
+        "target": "4-6"
+    },
+    {
+        "id": "4-4-1",
+        "target": "end-6",
+        "text": "答应"
+    },
+    {
+        "id": "4-4-2",
+        "target": "4-7"
+    },
+    {
+        "id": "4-5-1",
+        "target": "4-7",
+        "text": "出发"
+    },
+    {
+        "id": "4-6-1",
+        "target": "4-8",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "PROP_1",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "PROP_1",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "4-6-2",
+        "target": "4-9",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "PROP_1",
+                    "value": 2
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "PROP_1",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "id": "4-6-3",
+        "target": "4-10",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "PROP_1",
+                    "value": 3
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "PROP_1",
+                "value": 4
+            }
+        ]
+    },
+    {
+        "id": "4-6-4",
+        "target": "4-11",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "PROP_1",
+                    "value": 7
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "PROP_1",
+                "value": 0
+            },
+            {
+                "change": "SET",
+                "para": "TEAMMATE",
+                "value": "BARRY_CODE"
+            },
+            {
+                "change": "ADD",
+                "para": "BARRY_LOVE",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "4-7-1",
+        "target": "end-7",
+        "text": "战斗",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "LESS",
+                    "para": "SINESTRO_LOVE",
+                    "value": 5
+                },
+                {
+                    "check": "EQUAL",
+                    "para": "FIGHT",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "4-7-2",
+        "target": "4-13",
+        "text": "战斗",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "MORE_EQUAL",
+                    "para": "SINESTRO_LOVE",
+                    "value": 5
+                },
+                {
+                    "check": "EQUAL",
+                    "para": "FIGHT",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "4-7-3",
+        "target": "end-6",
+        "text": "战斗",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "FIGHT",
+                    "value": 0
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "4-11-1",
+        "target": "4-12",
+        "text": "战斗",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "FIGHT",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "4-11-2",
+        "target": "end-6",
+        "text": "战斗",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "FIGHT",
+                    "value": 0
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "4-12-1",
+        "target": "5-4"
+    },
+    {
+        "id": "4-13-1",
+        "target": "4-14",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "SINESTRO_LOVE",
+                "value": -1
+            }
+        ]
+    },
+    {
+        "id": "4-13-2",
+        "target": "4-15"
+    },
+    {
+        "id": "4-13-3",
+        "target": "4-16",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "SINESTRO_TAME",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "4-14-1",
+        "target": "4-17",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "SINESTRO_TAME",
+                "value": -1
+            }
+        ]
+    },
+    {
+        "id": "4-14-2",
+        "target": "4-18",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "SINESTRO_LOVE",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "4-14-3",
+        "target": "4-19"
+    },
+    {
+        "id": "4-14-4",
+        "target": "4-20"
+    },
+    {
+        "id": "4-20-1",
+        "target": "4-29"
+    },
+    {
+        "id": "4-20-2",
+        "target": "4-22",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "SINESTRO_TAME",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "4-21-1",
+        "target": "4-23"
+    },
+    {
+        "id": "4-21-2",
+        "target": "4-24",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "SINESTRO_LOVE",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "4-22-1",
+        "target": "4-21"
+    },
+    {
+        "id": "4-23-1",
+        "target": "4-25"
+    },
+    {
+        "id": "4-23-2",
+        "target": "4-26"
+    },
+    {
+        "id": "4-25-1",
+        "target": "4-27",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "SINESTRO_TAME",
+                    "value": 8
+                }
+            ]
+        }
+    },
+    {
+        "id": "4-25-2",
+        "target": "4-28",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "LESS",
+                    "para": "SINESTRO_LOVE",
+                    "value": 8
+                }
+            ]
+        }
+    },
+    {
+        "id": "4-25-3",
+        "target": "end-10",
+        "text": "怎么了？"
+    },
+    {
+        "id": "4-27-1",
+        "target": "end-11",
+        "text": "再给他一次机会",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "SINESTRO_LOVE",
+                    "value": 8
+                }
+            ]
+        }
+    },
+    {
+        "id": "4-27-2",
+        "target": "end-12",
+        "text": "瑟尔早该死了"
+    },
+    {
+        "id": "4-28-1",
+        "target": "end-8",
+        "text": "你想怎样",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "SINESTRO_TAME",
+                    "value": 8
+                }
+            ]
+        }
+    },
+    {
+        "id": "4-28-2",
+        "target": "end-9",
+        "text": "你想怎样",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "LESS",
+                    "para": "SINESTRO_TAME",
+                    "value": 8
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-1-1",
+        "target": "5-26",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "UNEQUAL",
+                    "para": "TEAMMATE",
+                    "value": "BRUCE_CODE"
+                },
+                {
+                    "check": "UNEQUAL",
+                    "para": "TEMPORARY",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-1-2",
+        "target": "5-2",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "UNEQUAL",
+                    "para": "TEAMMATE",
+                    "value": "BRUCE_CODE"
+                },
+                {
+                    "check": "EQUAL",
+                    "para": "TEMPORARY",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "5-1-3",
+        "target": "5-27",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "TEAMMATE",
+                    "value": "BRUCE_CODE"
+                },
+                {
+                    "check": "UNEQUAL",
+                    "para": "TEMPORARY",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-2-1",
+        "target": "5-5",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "BRUCE_INTRODUCE",
+                    "value": 1
+                },
+                {
+                    "check": "UNEQUAL",
+                    "para": "BRUCE_SHOW_UP",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-2-2",
+        "target": "5-6",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "UNEQUAL",
+                    "para": "BRUCE_INTRODUCE",
+                    "value": 1
+                },
+                {
+                    "check": "EQUAL",
+                    "para": "BRUCE_SHOW_UP",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-2-3",
+        "target": "5-7",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "UNEQUAL",
+                    "para": "BRUCE_INTRODUCE",
+                    "value": 1
+                },
+                {
+                    "check": "UNEQUAL",
+                    "para": "BRUCE_SHOW_UP",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-2-4",
+        "target": "5-8"
+    },
+    {
+        "id": "5-3-1",
+        "target": "5-13"
+    },
+    {
+        "id": "5-4-1",
+        "target": "5-9",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "BRUCE_INTRODUCE",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-4-2",
+        "target": "5-10",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "UNEQUAL",
+                    "para": "BRUCE_INTRODUCE",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-4-3",
+        "target": "5-12"
+    },
+    {
+        "id": "5-8-1",
+        "target": "5-3",
+        "text": "走吧"
+    },
+    {
+        "id": "5-10-1",
+        "target": "5-11",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "BRUCE_SHOW_UP",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-10-2",
+        "target": "5-12",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "UNEQUAL",
+                    "para": "BRUCE_SHOW_UP",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-13-1",
+        "target": "5-14"
+    },
+    {
+        "id": "5-14-1",
+        "target": "5-15"
+    },
+    {
+        "id": "5-15-1",
+        "target": "5-15-1"
+    },
+    {
+        "id": "5-15-1-1",
+        "target": "5-16"
+    },
+    {
+        "id": "5-15-1-2",
+        "target": "5-18"
+    },
+    {
+        "id": "5-15-1-3",
+        "target": "5-19"
+    },
+    {
+        "id": "5-15-2",
+        "target": "5-15-2"
+    },
+    {
+        "id": "5-15-2-1",
+        "target": "5-20"
+    },
+    {
+        "id": "5-15-2-2",
+        "target": "5-21",
+        "choose": [
+            {
+                "change": "CONDITION",
+                "para": {
+                    "op": "AND",
+                    "condition": [
+                        {
+                            "check": "NON_BINARY",
+                            "para": "TEMPORARY",
+                            "value": 1
+                        }
+                    ]
+                },
+                "value": [
+                    {
+                        "change": "ADD",
+                        "para": "TEMPORARY",
+                        "value": 1
+                    },
+                    {
+                        "change": "ADD",
+                        "para": "KNOWLEDGE",
+                        "value": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "5-15-3",
+        "target": "5-15-3"
+    },
+    {
+        "id": "5-15-3-1",
+        "target": "5-22",
+        "choose": [
+            {
+                "change": "CONDITION",
+                "para": {
+                    "op": "AND",
+                    "condition": [
+                        {
+                            "check": "NON_BINARY",
+                            "para": "TEMPORARY",
+                            "value": 2
+                        }
+                    ]
+                },
+                "value": [
+                    {
+                        "change": "ADD",
+                        "para": "TEMPORARY",
+                        "value": 2
+                    },
+                    {
+                        "change": "ADD",
+                        "para": "KNOWLEDGE",
+                        "value": 2
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "5-15-3-2",
+        "target": "5-23",
+        "choose": [
+            {
+                "change": "CONDITION",
+                "para": {
+                    "op": "AND",
+                    "condition": [
+                        {
+                            "check": "NON_BINARY",
+                            "para": "TEMPORARY",
+                            "value": 3
+                        }
+                    ]
+                },
+                "value": [
+                    {
+                        "change": "ADD",
+                        "para": "TEMPORARY",
+                        "value": 4
+                    },
+                    {
+                        "change": "ADD",
+                        "para": "INTELLIGENCE",
+                        "value": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "5-15-4",
+        "target": "5-24",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "DRAGON_EGG",
+                    "value": 0
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "DRAGON_EGG",
+                "value": 1
+            },
+            {
+                "change": "ADD",
+                "para": "KNOWLEDGE",
+                "value": 3
+            }
+        ]
+    },
+    {
+        "id": "5-15-5",
+        "target": "5-25",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "DRAGON_EGG",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-16-1",
+        "target": "5-17"
+    },
+    {
+        "id": "5-18-1",
+        "target": "5-28",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "5-26-1",
+        "target": "5-2",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "5-28-1",
+        "target": "5-29",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "MORE",
+                    "para": "INTELLIGENCE",
+                    "value": 2
+                },
+                {
+                    "check": "MORE",
+                    "para": "BRUCE_LOVE",
+                    "value": 8
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-28-2",
+        "target": "5-30",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "MORE",
+                    "para": "INTELLIGENCE",
+                    "value": 2
+                },
+                {
+                    "check": "LESS_EQUAL",
+                    "para": "BRUCE_LOVE",
+                    "value": 8
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-28-3",
+        "target": "5-31"
+    },
+    {
+        "id": "5-29-1",
+        "target": "5-32"
+    },
+    {
+        "id": "5-29-2",
+        "target": "end-13",
+        "text": "让布鲁斯去操心"
+    },
+    {
+        "id": "5-31-1",
+        "target": "end-13",
+        "text": "不再管了"
+    },
+    {
+        "id": "5-32-1",
+        "target": "5-33"
+    },
+    {
+        "id": "5-32-2",
+        "target": "5-40",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "5-32-3",
+        "target": "5-41",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "BINARY",
+                    "para": "TEMPORARY",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-32-4",
+        "target": "5-44"
+    },
+    {
+        "id": "5-32-5",
+        "target": "5-46",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "5-32-6",
+        "target": "5-47",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "BINARY",
+                    "para": "TEMPORARY",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-32-7",
+        "target": "5-51",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "DRAGON_EGG",
+                    "value": 1
+                },
+                {
+                    "check": "EQUAL",
+                    "para": "SCENE",
+                    "value": "5-32"
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "BRUCE_LOVE",
+                "value": 4
+            }
+        ]
+    },
+    {
+        "id": "5-33-1",
+        "target": "5-34",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 2
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "id": "5-33-2",
+        "target": "5-35",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 3
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 4
+            }
+        ]
+    },
+    {
+        "id": "5-33-3",
+        "target": "5-36",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "PROP_1",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "CONDITION",
+                "para": {
+                    "op": "AND",
+                    "condition": [
+                        {
+                            "check": "NON_BINARY",
+                            "para": "TEMPORARY",
+                            "value": 4
+                        }
+                    ]
+                },
+                "value": [
+                    {
+                        "change": "ADD",
+                        "para": "TEMPORARY",
+                        "value": 8
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "5-37-1",
+        "target": "5-38",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "PROP_1",
+                    "value": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-37-2",
+        "target": "5-39",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "PROP_1",
+                    "value": 1
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "PROP_1",
+                "value": 0
+            },
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "5-38-1",
+        "target": "end-13",
+        "text": "专心备战"
+    },
+    {
+        "id": "5-41-1",
+        "target": "5-42",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "BINARY",
+                    "para": "TEMPORARY",
+                    "value": 3
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-41-2",
+        "target": "5-43",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 3
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-44-1",
+        "target": "5-45",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "BINARY",
+                    "para": "TEMPORARY",
+                    "value": 2
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "CONDITION",
+                "para": {
+                    "op": "AND",
+                    "condition": [
+                        {
+                            "check": "NON_BINARY",
+                            "para": "TEMPORARY",
+                            "value": 1
+                        }
+                    ]
+                },
+                "value": [
+                    {
+                        "change": "ADD",
+                        "para": "TEMPORARY",
+                        "value": 1
+                    }
+                ]
+            },
+            {
+                "change": "SET",
+                "para": "PROP_1",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "5-44-2",
+        "target": "end-14",
+        "text": "跳下去",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 2
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-44-3",
+        "target": "5-63"
+    },
+    {
+        "id": "5-47-1",
+        "target": "5-48",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "BINARY",
+                    "para": "TEMPORARY",
+                    "value": 4
+                },
+                {
+                    "check": "BINARY",
+                    "para": "TEMPORARY",
+                    "value": 3
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-47-2",
+        "target": "5-49",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "BINARY",
+                    "para": "TEMPORARY",
+                    "value": 3
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-47-3",
+        "target": "5-50",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 4
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-47-4",
+        "target": "5-64",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "BINARY",
+                    "para": "TEMPORARY",
+                    "value": 4
+                },
+                {
+                    "check": "NON_BINARY",
+                    "para": "TEMPORARY",
+                    "value": 3
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-48-1",
+        "target": "5-52",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 1
+            },
+            {
+                "change": "SET",
+                "para": "PROP_1",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "5-49-1",
+        "target": "5-37"
+    },
+    {
+        "id": "5-52-1",
+        "target": "5-53"
+    },
+    {
+        "id": "5-53-1",
+        "target": "5-54",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "PEGASUS",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-53-2",
+        "target": "5-55",
+        "show": {
+            "op": "OR",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "PEGASUS",
+                    "value": 0
+                },
+                {
+                    "check": "EQUAL",
+                    "para": "SCENE",
+                    "value": "5-54"
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-55-1",
+        "target": "5-56",
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 0
+            }
+        ]
+    },
+    {
+        "id": "5-55-2",
+        "target": "5-57",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "TEMPORARY",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-55-3",
+        "target": "5-58",
+        "show": {
+            "op": "OR",
+            "condition": [
+                {
+                    "check": "UNEQUAL",
+                    "para": "TEMPORARY",
+                    "value": 1
+                },
+                {
+                    "check": "EQUAL",
+                    "para": "SCENE",
+                    "value": "5-57"
+                }
+            ]
+        },
+        "choose": [
+            {
+                "change": "SET",
+                "para": "TEMPORARY",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "5-58-1",
+        "target": "5-59"
+    },
+    {
+        "id": "5-58-2",
+        "target": "5-59",
+        "text": "西塔楼"
+    },
+    {
+        "id": "5-58-3",
+        "target": "5-59",
+        "text": "城堡一楼"
+    },
+    {
+        "id": "5-58-4",
+        "target": "5-60",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "DRAGON_EGG",
+                    "value": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-58-5",
+        "target": "5-61",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "DRAGON_EGG",
+                    "value": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "5-59-1",
+        "target": "6-1",
+        "text": "备战"
+    },
+    {
+        "id": "5-60-1",
+        "target": "5-62",
+        "choose": [
+            {
+                "change": "ADD",
+                "para": "TEMPORARY",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "id": "6-1-1",
+        "target": "6-2"
+    },
+    {
+        "id": "6-2-1",
+        "target": "6-3"
+    },
+    {
+        "id": "6-3-1",
+        "target": "6-4"
+    },
+    {
+        "id": "6-4-1",
+        "target": "6-5"
+    },
+    {
+        "id": "6-5-1",
+        "target": "6-6",
+        "text": "决战"
+    },
+    {
+        "id": "6-6-1",
+        "target": "end-15",
+        "text": "战斗结束了"
+    },
+    {
+        "id": "6-6-2",
+        "target": "end-16",
+        "text": "战斗结束了",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "TEMPORARY",
+                    "value": 2
+                }
+            ]
+        }
+    },
+    {
+        "id": "6-6-3",
+        "target": "end-17",
+        "text": "战斗结束了",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "TEMPORARY",
+                    "value": 0
+                },
+                {
+                    "check": "EQUAL",
+                    "para": "BRUCE_LOVE",
+                    "value": 20
+                }
+            ]
+        }
+    },
+    {
+        "id": "6-6-4",
+        "target": "end-18",
+        "text": "战斗结束了",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "UNEQUAL",
+                    "para": "CHOICE",
+                    "value": "6-6-2"
+                },
+                {
+                    "check": "UNEQUAL",
+                    "para": "CHOICE",
+                    "value": "6-6-3"
+                }
+            ]
+        }
+    },
+    {
+        "id": "7-1-1",
+        "target": "end-19",
+        "text": "打断他"
+    },
+    {
+        "id": "7-1-2",
+        "target": "7-2"
+    },
+    {
+        "id": "7-2-1",
+        "target": "7-3"
+    },
+    {
+        "id": "7-3-1",
+        "target": "end-19",
+        "text": "瞎几把扯"
+    },
+    {
+        "id": "7-3-2",
+        "target": "7-5"
+    },
+    {
+        "id": "7-3-3",
+        "target": "7-4"
+    },
+    {
+        "id": "7-5-1",
+        "target": "7-6",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "MORE_EQUAL",
+                    "para": "KNOWLEDGE",
+                    "value": 5
+                }
+            ]
+        }
+    },
+    {
+        "id": "7-5-2",
+        "target": "7-8",
+        "show": {
+            "op": "AND",
+            "condition": [
+                {
+                    "check": "EQUAL",
+                    "para": "BRUCE_INTRODUCE",
+                    "value": 1
+                },
+                {
+                    "check": "LESS",
+                    "para": "KNOWLEDGE",
+                    "value": 5
+                }
+            ]
+        }
+    },
+    {
+        "id": "7-5-3",
+        "target": "7-9"
+    },
+    {
+        "id": "7-6-1",
+        "target": "end-20",
+        "text": "讨伐魔王"
+    },
+    {
+        "id": "7-6-2",
+        "target": "7-7"
+    },
+    {
+        "id": "7-8-1",
+        "target": "end-21",
+        "text": "你这样，来阻止我？"
+    }
+]

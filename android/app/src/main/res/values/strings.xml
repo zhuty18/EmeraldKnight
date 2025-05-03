@@ -1,11 +1,5 @@
 <resources>
     <string name="app_name">翡翠骑士</string>
-    <string name="navigation_drawer_open">打开导航栏</string>
-    <string name="navigation_drawer_close">打开导航栏</string>
-    <string name="nav_header_title">翡翠骑士</string>
-    <string name="nav_header_subtitle">https://github.com/zhuty18/EmeraldKnight</string>
-    <string name="nav_header_desc">导航栏标题</string>
-    <string name="action_settings">设定</string>
 
     <string name="menu_start">开始界面</string>
     <string name="menu_back">回到游戏</string>
@@ -14,12 +8,14 @@
     <string name="menu_about">关于</string>
     <string name="menu_game">游戏中</string>
     <string name="game_start">开始游戏</string>
-    <string name="title">翡翠骑士</string>
-    <string name="version">v1.2</string>
+    <string name="version">v2.1.4</string>
     <string name="poem">雪山之巅&#160;&#160;&#160;&#160;英魂渐远\n危城影下&#160;&#160;&#160;&#160;一念不灭\n剑心重铸&#160;&#160;&#160;&#160;翡翠长明\n孤星陨灭&#160;&#160;&#160;&#160;万灵恸哭</string>
-    <string name="describe">作者：兔子草\nQQ：3440950898\n邮箱：13718054285@163.com</string>
-    <string name="empty_save">空存档</string>
+    <string name="author">by 兔子草</string>
+    <string name="author_info">QQ：3440950898\n邮箱：13718054285@163.com</string>
     <string name="look_back">回顾过往</string>
+    <string name="project_url">https://zhuty18.github.io/EmeraldKnight</string>
+    <string name="icon_desc">导航栏标题</string>
     <string name="open_cheat">打开攻略</string>
     <string name="cheat_text">抓卧底任务（完美攻略）：\n在城堡里拿上提灯\n下井\n回城堡找布鲁斯\n在城堡拿生命晶石\n去旧屋布置陷阱\n无伤捕捉卧底\n\n赛叔HE攻略：\n开头选择原地睡一觉\n谢谢、因为我想做点什么、你就这么在野外点火的\n答应上他、摸、地上、里面\n我怎么联系你、爬山\n……\n别人的记忆、瑟尔的\n……\n阿琳、如实告知、瑟尔是谁、他还可以被拯救吗\n……\n守卫小队/强壮武士->拒绝、孤身上路（这里的战斗具有一定随机性，如果失败可以读档重开）\n又要我上你、脱衣服、没错、答应、不请我进你家看看吗、再给他一次机会\n\n布鲁斯HE攻略：\n开头前进、追上去、四下看看、绿晶石、书架\n光明术、……、我能怎么帮你、问法师塔、问名字\n进神殿、是不是有黑暗力量、谁会知道、他还活着\n回溯一下破烂披风、……、去哥谭\n出去看看、布鲁斯、鹰魔是什么、假装同意、稍后跟上\n……把布鲁斯家全逛一遍，一定要去地下室\n要他解释、帮忙找出卧底、龙蛋也可以拿吗、（抓卧底攻略见上）、回自己房间睡觉\n决战胜利后即可进入布鲁斯HE结局\n\n布鲁斯NE结局：\n酒后跟布鲁斯回房间，一夜过后去地下室找他\n\n凯尔支线：\n在达成翡翠暮光结局后，去天使城，选择进城看看</string>
+    <string name="open_page">打开链接</string>
 </resources>

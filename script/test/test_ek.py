@@ -42,11 +42,12 @@ class TestEmeraldKnight(unittest.TestCase):
     def setUp(self):
         """设置测试环境"""
         self._game = EmeraldKnightTest()
+        self._game.run()
         self._kernel = self._game.get_kernel()
         self._logic = self._game.get_logic()
 
 
-if __name__ == "__main__":
-    suite = unittest.defaultTestLoader.discover("script/test", "test_ek*.py")
-    runner = unittest.TextTestRunner()
-    runner.run(suite)
+# if __name__ == "__main__":
+#     suite = unittest.defaultTestLoader.discover("script/test", "test_ek*.py")
+#     runner = unittest.TextTestRunner()
+#     runner.run(suite)

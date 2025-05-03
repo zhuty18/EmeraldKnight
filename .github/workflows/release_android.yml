@@ -19,7 +19,10 @@ jobs:
               uses: actions/setup-java@v4
               with:
                   distribution: "temurin"
-                  java-version: 24
+                  java-version: 21
+
+            - name: Set up Python
+              uses: actions/setup-python@v5
 
             - name: Set up Android SDK
               uses: android-actions/setup-android@v3
@@ -34,6 +37,11 @@ jobs:
 
             - name: Grant Permission to Gradle
               run: chmod +x ./android/gradlew
+
+            - name: Pack Data
+              run: |
+                  cd android
+                  python pack_data.py
 
             - name: Build Signed APK
               run: |
