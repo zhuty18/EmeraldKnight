@@ -13,6 +13,8 @@ if __name__ == "__main__":
     json_files = {x if x.endswith(".json") else None for x in json_files}
     if None in json_files:
         json_files.remove(None)
+    if not os.path.exists("app/src/main/assets"):
+        os.mkdir("app/src/main/assets")
     for file in json_files:
         shutil.copyfile(f"../data/{file}", f"app/src/main/assets/{file}")
 
