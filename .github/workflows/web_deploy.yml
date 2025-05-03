@@ -76,6 +76,11 @@ jobs:
                   name: Web_Builds
                   path: _site/web
 
+            - name: Check Online
+              run: |
+                  ls _site/web
+                  ls _site/web/data
+
             - name: Setup Pages
               uses: actions/configure-pages@v5
 
