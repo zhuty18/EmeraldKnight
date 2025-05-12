@@ -5,6 +5,7 @@ on:
         branches:
             - master
             - web
+            - develop
     pull_request:
         branches:
             - master
@@ -58,10 +59,33 @@ jobs:
                   name: Web_Builds
                   path: web/dist
 
+    build_editor:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 18
+
+            - name: Build Editor
+              run: |
+                  cd storybook
+                  npm install
+                  npm run build
+
+            - name: Upload built files
+              uses: actions/upload-artifact@v4
+              with:
+                  name: Editor_Builds
+                  path: storybook/dist
     deploy:
         needs:
             - build_home
             - build_web
+            - build_editor
         runs-on: ubuntu-latest
         steps:
             - name: Download built files
@@ -76,10 +100,11 @@ jobs:
                   name: Web_Builds
                   path: _site/web
 
-            - name: Check Online
-              run: |
-                  ls _site/web
-                  ls _site/web/data
+            - name: Download built files
+              uses: actions/download-artifact@v4
+              with:
+                  name: Editor_Builds
+                  path: _site/storybook
 
             - name: Setup Pages
               uses: actions/configure-pages@v5

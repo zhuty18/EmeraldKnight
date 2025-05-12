@@ -1,0 +1,131 @@
+{
+    "para_list": [
+        {
+            "id": "BRUCE_STORY_LINE",
+            "name": "bsl",
+            "default_value": 0
+        },
+        {
+            "id": "BRUCE_SHOW_UP",
+            "name": "bsu",
+            "default_value": 0
+        },
+        {
+            "id": "BRUCE_LOVE",
+            "name": "brl",
+            "default_value": 0
+        },
+        {
+            "id": "BRUCE_INTRODUCE",
+            "name": "bri",
+            "default_value": 0
+        },
+        {
+            "id": "OLIVER_STORY_LINE",
+            "name": "osl",
+            "default_value": 0
+        },
+        {
+            "id": "OLIVER_LOVE",
+            "name": "oll",
+            "default_value": 0
+        },
+        {
+            "id": "SINESTRO_STORY_LINE",
+            "name": "ssl",
+            "default_value": 0
+        },
+        {
+            "id": "SINESTRO_LOVE",
+            "name": "sil",
+            "default_value": 0
+        },
+        {
+            "id": "SINESTRO_TAME",
+            "name": "sit",
+            "default_value": 0
+        },
+        {
+            "id": "BARRY_LOVE",
+            "name": "bal",
+            "default_value": 0
+        },
+        {
+            "id": "SWORD_HOT_TIME",
+            "name": "sht",
+            "default_value": 0
+        },
+        {
+            "id": "KNOWLEDGE",
+            "name": "knw",
+            "default_value": 0
+        },
+        {
+            "id": "INTELLIGENCE",
+            "name": "int",
+            "default_value": 0
+        },
+        {
+            "id": "TEMPORARY",
+            "name": "tmp",
+            "default_value": 0
+        },
+        {
+            "id": "PROP_1",
+            "name": "pr1",
+            "default_value": 0
+        },
+        {
+            "id": "PROP_2",
+            "name": "pr2",
+            "default_value": 0
+        },
+        {
+            "id": "PEGASUS",
+            "name": "pgs",
+            "default_value": 0
+        },
+        {
+            "id": "DRAGON_EGG",
+            "name": "dge",
+            "default_value": 0
+        },
+        {
+            "id": "TEAMMATE",
+            "name": "tmm",
+            "default_value": 0
+        }
+    ],
+    "func_list": [
+        {
+            "id": "SCENE",
+            "value": "SCENE"
+        },
+        {
+            "id": "FIGHT",
+            "value": "FIGHT"
+        },
+        {
+            "id": "CHOICE",
+            "value": "CHOICE"
+        }
+    ],
+    "code_list": [
+        {
+            "id": "BRUCE_CODE",
+            "value": 1
+        },
+        {
+            "id": "SINESTRO_CODE",
+            "value": 2
+        },
+        {
+            "id": "OLIVER_CODE",
+            "value": 3
+        },
+        {
+            "id": "BARRY_CODE",
+            "value": 4
+        }
+    ]
+}
