@@ -1,0 +1,53 @@
+[
+    {
+        "id": "END_CHOICE",
+        "value": {
+            "id": "end",
+            "target": "game_over",
+            "text": "回到开始界面"
+        }
+    },
+    {
+        "id": "END_SCENE",
+        "value": {
+            "id": "game_over",
+            "options": [
+                "end"
+            ]
+        }
+    },
+    {
+        "id": "START_SCENE",
+        "value": "1-1"
+    },
+    {
+        "id": "START_OVER",
+        "value": "game_over"
+    },
+    {
+        "id": "FINAL_BATTLE",
+        "value": "6-6"
+    },
+    {
+        "id": "EMPTY_SAVE",
+        "value": "空存档"
+    },
+    {
+        "id": "STORY_END",
+        "value": "\n\n结局——"
+    },
+    {
+        "id": "BATTLE_STORY",
+        "value": {
+            "BLANK": "{NUMBER}",
+            "START": "这场决定大陆未来的战斗，开始了！",
+            "HURT": "造成了{NUMBER}点伤害！",
+            "HEAL": "回复了{NUMBER}点体力！",
+            "DODGE": "被躲开了！",
+            "WIN": "魔王倒下了！",
+            "LOSE": "\n你被打败了！",
+            "HERO": "HAL",
+            "ENEMY": "SINESTRO"
+        }
+    }
+]
