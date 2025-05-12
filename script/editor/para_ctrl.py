@@ -36,7 +36,7 @@ class ParameterController:
             ) as f:
                 para = json.loads(f.read())
                 self._paras = sort_data(para["para_list"])
-                self._function_paras = sort_data(para["function_para_list"])
+                self._function_paras = sort_data(para["func_list"])
                 self._codes = sort_data(para["code_list"])
 
     def save_paras(self):
@@ -45,12 +45,17 @@ class ParameterController:
             os.mkdir(PATH)
         if not os.path.exists(PATH_DATA):
             os.mkdir(PATH_DATA)
-        para = {
-            "para_list": self._paras,
-            "function_para_list": self._function_paras,
-            "code_list": self._codes,
-        }
-        write_data(para, os.path.join(PATH_DATA, FILE_PARAS))
+        with open(
+            os.path.join(PATH_DATA, FILE_PARAS),
+            "w",
+            encoding="utf-8",
+        ) as f:
+            para = {
+                "para_list": self._paras,
+                "func_list": self._function_paras,
+                "code_list": self._codes,
+            }
+            f.write(json.dumps(para, ensure_ascii=False))
 
     def import_paras(self):
         """导入参数设置"""
@@ -63,7 +68,7 @@ class ParameterController:
                 para = json.loads(f.read())
             for i in para["para_list"]:
                 self.set_para(i["name"], i["id"], i["default_value"])
-            for i in para["function_para_list"]:
+            for i in para["func_list"]:
                 self._function_paras[i["id"]] = i["value"]
             for i in para["code_list"]:
                 self._codes[i["id"]] = i["value"]
@@ -79,7 +84,7 @@ class ParameterController:
                 }
                 for t in self._paras.values()
             ],
-            "function_para_list": [
+            "func_list": [
                 {"id": k, "value": v} for k, v in self._function_paras.items()
             ],
             "code_list": [

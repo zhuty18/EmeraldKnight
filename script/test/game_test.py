@@ -35,6 +35,8 @@ class EmeraldKnightTest(EmeraldKnight):
 
     def get_choices(self):
         """获取场景选项"""
+        for c in self._kernel.get_choices():
+            c.text()
         return self._kernel.get_choices()
 
     def get_paras(self):
@@ -52,20 +54,6 @@ class EmeraldKnightTest(EmeraldKnight):
     def get_max_chapter(self):
         """获取最大章节数"""
         return Logic.CHAPTERS
-
-    def get_chapter_max_scene(self, chapter):
-        """获取章节场景数"""
-        scene_ids = [
-            x if Logic.get_scene_chapter(x) == chapter else None
-            for x in Logic.SCENE_MAP.keys()
-        ]
-        scene_ids = set(scene_ids)
-        scene_ids.remove(None)
-        return len(scene_ids)
-
-    def get_ends(self):
-        """获取结局数"""
-        return len(Logic.END_NAME_MAP)
 
     def random_scene(self):
         """随机场景"""
@@ -93,5 +81,7 @@ class EmeraldKnightTest(EmeraldKnight):
         """按id选择选项"""
         for c in self.get_choices():
             if c.get_id() == choice_id:
-                c.chosen()
-                break
+                c.text()
+                c.choose()
+                return True
+        return False

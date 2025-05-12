@@ -1,34 +1,28 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>翡翠骑士</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@4.0.7/dist/full.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-          tailwind.config = {
-        theme: {
-      extend: {},
-        },
-        plugins: [daisyui],
-          };a
-    </script>
-  </head>
-  <body class="bg-base-100 text-base-content min-h-screen flex flex-col items-center justify-center p-4">
-    <div class="w-full max-w-2xl p-6 rounded-2xl shadow-lg bg-base-200">
-      <h1 class="text-3xl font-bold mb-4 text-center">翡翠骑士</h1>
-      <div id="story" class="mb-4 text-lg leading-relaxed">
-        你站在翡翠森林的入口，耳边传来鸟鸣与风声。前方，是未知的冒险。
-      </div>
-      <input
-        id="playerInput"
-        type="text"
-        placeholder="你的选择..."
-        class="input input-bordered w-full mb-4" />
-      <button onclick="handleInput()" class="btn btn-primary w-full">继续</button>
-    </div>
 
-    <script src="script.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="title_page">翡翠骑士</title>
+  <script>
+    fetch("data/info.json").then((res) => res.json()).then((data) => {
+      document.getElementById("title_page").textContent = data.name + "v" + data.version
+    })
+  </script>
+</head>
+
+<body class="bg-base-100 text-base-content min-h-screen flex flex-col items-center justify-center p-4">
+  <div class="w-full max-w-2xl p-6">
+    <h1 id="scene_title" class="text-3xl font-bold mb-4 text-center">翡翠骑士</h1>
+    <div id="story" class="mb-4 text-lg leading-relaxed">
+      你站在翡翠森林的入口，耳边传来鸟鸣与风声。前方，是未知的冒险。
+    </div>
+    <button onclick="handleInput()" class="btn btn-primary w-full shadow-lg">继续</button>
+  </div>
+  </div>
+
+  <script type="module" src="./script.js"></script>
+</body>
+
 </html>
