@@ -14,24 +14,36 @@
 //     }
 // }
 
-import "./app.css"
+import "./app.css";
 
-let paras = {}
-let scene = ""
+let paras = {};
+let scene = "";
 
-fetch("data/paras.json").then((res) => res.json()).then((data) => {
-    for (let i = 0; i < data.para_list.length; i++) {
-        paras[data.para_list[i].name] = data.para_list[i].default_value
-    }
-})
+fetch("data/paras.json")
+    .then((res) => res.json())
+    .then((data) => {
+        for (let i = 0; i < data.para_list.length; i++) {
+            paras[data.para_list[i].name] = data.para_list[i].default_value;
+        }
+    });
 
-function chapter_name (scene) {
-    return "第一章"+scene
+function chapter_id(scene) {
+    return scene.split("-")[0];
 }
 
-
-function refresh_story () {
-    document.getElementById("scene_title").textContent = chapter_name(scene)
+function chapter_name(scene) {
+    fetch("data/names.json")
+        .then((res) => res.json())
+        .then((data) => {
+            if (data.chapter_names.includes(chapter_id(scene))) {
+                return data.chapter_names[chapter_id(scene)];
+            }
+        });
+    return scene + "章名";
 }
 
-refresh_story()
+function refresh_story() {
+    document.getElementById("scene_title").textContent = chapter_name(scene);
+}
+
+refresh_story();
