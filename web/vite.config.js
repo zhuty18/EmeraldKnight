@@ -3,6 +3,7 @@ import { viteStaticCopy } from "vite-plugin-static-copy";
 
 export default defineConfig({
     base: "/EmeraldKnight/web/",
+    target: "esnext",
     plugins: [
         viteStaticCopy({
             targets: [
