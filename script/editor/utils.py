@@ -9,6 +9,18 @@ from data_sorting import sort_data
 
 def censor_data_des(data):
     """删去说明"""
+    if isinstance(data, dict):
+        tmp = {}
+        for key, value in data.items():
+            if key != "description":
+                tmp[key] = censor_data_des(value)
+        return tmp
+    elif isinstance(data, list):
+        tmp = []
+        for item in data:
+            tmp.append(censor_data_des(item))
+        return tmp
+    return data
 
 
 def write_data(x, file_name, censor_des=False):

@@ -48,8 +48,7 @@ jobs:
             - name: Build Web
               run: |
                   cd web
-                  mkdir data
-                  cp -r ../data ./data
+                  bash copy_data.sh
                   npm install
                   npm run build
 
