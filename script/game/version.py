@@ -10,7 +10,7 @@ if not VERSION:
         data = json.loads(f.read())
     VERSION = data["version"]
     CHAPTERS = data["chapters"]
-    GAME_NAME = data["name"]
+    GAME_NAME = data["name_zh"]
     GAME_INFO = data
 
 DEBUG = True
