@@ -33,27 +33,17 @@ function 配置初始化() {
     }
 }
 
-配置初始化();
+// 配置初始化();
 
 function chapter_id(scene) {
     return scene.split("-")[0];
 }
 
 function chapter_name(scene) {
-    console.log("scene" + scene);
-    for (let i = 0; i < config_data.name_chap_list.length; i++)
-        if (config_data.name_chap_list[i].id == "ch" + chapter_id(scene)) {
-            console.log("title" + config_data.name_chap_list[i].value);
-            return config_data.name_chap_list[i].value;
-        }
-
-    for (let i = 0; i < config_data.name_end_list.length; i++) {
-        if (config_data.name_end_list[i].id == scene) {
-            return (
-                config_data.name_chap_list.end +
-                config_data.name_end_list[i].value
-            );
-        }
+    if ("ch" + chapter_id(scene) in config_data.chap_map) {
+        return config_data.chap_map["ch" + chapter_id(scene)];
+    } else if (scene.includes("end")) {
+        return config_data.chap_map.end + config_data.end_map[scene];
     }
     return "未知章节";
 }
