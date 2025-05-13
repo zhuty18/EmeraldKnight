@@ -101,11 +101,11 @@ class Action(BasicLogic):
         self._name = data["name"] if "name" in data else None
         self._show = data["show"] if "show" in data else None
 
-        self._condition = None
+        self._trigger = None
         self._first = None
         self._chance = None
-        if "condition" in data:
-            self._condition = data["condition"]
+        if "trigger" in data:
+            self._trigger = data["trigger"]
         if "first" in data:
             self._first = data["first"]
         if "chance" in data:
@@ -132,7 +132,7 @@ class Action(BasicLogic):
 
     def get_condition(self):
         """获取触发条件"""
-        return self._condition
+        return self._trigger
 
     def get_chance(self):
         """获取触发几率"""

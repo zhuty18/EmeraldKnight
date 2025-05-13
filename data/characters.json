@@ -25,7 +25,7 @@
                 "min": 120,
                 "max": 180,
                 "first": 250,
-                "condition": 100,
+                "trigger": 100,
                 "time": 2,
                 "text": "魔王身上黑雾攒动，"
             }

@@ -1,6 +1,5 @@
 package com.tuzicao.emeraldknight.game.battle
 
-import android.util.Log
 import com.tuzicao.emeraldknight.game.ActionType
 import com.tuzicao.emeraldknight.game.GameLogic
 import org.json.JSONObject
@@ -22,11 +21,10 @@ abstract class Action(data: JSONObject, val owner: Character) {
 
     val show: JSONObject? = if (data.has("show")) data.getJSONObject("show") else null
     val name: String? = if (data.has("name")) data.getString("name") else null
-    val condition: Int? =
-        if (data.has("condition")) data.getInt("condition") else null
+    val trigger: Int? =
+        if (data.has("trigger")) data.getInt("trigger") else null
     val first: Int? = if (data.has("first")) data.getInt("first") else null
     val chance: Double? = if (data.has("chance")) data.getDouble("chance") else null
-
     abstract fun execute(target: Character? = null): String
 
     open fun isAvailable(): Boolean {
