@@ -1,11 +1,44 @@
+<template>
+    <div class="app">
+        <Sidebar />
+        <div class="main-content">
+            <div style="height: 100vh">
+                <VueFlow
+                    v-model:nodes="nodes"
+                    v-model:edges="edges"
+                    fit-view-on-init
+                    class="vue-flow-basic-example"
+                    :default-zoom="1.5"
+                    :min-zoom="0.2"
+                    :max-zoom="4"
+                >
+                    <Background pattern-color="#aaa" :gap="8" />
+
+                    <MiniMap />
+
+                    <Controls />
+
+                    <template #node-custom="nodeProps">
+                        <SpecialNode v-bind="nodeProps" />
+                    </template>
+
+                    <template #edge-custom="edgeProps">
+                        <SpecialEdge v-bind="edgeProps" />
+                    </template>
+                </VueFlow>
+            </div>
+        </div>
+    </div>
+</template>
 <script lang="ts" setup>
-import { h, ref } from "vue";
+import { h, ref, computed, defineComponent } from "vue";
 import { Background } from "@vue-flow/background";
 import { Controls } from "@vue-flow/controls";
 import { MiniMap } from "@vue-flow/minimap";
 import { VueFlow, useVueFlow, type Node, type Edge } from "@vue-flow/core";
 import SpecialNode from "./components/SpecialNode.vue";
 import SpecialEdge from "./components/SpecialEdge.vue";
+import Sidebar from "./components/Sidebar.vue";
 
 const { onConnect, addEdges } = useVueFlow();
 
@@ -23,32 +56,16 @@ const edges = ref<Edge[]>([
 onConnect((params) => {
     addEdges([params]);
 });
+
 </script>
 
-<template>
-    <div style="height: 100vh">
-        <VueFlow
-            v-model:nodes="nodes"
-            v-model:edges="edges"
-            fit-view-on-init
-            class="vue-flow-basic-example"
-            :default-zoom="1.5"
-            :min-zoom="0.2"
-            :max-zoom="4"
-        >
-            <Background pattern-color="#aaa" :gap="8" />
+<style scoped>
+.app {
+    height: 100vh;
+    display: flex;
+}
 
-            <MiniMap />
-
-            <Controls />
-
-            <template #node-custom="nodeProps">
-                <SpecialNode v-bind="nodeProps" />
-            </template>
-
-            <template #edge-custom="edgeProps">
-                <SpecialEdge v-bind="edgeProps" />
-            </template>
-        </VueFlow>
-    </div>
-</template>
+.main-content {
+    flex: 1;
+}
+</style>
