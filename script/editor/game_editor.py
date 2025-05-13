@@ -33,6 +33,10 @@ class GameEditor(ParaController, InfoController):
             self._main_window,
             self._app.primaryScreen().geometry(),
         )
+        self.load_data()
+
+    def load_data(self):
+        """加载数据"""
         para = {}
         para["para_list"] = self._paras
         para["func_list"] = self._func_paras

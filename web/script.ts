@@ -18,7 +18,17 @@ import "./app.css";
 
 let paras = {};
 let scene = "";
+let const_value = {};
 
+function 配置初始化() {
+    fetch("data/full_data.json")
+        .then((res) => res.json())
+        .then((data) => {
+            for (let i = 0; i < data.const_list.length; i++) {
+                const_value[data.const_list[i].id] = data.const_list[i].value;
+            }
+        });
+}
 fetch("data/paras.json")
     .then((res) => res.json())
     .then((data) => {
@@ -43,7 +53,7 @@ function chapter_name(scene) {
 }
 
 function refresh_story() {
-    document.getElementById("scene_title").textContent = chapter_name(scene);
+    document.getElementById("scene_title")!.textContent = chapter_name(scene);
 }
 
 refresh_story();
