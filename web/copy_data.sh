@@ -1,3 +1,3 @@
 mkdir data
-cp ../data/info.json ./data/info.json
-cp ../data/config.json ./data/config.json
+cp ../data/info.json ./data
+cp ../data/config.json ./data

@@ -11,7 +11,7 @@ import os
 import PySide6.QtWidgets as qt
 from editor_setting import FILE_CONFIG, PATH_DATA
 from info_ctrl import InfoController
-from para_ctrl import ParaController
+from para_ctrl import ParaGui
 from utils import write_data
 
 from script.game.game_logic import Logic
@@ -22,7 +22,7 @@ from script.game.game_logic import Logic
 # TODO: 对应弹窗、机制
 
 
-class GameEditor(ParaController, InfoController):
+class GameEditor(ParaGui, InfoController):
     """游戏编辑器"""
 
     def __init__(self):

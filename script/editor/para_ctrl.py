@@ -19,54 +19,14 @@ from utils import sort_data, write_data
 from script.game.game_logic import Logic
 
 
-class ParaGui:
-    """参数gui"""
-
-    def __init__(self, main_window, screen):
-        """设置参数相关窗口"""
-        self._para_window = qt.QMainWindow(main_window)
-        self._para_window.resize(
-            screen.width() * 1 / 3, screen.height() * 1 / 2
-        )
-
-        self._para_edit = qt.QDialog(main_window)
-
-        self._id_input = qt.QLineEdit()
-        self._des_input = qt.QLineEdit()
-        self._name_input = qt.QLineEdit()
-        self._value_input = qt.QLineEdit()
-
-    def minium_btn(self, name):
-        """生成最小按键"""
-        btn = qt.QPushButton(name)
-        btn.setSizePolicy(
-            qt.QSizePolicy.Policy.Fixed, qt.QSizePolicy.Policy.Fixed
-        )
-        return btn
-
-    def add_label(self, layout, value):
-        """增加标签"""
-        layout.addWidget(qt.QLabel(value))
-
-    def edit_layout(self, name, edit, value):
-        """编辑布局"""
-        edit.setText(value)
-        layout = qt.QHBoxLayout()
-        layout.addWidget(qt.QLabel(name))
-        layout.addWidget(edit)
-        return layout
-
-
-class ParaController(ParaGui):
+class ParaController:
     """参数管理器"""
 
-    def __init__(self, main_window, screen):
-        super().__init__(main_window, screen)
+    def __init__(self):
         self._paras = {}
         self._func_paras = {}
         self._codes = {}
         self.load_paras()
-        self.set_para_menu()
 
     # region 逻辑处理
     def load_paras(self):
@@ -202,6 +162,46 @@ class ParaController(ParaGui):
     def get_para_ids(self):
         """获取参数id"""
         return list(self._paras.keys())
+
+
+class ParaGui(ParaController):
+    """参数gui"""
+
+    def __init__(self, main_window, screen):
+        """设置参数相关窗口"""
+        super().__init__()
+        self._para_window = qt.QMainWindow(main_window)
+        self._para_window.resize(
+            screen.width() * 1 / 3, screen.height() * 1 / 2
+        )
+
+        self._para_edit = qt.QDialog(main_window)
+
+        self._id_input = qt.QLineEdit()
+        self._des_input = qt.QLineEdit()
+        self._name_input = qt.QLineEdit()
+        self._value_input = qt.QLineEdit()
+        self.set_para_menu()
+
+    def minium_btn(self, name):
+        """生成最小按键"""
+        btn = qt.QPushButton(name)
+        btn.setSizePolicy(
+            qt.QSizePolicy.Policy.Fixed, qt.QSizePolicy.Policy.Fixed
+        )
+        return btn
+
+    def add_label(self, layout, value):
+        """增加标签"""
+        layout.addWidget(qt.QLabel(value))
+
+    def edit_layout(self, name, edit, value):
+        """编辑布局"""
+        edit.setText(value)
+        layout = qt.QHBoxLayout()
+        layout.addWidget(qt.QLabel(name))
+        layout.addWidget(edit)
+        return layout
 
     # region 窗口交互
     def set_para_menu(self):
