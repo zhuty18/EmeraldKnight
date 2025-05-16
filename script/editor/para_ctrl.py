@@ -175,6 +175,7 @@ class ParaGui(ParaController):
             screen.width() * 1 / 3, screen.height() * 1 / 2
         )
 
+        self.__main_window = main_window
         self._para_edit = qt.QDialog(main_window)
 
         self._id_input = qt.QLineEdit()
@@ -291,8 +292,14 @@ class ParaGui(ParaController):
         scroll = qt.QScrollArea()
         scroll.setWidgetResizable(True)
         scroll.setWidget(widget_main)
-        scroll.setFrameShape(qt.QScrollArea.NoFrame)
+        scroll.setFrameShape(qt.QScrollArea.Shape.NoFrame)
         self._para_window.setCentralWidget(scroll)
+
+    def refresh_edit(self, layout):
+        """刷新编辑界面"""
+        self._para_edit = qt.QDialog(self.__main_window)
+        self._para_edit.setLayout(layout)
+        self._para_edit.show()
 
     def edit_para(self, para_data):
         """编辑参数"""
@@ -308,7 +315,7 @@ class ParaGui(ParaController):
         )
         layout_main.addLayout(
             self.edit_layout(
-                "默认值", self._value_input, para_data["default_value"]
+                "默认值", self._value_input, str(para_data["default_value"])
             )
         )
 
@@ -318,8 +325,7 @@ class ParaGui(ParaController):
         btn_layout.addWidget(btn)
         layout_main.addLayout(btn_layout)
 
-        self._para_edit.setLayout(layout_main)
-        self._para_edit.show()
+        self.refresh_edit(layout_main)
 
     def change_para(self):
         """修改参数"""
@@ -348,8 +354,7 @@ class ParaGui(ParaController):
         btn_layout.addWidget(btn)
         layout_main.addLayout(btn_layout)
 
-        self._para_edit.setLayout(layout_main)
-        self._para_edit.show()
+        self.refresh_edit(layout_main)
 
     def change_func_para(self):
         """修改功能参数"""
@@ -370,7 +375,7 @@ class ParaGui(ParaController):
             self.edit_layout("描述", self._des_input, para_data["description"])
         )
         layout_main.addLayout(
-            self.edit_layout("值", self._value_input.text, para_data["value"])
+            self.edit_layout("值", self._value_input, para_data["value"])
         )
 
         btn_layout = qt.QHBoxLayout()
@@ -379,8 +384,7 @@ class ParaGui(ParaController):
         btn_layout.addWidget(btn)
         layout_main.addLayout(btn_layout)
 
-        self._para_edit.setLayout(layout_main)
-        self._para_edit.show()
+        self.refresh_edit(layout_main)
 
     def change_code(self):
         """修改代码"""
