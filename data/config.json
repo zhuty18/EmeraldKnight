@@ -4234,48 +4234,32 @@
     },
     "const_map": {
         "BATTLE_STORY": {
-            "value": {
-                "BLANK": "{NUMBER}",
-                "DODGE": "被躲开了！",
-                "ENEMY": "SINESTRO",
-                "HEAL": "回复了{NUMBER}点体力！",
-                "HERO": "HAL",
-                "HURT": "造成了{NUMBER}点伤害！",
-                "LOSE": "\n你被打败了！",
-                "START": "这场决定大陆未来的战斗，开始了！",
-                "WIN": "魔王倒下了！"
-            }
+            "BLANK": "{NUMBER}",
+            "DODGE": "被躲开了！",
+            "ENEMY": "SINESTRO",
+            "HEAL": "回复了{NUMBER}点体力！",
+            "HERO": "HAL",
+            "HURT": "造成了{NUMBER}点伤害！",
+            "LOSE": "\n你被打败了！",
+            "START": "这场决定大陆未来的战斗，开始了！",
+            "WIN": "魔王倒下了！"
         },
-        "EMPTY_SAVE": {
-            "value": "空存档"
-        },
+        "EMPTY_SAVE": "空存档",
         "END_CHOICE": {
-            "value": {
-                "id": "end",
-                "target": "game_over",
-                "text": "回到开始界面"
-            }
+            "id": "end",
+            "target": "game_over",
+            "text": "回到开始界面"
         },
         "END_SCENE": {
-            "value": {
-                "id": "game_over",
-                "options": [
-                    "end"
-                ]
-            }
+            "id": "game_over",
+            "options": [
+                "end"
+            ]
         },
-        "FINAL_BATTLE": {
-            "value": "6-6"
-        },
-        "START_OVER": {
-            "value": "game_over"
-        },
-        "START_SCENE": {
-            "value": "1-1"
-        },
-        "STORY_END": {
-            "value": "\n\n结局——"
-        }
+        "FINAL_BATTLE": "6-6",
+        "START_OVER": "game_over",
+        "START_SCENE": "1-1",
+        "STORY_END": "\n\n结局——"
     },
     "end_map": {
         "end-1": "无事发生",
@@ -4301,10 +4285,74 @@
         "end-9": "命丧他乡"
     },
     "func_list": [
-        "SCENE",
+        "CHOICE",
         "FIGHT",
-        "CHOICE"
+        "SCENE"
     ],
+    "info": {
+        "author": "兔子草",
+        "chapters": 7,
+        "contact_email": "13718054285@163.com",
+        "contact_qq": "3440950898",
+        "home_url": "https://zhuty18.github.io/EmeraldKnight",
+        "icon": "data/icon.ico",
+        "name_en": "Emerald Knight",
+        "name_zh": "翡翠骑士",
+        "poem": [
+            [
+                "雪山之巅",
+                "英魂渐远"
+            ],
+            [
+                "危城影下",
+                "一念不灭"
+            ],
+            [
+                "剑心重铸",
+                "翡翠长明"
+            ],
+            [
+                "孤星陨灭",
+                "万灵恸哭"
+            ]
+        ],
+        "project_url": "https://github.com/zhuty18/EmeraldKnight",
+        "update": "2025.05.03",
+        "version": "2.1.6",
+        "version_number": 7
+    },
+    "info_map": {
+        "author": "兔子草",
+        "chapters": 7,
+        "contact_email": "13718054285@163.com",
+        "contact_qq": "3440950898",
+        "home_url": "https://zhuty18.github.io/EmeraldKnight",
+        "icon": "data/icon.ico",
+        "name_en": "Emerald Knight",
+        "name_zh": "翡翠骑士",
+        "poem": [
+            [
+                "雪山之巅",
+                "英魂渐远"
+            ],
+            [
+                "危城影下",
+                "一念不灭"
+            ],
+            [
+                "剑心重铸",
+                "翡翠长明"
+            ],
+            [
+                "孤星陨灭",
+                "万灵恸哭"
+            ]
+        ],
+        "project_url": "https://github.com/zhuty18/EmeraldKnight",
+        "update": "2025.05.03",
+        "version": "2.1.6",
+        "version_number": 7
+    },
     "para_map": {
         "BARRY_LOVE": {
             "name": "bal",
@@ -4383,7 +4431,7 @@
             "default_value": 0
         }
     },
-    "path_map": {
+    "scene_map": {
         "1-1": {
             "name": "出发",
             "options": [
@@ -6607,7 +6655,7 @@
             ]
         }
     },
-    "story_map": {
+    "story": {
         "1-1": "新历2814年2月20日，晴。\n你站在小镇门口，笑着对来送行的人们挥手。\n你知道他们很担心你，因为你即将踏上的是没有人曾活着回来的征途——你要去讨伐北方可怕的科瓦德魔王。\n没有人知道科瓦德魔王长什么样子，也没有人知道科瓦德魔王是什么脾气。但无人不知无人不晓的是——科瓦德魔王正在把黑暗散布在龙骨雪山的那一侧。科瓦德的阴云下，鸟儿不会歌唱，树木不会生长，泉水不会流动，万事万物都失了色彩……那是彻彻底底的死域。\n而科瓦德魔王越过龙骨雪山来到南方大陆，只是时间问题。\n所以，一定要有人去打败科瓦德魔王。\n“但这个人必须是你吗？”卡萝这么问过。她住在你隔壁，你们从小一起长大……你想以后娶她，但你从没说出口过。\n那时你刚刚收下长老团给你的翡翠剑，你是他们的第一选择。你本可以拒绝，但毫不犹豫地点了头。\n“我也害怕。”你看着卡萝的紫眼睛，“但我要是把心思放在害怕上，我也成不了欧阿的第一勇者。——那不是我。”\n卡萝没再说过什么，于是就到了现在，你打点好行装，准备开始前方未知的冒险。\n“哈尔，活着回来！”你循声望去，你最好的朋友巴里把手环在嘴边，冲你大喊。\n你笑着对他挤挤眼睛，然后深吸一口气，转身迈出了第一步。\n\n你在中午之前就走出了猎人们打猎时游荡的范围，太阳渐渐西行，而你终于发现，长老团给的地图似乎不大准确……你迷路了。\n眼看太阳就要落山，你认不出周围的景色，只能勉强辨别方向，这时候，你选择——",
         "1-10": "你有丰富的野外经验，虽然很有自信不会被野兽夜袭，但也不想辜负他的好意。\n“谢谢。”你冲他笑了笑。\n他倨傲地点点头。",
         "1-11": "“你是谁？”你问。\n篝火明明灭灭，把他大半身子淹没在阴影里，只露出一个影影绰绰的轮廓。听到这话，他转过头来，身上的斗篷跟着动作晃动，火光下显露出破烂的边角。逆着光，你看不清他的脸，只能听到他回答道：“瑟尔。”\n“我叫哈尔。”你说道。\n不知道为什么，当他转过头的时候，你恍惚间竟然有一种他并不存在的感觉。\n你问：“你在这儿做什么？”\n“路过。你又在这儿做什么？”\n“我要去讨伐科瓦德魔王。”\n“谁是科瓦德魔王？”\n“龙骨山脉那一边，黑暗力量的统帅。‘科瓦德’是古语，意味着‘光照不到，被恐惧统治的地方’，所以我们这么称呼那家伙。”\n“你为什么要讨伐科瓦德魔王？”",

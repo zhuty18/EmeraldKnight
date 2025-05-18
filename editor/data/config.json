@@ -4723,6 +4723,38 @@
         "version": "2.1.6",
         "version_number": 7
     },
+    "info_map": {
+        "author": "兔子草",
+        "chapters": 7,
+        "contact_email": "13718054285@163.com",
+        "contact_qq": "3440950898",
+        "home_url": "https://zhuty18.github.io/EmeraldKnight",
+        "icon": "data/icon.ico",
+        "name_en": "Emerald Knight",
+        "name_zh": "翡翠骑士",
+        "poem": [
+            [
+                "雪山之巅",
+                "英魂渐远"
+            ],
+            [
+                "危城影下",
+                "一念不灭"
+            ],
+            [
+                "剑心重铸",
+                "翡翠长明"
+            ],
+            [
+                "孤星陨灭",
+                "万灵恸哭"
+            ]
+        ],
+        "project_url": "https://github.com/zhuty18/EmeraldKnight",
+        "update": "2025.05.03",
+        "version": "2.1.6",
+        "version_number": 7
+    },
     "name_list": {
         "chapter_names": [
             {

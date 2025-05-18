@@ -12,7 +12,7 @@ import PySide6.QtWidgets as qt
 from editor_setting import FILE_CONFIG, PATH_DATA
 from info_ctrl import InfoController
 from para_ctrl import ParaGui
-from utils import write_data
+from utils import export_data, write_data
 
 from script.game.game_logic import Logic
 
@@ -83,7 +83,14 @@ class GameEditor(ParaGui, InfoController):
             encoding="utf-8",
         ) as f:
             para["story"] = json.loads(f.read())
+        with open(
+            os.path.join(Logic.PATH_DATA, "info.json"),
+            "r",
+            encoding="utf-8",
+        ) as f:
+            para["info_map"] = json.loads(f.read())
         write_data(para, os.path.join(PATH_DATA, FILE_CONFIG))
+        export_data(para, "data/config.json")
 
     def run(self):
         """开始运行"""
