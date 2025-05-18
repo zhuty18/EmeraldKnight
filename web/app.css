@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn {
+    margin: 0.3em;
+}
+
+p {
+    text-indent: 2em;
+    line-height: 2em;
+}

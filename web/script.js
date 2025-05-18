@@ -1,23 +1,7 @@
-// let storyEl = document.getElementById("story");
-// let inputEl = document.getElementById("playerInput");
-
-// function handleInput () {
-//     const choice = inputEl.value.trim().toLowerCase();
-//     inputEl.value = "";
-
-//     if (choice === "进入") {
-//         storyEl.textContent = "你迈入森林，四周变得昏暗。远处传来狼嚎...";
-//     } else if (choice === "离开") {
-//         storyEl.textContent = "你转身离开，但心中有些许遗憾。也许，这是个错误的决定。";
-//     } else {
-//         storyEl.textContent = `你说了“${choice}”，但风似乎没有回应。试试别的？`;
-//     }
-// }
-
 import "./app.css"
+import { chapter_name, scene_text, choice_text } from "./story"
+import { mark_end, check_end } from "./save"
 
-let paras = {}
-let scene = "end-1"
 let config_data = {}
 
 await fetch("data/config.json")
@@ -26,29 +10,103 @@ await fetch("data/config.json")
         config_data = data
     })
 
-function 配置初始化 () {
-    for (let i = 0; i < config_data.para_list.length; i++) {
-        paras[config_data.para_list[i].name] = config_data.para_list[i].default_value
+let paras = {}
+
+// let scene = config_data.const_map.START_OVER
+let scene = "1-1"
+
+function init_para () {
+    for (var key in config_data.para_map) {
+        paras[key] = config_data.para_map[key].default_value
     }
 }
 
-// 配置初始化();
-
-function chapter_id (scene) {
-    return scene.split("-")[0]
+function to_scene (target) {
+    scene = target
+    refresh_story()
 }
 
-function chapter_name (scene) {
-    if ("ch" + chapter_id(scene) in config_data.chap_map) {
-        return config_data.chap_map["ch" + chapter_id(scene)]
-    } else if (scene.includes("end")) {
-        return config_data.chap_map.end + config_data.end_map[scene]
+function choose (choice_id) {
+    if (scene === config_data.const_map.START_OVER) {
+        to_scene(config_data.const_map.START_SCENE)
+        init_para()
     }
-    return "未知章节"
+    to_scene(config_data.choice_map[choice_id].target)
+}
+
+function check_condition (paras, condition) {
+    if (condition.check === "CONDITION") {
+        return check_is(paras, condition.para) == check.value
+    }
+    let value_a = 1
+    let value_b = check.value
+    return true
+}
+
+function check_is (paras, check) {
+    if (check.op === "AND") {
+        return check.map((x) => check_condition(paras, x)).reduce((a, b) => a && b)
+    } else if (check.op === "OR") {
+        return check.map((x) => check_condition(paras, x)).reduce((a, b) => a || b)
+    }
+}
+
+function choice_show (paras, choice_id) {
+    let choice = config_data.choice_map[choice_id]
+    if (choice.show) {
+        return check_is(paras, choice.show)
+    }
+    return true
+}
+
+function current_choices (scene, paras) {
+    if (scene === config_data.const_map.START_OVER) {
+        return [
+            {
+                id: "default_id",
+                text: "开始游戏",
+            },
+        ]
+    }
+    {
+        let options = config_data.scene_map[scene].options
+        let res = []
+        for (var i = 0; i < options.length; i++) {
+            if (choice_show(paras, options[i])) {
+                res.push({
+                    id: options[i],
+                    text: choice_text(options[i]),
+                })
+            }
+        }
+        return res
+    }
+}
+
+function clear_node (parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild)
+    }
 }
 
 function refresh_story () {
     document.getElementById("scene_title").textContent = chapter_name(scene)
+    let story = document.getElementById("story")
+    clear_node(story)
+    story.insertAdjacentHTML("afterbegin", scene_text(scene))
+    let choice_list = document.getElementById("choice_list")
+    clear_node(choice_list)
+    let choice = current_choices(scene, paras)
+    for (var i = 0; i < choice.length; i++) {
+        let btn = document.createElement("button")
+        btn.textContent = choice[i].text
+        btn.classList = ["btn btn-primary w-full shadow-lg"]
+        btn.id = choice[i].id
+        btn.onclick = function () {
+            choose(this.id)
+        }
+        choice_list.appendChild(btn)
+    }
 }
 
 refresh_story()
