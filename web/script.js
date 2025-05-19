@@ -1,13 +1,13 @@
 import "./app.css"
-import { chapter_name, scene_text, choice_text } from "./story"
-import { mark_end, check_end } from "./save"
+import { chapterName, sceneText, choiceText } from "./story"
+import { markEnd, checkEnd } from "./save"
 
-let config_data = {}
+let configData = {}
 
 await fetch("data/config.json")
     .then((res) => res.json())
     .then((data) => {
-        config_data = data
+        configData = data
     })
 
 let paras = {}
@@ -15,52 +15,27 @@ let paras = {}
 // let scene = config_data.const_map.START_OVER
 let scene = "1-1"
 
-function init_para () {
-    for (var key in config_data.para_map) {
-        paras[key] = config_data.para_map[key].default_value
+function initPara (configData) {
+    for (var key in configData.para_map) {
+        paras[key] = configData.para_map[key].default_value
     }
 }
 
-function to_scene (target) {
+function toScene (target) {
     scene = target
-    refresh_story()
+    refreshStory()
 }
 
-function choose (choice_id) {
-    if (scene === config_data.const_map.START_OVER) {
-        to_scene(config_data.const_map.START_SCENE)
-        init_para()
+function chooseChoice (choice_id) {
+    if (scene === configData.const_map.START_OVER) {
+        toScene(configData.const_map.START_SCENE)
+        initPara()
     }
-    to_scene(config_data.choice_map[choice_id].target)
+    toScene(configData.choice_map[choice_id].target)
 }
 
-function check_condition (paras, condition) {
-    if (condition.check === "CONDITION") {
-        return check_is(paras, condition.para) == check.value
-    }
-    let value_a = 1
-    let value_b = check.value
-    return true
-}
-
-function check_is (paras, check) {
-    if (check.op === "AND") {
-        return check.map((x) => check_condition(paras, x)).reduce((a, b) => a && b)
-    } else if (check.op === "OR") {
-        return check.map((x) => check_condition(paras, x)).reduce((a, b) => a || b)
-    }
-}
-
-function choice_show (paras, choice_id) {
-    let choice = config_data.choice_map[choice_id]
-    if (choice.show) {
-        return check_is(paras, choice.show)
-    }
-    return true
-}
-
-function current_choices (scene, paras) {
-    if (scene === config_data.const_map.START_OVER) {
+function currentChoices (configData, scene, paras) {
+    if (scene === configData.const_map.START_OVER) {
         return [
             {
                 id: "default_id",
@@ -69,13 +44,13 @@ function current_choices (scene, paras) {
         ]
     }
     {
-        let options = config_data.scene_map[scene].options
+        let options = configData.scene_map[scene].options
         let res = []
         for (var i = 0; i < options.length; i++) {
-            if (choice_show(paras, options[i])) {
+            if (choiceShow(configData, paras, options[i])) {
                 res.push({
                     id: options[i],
-                    text: choice_text(options[i]),
+                    text: choiceText(configData, options[i]),
                 })
             }
         }
@@ -83,30 +58,55 @@ function current_choices (scene, paras) {
     }
 }
 
-function clear_node (parent) {
+function clearNode (parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild)
     }
 }
 
-function refresh_story () {
-    document.getElementById("scene_title").textContent = chapter_name(scene)
+function refreshStory () {
+    document.getElementById("scene_title").textContent = chapterName(configData, scene)
     let story = document.getElementById("story")
-    clear_node(story)
-    story.insertAdjacentHTML("afterbegin", scene_text(scene))
+    clearNode(story)
+    story.insertAdjacentHTML("afterbegin", sceneText(configData, scene))
     let choice_list = document.getElementById("choice_list")
-    clear_node(choice_list)
-    let choice = current_choices(scene, paras)
+    clearNode(choice_list)
+    let choice = currentChoices(configData, scene, paras)
     for (var i = 0; i < choice.length; i++) {
         let btn = document.createElement("button")
         btn.textContent = choice[i].text
         btn.classList = ["btn btn-primary w-full shadow-lg"]
         btn.id = choice[i].id
         btn.onclick = function () {
-            choose(this.id)
+            chooseChoice(this.id)
         }
         choice_list.appendChild(btn)
     }
 }
 
-refresh_story()
+refreshStory()
+
+function checkCondition (configData, paras, condition) {
+    if (condition.check === "CONDITION") {
+        return checkIs(paras, condition.para) == check.value
+    }
+    let value_a = 1
+    let value_b = check.value
+    return true
+}
+
+function checkIs (configData, paras, check) {
+    if (check.op === "AND") {
+        return check.map((x) => checkCondition(configData, paras, x)).reduce((a, b) => a && b)
+    } else if (check.op === "OR") {
+        return check.map((x) => checkCondition(configData, paras, x)).reduce((a, b) => a || b)
+    }
+}
+
+function choiceShow (configData, paras, choice_id) {
+    let choice = configData.choice_map[choice_id]
+    if (choice.show) {
+        return checkIs(paras, choice.show)
+    }
+    return true
+}

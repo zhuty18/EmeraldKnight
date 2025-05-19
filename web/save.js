@@ -12,12 +12,12 @@ function getCookie (cname) {
     return ""
 }
 
-function mark_end (end_id) {
+function markEnd (end_id) {
     setCookie(end_id, "true")
 }
 
-function check_end (end_id) {
+function checkEnd (end_id) {
     return getCookie(end_id) === "true"
 }
 
-export { mark_end, check_end }
+export { markEnd, checkEnd }
