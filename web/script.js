@@ -1,5 +1,11 @@
 import "./app.css"
-import { chapterName, sceneText, choiceText } from "./story"
+import {
+    chapterName,
+    sceneText,
+    sceneChoices,
+    changePara,
+    getPara,
+} from "./story"
 import { markEnd, checkEnd } from "./save"
 
 let configData = {}
@@ -12,7 +18,7 @@ await fetch("data/config.json")
 
 let paras = {}
 
-// let scene = config_data.const_map.START_OVER
+// let scene = configData.const_map.START_OVER
 let scene = "1-1"
 
 function initPara (configData) {
@@ -30,8 +36,14 @@ function chooseChoice (choice_id) {
     if (scene === configData.const_map.START_OVER) {
         toScene(configData.const_map.START_SCENE)
         initPara()
+    } else {
+        if (configData.choice_map[choice_id].choose) {
+            configData.choice_map[choice_id].choose.forEach((action) =>
+                changePara(configData, scene, paras, action)
+            )
+        }
+        toScene(configData.choice_map[choice_id].target)
     }
-    toScene(configData.choice_map[choice_id].target)
 }
 
 function currentChoices (configData, scene, paras) {
@@ -42,19 +54,8 @@ function currentChoices (configData, scene, paras) {
                 text: "开始游戏",
             },
         ]
-    }
-    {
-        let options = configData.scene_map[scene].options
-        let res = []
-        for (var i = 0; i < options.length; i++) {
-            if (choiceShow(configData, paras, options[i])) {
-                res.push({
-                    id: options[i],
-                    text: choiceText(configData, options[i]),
-                })
-            }
-        }
-        return res
+    } else {
+        return sceneChoices(configData, scene, paras)
     }
 }
 
@@ -65,10 +66,16 @@ function clearNode (parent) {
 }
 
 function refreshStory () {
-    document.getElementById("scene_title").textContent = chapterName(configData, scene)
+    document.getElementById("scene_title").textContent = chapterName(
+        configData,
+        scene
+    )
     let story = document.getElementById("story")
     clearNode(story)
-    story.insertAdjacentHTML("afterbegin", sceneText(configData, scene))
+    story.insertAdjacentHTML(
+        "afterbegin",
+        debugInfo() + sceneText(configData, scene)
+    )
     let choice_list = document.getElementById("choice_list")
     clearNode(choice_list)
     let choice = currentChoices(configData, scene, paras)
@@ -86,27 +93,12 @@ function refreshStory () {
 
 refreshStory()
 
-function checkCondition (configData, paras, condition) {
-    if (condition.check === "CONDITION") {
-        return checkIs(paras, condition.para) == check.value
+function debugInfo () {
+    let res = "<div>"
+    res += "<p>scene: " + scene + "</p><p>"
+    for (var i in configData.para_map) {
+        res += i + ": " + getPara(configData, paras, i) + "；"
     }
-    let value_a = 1
-    let value_b = check.value
-    return true
-}
-
-function checkIs (configData, paras, check) {
-    if (check.op === "AND") {
-        return check.map((x) => checkCondition(configData, paras, x)).reduce((a, b) => a && b)
-    } else if (check.op === "OR") {
-        return check.map((x) => checkCondition(configData, paras, x)).reduce((a, b) => a || b)
-    }
-}
-
-function choiceShow (configData, paras, choice_id) {
-    let choice = configData.choice_map[choice_id]
-    if (choice.show) {
-        return checkIs(paras, choice.show)
-    }
-    return true
+    res += "</p></div>"
+    return res
 }
