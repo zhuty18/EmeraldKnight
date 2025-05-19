@@ -16,25 +16,14 @@ function chapterName (configData, scene) {
 }
 
 function sceneText (configData, scene_id) {
-    if (scene_id === configData.const_map.START_OVER) {
-        let res = "<div style='text-align:center'>"
-        for (var i = 0; i < configData.info.poem.length; i++) {
-            res += "<p>"
-            res += configData.info.poem[i].join("&nbsp;&nbsp;&nbsp;&nbsp;")
-            res += "</p>"
-        }
-        res += "</div>"
-        return res
-    } else {
-        let story = configData.story[scene_id].split("\n")
-        let res = ""
-        for (var i = 0; i < story.length; i++) {
-            res += "<p>"
-            res += story[i]
-            res += "</p>"
-        }
-        return res
+    let story = configData.story[scene_id].split("\n")
+    let res = ""
+    for (var i = 0; i < story.length; i++) {
+        res += "<p>"
+        res += story[i]
+        res += "</p>"
     }
+    return res
 }
 
 function choiceText (configData, choice_id) {
