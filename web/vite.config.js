@@ -13,7 +13,7 @@ export default defineConfig({
             targets: [
                 {
                     src: "data/*", // 你项目里的 data 文件夹
-                    dest: "./data/*", // 输出到 dist/
+                    dest: "./data", // 输出到 dist/
                 },
             ],
         }),
