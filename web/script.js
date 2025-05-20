@@ -18,8 +18,8 @@ await fetch("data/config.json")
 
 let paras = {}
 
-let scene = configData.const_map.START_OVER
-// let scene = "6-6"
+// let scene = configData.const_map.START_OVER
+let scene = "end-1"
 
 function initPara (configData) {
     for (var key in configData.para_map) {
@@ -39,7 +39,8 @@ function chooseChoice (choice_id) {
     if (scene === configData.const_map.START_OVER) {
         toScene(configData.const_map.START_SCENE)
         initPara()
-    } else if (choice_id === "end") {
+    } else if (choice_id === configData.const_map.END_CHOICE.id) {
+        console.log(configData.const_map.START_OVER)
         toScene(configData.const_map.START_OVER)
     } else {
         if (configData.choice_map[choice_id].choose) {
@@ -106,12 +107,21 @@ function refreshStory () {
                     toScene(this.id)
                 }
             } else {
-                endBtn.textContent =
-                    configData.chap_map.end + "未解锁"
+                endBtn.textContent = configData.chap_map.end + "未解锁"
                 endBtn.classList += " btn-disabled"
             }
             choice_list.appendChild(endBtn)
         }
+    } else if (scene.includes("end")) {
+        story.insertAdjacentHTML("afterbegin", sceneText(configData, scene))
+        let btn = document.createElement("button")
+        btn.classList = ["btn btn-primary w-full shadow-lg"]
+        btn.id = configData.const_map.END_CHOICE.id
+        btn.textContent = configData.const_map.END_CHOICE.text
+        btn.onclick = function () {
+            chooseChoice(this.id)
+        }
+        choice_list.appendChild(btn)
     } else if (scene in configData.scene_map) {
         story.insertAdjacentHTML("afterbegin", sceneText(configData, scene))
         // story.insertAdjacentHTML("afterbegin", debugInfo())
