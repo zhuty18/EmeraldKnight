@@ -6,13 +6,14 @@
             "type": "HERO",
             "actions": [
                 {
-                    "id": "HAL_CHEAT",
-                    "name": "开挂",
-                    "type": "CHEAT",
-                    "text": "你开挂绝杀！"
+                    "id": "HAL_01_PLAIN_ATTACK",
+                    "name": "普通攻击",
+                    "type": "ATTACK",
+                    "text": "你向魔王发动进攻，",
+                    "strength": 0.15
                 },
                 {
-                    "id": "HAL_FLYING_ATTACK",
+                    "id": "HAL_02_FLYING_ATTACK",
                     "show": {
                         "op": "AND",
                         "condition": [
@@ -29,23 +30,7 @@
                     "strength": 0.3
                 },
                 {
-                    "id": "HAL_HEAL",
-                    "name": "治疗",
-                    "type": "HEAL",
-                    "text": "你吃下一颗雷电小球，",
-                    "min": 30,
-                    "max": 50,
-                    "time": 10
-                },
-                {
-                    "id": "HAL_PLAIN_ATTACK",
-                    "name": "普通攻击",
-                    "type": "ATTACK",
-                    "text": "你向魔王发动进攻，",
-                    "strength": 0.15
-                },
-                {
-                    "id": "HAL_SPECIAL_ATTACK",
+                    "id": "HAL_03_SPECIAL_ATTACK",
                     "name": "特殊攻击",
                     "type": "ATTACK",
                     "text": "翡翠剑面对魔王放出强光，",
@@ -55,6 +40,21 @@
                         "min": 5,
                         "max": 15
                     }
+                },
+                {
+                    "id": "HAL_04_HEAL",
+                    "name": "治疗",
+                    "type": "HEAL",
+                    "text": "你吃下一颗雷电小球，",
+                    "min": 30,
+                    "max": 50,
+                    "time": 10
+                },
+                {
+                    "id": "HAL_05`_CHEAT",
+                    "name": "开挂",
+                    "type": "CHEAT",
+                    "text": "你开挂绝杀！"
                 }
             ]
         },
@@ -65,7 +65,21 @@
             "max_life": 500,
             "actions": [
                 {
-                    "id": "SINESTRO_HEAL",
+                    "id": "SINESTRO_01_PLAIN_ATTACK",
+                    "type": "ATTACK",
+                    "text": "魔王向你发动进攻，",
+                    "strength": 0.1,
+                    "chance": 2
+                },
+                {
+                    "id": "SINESTRO_02_MAGIC_ATTACK",
+                    "type": "ATTACK",
+                    "text": "魔王对你使用了魔法，",
+                    "strength": 0.25,
+                    "chance": 1
+                },
+                {
+                    "id": "SINESTRO_03_HEAL",
                     "type": "HEAL",
                     "text": "魔王身上黑雾攒动，",
                     "min": 120,
@@ -73,20 +87,6 @@
                     "first": 250,
                     "trigger": 100,
                     "time": 2
-                },
-                {
-                    "id": "SINESTRO_MAGIC_ATTACK",
-                    "type": "ATTACK",
-                    "text": "魔王对你使用了魔法，",
-                    "strength": 0.25,
-                    "chance": 1
-                },
-                {
-                    "id": "SINESTRO_PLAIN_ATTACK",
-                    "type": "ATTACK",
-                    "text": "魔王向你发动进攻，",
-                    "strength": 0.1,
-                    "chance": 2
                 }
             ]
         }
