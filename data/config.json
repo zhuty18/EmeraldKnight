@@ -1,14 +1,4 @@
 {
-    "chap_map": {
-        "ch1": "第一章\t出发",
-        "ch2": "第二章\t传说",
-        "ch3": "第三章\t雪山",
-        "ch4": "第四章\t远方",
-        "ch5": "第五章\t危城",
-        "ch6": "第六章\t孤光",
-        "ch7": "外传\t黎明",
-        "end": "结局\t"
-    },
     "char_map": {
         "HAL": {
             "name": "你",
@@ -115,6 +105,91 @@
         },
         "1-1-3": {
             "target": "1-4"
+        },
+        "1-2-1": {
+            "target": "1-5",
+            "choose": [
+                {
+                    "value": 1,
+                    "change": "ADD",
+                    "para": "SWORD_HOT_TIME"
+                }
+            ]
+        },
+        "1-3-1": {
+            "target": "1-6"
+        },
+        "1-3-2": {
+            "target": "1-7"
+        },
+        "1-3-3": {
+            "target": "1-8"
+        },
+        "1-4-1": {
+            "target": "1-9",
+            "choose": [
+                {
+                    "value": -1,
+                    "change": "ADD",
+                    "para": "SINESTRO_TAME"
+                }
+            ]
+        },
+        "1-4-2": {
+            "target": "1-10",
+            "choose": [
+                {
+                    "value": 1,
+                    "change": "ADD",
+                    "para": "SINESTRO_LOVE"
+                }
+            ]
+        },
+        "1-4-3": {
+            "target": "1-11"
+        },
+        "1-5-1": {
+            "target": "1-12"
+        },
+        "1-5-2": {
+            "target": "1-13",
+            "choose": [
+                {
+                    "value": 1,
+                    "change": "ADD",
+                    "para": "KNOWLEDGE"
+                }
+            ]
+        },
+        "1-6-1": {
+            "target": "1-52"
+        },
+        "1-6-2": {
+            "target": "1-18",
+            "choose": [
+                {
+                    "value": 3,
+                    "change": "ADD",
+                    "para": "KNOWLEDGE"
+                }
+            ]
+        },
+        "1-7-1": {
+            "target": "1-14",
+            "choose": [
+                {
+                    "value": 2,
+                    "change": "ADD",
+                    "para": "KNOWLEDGE"
+                }
+            ]
+        },
+        "1-7-2": {
+            "target": "1-17"
+        },
+        "1-8-1": {
+            "target": "1-16",
+            "text": "找人带路去龙骨雪山"
         },
         "1-11-1": {
             "target": "1-55",
@@ -228,16 +303,6 @@
         "1-19-1": {
             "target": "1-15"
         },
-        "1-2-1": {
-            "target": "1-5",
-            "choose": [
-                {
-                    "value": 1,
-                    "change": "ADD",
-                    "para": "SWORD_HOT_TIME"
-                }
-            ]
-        },
         "1-24-0": {
             "target": "1-29"
         },
@@ -317,15 +382,6 @@
                     "para": "BRUCE_SHOW_UP"
                 }
             ]
-        },
-        "1-3-1": {
-            "target": "1-6"
-        },
-        "1-3-2": {
-            "target": "1-7"
-        },
-        "1-3-3": {
-            "target": "1-8"
         },
         "1-31-1": {
             "target": "1-32",
@@ -467,29 +523,6 @@
                 ]
             },
             "text": "四处走走"
-        },
-        "1-4-1": {
-            "target": "1-9",
-            "choose": [
-                {
-                    "value": -1,
-                    "change": "ADD",
-                    "para": "SINESTRO_TAME"
-                }
-            ]
-        },
-        "1-4-2": {
-            "target": "1-10",
-            "choose": [
-                {
-                    "value": 1,
-                    "change": "ADD",
-                    "para": "SINESTRO_LOVE"
-                }
-            ]
-        },
-        "1-4-3": {
-            "target": "1-11"
         },
         "1-40-1": {
             "target": "1-41",
@@ -655,19 +688,6 @@
                 }
             ]
         },
-        "1-5-1": {
-            "target": "1-12"
-        },
-        "1-5-2": {
-            "target": "1-13",
-            "choose": [
-                {
-                    "value": 1,
-                    "change": "ADD",
-                    "para": "KNOWLEDGE"
-                }
-            ]
-        },
         "1-52-1": {
             "target": "1-53",
             "show": {
@@ -766,19 +786,6 @@
         },
         "1-58-4": {
             "target": "1-62"
-        },
-        "1-6-1": {
-            "target": "1-52"
-        },
-        "1-6-2": {
-            "target": "1-18",
-            "choose": [
-                {
-                    "value": 3,
-                    "change": "ADD",
-                    "para": "KNOWLEDGE"
-                }
-            ]
         },
         "1-62-1": {
             "target": "1-63",
@@ -920,19 +927,6 @@
                     "para": "TEMPORARY"
                 }
             ]
-        },
-        "1-7-1": {
-            "target": "1-14",
-            "choose": [
-                {
-                    "value": 2,
-                    "change": "ADD",
-                    "para": "KNOWLEDGE"
-                }
-            ]
-        },
-        "1-7-2": {
-            "target": "1-17"
         },
         "1-71-1": {
             "target": "end-2",
@@ -1087,10 +1081,6 @@
         "1-76-4": {
             "target": "1-81"
         },
-        "1-8-1": {
-            "target": "1-16",
-            "text": "找人带路去龙骨雪山"
-        },
         "1-81-1": {
             "target": "3-1"
         },
@@ -1193,6 +1183,197 @@
                     "para": "TEMPORARY"
                 }
             ]
+        },
+        "2-2-1": {
+            "target": "2-8",
+            "show": {
+                "op": "AND",
+                "condition": [
+                    {
+                        "value": "OLIVER_CODE",
+                        "check": "EQUAL",
+                        "para": "TEAMMATE"
+                    }
+                ]
+            }
+        },
+        "2-2-2": {
+            "target": "2-9",
+            "show": {
+                "op": "AND",
+                "condition": [
+                    {
+                        "value": "OLIVER_CODE",
+                        "check": "UNEQUAL",
+                        "para": "TEAMMATE"
+                    }
+                ]
+            }
+        },
+        "2-3-1": {
+            "target": "2-24",
+            "show": {
+                "op": "AND",
+                "condition": [
+                    {
+                        "value": 3,
+                        "check": "EQUAL",
+                        "para": "SWORD_HOT_TIME"
+                    }
+                ]
+            },
+            "choose": [
+                {
+                    "value": 1,
+                    "change": "ADD",
+                    "para": "SWORD_HOT_TIME"
+                }
+            ]
+        },
+        "2-3-2": {
+            "target": "2-25",
+            "show": {
+                "op": "AND",
+                "condition": [
+                    {
+                        "value": 1,
+                        "check": "EQUAL",
+                        "para": "SWORD_HOT_TIME"
+                    }
+                ]
+            }
+        },
+        "2-3-3": {
+            "target": "7-1",
+            "show": {
+                "op": "AND",
+                "condition": [
+                    {
+                        "value": 1,
+                        "check": "EQUAL",
+                        "para": "end-10"
+                    }
+                ]
+            }
+        },
+        "2-7-1": {
+            "target": "3-2"
+        },
+        "2-8-1": {
+            "target": "2-10",
+            "show": {
+                "op": "OR",
+                "condition": [
+                    {
+                        "value": 4,
+                        "check": "UNEQUAL",
+                        "para": "KNOWLEDGE"
+                    },
+                    {
+                        "value": "2-12",
+                        "check": "EQUAL",
+                        "para": "SCENE"
+                    }
+                ]
+            }
+        },
+        "2-8-2": {
+            "target": "2-11",
+            "show": {
+                "op": "OR",
+                "condition": [
+                    {
+                        "value": 4,
+                        "check": "UNEQUAL",
+                        "para": "KNOWLEDGE"
+                    },
+                    {
+                        "value": "2-12",
+                        "check": "EQUAL",
+                        "para": "SCENE"
+                    }
+                ]
+            }
+        },
+        "2-8-3": {
+            "target": "2-12",
+            "show": {
+                "op": "AND",
+                "condition": [
+                    {
+                        "value": 4,
+                        "check": "EQUAL",
+                        "para": "KNOWLEDGE"
+                    },
+                    {
+                        "value": "2-12",
+                        "check": "UNEQUAL",
+                        "para": "SCENE"
+                    }
+                ]
+            },
+            "choose": [
+                {
+                    "value": 3,
+                    "change": "ADD",
+                    "para": "OLIVER_LOVE"
+                }
+            ]
+        },
+        "2-9-1": {
+            "target": "2-20",
+            "show": {
+                "op": "OR",
+                "condition": [
+                    {
+                        "value": 1,
+                        "check": "UNEQUAL",
+                        "para": "KNOWLEDGE"
+                    },
+                    {
+                        "value": "2-19",
+                        "check": "EQUAL",
+                        "para": "SCENE"
+                    }
+                ]
+            },
+            "text": "我走了，去翻龙骨雪山"
+        },
+        "2-9-2": {
+            "target": "2-21",
+            "show": {
+                "op": "OR",
+                "condition": [
+                    {
+                        "value": 1,
+                        "check": "UNEQUAL",
+                        "para": "KNOWLEDGE"
+                    },
+                    {
+                        "value": "2-19",
+                        "check": "EQUAL",
+                        "para": "SCENE"
+                    }
+                ]
+            }
+        },
+        "2-9-3": {
+            "target": "2-19",
+            "show": {
+                "op": "AND",
+                "condition": [
+                    {
+                        "value": 1,
+                        "check": "EQUAL",
+                        "para": "KNOWLEDGE"
+                    },
+                    {
+                        "value": "2-19",
+                        "check": "UNEQUAL",
+                        "para": "SCENE"
+                    }
+                ]
+            }
         },
         "2-10-1": {
             "target": "2-13"
@@ -1316,32 +1497,6 @@
                 }
             ]
         },
-        "2-2-1": {
-            "target": "2-8",
-            "show": {
-                "op": "AND",
-                "condition": [
-                    {
-                        "value": "OLIVER_CODE",
-                        "check": "EQUAL",
-                        "para": "TEAMMATE"
-                    }
-                ]
-            }
-        },
-        "2-2-2": {
-            "target": "2-9",
-            "show": {
-                "op": "AND",
-                "condition": [
-                    {
-                        "value": "OLIVER_CODE",
-                        "check": "UNEQUAL",
-                        "para": "TEAMMATE"
-                    }
-                ]
-            }
-        },
         "2-20-1": {
             "target": "2-22",
             "choose": [
@@ -1402,52 +1557,6 @@
         "2-29-1": {
             "target": "2-30"
         },
-        "2-3-1": {
-            "target": "2-24",
-            "show": {
-                "op": "AND",
-                "condition": [
-                    {
-                        "value": 3,
-                        "check": "EQUAL",
-                        "para": "SWORD_HOT_TIME"
-                    }
-                ]
-            },
-            "choose": [
-                {
-                    "value": 1,
-                    "change": "ADD",
-                    "para": "SWORD_HOT_TIME"
-                }
-            ]
-        },
-        "2-3-2": {
-            "target": "2-25",
-            "show": {
-                "op": "AND",
-                "condition": [
-                    {
-                        "value": 1,
-                        "check": "EQUAL",
-                        "para": "SWORD_HOT_TIME"
-                    }
-                ]
-            }
-        },
-        "2-3-3": {
-            "target": "7-1",
-            "show": {
-                "op": "AND",
-                "condition": [
-                    {
-                        "value": 1,
-                        "check": "EQUAL",
-                        "para": "end-10"
-                    }
-                ]
-            }
-        },
         "2-30-1": {
             "target": "2-31"
         },
@@ -1464,125 +1573,6 @@
         "2-31-1": {
             "target": "3-4"
         },
-        "2-7-1": {
-            "target": "3-2"
-        },
-        "2-8-1": {
-            "target": "2-10",
-            "show": {
-                "op": "OR",
-                "condition": [
-                    {
-                        "value": 4,
-                        "check": "UNEQUAL",
-                        "para": "KNOWLEDGE"
-                    },
-                    {
-                        "value": "2-12",
-                        "check": "EQUAL",
-                        "para": "SCENE"
-                    }
-                ]
-            }
-        },
-        "2-8-2": {
-            "target": "2-11",
-            "show": {
-                "op": "OR",
-                "condition": [
-                    {
-                        "value": 4,
-                        "check": "UNEQUAL",
-                        "para": "KNOWLEDGE"
-                    },
-                    {
-                        "value": "2-12",
-                        "check": "EQUAL",
-                        "para": "SCENE"
-                    }
-                ]
-            }
-        },
-        "2-8-3": {
-            "target": "2-12",
-            "show": {
-                "op": "AND",
-                "condition": [
-                    {
-                        "value": 4,
-                        "check": "EQUAL",
-                        "para": "KNOWLEDGE"
-                    },
-                    {
-                        "value": "2-12",
-                        "check": "UNEQUAL",
-                        "para": "SCENE"
-                    }
-                ]
-            },
-            "choose": [
-                {
-                    "value": 3,
-                    "change": "ADD",
-                    "para": "OLIVER_LOVE"
-                }
-            ]
-        },
-        "2-9-1": {
-            "target": "2-20",
-            "show": {
-                "op": "OR",
-                "condition": [
-                    {
-                        "value": 1,
-                        "check": "UNEQUAL",
-                        "para": "KNOWLEDGE"
-                    },
-                    {
-                        "value": "2-19",
-                        "check": "EQUAL",
-                        "para": "SCENE"
-                    }
-                ]
-            },
-            "text": "我走了，去翻龙骨雪山"
-        },
-        "2-9-2": {
-            "target": "2-21",
-            "show": {
-                "op": "OR",
-                "condition": [
-                    {
-                        "value": 1,
-                        "check": "UNEQUAL",
-                        "para": "KNOWLEDGE"
-                    },
-                    {
-                        "value": "2-19",
-                        "check": "EQUAL",
-                        "para": "SCENE"
-                    }
-                ]
-            }
-        },
-        "2-9-3": {
-            "target": "2-19",
-            "show": {
-                "op": "AND",
-                "condition": [
-                    {
-                        "value": 1,
-                        "check": "EQUAL",
-                        "para": "KNOWLEDGE"
-                    },
-                    {
-                        "value": "2-19",
-                        "check": "UNEQUAL",
-                        "para": "SCENE"
-                    }
-                ]
-            }
-        },
         "3-1-1": {
             "target": "3-5",
             "choose": [
@@ -1595,6 +1585,63 @@
         },
         "3-1-2": {
             "target": "3-30"
+        },
+        "3-2-1": {
+            "target": "3-31",
+            "choose": [
+                {
+                    "value": 3,
+                    "change": "ADD",
+                    "para": "KNOWLEDGE"
+                }
+            ]
+        },
+        "3-2-2": {
+            "target": "3-41"
+        },
+        "3-3-1": {
+            "target": "3-43",
+            "choose": [
+                {
+                    "value": 1,
+                    "change": "ADD",
+                    "para": "TEMPORARY"
+                }
+            ]
+        },
+        "3-4-1": {
+            "target": "3-50",
+            "choose": [
+                {
+                    "value": 1,
+                    "change": "ADD",
+                    "para": "KNOWLEDGE"
+                }
+            ]
+        },
+        "3-4-2": {
+            "target": "3-51"
+        },
+        "3-4-3": {
+            "target": "3-52"
+        },
+        "3-5-1": {
+            "target": "3-6"
+        },
+        "3-5-2": {
+            "target": "3-7"
+        },
+        "3-6-1": {
+            "target": "3-8"
+        },
+        "3-6-2": {
+            "target": "3-9"
+        },
+        "3-8-1": {
+            "target": "3-10"
+        },
+        "3-8-2": {
+            "target": "3-11"
         },
         "3-10-1": {
             "target": "3-12"
@@ -1651,19 +1698,6 @@
         "3-19-2": {
             "target": "3-22",
             "text": "我以为他会在山上"
-        },
-        "3-2-1": {
-            "target": "3-31",
-            "choose": [
-                {
-                    "value": 3,
-                    "change": "ADD",
-                    "para": "KNOWLEDGE"
-                }
-            ]
-        },
-        "3-2-2": {
-            "target": "3-41"
         },
         "3-20-1": {
             "target": "3-22",
@@ -1740,16 +1774,6 @@
                 }
             ],
             "text": "告辞离开"
-        },
-        "3-3-1": {
-            "target": "3-43",
-            "choose": [
-                {
-                    "value": 1,
-                    "change": "ADD",
-                    "para": "TEMPORARY"
-                }
-            ]
         },
         "3-30-1": {
             "target": "3-2"
@@ -2193,22 +2217,6 @@
         "3-38-1": {
             "target": "3-40"
         },
-        "3-4-1": {
-            "target": "3-50",
-            "choose": [
-                {
-                    "value": 1,
-                    "change": "ADD",
-                    "para": "KNOWLEDGE"
-                }
-            ]
-        },
-        "3-4-2": {
-            "target": "3-51"
-        },
-        "3-4-3": {
-            "target": "3-52"
-        },
         "3-40-1": {
             "target": "5-1",
             "choose": [
@@ -2333,12 +2341,6 @@
         },
         "3-49-1": {
             "target": "3-35"
-        },
-        "3-5-1": {
-            "target": "3-6"
-        },
-        "3-5-2": {
-            "target": "3-7"
         },
         "3-52-1": {
             "target": "3-53",
@@ -2531,12 +2533,6 @@
         "3-59-2": {
             "target": "3-41",
             "text": "右边"
-        },
-        "3-6-1": {
-            "target": "3-8"
-        },
-        "3-6-2": {
-            "target": "3-9"
         },
         "3-60-1": {
             "target": "3-62"
@@ -2766,14 +2762,198 @@
                 }
             ]
         },
-        "3-8-1": {
-            "target": "3-10"
-        },
-        "3-8-2": {
-            "target": "3-11"
-        },
         "4-1-1": {
             "target": "4-3"
+        },
+        "4-3-1": {
+            "target": "4-4"
+        },
+        "4-3-2": {
+            "target": "4-5",
+            "choose": [
+                {
+                    "value": 5,
+                    "change": "ADD",
+                    "para": "KNOWLEDGE"
+                }
+            ]
+        },
+        "4-3-3": {
+            "target": "4-6"
+        },
+        "4-4-1": {
+            "target": "end-6",
+            "text": "答应"
+        },
+        "4-4-2": {
+            "target": "4-7"
+        },
+        "4-5-1": {
+            "target": "4-7",
+            "text": "出发"
+        },
+        "4-6-1": {
+            "target": "4-8",
+            "show": {
+                "op": "AND",
+                "condition": [
+                    {
+                        "value": 1,
+                        "check": "NON_BINARY",
+                        "para": "PROP_1"
+                    }
+                ]
+            },
+            "choose": [
+                {
+                    "value": 1,
+                    "change": "ADD",
+                    "para": "PROP_1"
+                }
+            ]
+        },
+        "4-6-2": {
+            "target": "4-9",
+            "show": {
+                "op": "AND",
+                "condition": [
+                    {
+                        "value": 2,
+                        "check": "NON_BINARY",
+                        "para": "PROP_1"
+                    }
+                ]
+            },
+            "choose": [
+                {
+                    "value": 2,
+                    "change": "ADD",
+                    "para": "PROP_1"
+                }
+            ]
+        },
+        "4-6-3": {
+            "target": "4-10",
+            "show": {
+                "op": "AND",
+                "condition": [
+                    {
+                        "value": 3,
+                        "check": "NON_BINARY",
+                        "para": "PROP_1"
+                    }
+                ]
+            },
+            "choose": [
+                {
+                    "value": 4,
+                    "change": "ADD",
+                    "para": "PROP_1"
+                }
+            ]
+        },
+        "4-6-4": {
+            "target": "4-11",
+            "show": {
+                "op": "AND",
+                "condition": [
+                    {
+                        "value": 7,
+                        "check": "EQUAL",
+                        "para": "PROP_1"
+                    }
+                ]
+            },
+            "choose": [
+                {
+                    "value": 0,
+                    "change": "SET",
+                    "para": "PROP_1"
+                },
+                {
+                    "value": "BARRY_CODE",
+                    "change": "SET",
+                    "para": "TEAMMATE"
+                },
+                {
+                    "value": 1,
+                    "change": "ADD",
+                    "para": "BARRY_LOVE"
+                }
+            ]
+        },
+        "4-7-1": {
+            "target": "end-7",
+            "show": {
+                "op": "AND",
+                "condition": [
+                    {
+                        "value": 5,
+                        "check": "LESS",
+                        "para": "SINESTRO_LOVE"
+                    },
+                    {
+                        "value": 1,
+                        "check": "EQUAL",
+                        "para": "FIGHT"
+                    }
+                ]
+            },
+            "choose": [
+                {
+                    "value": 0,
+                    "change": "SET",
+                    "para": "TEMPORARY"
+                }
+            ],
+            "text": "战斗"
+        },
+        "4-7-2": {
+            "target": "4-13",
+            "show": {
+                "op": "AND",
+                "condition": [
+                    {
+                        "value": 5,
+                        "check": "MORE_EQUAL",
+                        "para": "SINESTRO_LOVE"
+                    },
+                    {
+                        "value": 1,
+                        "check": "EQUAL",
+                        "para": "FIGHT"
+                    }
+                ]
+            },
+            "choose": [
+                {
+                    "value": 0,
+                    "change": "SET",
+                    "para": "TEMPORARY"
+                }
+            ],
+            "text": "战斗"
+        },
+        "4-7-3": {
+            "target": "end-6",
+            "show": {
+                "op": "AND",
+                "condition": [
+                    {
+                        "value": 0,
+                        "check": "EQUAL",
+                        "para": "FIGHT"
+                    }
+                ]
+            },
+            "choose": [
+                {
+                    "value": 0,
+                    "change": "SET",
+                    "para": "TEMPORARY"
+                }
+            ],
+            "text": "战斗"
         },
         "4-11-1": {
             "target": "4-12",
@@ -2980,196 +3160,6 @@
             },
             "text": "你想怎样"
         },
-        "4-3-1": {
-            "target": "4-4"
-        },
-        "4-3-2": {
-            "target": "4-5",
-            "choose": [
-                {
-                    "value": 5,
-                    "change": "ADD",
-                    "para": "KNOWLEDGE"
-                }
-            ]
-        },
-        "4-3-3": {
-            "target": "4-6"
-        },
-        "4-4-1": {
-            "target": "end-6",
-            "text": "答应"
-        },
-        "4-4-2": {
-            "target": "4-7"
-        },
-        "4-5-1": {
-            "target": "4-7",
-            "text": "出发"
-        },
-        "4-6-1": {
-            "target": "4-8",
-            "show": {
-                "op": "AND",
-                "condition": [
-                    {
-                        "value": 1,
-                        "check": "NON_BINARY",
-                        "para": "PROP_1"
-                    }
-                ]
-            },
-            "choose": [
-                {
-                    "value": 1,
-                    "change": "ADD",
-                    "para": "PROP_1"
-                }
-            ]
-        },
-        "4-6-2": {
-            "target": "4-9",
-            "show": {
-                "op": "AND",
-                "condition": [
-                    {
-                        "value": 2,
-                        "check": "NON_BINARY",
-                        "para": "PROP_1"
-                    }
-                ]
-            },
-            "choose": [
-                {
-                    "value": 2,
-                    "change": "ADD",
-                    "para": "PROP_1"
-                }
-            ]
-        },
-        "4-6-3": {
-            "target": "4-10",
-            "show": {
-                "op": "AND",
-                "condition": [
-                    {
-                        "value": 3,
-                        "check": "NON_BINARY",
-                        "para": "PROP_1"
-                    }
-                ]
-            },
-            "choose": [
-                {
-                    "value": 4,
-                    "change": "ADD",
-                    "para": "PROP_1"
-                }
-            ]
-        },
-        "4-6-4": {
-            "target": "4-11",
-            "show": {
-                "op": "AND",
-                "condition": [
-                    {
-                        "value": 7,
-                        "check": "EQUAL",
-                        "para": "PROP_1"
-                    }
-                ]
-            },
-            "choose": [
-                {
-                    "value": 0,
-                    "change": "SET",
-                    "para": "PROP_1"
-                },
-                {
-                    "value": "BARRY_CODE",
-                    "change": "SET",
-                    "para": "TEAMMATE"
-                },
-                {
-                    "value": 1,
-                    "change": "ADD",
-                    "para": "BARRY_LOVE"
-                }
-            ]
-        },
-        "4-7-1": {
-            "target": "end-7",
-            "show": {
-                "op": "AND",
-                "condition": [
-                    {
-                        "value": 5,
-                        "check": "LESS",
-                        "para": "SINESTRO_LOVE"
-                    },
-                    {
-                        "value": 1,
-                        "check": "EQUAL",
-                        "para": "FIGHT"
-                    }
-                ]
-            },
-            "choose": [
-                {
-                    "value": 0,
-                    "change": "SET",
-                    "para": "TEMPORARY"
-                }
-            ],
-            "text": "战斗"
-        },
-        "4-7-2": {
-            "target": "4-13",
-            "show": {
-                "op": "AND",
-                "condition": [
-                    {
-                        "value": 5,
-                        "check": "MORE_EQUAL",
-                        "para": "SINESTRO_LOVE"
-                    },
-                    {
-                        "value": 1,
-                        "check": "EQUAL",
-                        "para": "FIGHT"
-                    }
-                ]
-            },
-            "choose": [
-                {
-                    "value": 0,
-                    "change": "SET",
-                    "para": "TEMPORARY"
-                }
-            ],
-            "text": "战斗"
-        },
-        "4-7-3": {
-            "target": "end-6",
-            "show": {
-                "op": "AND",
-                "condition": [
-                    {
-                        "value": 0,
-                        "check": "EQUAL",
-                        "para": "FIGHT"
-                    }
-                ]
-            },
-            "choose": [
-                {
-                    "value": 0,
-                    "change": "SET",
-                    "para": "TEMPORARY"
-                }
-            ],
-            "text": "战斗"
-        },
         "5-1-1": {
             "target": "5-26",
             "show": {
@@ -3230,6 +3220,99 @@
                     }
                 ]
             }
+        },
+        "5-2-1": {
+            "target": "5-5",
+            "show": {
+                "op": "AND",
+                "condition": [
+                    {
+                        "value": 1,
+                        "check": "EQUAL",
+                        "para": "BRUCE_INTRODUCE"
+                    },
+                    {
+                        "value": 1,
+                        "check": "UNEQUAL",
+                        "para": "BRUCE_SHOW_UP"
+                    }
+                ]
+            }
+        },
+        "5-2-2": {
+            "target": "5-6",
+            "show": {
+                "op": "AND",
+                "condition": [
+                    {
+                        "value": 1,
+                        "check": "UNEQUAL",
+                        "para": "BRUCE_INTRODUCE"
+                    },
+                    {
+                        "value": 1,
+                        "check": "EQUAL",
+                        "para": "BRUCE_SHOW_UP"
+                    }
+                ]
+            }
+        },
+        "5-2-3": {
+            "target": "5-7",
+            "show": {
+                "op": "AND",
+                "condition": [
+                    {
+                        "value": 1,
+                        "check": "UNEQUAL",
+                        "para": "BRUCE_INTRODUCE"
+                    },
+                    {
+                        "value": 1,
+                        "check": "UNEQUAL",
+                        "para": "BRUCE_SHOW_UP"
+                    }
+                ]
+            }
+        },
+        "5-2-4": {
+            "target": "5-8"
+        },
+        "5-3-1": {
+            "target": "5-13"
+        },
+        "5-4-1": {
+            "target": "5-9",
+            "show": {
+                "op": "AND",
+                "condition": [
+                    {
+                        "value": 1,
+                        "check": "EQUAL",
+                        "para": "BRUCE_INTRODUCE"
+                    }
+                ]
+            }
+        },
+        "5-4-2": {
+            "target": "5-10",
+            "show": {
+                "op": "AND",
+                "condition": [
+                    {
+                        "value": 1,
+                        "check": "UNEQUAL",
+                        "para": "BRUCE_INTRODUCE"
+                    }
+                ]
+            }
+        },
+        "5-4-3": {
+            "target": "5-12"
+        },
+        "5-8-1": {
+            "target": "5-3",
+            "text": "走吧"
         },
         "5-10-1": {
             "target": "5-11",
@@ -3425,63 +3508,6 @@
                 }
             ]
         },
-        "5-2-1": {
-            "target": "5-5",
-            "show": {
-                "op": "AND",
-                "condition": [
-                    {
-                        "value": 1,
-                        "check": "EQUAL",
-                        "para": "BRUCE_INTRODUCE"
-                    },
-                    {
-                        "value": 1,
-                        "check": "UNEQUAL",
-                        "para": "BRUCE_SHOW_UP"
-                    }
-                ]
-            }
-        },
-        "5-2-2": {
-            "target": "5-6",
-            "show": {
-                "op": "AND",
-                "condition": [
-                    {
-                        "value": 1,
-                        "check": "UNEQUAL",
-                        "para": "BRUCE_INTRODUCE"
-                    },
-                    {
-                        "value": 1,
-                        "check": "EQUAL",
-                        "para": "BRUCE_SHOW_UP"
-                    }
-                ]
-            }
-        },
-        "5-2-3": {
-            "target": "5-7",
-            "show": {
-                "op": "AND",
-                "condition": [
-                    {
-                        "value": 1,
-                        "check": "UNEQUAL",
-                        "para": "BRUCE_INTRODUCE"
-                    },
-                    {
-                        "value": 1,
-                        "check": "UNEQUAL",
-                        "para": "BRUCE_SHOW_UP"
-                    }
-                ]
-            }
-        },
-        "5-2-4": {
-            "target": "5-8"
-        },
         "5-26-1": {
             "target": "5-2",
             "choose": [
@@ -3537,9 +3563,6 @@
         "5-29-2": {
             "target": "end-13",
             "text": "让布鲁斯去操心"
-        },
-        "5-3-1": {
-            "target": "5-13"
         },
         "5-31-1": {
             "target": "end-13",
@@ -3758,35 +3781,6 @@
         "5-38-1": {
             "target": "end-13",
             "text": "专心备战"
-        },
-        "5-4-1": {
-            "target": "5-9",
-            "show": {
-                "op": "AND",
-                "condition": [
-                    {
-                        "value": 1,
-                        "check": "EQUAL",
-                        "para": "BRUCE_INTRODUCE"
-                    }
-                ]
-            }
-        },
-        "5-4-2": {
-            "target": "5-10",
-            "show": {
-                "op": "AND",
-                "condition": [
-                    {
-                        "value": 1,
-                        "check": "UNEQUAL",
-                        "para": "BRUCE_INTRODUCE"
-                    }
-                ]
-            }
-        },
-        "5-4-3": {
-            "target": "5-12"
         },
         "5-41-1": {
             "target": "5-42",
@@ -4084,10 +4078,6 @@
                 }
             ]
         },
-        "5-8-1": {
-            "target": "5-3",
-            "text": "走吧"
-        },
         "6-1-1": {
             "target": "6-2"
         },
@@ -4261,30 +4251,7 @@
         "START_SCENE": "1-1",
         "STORY_END": "\n\n结局——"
     },
-    "end_map": {
-        "end-1": "无事发生",
-        "end-10": "翡翠暮光",
-        "end-11": "家养猫咪",
-        "end-12": "晴空万里",
-        "end-13": "匹夫之勇",
-        "end-14": "猎魔人",
-        "end-15": "万灵恸哭",
-        "end-16": "旭日东升",
-        "end-17": "无尽冒险",
-        "end-18": "翡翠长明",
-        "end-19": "视差未来",
-        "end-2": "出师未捷",
-        "end-20": "未曾设想",
-        "end-21": "破晓曙光",
-        "end-3": "宁死不屈",
-        "end-4": "牡丹花下",
-        "end-5": "笼中之鸟",
-        "end-6": "不自量力",
-        "end-7": "无心之过",
-        "end-8": "不见天日",
-        "end-9": "命丧他乡"
-    },
-    "func_list": [
+    "func_map": [
         "CHOICE",
         "FIGHT",
         "SCENE"
@@ -4352,6 +4319,39 @@
         "update": "2025.05.03",
         "version": "2.1.6",
         "version_number": 7
+    },
+    "chap_map": {
+        "ch1": "第一章\t出发",
+        "ch2": "第二章\t传说",
+        "ch3": "第三章\t雪山",
+        "ch4": "第四章\t远方",
+        "ch5": "第五章\t危城",
+        "ch6": "第六章\t孤光",
+        "ch7": "外传\t黎明",
+        "end": "结局\t"
+    },
+    "end_map": {
+        "end-1": "无事发生",
+        "end-2": "出师未捷",
+        "end-3": "宁死不屈",
+        "end-4": "牡丹花下",
+        "end-5": "笼中之鸟",
+        "end-6": "不自量力",
+        "end-7": "无心之过",
+        "end-8": "不见天日",
+        "end-9": "命丧他乡",
+        "end-10": "翡翠暮光",
+        "end-11": "家养猫咪",
+        "end-12": "晴空万里",
+        "end-13": "匹夫之勇",
+        "end-14": "猎魔人",
+        "end-15": "万灵恸哭",
+        "end-16": "旭日东升",
+        "end-17": "无尽冒险",
+        "end-18": "翡翠长明",
+        "end-19": "视差未来",
+        "end-20": "未曾设想",
+        "end-21": "破晓曙光"
     },
     "para_map": {
         "BARRY_LOVE": {
@@ -4440,6 +4440,63 @@
                 "1-1-3"
             ]
         },
+        "1-2": {
+            "name": "继续前进",
+            "options": [
+                "1-1-2",
+                "1-2-1"
+            ]
+        },
+        "1-3": {
+            "name": "原路返回",
+            "options": [
+                "1-3-1",
+                "1-3-2",
+                "1-3-3"
+            ]
+        },
+        "1-4": {
+            "name": "就地睡一觉",
+            "options": [
+                "1-4-1",
+                "1-4-2",
+                "1-4-3"
+            ]
+        },
+        "1-5": {
+            "name": "跟着前进",
+            "options": [
+                "1-5-1",
+                "1-5-2"
+            ]
+        },
+        "1-6": {
+            "name": "原地蹲守",
+            "options": [
+                "1-6-1",
+                "1-6-2"
+            ]
+        },
+        "1-7": {
+            "name": "不理会",
+            "options": [
+                "1-7-1",
+                "1-7-2"
+            ]
+        },
+        "1-8": {
+            "name": "上树跟去看看",
+            "options": [
+                "1-6-1",
+                "1-8-1"
+            ]
+        },
+        "1-9": {
+            "name": "呛回去",
+            "options": [
+                "1-4-3"
+            ]
+        },
         "1-10": {
             "name": "谢谢他",
             "options": [
@@ -4510,13 +4567,6 @@
                 "1-19-1"
             ]
         },
-        "1-2": {
-            "name": "继续前进",
-            "options": [
-                "1-1-2",
-                "1-2-1"
-            ]
-        },
         "1-20": {
             "name": "红晶石",
             "options": [
@@ -4580,14 +4630,6 @@
             "options": [
                 "1-29-1",
                 "1-29-2"
-            ]
-        },
-        "1-3": {
-            "name": "原路返回",
-            "options": [
-                "1-3-1",
-                "1-3-2",
-                "1-3-3"
             ]
         },
         "1-30": {
@@ -4657,14 +4699,6 @@
                 "1-39-2"
             ]
         },
-        "1-4": {
-            "name": "就地睡一觉",
-            "options": [
-                "1-4-1",
-                "1-4-2",
-                "1-4-3"
-            ]
-        },
         "1-40": {
             "name": "黑球",
             "options": [
@@ -4732,13 +4766,6 @@
                 "1-49-3"
             ]
         },
-        "1-5": {
-            "name": "跟着前进",
-            "options": [
-                "1-5-1",
-                "1-5-2"
-            ]
-        },
         "1-50": {
             "name": "预言",
             "options": [
@@ -4800,13 +4827,6 @@
             "name": "野外点火",
             "options": [
                 "1-58-4"
-            ]
-        },
-        "1-6": {
-            "name": "原地蹲守",
-            "options": [
-                "1-6-1",
-                "1-6-2"
             ]
         },
         "1-60": {
@@ -4873,13 +4893,6 @@
             "options": [
                 "1-67-2",
                 "1-67-3"
-            ]
-        },
-        "1-7": {
-            "name": "不理会",
-            "options": [
-                "1-7-1",
-                "1-7-2"
             ]
         },
         "1-70": {
@@ -4950,13 +4963,6 @@
                 "1-76-4"
             ]
         },
-        "1-8": {
-            "name": "上树跟去看看",
-            "options": [
-                "1-6-1",
-                "1-8-1"
-            ]
-        },
         "1-80": {
             "name": "我怎么联系你",
             "options": [
@@ -4969,12 +4975,6 @@
                 "1-81-1"
             ]
         },
-        "1-9": {
-            "name": "呛回去",
-            "options": [
-                "1-4-3"
-            ]
-        },
         "2-1": {
             "name": "银鳞村",
             "options": [
@@ -4982,6 +4982,70 @@
                 "2-1-2",
                 "2-1-3",
                 "2-1-4"
+            ]
+        },
+        "2-2": {
+            "name": "百羽镇",
+            "options": [
+                "2-2-1",
+                "2-2-2"
+            ]
+        },
+        "2-3": {
+            "name": "天使城",
+            "options": [
+                "2-3-1",
+                "2-3-2",
+                "2-3-3"
+            ]
+        },
+        "2-4": {
+            "name": "魔法知识",
+            "options": [
+                "2-1-1",
+                "2-1-2",
+                "2-1-3",
+                "2-1-4"
+            ]
+        },
+        "2-5": {
+            "name": "传说记载",
+            "options": [
+                "2-1-1",
+                "2-1-2",
+                "2-1-3",
+                "2-1-4"
+            ]
+        },
+        "2-6": {
+            "name": "大陆历史",
+            "options": [
+                "2-1-1",
+                "2-1-2",
+                "2-1-3",
+                "2-1-4"
+            ]
+        },
+        "2-7": {
+            "name": "昨天迷路的原因",
+            "options": [
+                "2-7-1"
+            ]
+        },
+        "2-8": {
+            "name": "跟着奥利",
+            "options": [
+                "2-8-1",
+                "2-8-2",
+                "2-8-3"
+            ]
+        },
+        "2-9": {
+            "name": "在镇上走走",
+            "options": [
+                "2-9-1",
+                "2-9-2",
+                "2-9-3"
             ]
         },
         "2-10": {
@@ -5056,13 +5120,6 @@
                 "2-9-3"
             ]
         },
-        "2-2": {
-            "name": "百羽镇",
-            "options": [
-                "2-2-1",
-                "2-2-2"
-            ]
-        },
         "2-20": {
             "name": "告辞",
             "options": [
@@ -5126,14 +5183,6 @@
                 "2-29-1"
             ]
         },
-        "2-3": {
-            "name": "天使城",
-            "options": [
-                "2-3-1",
-                "2-3-2",
-                "2-3-3"
-            ]
-        },
         "2-30": {
             "name": "那谁会知道",
             "options": [
@@ -5159,60 +5208,64 @@
                 "2-14-1"
             ]
         },
-        "2-4": {
-            "name": "魔法知识",
-            "options": [
-                "2-1-1",
-                "2-1-2",
-                "2-1-3",
-                "2-1-4"
-            ]
-        },
-        "2-5": {
-            "name": "传说记载",
-            "options": [
-                "2-1-1",
-                "2-1-2",
-                "2-1-3",
-                "2-1-4"
-            ]
-        },
-        "2-6": {
-            "name": "大陆历史",
-            "options": [
-                "2-1-1",
-                "2-1-2",
-                "2-1-3",
-                "2-1-4"
-            ]
-        },
-        "2-7": {
-            "name": "昨天迷路的原因",
-            "options": [
-                "2-7-1"
-            ]
-        },
-        "2-8": {
-            "name": "跟着奥利",
-            "options": [
-                "2-8-1",
-                "2-8-2",
-                "2-8-3"
-            ]
-        },
-        "2-9": {
-            "name": "在镇上走走",
-            "options": [
-                "2-9-1",
-                "2-9-2",
-                "2-9-3"
-            ]
-        },
         "3-1": {
             "name": "龙骨雪山",
             "options": [
                 "3-1-1",
                 "3-1-2"
+            ]
+        },
+        "3-2": {
+            "name": "龙骨雪山",
+            "options": [
+                "3-2-1",
+                "3-2-2"
+            ]
+        },
+        "3-3": {
+            "name": "龙骨雪山",
+            "options": [
+                "3-3-1"
+            ]
+        },
+        "3-4": {
+            "name": "接受传送",
+            "options": [
+                "3-4-1",
+                "3-4-2"
+            ]
+        },
+        "3-5": {
+            "name": "爬",
+            "options": [
+                "3-5-1",
+                "3-5-2"
+            ]
+        },
+        "3-6": {
+            "name": "谁在那儿",
+            "options": [
+                "3-6-1",
+                "3-6-2"
+            ]
+        },
+        "3-7": {
+            "name": "摸剑",
+            "options": [
+                "3-5-1"
+            ]
+        },
+        "3-8": {
+            "name": "观察他",
+            "options": [
+                "3-8-1",
+                "3-8-2"
+            ]
+        },
+        "3-9": {
+            "name": "拍他一下",
+            "options": [
+                "3-6-1"
             ]
         },
         "3-10": {
@@ -5281,13 +5334,6 @@
                 "3-19-2"
             ]
         },
-        "3-2": {
-            "name": "龙骨雪山",
-            "options": [
-                "3-2-1",
-                "3-2-2"
-            ]
-        },
         "3-20": {
             "name": "阿宾？",
             "options": [
@@ -5351,12 +5397,6 @@
             "name": "请说",
             "options": [
                 "3-29-1"
-            ]
-        },
-        "3-3": {
-            "name": "龙骨雪山",
-            "options": [
-                "3-3-1"
             ]
         },
         "3-30": {
@@ -5444,13 +5484,6 @@
                 "3-38-1"
             ]
         },
-        "3-4": {
-            "name": "接受传送",
-            "options": [
-                "3-4-1",
-                "3-4-2"
-            ]
-        },
         "3-40": {
             "name": "黑暗领域怎么走",
             "options": [
@@ -5514,13 +5547,6 @@
             "name": "有什么能帮忙的",
             "options": [
                 "3-49-1"
-            ]
-        },
-        "3-5": {
-            "name": "爬",
-            "options": [
-                "3-5-1",
-                "3-5-2"
             ]
         },
         "3-50": {
@@ -5616,13 +5642,6 @@
                 "3-59-2"
             ]
         },
-        "3-6": {
-            "name": "谁在那儿",
-            "options": [
-                "3-6-1",
-                "3-6-2"
-            ]
-        },
         "3-60": {
             "name": "去哥谭",
             "options": [
@@ -5693,12 +5712,6 @@
                 "3-69-1"
             ]
         },
-        "3-7": {
-            "name": "摸剑",
-            "options": [
-                "3-5-1"
-            ]
-        },
         "3-70": {
             "name": "布鲁斯？",
             "options": [
@@ -5764,13 +5777,6 @@
                 "3-78-4"
             ]
         },
-        "3-8": {
-            "name": "观察他",
-            "options": [
-                "3-8-1",
-                "3-8-2"
-            ]
-        },
         "3-80": {
             "name": "立刻跟上",
             "options": [
@@ -5783,16 +5789,71 @@
                 "3-78-4"
             ]
         },
-        "3-9": {
-            "name": "拍他一下",
-            "options": [
-                "3-6-1"
-            ]
-        },
         "4-1": {
             "name": "黑暗领域",
             "options": [
                 "4-1-1"
+            ]
+        },
+        "4-2": {
+            "name": "黑暗领域",
+            "options": [
+                "4-1-1"
+            ]
+        },
+        "4-3": {
+            "name": "下山",
+            "options": [
+                "4-3-1",
+                "4-3-2",
+                "4-3-3"
+            ]
+        },
+        "4-4": {
+            "name": "衣着肮脏的强壮武士",
+            "options": [
+                "4-4-1",
+                "4-4-2"
+            ]
+        },
+        "4-5": {
+            "name": "职业均衡的守卫小队",
+            "options": [
+                "4-5-1"
+            ]
+        },
+        "4-6": {
+            "name": "带着兜帽的孤身法师",
+            "options": [
+                "4-6-1",
+                "4-6-2",
+                "4-6-3",
+                "4-6-4"
+            ]
+        },
+        "4-7": {
+            "name": "拒绝",
+            "options": [
+                "4-7-1",
+                "4-7-2"
+            ]
+        },
+        "4-8": {
+            "name": "你到底是什么人",
+            "options": [
+                "4-6-1",
+                "4-6-2",
+                "4-6-3",
+                "4-6-4"
+            ]
+        },
+        "4-9": {
+            "name": "你在小镇干什么",
+            "options": [
+                "4-6-1",
+                "4-6-2",
+                "4-6-3",
+                "4-6-4"
             ]
         },
         "4-10": {
@@ -5867,12 +5928,6 @@
                 "4-14-4"
             ]
         },
-        "4-2": {
-            "name": "黑暗领域",
-            "options": [
-                "4-1-1"
-            ]
-        },
         "4-20": {
             "name": "成吧",
             "options": [
@@ -5941,67 +5996,63 @@
                 "4-22-1"
             ]
         },
-        "4-3": {
-            "name": "下山",
-            "options": [
-                "4-3-1",
-                "4-3-2",
-                "4-3-3"
-            ]
-        },
-        "4-4": {
-            "name": "衣着肮脏的强壮武士",
-            "options": [
-                "4-4-1",
-                "4-4-2"
-            ]
-        },
-        "4-5": {
-            "name": "职业均衡的守卫小队",
-            "options": [
-                "4-5-1"
-            ]
-        },
-        "4-6": {
-            "name": "带着兜帽的孤身法师",
-            "options": [
-                "4-6-1",
-                "4-6-2",
-                "4-6-3",
-                "4-6-4"
-            ]
-        },
-        "4-7": {
-            "name": "拒绝",
-            "options": [
-                "4-7-1",
-                "4-7-2"
-            ]
-        },
-        "4-8": {
-            "name": "你到底是什么人",
-            "options": [
-                "4-6-1",
-                "4-6-2",
-                "4-6-3",
-                "4-6-4"
-            ]
-        },
-        "4-9": {
-            "name": "你在小镇干什么",
-            "options": [
-                "4-6-1",
-                "4-6-2",
-                "4-6-3",
-                "4-6-4"
-            ]
-        },
         "5-1": {
             "name": "哥谭",
             "options": [
                 "5-1-1",
                 "5-1-2",
                 "5-1-3"
+            ]
+        },
+        "5-2": {
+            "name": "继续前进",
+            "options": [
+                "5-2-1",
+                "5-2-2",
+                "5-2-3"
+            ]
+        },
+        "5-3": {
+            "name": "继续前进",
+            "options": [
+                "5-3-1"
+            ]
+        },
+        "5-4": {
+            "name": "哥谭",
+            "options": [
+                "5-4-1",
+                "5-4-2"
+            ]
+        },
+        "5-5": {
+            "name": "中央广场",
+            "options": [
+                "5-2-4"
+            ]
+        },
+        "5-6": {
+            "name": "中央广场",
+            "options": [
+                "5-2-4"
+            ]
+        },
+        "5-7": {
+            "name": "中央广场",
+            "options": [
+                "5-2-4"
+            ]
+        },
+        "5-8": {
+            "name": "你找我有什么事",
+            "options": [
+                "5-8-1"
+            ]
+        },
+        "5-9": {
+            "name": "布鲁斯？",
+            "options": [
+                "5-4-3"
             ]
         },
         "5-10": {
@@ -6096,14 +6147,6 @@
                 "5-16-1"
             ]
         },
-        "5-2": {
-            "name": "继续前进",
-            "options": [
-                "5-2-1",
-                "5-2-2",
-                "5-2-3"
-            ]
-        },
         "5-20": {
             "name": "下层（厨房）",
             "options": [
@@ -6165,12 +6208,6 @@
             "options": [
                 "5-29-1",
                 "5-29-2"
-            ]
-        },
-        "5-3": {
-            "name": "继续前进",
-            "options": [
-                "5-3-1"
             ]
         },
         "5-30": {
@@ -6290,13 +6327,6 @@
                 "5-52-1"
             ]
         },
-        "5-4": {
-            "name": "哥谭",
-            "options": [
-                "5-4-1",
-                "5-4-2"
-            ]
-        },
         "5-40": {
             "name": "中央广场",
             "options": [
@@ -6381,12 +6411,6 @@
                 "5-49-1"
             ]
         },
-        "5-5": {
-            "name": "中央广场",
-            "options": [
-                "5-2-4"
-            ]
-        },
         "5-50": {
             "name": "不做准备",
             "options": [
@@ -6461,12 +6485,6 @@
                 "5-59-1"
             ]
         },
-        "5-6": {
-            "name": "中央广场",
-            "options": [
-                "5-2-4"
-            ]
-        },
         "5-60": {
             "name": "地下室",
             "options": [
@@ -6526,24 +6544,6 @@
             "name": "准备偷袭",
             "options": [
                 "5-49-1"
-            ]
-        },
-        "5-7": {
-            "name": "中央广场",
-            "options": [
-                "5-2-4"
-            ]
-        },
-        "5-8": {
-            "name": "你找我有什么事",
-            "options": [
-                "5-8-1"
-            ]
-        },
-        "5-9": {
-            "name": "布鲁斯？",
-            "options": [
-                "5-4-3"
             ]
         },
         "6-1": {
@@ -6657,6 +6657,14 @@
     },
     "story": {
         "1-1": "新历2814年2月20日，晴。\n你站在小镇门口，笑着对来送行的人们挥手。\n你知道他们很担心你，因为你即将踏上的是没有人曾活着回来的征途——你要去讨伐北方可怕的科瓦德魔王。\n没有人知道科瓦德魔王长什么样子，也没有人知道科瓦德魔王是什么脾气。但无人不知无人不晓的是——科瓦德魔王正在把黑暗散布在龙骨雪山的那一侧。科瓦德的阴云下，鸟儿不会歌唱，树木不会生长，泉水不会流动，万事万物都失了色彩……那是彻彻底底的死域。\n而科瓦德魔王越过龙骨雪山来到南方大陆，只是时间问题。\n所以，一定要有人去打败科瓦德魔王。\n“但这个人必须是你吗？”卡萝这么问过。她住在你隔壁，你们从小一起长大……你想以后娶她，但你从没说出口过。\n那时你刚刚收下长老团给你的翡翠剑，你是他们的第一选择。你本可以拒绝，但毫不犹豫地点了头。\n“我也害怕。”你看着卡萝的紫眼睛，“但我要是把心思放在害怕上，我也成不了欧阿的第一勇者。——那不是我。”\n卡萝没再说过什么，于是就到了现在，你打点好行装，准备开始前方未知的冒险。\n“哈尔，活着回来！”你循声望去，你最好的朋友巴里把手环在嘴边，冲你大喊。\n你笑着对他挤挤眼睛，然后深吸一口气，转身迈出了第一步。\n\n你在中午之前就走出了猎人们打猎时游荡的范围，太阳渐渐西行，而你终于发现，长老团给的地图似乎不大准确……你迷路了。\n眼看太阳就要落山，你认不出周围的景色，只能勉强辨别方向，这时候，你选择——",
+        "1-2": "昏黄的阳光穿透树叶的缝隙，在树林里的薄雾中穿梭，你看不出光源在从哪里而来，因此也难以识别方向。你在山里兜了好几个圈子，始终没能找到路。\n正当你一头雾水时，你忽然在附近的树上看到了一个奇怪的痕迹。\n你朝那棵树走过去，走到树前，却发现似乎没什么特别的，你看到的好像只是片影子。你四下望了望，在另一棵树上发现了一样的痕迹。\n你身后背着的翡翠剑发出一声声嗡鸣，你把它拿到手里，指尖无意间拂过剑柄上菱形的孔洞。——那里居然是滚烫的。\n根据小镇的传说，很多年前，小镇有一位勇者，他决定去龙骨雪山的另一侧打败魔王。矮人敬佩他的勇气，为他打造了一柄剑——翡翠剑。它是矮人工艺的顶峰，剑身锐利无比，剑柄上镶嵌了一枚附魔的绿水晶。据说，在无所畏惧的人手中，翡翠剑会发出翠绿而坚定的光，照亮前方的一切黑暗。\n勇者拿到剑后，就踏上了去龙骨雪山另一侧的旅程——但是再也没有人见过他。他出发时是一个冬日，冬去春来，上山打猎的猎人捡到了翡翠剑，但没有见到它的主人，而剑柄上原本镶嵌的魔晶石，也消失不见了。\n翡翠剑被送回了他的故乡，交到了长老团的手中。在希望你去讨伐科瓦德魔王的时候，长老团把它交给了你。\n这个传说你本来是不信的，因为无论“矮人”还是“附魔”，对如今的世界而言，都遥远得像神话一样。矮人的工艺早已失传，魔法师也根本不懂毁天灭地的禁咒……传说里唯一和现实一样的，就是龙骨雪山另一侧，没有人见过的黑暗。\n你抬头看去，那棵树上的痕迹依然在那里。你决定——",
+        "1-3": "你转身，朝来的方向走去。\n太阳基本全落了下去，你不懂魔法，只能靠火把照明。最初你只是凭直觉走，但走着走着，你隐隐有些熟悉的感觉。\n又走了几步，绕过一片长得格外繁茂的灌木，一棵倒下的大树映入了你的眼帘。\n这棵树你有印象，离小镇颇有一段距离，但过了这棵树，你就能找到回小镇的路了。\n可当你走到树边时，你又发现事情不大对劲。\n这棵树是被雷劈断的，树冠陷在山壁裂缝里，离地有二十多米高，年深日久，树上爬满了青苔藤蔓。树干裂开的地方早已干枯，可现在却冒出了一根细枝。枝上带着叶子，你伸手摸了摸，嫩嫩的。\n你把火把举近，火光明明灭灭，照出树干青苔的上一个脚印。你下意识追着脚尖的方向看过去，在两米多远的地方，又看到了另一个脚印。\n火把不足以支撑你看到更远的地方，但你眼前已经多少出现了画面——一个人从地上跃起，踩着树干上无比滑腻的青苔向前纵跃，一步跳出两三米，接着又一步……一直跳到树冠所在的地方，钻进山壁的裂缝。\n——这绝不是人能做到的事。\n你下意识抬起右手，握住了剑柄。你在小镇住了二十多年，从来没有见过能这么敏捷的人。你决定——",
+        "1-4": "你决定原地睡一觉，好好休息再做打算。\n一觉醒来，你已经到了一个山洞里。你听到柴火劈啪作响，循声望去，是一团篝火，篝火边坐着一个带兜帽的人。\n这人在你睡梦中挪动了你，但你却没有醒，这非常不寻常，通常来说，只要有人接近三步之内，你都会有所警觉，这是勇者的本能。\n紧接着你发现，翡翠剑就在你手边，看来，无论把你带进山洞的人是谁，这人都没有恶意。\n你清了清嗓子，试图获取对方的注意。\n对方并没转头，只是从兜帽下发出一声嗤笑：“在荒郊野外睡觉不点火，你是给野兽送饭的吗？”\n你准备回复他——",
+        "1-5": "你走近第二片阴影，到近处时，它又不见了。你四处观察，在树林更深处找到了它。\n你追着古怪的阴影一路前进，周围没有任何光源，却诡异地越来越亮，让那片阴影越来越黑，越来越大，越来越显眼。\n你本能地握紧了剑柄，没有加快脚步，而是加倍留心周围的环境。光源始终找不到，脚下厚厚的落叶压住了脚步声，你这才留意到，从看到阴影开始，你甚至没听到枝叶被风吹动的沙沙响声。\n你抬头看去，树木枝叶掉了一半，纹丝不动。越远处，叶子似乎越稀少。前方地上只有密实的落叶，没有任何该在森林里的东西——脚印、泥土、粪便……什么都没有。\n就好像，这片阴影把你带到了一个没有活物的地方。\n也不知道走了多远，阴影终于不动了。两棵树中间，一个一人高的幽深黑洞静静地旋转着，你捡起一截树枝扔进去，黑洞把它吞掉，没起半点波澜。\n你看着翡翠剑上空荡荡的孔洞，心里闪过一个念头。你没有伸手去摸，而是捡起一片叶子放上去。带着湿意的翠绿叶子上瞬间燃起火来，烧得一点不剩。\n一股不知从何而来的力道把剑尖扭向黑洞，剑身微微颤抖，不知道是激动还是恐惧。\n你决定——",
+        "1-6": "你在离大树不远的地方找了个隐蔽的地方，耐心等待着。\n这里出乎意料的安静，没有鸟叫也没有虫鸣，只有风吹树叶的沙沙声陪着你。\n直到天亮的时候，你终于听到了别的动静。——人走在灌木里，叶片随之摇动的声音。\n你下意识地屏住了呼吸，一个人影从树冠的方向跳出来，身影是不可思议的轻捷，几下就落到了地面上，几乎没有任何声音。\n那人停住脚步，伸手拂过树干，你也在这个时候看清了他的脸——居然是他。\n他离开后，你又等了一会儿，才从藏身处走出来。树干上的脚印已经被青苔盖住了，看不出一点痕迹。\n你朝小镇走去，脑子里依然想着刚刚看见的那张面孔。\n奥利。\n奥利是小镇上的猎人，也是你的好朋友，你和他打打闹闹了二十多年，从来没见到他露出这么好的身手。\n那真是奥利？还是别的什么人？\n怀着满腹疑窦，你走进了日出下的小镇。\n你决定——",
+        "1-7": "你没有管树上奇怪的脚印，转身走回了小镇。\n回到小镇的时候，已经是后半夜了。镇上静悄悄的，远远只能看见瞭望塔上守夜的火光。\n小镇一贯没有守夜的习惯，只是最近黑暗力量变强，听说树林里可能会有被黑暗力量侵蚀的野兽袭击城镇，所以长老团才把这座闲置上百年的瞭望塔重新启用。\n你本来想直接回家，但穿过漆黑的街道，快到家的时候，你忽然发现有一栋房子里还亮着灯。\n这是小镇里唯一一户现在还没睡的人家。\n它的主人你也熟悉，巴里。\n你路过他门口，打算——",
+        "1-8": "你在树边走了走，尝试着跳上树干。脚下的青苔很滑，你站不住，只好把剑插进树干维持平衡，一步一步往上挪。\n爬了大概一半，你脚下一滑，本能地抓紧了剑柄。但越往上的树干风干得越多，越容易被剑切开。翡翠剑轻而易举地切开了半枯的树干，你几乎没感到任何阻力，就直接摔了下去。\n你昏迷前最后看到的，就是昏沉夜色下那棵有深深刻痕的大树。\n\n醒来的时候，你认了认环境，发现自己已经回了小镇。\n你从床上爬起来，床边坐着的人听到动静，转过头，原来是巴里。巴里是小镇唯一能使用治疗术的人，也就被动地成了小镇的医生。\n“你醒了？”他说，“没别的伤，就是摔晕了。”\n“谢谢。”你发现手里沉甸甸的，低头看去，才发现还握着剑柄没放开。\n“我怎么回来的？”\n“是奥利。他说出去打猎的时候看你摔晕在树边，就把你扛回来了。”\n奥利是小镇上的猎人，也是你的好朋友。\n你点点头：“好，那我先走了。”\n“哈尔。”你才要出门，就听到巴里在身后叫你的名字。转身看去，只见他无奈地笑笑：“注意安全。”\n“好。”你摆摆手，走出了巴里家。",
+        "1-9": "你翻了个白眼：“我洗衣服都用驱赶野兽的药粉，什么野兽敢吃我？反倒是你，点火的时候用这么潮的树枝，不怕烟告诉野兽这儿有饭吃吗？”\n他傲慢地哼了一声：“正好馋鲜肉了。”\n你笑了笑，觉得这人有点意思。",
         "1-10": "你有丰富的野外经验，虽然很有自信不会被野兽夜袭，但也不想辜负他的好意。\n“谢谢。”你冲他笑了笑。\n他倨傲地点点头。",
         "1-11": "“你是谁？”你问。\n篝火明明灭灭，把他大半身子淹没在阴影里，只露出一个影影绰绰的轮廓。听到这话，他转过头来，身上的斗篷跟着动作晃动，火光下显露出破烂的边角。逆着光，你看不清他的脸，只能听到他回答道：“瑟尔。”\n“我叫哈尔。”你说道。\n不知道为什么，当他转过头的时候，你恍惚间竟然有一种他并不存在的感觉。\n你问：“你在这儿做什么？”\n“路过。你又在这儿做什么？”\n“我要去讨伐科瓦德魔王。”\n“谁是科瓦德魔王？”\n“龙骨山脉那一边，黑暗力量的统帅。‘科瓦德’是古语，意味着‘光照不到，被恐惧统治的地方’，所以我们这么称呼那家伙。”\n“你为什么要讨伐科瓦德魔王？”",
         "1-12": "从黑洞里进去，是一个隧道，左右石壁上长的晶石发着冷白的光，照亮了前路。你特别低头看了看脚下，没能找到之前扔进来的那截树枝。\n你沿着石路一路前进，石壁上的晶石密集起来，眼前的道路愈发明亮。拐过一个弯，石壁上开始有了其他颜色的晶石，黄的、青的，把一成不变的石头都照得五彩斑斓了起来。\n你之前在树上看到过，石头在元素浓郁的地方，能长出充满魔法元素的魔晶石，或许这就是。但如果这些都是魔晶石，那岂不各种元素都浓郁得过分？\n又往前走走，石壁上晶石的颜色愈发五花八门起来，甚至，有一些已经落到了地上。细细长长的八面棱锥杂乱地堆在一起，你想了想，准备捡一块带走，但你身上只能放下一块，你挑了——",
@@ -6667,7 +6675,6 @@
         "1-17": "一觉醒来，天已大亮。\n你看向窗外，入眼是蓝天、白云、龙骨雪山、森林、与小镇的木房，突然感到十分无趣。\n你错过了所有的支线，冒险或许不适合你。\n你还要继续冒险吗？",
         "1-18": "你敲响卡萝的门。门里毫无声响。\n你无奈地叹了口气。卡萝自称是炼金术师，但因为小镇周围并没有特别好的炼金材料，所以她其实差不多就是镇上的木匠和铁匠。她一个人独居，常常做东西做到深夜，早上很少能叫开门。\n你想了想，转身回家做了点热腾腾的食物。卡萝不用钥匙，她门上有一套机关，打开机关就行了。你按她教你的方法打开门锁，用肩顶开门：“卡萝？醒醒，给你拿了早饭。”\n卧室的方向传来几声叮了咣当的动静，然后门吱呀一声打开，走出一个披头散发的姑娘。她穿着一条藕荷色的睡裙，你记得最初它是漂亮的亮紫色，被卡萝暴力洗了七八年，就掉色成了这个样子。\n你忍不住笑笑，把早饭放到餐桌上：“过来吃。”\n她揉了揉眼睛：“哈尔？你不是讨伐魔王去了吗？”\n“长老团给的地图不准，从森林里穿行不靠谱。我决定回来走大路。”\n“哦。”她显然还是没睡醒，木木地吃着早饭。\n你问道：“你最近去过那棵被雷劈了的大树那边吗？”\n卡萝点点头：“怎么了？”\n“回来的路上看到点东西，不太确定。你有没有感觉那里有什么不寻常的？”\n卡萝喝了口冰凉的山泉水，不太确定地说道：“我上个月找木材的时候去过那边，怎么说呢……那里的空气比别处清新很多，植物长得似乎也茁壮一些。我还捡到了一个东西，可以给你看看，但你不许惦记。”\n“好。”你笑着答应下来。\n卡萝转身进了工作间，出来的时候，手里拿着一支箭。\n你接过来，细细端详。石箭头，木箭杆，箭羽很别致，用的是叶子而非羽毛。箭头上闪着光，应该不是平常的石头，叶片你也没见过，摸起来很有韧性。箭杆估计也是一种罕见的材质。你想起奥利平时做箭的流程，用右手食中二指托起箭杆，它的平衡性惊人地好，射出去应该很准。\n“我是从石头上把它拔出来的。”卡萝说，拇指和食指比划了一个七八公分的长度，“射进去了这么多。”\n你们又聊了聊，卡萝打了个呵欠，你顺势告辞了。",
         "1-19": "虽然出师不利，但你并未气馁，而是很快收拾好，思考起下一步的行动——",
-        "1-2": "昏黄的阳光穿透树叶的缝隙，在树林里的薄雾中穿梭，你看不出光源在从哪里而来，因此也难以识别方向。你在山里兜了好几个圈子，始终没能找到路。\n正当你一头雾水时，你忽然在附近的树上看到了一个奇怪的痕迹。\n你朝那棵树走过去，走到树前，却发现似乎没什么特别的，你看到的好像只是片影子。你四下望了望，在另一棵树上发现了一样的痕迹。\n你身后背着的翡翠剑发出一声声嗡鸣，你把它拿到手里，指尖无意间拂过剑柄上菱形的孔洞。——那里居然是滚烫的。\n根据小镇的传说，很多年前，小镇有一位勇者，他决定去龙骨雪山的另一侧打败魔王。矮人敬佩他的勇气，为他打造了一柄剑——翡翠剑。它是矮人工艺的顶峰，剑身锐利无比，剑柄上镶嵌了一枚附魔的绿水晶。据说，在无所畏惧的人手中，翡翠剑会发出翠绿而坚定的光，照亮前方的一切黑暗。\n勇者拿到剑后，就踏上了去龙骨雪山另一侧的旅程——但是再也没有人见过他。他出发时是一个冬日，冬去春来，上山打猎的猎人捡到了翡翠剑，但没有见到它的主人，而剑柄上原本镶嵌的魔晶石，也消失不见了。\n翡翠剑被送回了他的故乡，交到了长老团的手中。在希望你去讨伐科瓦德魔王的时候，长老团把它交给了你。\n这个传说你本来是不信的，因为无论“矮人”还是“附魔”，对如今的世界而言，都遥远得像神话一样。矮人的工艺早已失传，魔法师也根本不懂毁天灭地的禁咒……传说里唯一和现实一样的，就是龙骨雪山另一侧，没有人见过的黑暗。\n你抬头看去，那棵树上的痕迹依然在那里。你决定——",
         "1-20": "你捡起一尘不染的红晶石。\n摸着很热，可能是火属性的。",
         "1-21": "你捡起一尘不染的蓝晶石。\n入手冰凉，还带着湿意，大约是水属性的。",
         "1-22": "你捡起一尘不染的紫晶石。\n晶石上漩涡般的纹路在它移动时跟着旋转，说不准它的能量和空间有关。",
@@ -6678,7 +6685,6 @@
         "1-27": "你掀开挂毯，一张漆黑的纸从后面掉了下来。\n这时你发现，挂毯上慢慢浮现出鲜艳的颜色，一座恢弘的城堡渐渐显形。\n你捡起黑纸，发现它一面漆黑，一面是灰色。黑色那面碰到挂毯时，挂毯又黑了下来，灰色那面则不会造成任何改变。",
         "1-28": "你抬手一摸，盾牌大小的徽章就掉了下来，变成胸针模样。\n你捡起胸针，发现上面写着三个小字：“雷电术。”",
         "1-29": "你推开门走出去，一步踏出，周围是一片无边无际的星空，脚下明明踩上了什么，低头却看不到路，依然是不知道有多远的星空。\n你回过头，门却已经不见了，你身后依然是遥远的星空。\n四面没有边界，无论你朝哪个方向走，走多远，景色都没有任何变化。你似乎已经被困在了这里。\n无奈之下，你原地坐下，撑着下巴观察四周。突然间你发现，远方一成不变的星辰闪了一下。你的目光追着闪烁的星辰看去，才发现不是星辰在闪，而是有一个阴影正迅捷无伦地移动着。阴影在你和星光之间挡了一下又离开，看起来才像是星辰闪动。\n你立刻跳起来——",
-        "1-3": "你转身，朝来的方向走去。\n太阳基本全落了下去，你不懂魔法，只能靠火把照明。最初你只是凭直觉走，但走着走着，你隐隐有些熟悉的感觉。\n又走了几步，绕过一片长得格外繁茂的灌木，一棵倒下的大树映入了你的眼帘。\n这棵树你有印象，离小镇颇有一段距离，但过了这棵树，你就能找到回小镇的路了。\n可当你走到树边时，你又发现事情不大对劲。\n这棵树是被雷劈断的，树冠陷在山壁裂缝里，离地有二十多米高，年深日久，树上爬满了青苔藤蔓。树干裂开的地方早已干枯，可现在却冒出了一根细枝。枝上带着叶子，你伸手摸了摸，嫩嫩的。\n你把火把举近，火光明明灭灭，照出树干青苔的上一个脚印。你下意识追着脚尖的方向看过去，在两米多远的地方，又看到了另一个脚印。\n火把不足以支撑你看到更远的地方，但你眼前已经多少出现了画面——一个人从地上跃起，踩着树干上无比滑腻的青苔向前纵跃，一步跳出两三米，接着又一步……一直跳到树冠所在的地方，钻进山壁的裂缝。\n——这绝不是人能做到的事。\n你下意识抬起右手，握住了剑柄。你在小镇住了二十多年，从来没有见过能这么敏捷的人。你决定——",
         "1-30": "你朝黑影的方向跑去。星空跟着你的脚步在视野里摇晃，没几步，你就再也认不出黑影在哪里了。",
         "1-31": "你在星空里四处乱走，突然听到一声脆响。\n你立刻看向那个方向，星空碎裂，一片安宁平和的小湖出现在星空后面。\n声音传来的那个方向，一个黑影划过你的眼前，转瞬消失在了森林里。",
         "1-32": "你意识到这就是在星空里看到的那个阴影，立刻追了上去。但天还没亮，林中灰暗，你很快就跟丢了。\n于是，你只好回到湖边。",
@@ -6689,7 +6695,6 @@
         "1-37": "他对这里的情况有问必答，但你问到他身上时，他却三缄其口。于是你也不再追问他的私事，毕竟你们俩现在被困在一起，算是一条绳上的蚂蚱。\n“你知道怎么从这儿出去吗？”\n“你刚刚应该也发现了，这里的空间没有尽头。如果我猜得没错，我们应该在一个法阵里。布阵的人应该会在阵里留下一条通路，沿着那条通路，就能走出去。”\n“你知道那条通路是什么？”\n“不知道。这个法阵我看着很陌生。”\n“你……”\n“但万变不离其宗。只要毁掉阵眼，法阵自然也就破了，我们就能出去了。”",
         "1-38": "他冷笑一声，没有回答。你听到衣服摩擦的声音渐渐远去，他已经离开了。",
         "1-39": "他叹了口气：“欧阿的长老团什么都没告诉你吗？”\n不等你回答，他就解释道：“法阵不一样，阵眼也不一样。一般来说，就是法阵里比较特别的地方。”\n“好，我也去找找。这儿漆黑一片，两个人总比一个人快。”\n他也认同，你没听到脚步声，只听到他行走时衣服摩擦的声音渐行渐远。",
-        "1-4": "你决定原地睡一觉，好好休息再做打算。\n一觉醒来，你已经到了一个山洞里。你听到柴火劈啪作响，循声望去，是一团篝火，篝火边坐着一个带兜帽的人。\n这人在你睡梦中挪动了你，但你却没有醒，这非常不寻常，通常来说，只要有人接近三步之内，你都会有所警觉，这是勇者的本能。\n紧接着你发现，翡翠剑就在你手边，看来，无论把你带进山洞的人是谁，这人都没有恶意。\n你清了清嗓子，试图获取对方的注意。\n对方并没转头，只是从兜帽下发出一声嗤笑：“在荒郊野外睡觉不点火，你是给野兽送饭的吗？”\n你准备回复他——",
         "1-40": "你走着走着，脚下突然踢到了什么，幸好你脚步不快，所以撞得不疼。\n你蹲下身摸索，摸到一个椰子大的东西，大约是个球形，凉凉的，像是玻璃。",
         "1-41": "你摸着奇怪的玻璃球，还不及下一步动作，口袋里就发出了耀眼的绿光。\n翠绿的水晶从你口袋里自行飞出，绿光照亮了整片星空，八面棱锥在空中划过，落进了翡翠剑上那个菱形孔洞。\n你把翡翠剑举到眼前，晶石依然发着翠绿的光，严丝合缝地嵌在剑柄上。你记得很清楚，在你捡起晶石的时候，它的大小还和那个孔洞完全对应不上。\n是这枚晶石特别，还是这把剑特别？\n你想不出道理，低头看去，玻璃球里氤氲着一团黑色的雾气，你看着那团雾，本能地觉得碍眼。\n于是，你挥动翡翠剑，打碎了脚下的玻璃球。玻璃球“哗啦”一声碎成无数碎片，你抬起头，身周的星空也随之一并碎裂。\n星空碎裂后，就消失在了你眼前，你不知道什么时候，又回到了森林里。\n身侧是一片平静的小湖，东方隐隐发白，看来天快亮了。",
         "1-42": "“之前那个地方，你说是黑暗法师塔遗迹，这是什么？”\n“现在大陆上把魔法师分成五个等级，法师学徒、见习法师、魔法师、大魔法师、和魔法导师。但根据一些书籍记载，在古时候，魔法导师上还有第六个等级，被称作大魔导师。……其实也挺合理的，魔法师一贯喜欢六这个数字，魔法元素有六种，法术有六个等级，徽记也是六芒星。”\n“听你这口气，原来你不是魔法师？”\n他点点头，但也没说自己是什么职业的：“据那些书上记载，到了大魔导师的等级，他们的魔力就足以从主位面切分出一块空间，在里面建立自己的领域——法师塔。他们会在法师塔里生活、研究、教导学生，如无意外不会出门，因为法师塔里有他们需要的一切。主要研究黑暗力量的大魔导师建造的，就是黑暗法师塔。法师塔要大魔导师才能建造，也需要大魔导师才能维持运行。但法师收徒非常苛刻，所以绝大多数传不了多久就荒废了。”\n“荒废后，就成了废墟？”\n“对。法师塔本来就会被主位面吸引，没有大魔导师的力量维持独立性，它们就成了坍塌中的废墟。如果外界力量和废墟产生共鸣，就会创造出一个临时入口，可以进入废墟搜刮一点遗产。等彻底坍塌后，法师塔的空间和元素都会回归主位面，不过里面原本的东西，和人，会是什么样就不好说了。”\n你下意识看了看自己，又观察了一下他完好无损的黑斗篷：“可我看咱俩都好好的啊。”\n他耸耸肩：“你刚刚那一剑打碎了无限空间法阵，法阵碎裂的同时，搅动空间力量，撕开了法师塔的空间，所以我们才能落在这里。”",
@@ -6700,7 +6705,6 @@
         "1-47": "你长叹一声，走进去，坐在他的沙发上：“别提了，长老团给我的地图不准，我走出去不到半天就迷路了。我担心越走只会错得越远，只能先回来想别的办法了。”\n巴里给你倒了杯水：“那你接下来准备怎么办？”\n“先沿大路走吧，找找有没有可信的森林地图。”\n巴里看着你，蔚蓝的眼睛闪了一下：“你可以去银鳞村看看。”\n“银鳞村？”\n他似乎下定了什么决心，重重点点头：“对。银鳞村虽然不大，但是村里有一座图书馆，里面有很多资料，应该也能找到地图。”\n你眯起眼睛盯了他一会儿，巴里错开眼神不与你对视。最后，你点了点头：“我天亮出发。”\n你回家睡觉，躺在床上，忍不住去想巴里桌上的笔墨，和他奇怪的表情。\n天亮了。你背上行李，走上了去银鳞村的路。",
         "1-48": "“想你了啊。”你笑嘻嘻地回答。\n巴里被你逗笑了，却还是翻了个白眼：“别闹了，大半夜的。你到底为什么回来了？”",
         "1-49": "“后悔了。”你言简意赅地回答道。\n巴里看到你时还颇为轻松的表情渐渐化作了担忧，他关切地问道：“发生什么了？”\n你挠挠头，答道——",
-        "1-5": "你走近第二片阴影，到近处时，它又不见了。你四处观察，在树林更深处找到了它。\n你追着古怪的阴影一路前进，周围没有任何光源，却诡异地越来越亮，让那片阴影越来越黑，越来越大，越来越显眼。\n你本能地握紧了剑柄，没有加快脚步，而是加倍留心周围的环境。光源始终找不到，脚下厚厚的落叶压住了脚步声，你这才留意到，从看到阴影开始，你甚至没听到枝叶被风吹动的沙沙响声。\n你抬头看去，树木枝叶掉了一半，纹丝不动。越远处，叶子似乎越稀少。前方地上只有密实的落叶，没有任何该在森林里的东西——脚印、泥土、粪便……什么都没有。\n就好像，这片阴影把你带到了一个没有活物的地方。\n也不知道走了多远，阴影终于不动了。两棵树中间，一个一人高的幽深黑洞静静地旋转着，你捡起一截树枝扔进去，黑洞把它吞掉，没起半点波澜。\n你看着翡翠剑上空荡荡的孔洞，心里闪过一个念头。你没有伸手去摸，而是捡起一片叶子放上去。带着湿意的翠绿叶子上瞬间燃起火来，烧得一点不剩。\n一股不知从何而来的力道把剑尖扭向黑洞，剑身微微颤抖，不知道是激动还是恐惧。\n你决定——",
         "1-50": "你拿出翡翠剑，摸了摸它。剑身微凉，似金似玉。\n你指着那个菱形的孔洞，告诉巴里：“这里今天发烫了。”\n“发烫了？”\n“对。”\n“翡翠剑还有这种能力吗？”\n“我之前也不知道。”你皱起眉毛，“但我觉得长老团应该多少知道一些。可他们什么也没跟我说。我要再去找他们一次。”\n巴里赞同地点点头。\n你让他早点休息，就回家睡觉了。\n第二天上午，你走进了长老团的屋子。\n长老团这帮人，每天就是用预言指引小镇，预言具体是怎么来的，除了他们没人知道。但他们的预言确实帮小镇安然度过了许多危机。\n你说出翡翠剑上孔洞发烫的事，长老团交头接耳一阵，阿帕对你说道：“我们拿到翡翠剑的时候，对它做了一次预言，可它具体的事，我们也不是很清楚。如果你想知道，据传上面最初镶嵌的那块绿水晶来自天使城，你可以去那里查查。”\n然后，阿帕走过来，递给你一张卷轴：“这是当时得到的预言。”\n你打开卷轴，上面写了四行字——\n\n雪山之巅，英魂渐远。\n危城影下，一念不灭。\n剑心重铸，翡翠长明。\n孤星陨灭，万灵恸哭。",
         "1-51": "“你还记得那棵被雷劈了的大树吧？我在上面看到了几个脚印，像是一路跑到树冠里面的。”\n巴里不由得抬手比划了一下那棵树靠在山壁上的角度：“这么倒着的，长满了青苔的那棵？”\n你笑着点点头：“对啊，很奇怪吧？”\n巴里想了想：“可能是精灵。”\n“什么？”你的目光立刻刺过去。\n巴里有点愣，你意识到自己的反应有点凶，补充道：“你怎么会想到精灵？他们不是绝迹好几百年了吗？”\n巴里笑笑：“我最近看了本讲精灵的书。说是他们居住在树上，金发碧眼、热爱自然，身体轻盈、行动矫健，如果说能窜上那棵树，好像也有可能。”\n“住在树上？”\n“书上是这么写的。”\n你笑笑，金发碧眼……？小镇上金发的人不多，再加上蓝眼睛，那就只有巴里了，有趣。\n“我准备去百羽镇看看。”你说，“说不定能找到什么线索，（你盯住巴里），我有种直觉，留下那个脚印的，就是小镇里的人。”\n巴里看起来一切如常：“祝你好运。”\n你回家睡了一觉，天亮之后，就出发去了百羽镇。",
         "1-52": "你走到奥利家。门关着，院子里摆着张桌子，桌上放着做到一半的箭支和工具，人却不知道去哪儿了。",
@@ -6711,7 +6715,6 @@
         "1-57": "你想了想，笑了：“因为我想啊。”\n“嗯？”\n“我想留下些死前值得回想的记忆。一辈子只有这么长，不如拿来做点别人做不了的事。”\n瑟尔的身影没动，过了一会儿，似乎笑了一声，说道：“有意思。”",
         "1-58": "你走到篝火旁，坐在瑟尔不远处。这个季节，夜里还是有点冷，烤烤火会舒服很多。\n换了个位置，你也看清了瑟尔的脸。他长得有些特别，虽然你也说不出究竟哪里特别，鼻子是鼻子嘴是嘴，但就是和别人有些不同。你仔细想了半天，恍然大悟——他耳前的鬓角被剃掉了。\n篝火烧着烧着就有点颓了，你捡了根枯枝，伸进去拨弄了几下。生火的树枝水汽还挺足，扒拉了几下，噼里啪啦地就炸了，甚至有一根弹起来，朝着瑟尔的方向飞了过去。\n虽然最后也没飞开多远，但瑟尔还是被吓了一跳，蹿的比柴火蹿得都快。\n你忍不住笑了两声，说——",
         "1-59": "“在荒郊野外这么点火，你是准备把野兽吓死吗？”\n瑟尔冷笑一声，剐了你一眼。",
-        "1-6": "你在离大树不远的地方找了个隐蔽的地方，耐心等待着。\n这里出乎意料的安静，没有鸟叫也没有虫鸣，只有风吹树叶的沙沙声陪着你。\n直到天亮的时候，你终于听到了别的动静。——人走在灌木里，叶片随之摇动的声音。\n你下意识地屏住了呼吸，一个人影从树冠的方向跳出来，身影是不可思议的轻捷，几下就落到了地面上，几乎没有任何声音。\n那人停住脚步，伸手拂过树干，你也在这个时候看清了他的脸——居然是他。\n他离开后，你又等了一会儿，才从藏身处走出来。树干上的脚印已经被青苔盖住了，看不出一点痕迹。\n你朝小镇走去，脑子里依然想着刚刚看见的那张面孔。\n奥利。\n奥利是小镇上的猎人，也是你的好朋友，你和他打打闹闹了二十多年，从来没见到他露出这么好的身手。\n那真是奥利？还是别的什么人？\n怀着满腹疑窦，你走进了日出下的小镇。\n你决定——",
         "1-60": "“这点胆子，还敢在树林里过夜？”你漫不经心地扫了他一眼。\n“哦？这么说你胆量很大咯？”\n“比你是强得多了。”",
         "1-61": "你看看他，突然笑了一声：“你还挺可爱的。”\n他盯了你一会儿：“……你神经病啊？”",
         "1-62": "你把崩开的树枝重新收拾了一下，点好了篝火。\n你半睡半醒的守着篝火，大约过了半宿，你突然打了个激灵，本能地往旁边一钻，回过头去，就看到瑟尔趴在你刚刚所在的地方，兜帽已经掉了，一双眼睛里……放着金光？\n你本能地摆出防御架势，将将挡住又扑过来攻击你的瑟尔。\n什么情况？\n你一边见招拆招，一边思考眼下的处境。瑟尔突然低吼一声，听起来倒有点像野兽。他的指尖不知什么时候长出了尖锐的黑色指甲，唇间也露出了一口尖锐的牙齿。他不断地扑上来，你也多少摸清了他的目标——他想咬你的脖子。\n搞明白了这件事，他的举止也就有迹可循了起来，你费了些力气，就把他按在了地上，手臂反压在背后。\n你四下看了看，很巧，打斗到最后，你们到了你的包袱旁边。你记得包裹里带了绳子。",
@@ -6722,7 +6725,6 @@
         "1-67": "“百羽镇失踪的人和你有关吗？”你开门见山。\n他饶有兴趣地露出一个笑容：“直觉很准嘛。没错，是我干的。”",
         "1-68": "瑟尔带着莫名的笑意点了头。\n你始终对他有种说不清的戒心。这是你的习惯，把提防的对象尽可能放在眼皮子底下看着。\n你们一起走了一段路，你试图旁敲侧击问出他的来历，他却总是避而不答。\n忽然路边窜出一只兔子撞到他腿上，他的腿随机消失，只留下一片黑雾。黑雾缠上兔子，兔子挣扎几下，活活窒息而死。",
         "1-69": "“失踪的人现在在哪儿？”\n“回家了。”\n瑟尔想了想，补充了一句：“也死了。”",
-        "1-7": "你没有管树上奇怪的脚印，转身走回了小镇。\n回到小镇的时候，已经是后半夜了。镇上静悄悄的，远远只能看见瞭望塔上守夜的火光。\n小镇一贯没有守夜的习惯，只是最近黑暗力量变强，听说树林里可能会有被黑暗力量侵蚀的野兽袭击城镇，所以长老团才把这座闲置上百年的瞭望塔重新启用。\n你本来想直接回家，但穿过漆黑的街道，快到家的时候，你忽然发现有一栋房子里还亮着灯。\n这是小镇里唯一一户现在还没睡的人家。\n它的主人你也熟悉，巴里。\n你路过他门口，打算——",
         "1-70": "“你为什么要抓人？”\n瑟尔耸耸肩：“饿了。”",
         "1-71": "你皱紧眉头，问出最后一个问题：“你究竟是什么来头？”\n瑟尔依然挂着讽刺的笑：“你也猜到了吧。我就是……”\n“你要杀的魔王啊。”\n他哼了一声：“你们居然觉得我还在龙骨山脉那头，还真是蠢到家了，死得不冤。”\n你警铃大作，抽出翡翠剑，冲了上去——\n瑟尔身上冒出黑蒙蒙的烟雾，削铁如泥的翡翠剑在触及它的时候便无法寸进。瑟尔有些讶异地挑挑眉：“翡翠剑？居然没坏。”\n他隔空点点翡翠剑柄上菱形的孔洞，告诉你：“那儿原本镶嵌着它的剑心，是被我打碎的。它的上任主人阿宾，也是死在我手里。”\n你花了大力气才把翡翠剑从黑雾里拔出来，忽然一阵风吹来，把黑雾吹散了。",
         "1-72": "你本能地在心里分析起利弊来。\n好处显而易见——如果答应，你能保住命。\n坏处更加显而易见——瑟尔估计连人都不是，谁知道干他会有什么后果。\n最后，还是“死我也不想这么死”的心态占了上风，你点点头：“好。”\n心口的爪子消散于无形，你识相地开始脱衣服。\n这种事情，实操经验你不是没有，但你从来没有体验过随时可能翻脸杀人的对象。这么一想……\n你硬了。\n你转过身对着瑟尔，问他：“你有什么要求吗？”顺便看了看他衣服下面的模样。你最直观的感受就是瘦，不是一般的瘦，而是皮包着骨头，一条条细细的肌肉格外显眼，瘦得就跟从生下来就没吃过饱饭一样。\n瑟尔说：“没有。你自由发挥。”\n你看了看他，忽然明白了他的言外之意——满意就回购，不满意就灭口。\n这可更刺激了。\n你也更硬了。\n你打算先——",
@@ -6733,11 +6735,17 @@
         "1-77": "瑟尔冷笑一声：“凑合吧。”\n不等你说什么，他就化作一股黑烟，卷上衣服消失了。\n你怔怔地坐在原地，一丝不挂，身上的汗还没干，夜风吹过来，冷得你打了个哆嗦。\n你感到自己受到了莫大的侮辱。\n\n天亮了，你在路边看到了百羽镇的路牌。你一夜没睡，准备去休息一下，顺便看看能不能校正长老团给你的地图。",
         "1-78": "“还有下次？”你下意识问。\n“有。”他的声音从你背后传来，刚刚说“很不错”的好心情消失殆尽。",
         "1-79": "“下次是什么时候？”\n他不咸不淡地回答：“到时候你就知道了。”\n你心想，不会是由牙印告诉我吧。",
-        "1-8": "你在树边走了走，尝试着跳上树干。脚下的青苔很滑，你站不住，只好把剑插进树干维持平衡，一步一步往上挪。\n爬了大概一半，你脚下一滑，本能地抓紧了剑柄。但越往上的树干风干得越多，越容易被剑切开。翡翠剑轻而易举地切开了半枯的树干，你几乎没感到任何阻力，就直接摔了下去。\n你昏迷前最后看到的，就是昏沉夜色下那棵有深深刻痕的大树。\n\n醒来的时候，你认了认环境，发现自己已经回了小镇。\n你从床上爬起来，床边坐着的人听到动静，转过头，原来是巴里。巴里是小镇唯一能使用治疗术的人，也就被动地成了小镇的医生。\n“你醒了？”他说，“没别的伤，就是摔晕了。”\n“谢谢。”你发现手里沉甸甸的，低头看去，才发现还握着剑柄没放开。\n“我怎么回来的？”\n“是奥利。他说出去打猎的时候看你摔晕在树边，就把你扛回来了。”\n奥利是小镇上的猎人，也是你的好朋友。\n你点点头：“好，那我先走了。”\n“哈尔。”你才要出门，就听到巴里在身后叫你的名字。转身看去，只见他无奈地笑笑：“注意安全。”\n“好。”你摆摆手，走出了巴里家。",
         "1-80": "你估计“下次”和莫名发烫的牙印有些关系，但你又觉得哪里不对劲，便道：“只能你找我？我怎么联系你啊。”\n瑟尔似乎笑了一声：“你不能。”\n你翻了个白眼，敞着穿了一半的衣服转回去看他：“那没有下次了。”\n瑟尔当真在笑：“下次要是体验也不错，我可以考虑让你联系我。”\n这人真是事儿。",
         "1-81": "你又和他有一搭没一搭地聊了一会儿，问：“你知道怎么翻越龙骨雪山吗？”\n他定定地看了你一眼，眼底似乎有金光一闪而过：“地图。”\n你掏出地图：“这地图大概是错的。”\n他接过去，展开看了看，用漆黑的指甲指了指龙骨雪山的一个地方：“这儿可以翻。不过既然你说地图是错的，那怎么过去你就自己想办法吧。”\n“谢了。”\n\n天亮时你与瑟尔分别。分别后，你在森林里看到了百羽镇的路牌，以此重新看地图，规划路线。后面的地图又对了，有些地方画的不准，但你也没迷路。\n这么走了几天，你终于到了龙骨雪山脚下。",
-        "1-9": "你翻了个白眼：“我洗衣服都用驱赶野兽的药粉，什么野兽敢吃我？反倒是你，点火的时候用这么潮的树枝，不怕烟告诉野兽这儿有饭吃吗？”\n他傲慢地哼了一声：“正好馋鲜肉了。”\n你笑了笑，觉得这人有点意思。",
         "2-1": "银鳞村是一座水边的村落，村子不大，但交通便利，消息灵通。据说许久前是个渔村，但现在则成了个交通枢纽。\n银鳞村里有一座图书馆，收集了附近的许多资料，也是你的目的地。\n长老团的地图让你走出半天就迷了路，因此，你走进银鳞村的第一件事，就是找正确的地图。\n你在图书馆入口处就看见了地图，掏出包裹里的比对，但奇怪的是，这两份地图几乎没有任何区别。\n银鳞村地处交通要道，来往的人很多，按理来说，这里的地图不该有错才对。\n你是不可能看错地图的，可如果地图没错，那你究竟为什么会迷路……？\n你决定进去翻翻书，先选——",
+        "2-2": "百羽镇是座坐落在森林边缘的镇子，因为鸟雀种类多而得名。它离你居住的小镇欧阿并不远，镇上有许多猎人和工匠，也有一些与你相熟的。",
+        "2-3": "天使城，在海边，据说很久以前有天使在此显灵，人们围绕神迹建起了这座城。\n天使城旁边不远是一片矿产丰富的山，因此天使城里有一种非常常见的材料——雪白的石头。从城外望去，白花花一片，很是漂亮。\n天使城的中心，是一座神殿，也是传说中天使现身的地方。神殿外有一座天使雕像，和真人差不多大，背生六翼，衣着纤毫毕现，但面容却刻意地模糊了，看不清长相。",
+        "2-4": "你开始读一本名为《魔法常识——用语与元素的基本知识》的书。它是为想要当魔法师的人入门写就的，浅显易懂，流传颇广，但你对魔法一直兴趣不大，所以从没有读过。\n“现在一般认为，世界上有十种元素。最开始，魔法师发现了六种元素，分别是水、火、风（空气）、土（大地）、雷电和空间，它们现在被统称为魔法元素。后来，魔法师们又发现生命、光明和黑暗其实也是元素，这三种元素里，黑暗会吞食生命，而光明会消解黑暗，在研究这三种元素时，魔法师们发现了一些难以解释的现象。一位大魔导师，迈克尔，提出一个猜想——这些事情的发生是因为自然界还有一种未被发现的元素。这个说法被广泛接受，未知的元素也被和生命、黑暗、光明三者合称为四种自然元素。”",
+        "2-5": "你在传说野史的书架上找到了一本非常陈旧的古书，封面上写着《人之外的世界》。\n书上介绍了很多现在看来和不存在没什么区别的生物，内容翔实，如果作者不是亲身经历，那么应该是个很厉害的小说家。\n“精灵是自然的孩子，也是生命的挚友，他们身体轻盈，动作敏捷，个个都是百步穿杨的神箭手。他们居住在森林里，身边常有鲜花。”\n“巨龙已经很久没有人见到了，下面只是我收集的传闻。据说巨龙居住在龙谷里，能进入龙谷的人会获得巨龙的承认，成为龙语者，分享巨龙的力量。龙族有传承记忆，如果说谁还知道上古时代的事，那恐怕也只有他们了。”\n“黑暗生物，也就是龙骨雪山另一侧的，魔族。魔族只是一个统称，分为很多种族，比如力量强大的战士刃魔；善用魔法的球魔；速度极快的鹰魔等。也有一些魔族不以正面战斗为长，比如能够在相处中侵蚀人心的魅魔（也有说法认为那是爱情）等。魔族以生命为食，很多人认为龙骨雪山另一侧寸草不生，但实则不然，那里永远有生命，只是往往诞生之初就被魔族吞食了。因为食物有限，魔族还可以以其他东西为食，比如法魔能食用魔晶石，魅魔更可以通过和有生命力的生物做爱饱腹。但我并不建议读者去和魅魔一夜春宵，因为有一种食物是任何魔族都喜欢的——刚剖出来的人类心脏。”",
+        "2-6": "大陆历史记载的与你所知没什么区别，只是更加详细一些。\n“一千年前，黑暗力量也曾袭击过生灵生活的地方，经过漫长的战斗，最终被勇敢的战士击退了。吟游诗人唱道：‘只要心怀光明，终能战胜黑暗。’”\n“三百多年前，黑暗力量卷土重来，天空巨龙以生命为代价建起了龙骨雪山，隔绝生灵与黑暗。从此之后，讨伐魔王的勇者一直没有放弃过。”\n里面专门有一部分记载了每次勇士与魔王的战斗。\n最后末尾的一章，那位勇士手持翡翠剑，在讨伐魔王的路上失踪了，他的名字叫做，阿宾。",
+        "2-7": "如果地图没错，那就只可能是世界错了。联想到魔法元素里有“空间”这个元素，你就顺着这个关键词翻了下去。银鳞村的藏书五花八门，什么都有，你还真在一本厚厚的魔法书里看到了一条推演，写于魔法师不能施展禁咒的年代。\n这条推论认为，在释放涉及空间的禁咒级魔法时，禁咒里的空间元素可能会扭曲附近的空间。可如果沿着这个方向想下去，又是谁，在那片森林里，释放了什么禁咒呢？\n虽然银鳞村的图书馆为你带来了许多疑惑，但它至少告诉了你长老团的地图没错。你开始按原计划，向龙骨雪山前进。",
+        "2-8": "奥利没有进百羽镇，而是带着你直接进了树林，没走多远，就彻底离开了百羽镇猎人打猎的道路。\n植物在奥利的指挥下移动，让你们顺畅通过。你抓着藤蔓爬上峭壁，踩在树枝搭成的桥上越过深涧，沿着一条山泉形成的小溪溯源而上，眼前是密密麻麻的灌木丛。\n奥利抬了抬手，灌木丛中让出一条路来，你们沿着那条路走进去。\n你第一眼，看到的是一棵参天大树，简直有龙骨雪山那么高。\n“真的有那么高。”奥利说，“只是没被承认的人看不见而已。”\n你愣愣地看着那棵巨树，它的树干无比庞大，像一堵墙，卡在龙骨山脉中间，两侧深深地陷进了山壁。\n“你想先干什么？”奥利问道，“是直接去问黑暗力量的事，还是我带你四处逛逛？”\n你忽然听到一声尖锐的破空声，是弓箭离弦的动静。不用你问，奥利就解释道：“精灵族都是箭手，放心，伤不到你。”",
+        "2-9": "你走进百羽镇，在街上搜寻着你认识的人。\n“哈尔？”一个声音从你身侧传来，你扭头看去，在街边的一户人家里看到了托马。\n托马是百羽镇上的猎人，也是你的朋友。你看见他，立刻走上去：“嗨，托马。”\n托马正在处理猎物毛皮：“你怎么来百羽镇了？”\n“我的地图出了些问题，想来这里找人帮我修正一下。”\n“我看看。”\n你掏出地图递给他，托马看着看着，眉头皱了起来：“这地图没错啊。”\n“可我昨天在森林里的确迷路了。”\n你们对视一眼，彼此都一头雾水。",
         "2-10": "奥利抬手指指那棵参天大树：“黑暗力量的事我答不了，只能带你去问生命之树。”\n在路上，他给你简单讲了讲生命之树的故事，生命之树是大陆上第一棵树，已经活了很多很多年，它有自己的意识和记忆，充满智慧。\n生命之树有着非常浓郁的生命力量，就生长在龙骨山脉中间，树的另一侧，就是黑暗力量盘踞的地方。\n奥利带着你走上生命之树上缠绕的藤条，停在一个平台上。“我们一般都在这里和生命之树交流。”他解释道。\n你刚刚站定，生命之树上忽然伸出一根树枝，直直地朝着翡翠剑生长。",
         "2-11": "你想先逛逛，奥利也就充当起了你的导游。\n他先指向那棵高耸入云的大树：“它叫做‘生命之树’，全世界只有这一株，是精灵族的家，我们的住处都建在生命之树上，具体的样式则取决于个人喜好，比较流行的是下坠的藤屋。”\n“生命之树对精灵有非常重要的意义，最早的精灵，都是生命之树上结的果子，落地化为人形，有操控自然之力的能力。”",
         "2-12": "“你家里的箭也是精灵族的技艺吗？”\n“对。其实和人类的箭区别也不大，你怎么看出来的？”\n“我看不出来，我猜的。”\n奥利很直白地翻了个白眼，你笑笑：“你箭尾里刻了个标志，那是什么？”\n“我的精灵名。”奥利言简意赅地回答。\n你敏锐地察觉到似乎有什么不寻常的地方：“什么意思？”\n奥利咬着牙不说。\n你就站在原地，气定神闲地看着他。\n这么僵持了好一会儿，他牙缝里终于挤出来两个字：“橄榄。”\n你绷不住笑了出来，他狠狠地瞪着你：“你敢说出去试试？”\n“好，好，我不说。”你笑着答应下来。",
@@ -6748,7 +6756,6 @@
         "2-17": "“自然之力？那是什么？”\n奥利伸手一点，路边的小树顶上便绽开了一朵花：“就是我们用来操控植物的这种力量。我们叫它自然之力，而魔法师叫它生命元素。我们的能力来源于生命之树，但这些年来，因为黑暗力量的侵袭，已经变弱了很多。”",
         "2-18": "“所以你其实是果子？”\n奥利一时语塞：“……不，我是半人。”\n他叹了口气：“因为黑暗力量在变强，生命之树很多年没结过果子了，精灵很难和同族繁衍，这一代基本都是混血。”",
         "2-19": "你又抛出自己的另一个疑问：“你知道精灵吗？”\n托马：“知道是知道，很多年前百羽镇还有精灵居住……不过精灵绝迹很久了。”",
-        "2-2": "百羽镇是座坐落在森林边缘的镇子，因为鸟雀种类多而得名。它离你居住的小镇欧阿并不远，镇上有许多猎人和工匠，也有一些与你相熟的。",
         "2-20": "“谢谢，那我走了，还要去翻越龙骨雪山。”你向托马告辞，托马却立刻把你叫住了：“翻越龙骨雪山？你要讨伐魔王？”\n你点点头：“对。”\n托马皱起眉头，欲言又止：“我觉得你最好还是不要去。”\n“怎么说？”\n托马抿紧了嘴唇，什么都没说。",
         "2-21": "“你还知道别的怪事吗？”你问道。\n托马想了想：“不知道这个算不算，昨天有几个进山打猎的猎人，今天中午才回来，说昨天晚上莫名其妙地就迷路了。”",
         "2-22": "“这把剑。”他用下巴点点你背在身后的翡翠剑，“当初是被我捡到的。”\n“它的上一任主人进山后没多久就大雪封山了，春天我上山打猎，看到半空中飘着一个黑茧。我从旁边捡了根树枝扔过去，那根树枝立刻就变成了飞灰。然后，黑茧里爆发出一阵刺眼的绿光。再睁开眼的时候，周围的植物枯死了一大片，翡翠剑就静静地插在泥土里。”\n托马深深地看了你一眼：“你要当心。”\n你严肃地点了头。",
@@ -6759,18 +6766,19 @@
         "2-27": "这把剑在黑暗法师塔外莫名发烫，又打碎了黑暗大魔导师布下的法阵，于是你猜测道：“这下面是不是有黑暗力量？”\n甘瑟点点头：“是的。石台下是天使出现的原因，它一直封闭着，从没有人打开过。根据神殿历代祭司的观测，下面似乎不只有黑暗力量。”\n“不说这个了。”甘瑟笑了一下，“你是欧阿的勇士吧，来天使城做什么？”",
         "2-28": "“我想了解一下翡翠剑。”\n甘瑟说道：“翡翠剑是在天使城铸造的。传说里说它是由矮人工匠锻造的，但其实也有精灵、魔法导师和炼金师的参与，它的上一任主人阿宾当时也在场。整个锻造过程没有外传，我只知道成品的效果。它有一个特别的功能，就是感应黑暗力量。另外，剑柄上原本镶嵌着一个被称作剑心的宝石。你知道生命、黑暗、光明三种力量的关系吧？”\n你点点头：“黑暗吞食生命，光明消解黑暗。”\n“没错。龙骨山脉这一侧都是有生命的生物，面对黑暗力量很吃亏。但翡翠剑还有一个能力，是把被克制的生命转换为克制黑暗的光明。剑心的存在，就是为了稳定这种能力。”\n“所以，现在的翡翠剑依然可以把生命转换为光明？”\n甘瑟点点头：“可以，但是很难。没有剑心的帮助，翡翠剑感应黑暗力量的能力仍在，但转换能力的发挥，恐怕只能靠你的运气了。”\n“没事，我一贯运气好。”你安慰自己道。\n甘瑟也笑了一声：“虽然如此，但如果有剑心，翡翠剑一定能更好地帮你讨伐魔王。但遗憾的是，我不知道剑心是怎么制造的，也不知道它为什么会消失。”",
         "2-29": "“那你知道什么？”\n甘瑟脸一绷：“我知道谁知道。”",
-        "2-3": "天使城，在海边，据说很久以前有天使在此显灵，人们围绕神迹建起了这座城。\n天使城旁边不远是一片矿产丰富的山，因此天使城里有一种非常常见的材料——雪白的石头。从城外望去，白花花一片，很是漂亮。\n天使城的中心，是一座神殿，也是传说中天使现身的地方。神殿外有一座天使雕像，和真人差不多大，背生六翼，衣着纤毫毕现，但面容却刻意地模糊了，看不清长相。",
         "2-30": "“那谁会知道？”你问道。\n“剑心的铸造只有当年参与的人知道，而剑心的消失，也只有在场的人才会知道。换句话说，毁掉它的人，一定知道剑心为什么消失。所以，它的上一任主人，阿宾，一定知道剑心的事。”",
         "2-31": "“阿宾还活着？”你不由得问道。\n迄今为止，你听说的所有关于翡翠剑上一任主人阿宾的消息，都以他决定翻越龙骨雪山，而后莫名消失告终。你一直理解为他死了，但或许……\n“他死了。”\n“那他怎么告诉我剑心的事？”\n“他死在龙骨雪山的山脊上，如果你能找到他的尸体，或许可以用魔法回溯出一些他生前的景象。……稍等一下。”\n甘瑟又绕回了神殿后面，过了一会儿，抱着一摞卷轴出来，放在地上：“这些都是回溯魔法的卷轴。用的时候，用魔法花纹包住释放回溯魔法的对象，然后把它划开或者撕开就行了。千万注意，不能对活物使用，否则可能会造成不可估量的影响。”\n“我给你展示一下。”他念出一串你听不懂的咒语，翡翠剑便飞到了他身前。他把卷轴展开，有魔法花纹的一面朝着翡翠剑，把它包裹了一圈，然后轻轻一拽。翡翠剑锋利的剑刃立刻割开了绚丽魔法花纹，一团七彩烟雾从翡翠剑上升起，在半空中动了动，纠缠成一团的颜色散开，勾勒出你的身影。\n“我愿意去讨伐魔王。”画面里的你说道。——这是你从长老团手里接过翡翠剑的场景。\n\n过了一会儿，烟雾渐渐消散，没了光泽的魔法卷轴也化为灰烬簌簌落下。甘瑟继续说道：“我这些年做了一些探查，大概划出了阿宾尸体可能在的地方。可以传送你过去。”\n“谢谢。”你承诺道：“我不会辜负你的帮助的。”\n你收起地上的回溯卷轴，一共有十个，走向甘瑟身前渐渐成型的法阵。",
         "2-32": "甘瑟瞪了你一眼：“你还听不听？”",
         "2-33": "“不同寻常的地方？”小树重复了一遍你的问题。\n你说出之前剑柄孔洞发烫的事，小树“哦”了一声，答道：“翡翠剑是专为讨伐魔王锻造的，它可以感应、摧毁黑暗力量。孔里原本镶嵌着它的剑心，是翡翠剑力量的核心。但我对剑心知之甚少，恐怕没什么的能告诉你的了。或许，只有当年参与铸剑的人才能说清吧。”",
-        "2-4": "你开始读一本名为《魔法常识——用语与元素的基本知识》的书。它是为想要当魔法师的人入门写就的，浅显易懂，流传颇广，但你对魔法一直兴趣不大，所以从没有读过。\n“现在一般认为，世界上有十种元素。最开始，魔法师发现了六种元素，分别是水、火、风（空气）、土（大地）、雷电和空间，它们现在被统称为魔法元素。后来，魔法师们又发现生命、光明和黑暗其实也是元素，这三种元素里，黑暗会吞食生命，而光明会消解黑暗，在研究这三种元素时，魔法师们发现了一些难以解释的现象。一位大魔导师，迈克尔，提出一个猜想——这些事情的发生是因为自然界还有一种未被发现的元素。这个说法被广泛接受，未知的元素也被和生命、黑暗、光明三者合称为四种自然元素。”",
-        "2-5": "你在传说野史的书架上找到了一本非常陈旧的古书，封面上写着《人之外的世界》。\n书上介绍了很多现在看来和不存在没什么区别的生物，内容翔实，如果作者不是亲身经历，那么应该是个很厉害的小说家。\n“精灵是自然的孩子，也是生命的挚友，他们身体轻盈，动作敏捷，个个都是百步穿杨的神箭手。他们居住在森林里，身边常有鲜花。”\n“巨龙已经很久没有人见到了，下面只是我收集的传闻。据说巨龙居住在龙谷里，能进入龙谷的人会获得巨龙的承认，成为龙语者，分享巨龙的力量。龙族有传承记忆，如果说谁还知道上古时代的事，那恐怕也只有他们了。”\n“黑暗生物，也就是龙骨雪山另一侧的，魔族。魔族只是一个统称，分为很多种族，比如力量强大的战士刃魔；善用魔法的球魔；速度极快的鹰魔等。也有一些魔族不以正面战斗为长，比如能够在相处中侵蚀人心的魅魔（也有说法认为那是爱情）等。魔族以生命为食，很多人认为龙骨雪山另一侧寸草不生，但实则不然，那里永远有生命，只是往往诞生之初就被魔族吞食了。因为食物有限，魔族还可以以其他东西为食，比如法魔能食用魔晶石，魅魔更可以通过和有生命力的生物做爱饱腹。但我并不建议读者去和魅魔一夜春宵，因为有一种食物是任何魔族都喜欢的——刚剖出来的人类心脏。”",
-        "2-6": "大陆历史记载的与你所知没什么区别，只是更加详细一些。\n“一千年前，黑暗力量也曾袭击过生灵生活的地方，经过漫长的战斗，最终被勇敢的战士击退了。吟游诗人唱道：‘只要心怀光明，终能战胜黑暗。’”\n“三百多年前，黑暗力量卷土重来，天空巨龙以生命为代价建起了龙骨雪山，隔绝生灵与黑暗。从此之后，讨伐魔王的勇者一直没有放弃过。”\n里面专门有一部分记载了每次勇士与魔王的战斗。\n最后末尾的一章，那位勇士手持翡翠剑，在讨伐魔王的路上失踪了，他的名字叫做，阿宾。",
-        "2-7": "如果地图没错，那就只可能是世界错了。联想到魔法元素里有“空间”这个元素，你就顺着这个关键词翻了下去。银鳞村的藏书五花八门，什么都有，你还真在一本厚厚的魔法书里看到了一条推演，写于魔法师不能施展禁咒的年代。\n这条推论认为，在释放涉及空间的禁咒级魔法时，禁咒里的空间元素可能会扭曲附近的空间。可如果沿着这个方向想下去，又是谁，在那片森林里，释放了什么禁咒呢？\n虽然银鳞村的图书馆为你带来了许多疑惑，但它至少告诉了你长老团的地图没错。你开始按原计划，向龙骨雪山前进。",
-        "2-8": "奥利没有进百羽镇，而是带着你直接进了树林，没走多远，就彻底离开了百羽镇猎人打猎的道路。\n植物在奥利的指挥下移动，让你们顺畅通过。你抓着藤蔓爬上峭壁，踩在树枝搭成的桥上越过深涧，沿着一条山泉形成的小溪溯源而上，眼前是密密麻麻的灌木丛。\n奥利抬了抬手，灌木丛中让出一条路来，你们沿着那条路走进去。\n你第一眼，看到的是一棵参天大树，简直有龙骨雪山那么高。\n“真的有那么高。”奥利说，“只是没被承认的人看不见而已。”\n你愣愣地看着那棵巨树，它的树干无比庞大，像一堵墙，卡在龙骨山脉中间，两侧深深地陷进了山壁。\n“你想先干什么？”奥利问道，“是直接去问黑暗力量的事，还是我带你四处逛逛？”\n你忽然听到一声尖锐的破空声，是弓箭离弦的动静。不用你问，奥利就解释道：“精灵族都是箭手，放心，伤不到你。”",
-        "2-9": "你走进百羽镇，在街上搜寻着你认识的人。\n“哈尔？”一个声音从你身侧传来，你扭头看去，在街边的一户人家里看到了托马。\n托马是百羽镇上的猎人，也是你的朋友。你看见他，立刻走上去：“嗨，托马。”\n托马正在处理猎物毛皮：“你怎么来百羽镇了？”\n“我的地图出了些问题，想来这里找人帮我修正一下。”\n“我看看。”\n你掏出地图递给他，托马看着看着，眉头皱了起来：“这地图没错啊。”\n“可我昨天在森林里的确迷路了。”\n你们对视一眼，彼此都一头雾水。",
         "3-1": "瑟尔指的路是一片陡峭的悬崖，你盯着刺目的阳光看了半天，终于看出山崖上有些不大的起伏和藤蔓，大约可以借此攀登。",
+        "3-2": "你穿越森林、攀过悬崖，与野兽交战，翻山越岭，最终你翻上了龙骨雪山的山脊。太阳从你的身侧升起，看不到尽头的宏伟雪山在朝霞下闪闪发光，但更远的地方，却笼罩着一层任何光线都无法穿透的黑暗。\n你朝着黑暗的方向开始前进，日上中天时，你找了个地方准备进食，却忽然惊讶地发现，不太远的地方，有一道烟正在慢慢升起。",
+        "3-3": "这条路很好走，近乎坦途，沿路生长着灌木和苔藓，完全没有走错的可能。\n你在植物的簇拥下一路前行，转过山崖，一面刻满文字的石碑突然出现在你眼前。\n\n“今年我们——生灵——，终于组成联军，开始与黑暗种族交战。这是发现黑暗力量的第七个年头，没人知道这场仗要打多久。此前每个种族的日历都大不相同，互相换算非常繁琐，为了方便合作，我们决定把今天定为黑暗元年1月1日，用太阳年计算历法，以后就用它来交流。\n“7年4月1日，开战已经三个月了，我们从溃不成军进步到了节节败退——如果这也可称作进步的话。黑暗势力有魔王统治，相比之下，生灵联军简直可谓一盘散沙。”\n\n你继续沿路前进，路边的碑刻有几片破损的，下一段能看清的，已经是七年之后的历史了。\n\n“七年漫长的战斗，半个大陆的沦陷，不计其数的牺牲……我本以为战争再也不会结束了。但今天，黑暗历14年1月7日，战争迎来了意想不到的休止符。天空巨龙莱拉·劳·艾尔牺牲自己，在大陆上立起了一座足以隔开战争的山脉。\n“1月26日，经过十九天的探查，我们基本知道了新山脉的消息。——它西起绝壁高山，东至大海，探进海岸线里两三百公里远，可谓是一道生灵领域与死亡领域之间的天堑。十九天下来，山顶已经积了一层薄薄的雪。被它顶到山巅的哥谭气温骤降，幸好有龙语者的保护，才没有多少人死于非命。\n“在莱拉·劳·艾尔的尸骨前，我们决定改变历法以纪念她——她为我们带来了一个全新的纪元，这份新历法，就称作新历。\n“新历依然采用太阳年，以莱拉·劳·艾尔诞生的那一年作为元年，沿用黑暗历的日期。这样一来，黑暗历14年就成为了新历2528年。我不知道新历会用多久，或许当黑暗被击败，全大陆都迎来光明的那一天，我们也会换用一份光明历吧。”\n这座石碑上还有一段小传，大致介绍了一下“天空巨龙”。天空巨龙因其蔚蓝的身躯而得名，有着太阳一样炙热的双眼，冰山一样寒冷的呼吸。正如大多数龙族，寿命悠久，身躯庞大，一根牙齿往往比人还要高。\n\n今年是新历2814年，巨龙的牺牲已经是近三百年前的事了。龙骨雪山从你有记忆的那一天起就矗立在天边，仿佛自古有之，原来也只是十几代人之前的事。\n\n你继续前行，路边的石碑年代渐渐错开，甚至三四十年都未必会有一面，记录的都是讨伐魔王的历史，从一开始的军队，到几十人的精英团，再到六七人的冒险小队，最后只剩下一个勇者。\n你仔细读了阿宾的那块石碑，离上一次记载足有六十多年。但这应该是因为记载者的疏漏，因为阿宾的记载里提到了在他前几个月出发的一位勇者瑟尔，而瑟尔却没有单独的一份记载。\n\n随着前进，你在积雪中发现了一截雪白的坚硬物体。一端粗如海碗，另一端却细得锋利，立起来比你还高些，质地很是坚硬。这让你想起了石壁上记载的天空巨龙，于是你决定拿上它，继续前进。",
+        "3-4": "传送阵的光芒消散，你睁开眼睛，在耳边呼啸的风雪之中，听到了一个奇怪的声音——翡翠剑的嗡鸣。\n你低头把它拿在手中，感到剑尖上传来了一股奇怪的力量，将你引向一个方向。你顺着它走过去，看到了一个雪堆。\n这里是个风口，山顶的风把整片雪地都刮得平平整整，只有那个雪堆安静又突兀地存在着，像一座无名坟冢。",
+        "3-5": "悬崖可以攀登的地方很少，你前几次尝试，都爬不多高就无法上行。再失败了很多次后，终于，你越爬越高。但仅仅不到一百米后，上方突然出现了一道巨大的凹痕，完全割断了你的路线。\n这时，天上忽然传来闷闷的雷声，你抬起头，发现云层团聚，马上要下雨了，你估计来不及下山，只好爬进凹痕暂避。\n雨越下越大，你估计这几天都爬不了山了，既不能上也不能下，无可奈何之下，你只好在凹痕里暂时扎营。\n你补充了食物和水分，靠在凹痕一角睡觉，迷迷糊糊间，似乎看到一个人影，站在雨幕之前。",
+        "3-6": "没人回答。\n那个人恍若未觉，四下看了看，叹了口气：“这么大雨，没法爬山了。”\n难道他听不到你说话吗？你感到有些奇怪。",
+        "3-7": "你本能地伸手摸向翡翠剑，却摸了个空。你低头看着光秃秃的石面，忽然想不起把剑放在了那里，只好向那个人走去。",
+        "3-8": "这个人穿得很整洁，连出门在外最容易散乱的绑腿和护腕都一丝不苟，干净的皮斗篷上满是晶亮的雨水。长得很是端正，也很是陌生。\n他脱下斗篷放在一边，露出腰间的长剑，坐下掏出食物吃起来。你故意在他面前走了几步，他果然看不见你。",
+        "3-9": "你伸手去拍他，手却从他身体里穿了过去。\n你不由得吃了一惊，打量四周，发现似乎比你进来前要干净许多，不是有人打扫过的那种干净，灰尘和枯枝败叶均匀地少了，却没有完全消失。\n你还记得进来时凹痕口有一棵大树，当你看去时，那里却只有几棵杂草。",
         "3-10": "那个人吃完饭，从领口里拽出一条工艺粗糙的链子，你本以为不会挂着什么贵重东西，可上面却有一颗很漂亮的菱形绿宝石吊坠。陌生人摸着吊坠，似乎想起了谁，露出一个温柔的笑容。\n你从没见过那个吊坠，却莫名觉得哪里有些熟悉。正当你苦苦思索的时候，一道鸟鸣声忽然响起，一只漆黑的大鸟钻进了凹痕，它有三只赤红的眼睛，一只脚，两条长长的尾羽，张开嘴嘶吼事，露出满嘴利齿。你从没见过这样的东西，可陌生人却不显得惊讶。\n“鹰魔。”他冷笑一声，拔剑攻了上去。\n凹痕相对怪鸟的体积还是有些狭窄，它没有足够的空间，很快就落入下风。经过一番战斗，他成功战胜了怪鸟，但怪鸟的爪钩钩断了他颈上的链子，那颗吊坠带着链子，掉下了峭壁。\n他怔怔地在凹痕边站着，低头看向被雨幕遮盖的山脚。\n雨始终没有停。\n\n你看着他的身影，忽然觉得，他好像很伤心。\n\n你眼前渐渐模糊起来，意识也跟着模糊，你忽然意识到自己又要睡着了，猛得睁开眼睛。发现，你已经回到了扎营的地方，翡翠剑就躺在你的手边。\n你看到翡翠剑，忽然明白为什么陌生人的吊坠感觉这么熟悉了——翡翠剑的剑柄上有一个菱形的孔洞，形状和那个吊坠一模一样。\n有一种直觉告诉你，这不是巧合，于是，你开始深思之前的经历。\n它应该是——",
         "3-11": "你之前的营地完全不见踪影，抓着爬上来的藤蔓也仿佛只是你的错觉。\n你发现，你走得离那个人越远，眼前的景色就越模糊不清，看来，那个人才是一切的关键。",
         "3-12": "应该是一段记忆。\n记忆的主人显然不是你，那会是谁呢？",
@@ -6781,7 +6789,6 @@
         "3-17": "你从凹痕外弄来藤蔓，决定自造吊索。你收拾好藤蔓，准备挂上石头，扔到对面勾住岩石，你于是抓起一块大小合适的石头，忽然发现下面有一封信。\n\n“阿宾，我亲爱的朋友，我写下这封信的时候，刚刚遗失了阿琳送给我的吊坠。\n“预言上说，如果我失去了它，我就会被深不见底的黑暗吞没，正巧，我面前就是深渊。我猜，我大概是无法战胜科瓦德魔王，凯旋归来了。\n“吊坠是在我和一只鹰魔战斗的时候丢失的，那畜生的爪子钩断了我的项链，于是吊坠掉到了凹痕外面。下面是草地，它是一枚充满魔力的水晶石，我猜应该不会摔坏。我能告诉你的就只有这些，祝你能顺利找到它。\n“——瑟尔”\n\n瑟尔这个名字并不常见，你认识的那个瑟尔大概就是留信的人，他还活着，不知道有没有去见阿宾和阿琳。\n无论如何，这应该都是很久以前的事了，你收起信，利用藤蔓制成的吊索，成功到达了深渊的另一端。",
         "3-18": "你沿着山路一直走，路径时上时下，也不知道走了多远，穿过一排藤蔓，炫目的光立刻淹没了你。\n你好一会儿才睁开眼睛，映入眼帘的是茫茫白雪——你已经到了龙骨雪山的山顶。\n你继续前行，想找路到山下去。走着走着，翡翠剑忽然嗡鸣起来，剑尖跃起，指向一个方向，你按照它指引的方向，绕过岩石、树木，来到了一处雪堆。\n翡翠剑在你手中颤动、鸣叫，你从中似乎听出了一种浓郁的悲伤。\n你猜，这个雪堆，是它上一任主人的埋骨之地。",
         "3-19": "“瑟尔？”你叫道。\n一个声音从雪堆里响起：“我怎么会是瑟尔？翡翠剑都不认得他。”\n你解释道——",
-        "3-2": "你穿越森林、攀过悬崖，与野兽交战，翻山越岭，最终你翻上了龙骨雪山的山脊。太阳从你的身侧升起，看不到尽头的宏伟雪山在朝霞下闪闪发光，但更远的地方，却笼罩着一层任何光线都无法穿透的黑暗。\n你朝着黑暗的方向开始前进，日上中天时，你找了个地方准备进食，却忽然惊讶地发现，不太远的地方，有一道烟正在慢慢升起。",
         "3-20": "一个声音在雪堆里说道：“年轻的勇士，你怎么会知道我的名字？”\n瑟尔并不是翡翠剑的主人，那枚吊坠却和翡翠剑有着密切的关联。根据那封信，吊坠最可能的下落，即翡翠剑的主人，就是信上的阿宾和阿琳，二选一，你很幸运地猜中了。\n“你是之前的勇者？你不是死了吗？”你问道。\n“有时，死亡并不意味着终结。”声音回答道。",
         "3-21": "一个声音从雪堆中传来：“她已久不在人世了，你怎么会知道她？”",
         "3-22": "“我觉得可能会在山上见到瑟尔，毕竟上山的路是他给我指的。”你解释道。\n声音讶然：“你认识瑟尔？”",
@@ -6792,7 +6799,6 @@
         "3-27": "“信？”雪堆里的声音说道，“给我念念吧。”\n你把信读了一遍，声音沉默良久，叹息道：“原来他还留了一封信。”\n声音顿了顿，说道：“我是阿宾，也是翡翠剑的第一任主人。信上的阿琳……是我妹妹。我那个年代，黑暗力量侵袭大陆，她的未婚夫瑟尔，尽管身负不祥的预言，但还是毅然决然地作为勇者出发了。瑟尔最终没有回来，我们在他经过的峭壁下捡到了那枚吊坠。\n“我决定继续他未竟的事业。因为黑暗变强了许多，我获得了很多支持，精灵、矮人、魔法师……都愿意出一份力，于是，也就有了翡翠剑。阿琳为了确保胜利，用自己的生命和灵魂，给那枚吊坠附着了一个强大的魔法，铸就了翡翠剑的剑心——翡翠剑能将被黑暗吞噬的生命之力，转变为克制黑暗的光明之力，但这个能力并不稳定，剑心的存在，可以让它稳定地起效。但，我却辜负了她的心意，不仅自己战败身死，连剑心也毁在了那一战中。”",
         "3-28": "“听说的。”你含糊道。\n声音继续道：“你不想说，我不强求。我是阿宾，翡翠剑的第一任主人。你出现在这里，是为了去讨伐魔王吧。”\n“没错。”\n“我本来该给你一些建议，但是很抱歉，我战败了，给不了你什么帮助，只有一件事能告诉你。”",
         "3-29": "“翡翠剑的本质是勇气，持剑的时候，永远不要忘记这一点。”翡翠剑的第一任主人说道。",
-        "3-3": "这条路很好走，近乎坦途，沿路生长着灌木和苔藓，完全没有走错的可能。\n你在植物的簇拥下一路前行，转过山崖，一面刻满文字的石碑突然出现在你眼前。\n\n“今年我们——生灵——，终于组成联军，开始与黑暗种族交战。这是发现黑暗力量的第七个年头，没人知道这场仗要打多久。此前每个种族的日历都大不相同，互相换算非常繁琐，为了方便合作，我们决定把今天定为黑暗元年1月1日，用太阳年计算历法，以后就用它来交流。\n“7年4月1日，开战已经三个月了，我们从溃不成军进步到了节节败退——如果这也可称作进步的话。黑暗势力有魔王统治，相比之下，生灵联军简直可谓一盘散沙。”\n\n你继续沿路前进，路边的碑刻有几片破损的，下一段能看清的，已经是七年之后的历史了。\n\n“七年漫长的战斗，半个大陆的沦陷，不计其数的牺牲……我本以为战争再也不会结束了。但今天，黑暗历14年1月7日，战争迎来了意想不到的休止符。天空巨龙莱拉·劳·艾尔牺牲自己，在大陆上立起了一座足以隔开战争的山脉。\n“1月26日，经过十九天的探查，我们基本知道了新山脉的消息。——它西起绝壁高山，东至大海，探进海岸线里两三百公里远，可谓是一道生灵领域与死亡领域之间的天堑。十九天下来，山顶已经积了一层薄薄的雪。被它顶到山巅的哥谭气温骤降，幸好有龙语者的保护，才没有多少人死于非命。\n“在莱拉·劳·艾尔的尸骨前，我们决定改变历法以纪念她——她为我们带来了一个全新的纪元，这份新历法，就称作新历。\n“新历依然采用太阳年，以莱拉·劳·艾尔诞生的那一年作为元年，沿用黑暗历的日期。这样一来，黑暗历14年就成为了新历2528年。我不知道新历会用多久，或许当黑暗被击败，全大陆都迎来光明的那一天，我们也会换用一份光明历吧。”\n这座石碑上还有一段小传，大致介绍了一下“天空巨龙”。天空巨龙因其蔚蓝的身躯而得名，有着太阳一样炙热的双眼，冰山一样寒冷的呼吸。正如大多数龙族，寿命悠久，身躯庞大，一根牙齿往往比人还要高。\n\n今年是新历2814年，巨龙的牺牲已经是近三百年前的事了。龙骨雪山从你有记忆的那一天起就矗立在天边，仿佛自古有之，原来也只是十几代人之前的事。\n\n你继续前行，路边的石碑年代渐渐错开，甚至三四十年都未必会有一面，记录的都是讨伐魔王的历史，从一开始的军队，到几十人的精英团，再到六七人的冒险小队，最后只剩下一个勇者。\n你仔细读了阿宾的那块石碑，离上一次记载足有六十多年。但这应该是因为记载者的疏漏，因为阿宾的记载里提到了在他前几个月出发的一位勇者瑟尔，而瑟尔却没有单独的一份记载。\n\n随着前进，你在积雪中发现了一截雪白的坚硬物体。一端粗如海碗，另一端却细得锋利，立起来比你还高些，质地很是坚硬。这让你想起了石壁上记载的天空巨龙，于是你决定拿上它，继续前进。",
         "3-30": "你担心这条路可能已经没法走了，沿着山脉前行，走上了原定的翻山之路。",
         "3-31": "你朝烟升起的方向走去，在一处山坳，发现了一座林中小屋。\n这时候，一个人恰好从小屋里走出来，漆黑的长发挽起，漂亮的侧脸映入你眼中——“卡萝？”\n卡萝循声抬头：“哈尔？”\n“真的是你啊。”你笑着走过去，“你怎么会在这里？”\n卡萝给你讲了讲她这段时间的经历——她在小镇不远的大树边捡到了一支很奇怪的箭，她在追查的过程中与精灵族相识，精灵族有很多她不知道的知识，还愿意分享给她。龙骨山脉里收集材料、做实验都比在精灵族里方便，于是她就在这里搭了个小屋，学习炼金术。",
         "3-32": "“龙骨山脉很大，怎么选在这里？”\n“这里交通很方便。”卡萝掏出一张龙骨山脉的地图给你看，“离精灵族的生命之树很近，到哥谭也有路可走。”\n“哥谭？”\n她在龙骨山脉与黑暗领域交界的地方点了点：“人类的先锋之城，伫立在龙骨山脉的边缘，直面黑暗的侵袭。二十年前起，就被黑暗统治了天空，再也没有见过太阳。”\n你又看了看那张地图，比你手上的详尽很多，于是抄了一份。",
@@ -6803,7 +6809,6 @@
         "3-37": "哪个属性来着？",
         "3-38": "“好了，卡萝。”\n卡萝检查一圈，赞赏地点点头：“不错。”\n你还没反应过来，就感到左手一痛，卡萝不知什么时候拿了一根银针，取走了你的一滴血。\n不等你开口，她就说道：“下一步要用，我总不会害你吧。”\n你倒没有这种担心：“你至少可以提前跟我说一声嘛。”\n“抱歉，”她毫无歉意地说道，“有什么我能帮你的吗？”",
         "3-39": "“笨蛋，你搞错了！”卡萝恶狠狠地说道，还踩了你一脚。\n她很不爽，凶神恶煞地说道：“还有什么事吗？”",
-        "3-4": "传送阵的光芒消散，你睁开眼睛，在耳边呼啸的风雪之中，听到了一个奇怪的声音——翡翠剑的嗡鸣。\n你低头把它拿在手中，感到剑尖上传来了一股奇怪的力量，将你引向一个方向。你顺着它走过去，看到了一个雪堆。\n这里是个风口，山顶的风把整片雪地都刮得平平整整，只有那个雪堆安静又突兀地存在着，像一座无名坟冢。",
         "3-40": "“去黑暗领域怎么走？”你问道。\n卡萝定定地看着你，好一会儿才说道：“你还是要去？”\n你毫不犹豫地点头。\n她叹了口气：“你先去哥谭吧。那儿的人和黑暗势力常年交战，对他们有着很深厚的了解，你先去拾人牙慧，活着回来的可能还大点。”\n你没有拂她的好意，笑了笑：“好。”\n\n你重新收拾收拾准备出发，没走出几步，就听到卡萝的声音从背后传来：“哈尔，活着回来。”\n你转过头，看着她发红的紫眼睛，给了她一个微笑。",
         "3-41": "你专心赶路，龙骨雪山上的积雪并不均匀，你走着走着，忽然脚下一滑，站定后，发现是一截雪白的坚硬物体。",
         "3-42": "你把它从雪地里抽出来，原来是一根白色的棍子，一端粗如海碗，另一端却细得锋利，立起来比你还高些，质地很是坚硬。",
@@ -6814,7 +6819,6 @@
         "3-47": "山头的视野很好，你在这里补充了自己的地图，向着被黑暗笼罩的大地继续前进。",
         "3-48": "你试图攀上山顶，但体力不支，不得不放弃了。",
         "3-49": "“有什么我能帮忙的吗？”你半开玩笑地道，“过了这村可就没这店了。”\n卡萝哼笑一声：“有些不用脑子的体力活，正好用得上你。”\n“说吧。”\n“我准备做一匹飞马，有三筐羽毛要洗，还要把一匹马的骨头粉碎，熔化一锅铁汁备用，还要准备给身体、翅膀附魔的羊皮。”\n“都是体力活啊。”你感慨一声，脱下外装，解下剑，准备开始干货。\n“翅膀要风属性，身体要水属性。”卡萝补充道，“我在屋里准备其他材料，你弄好了叫我。”\n\n你在屋子里外转了一圈，找出了所有材料的位置。",
-        "3-5": "悬崖可以攀登的地方很少，你前几次尝试，都爬不多高就无法上行。再失败了很多次后，终于，你越爬越高。但仅仅不到一百米后，上方突然出现了一道巨大的凹痕，完全割断了你的路线。\n这时，天上忽然传来闷闷的雷声，你抬起头，发现云层团聚，马上要下雨了，你估计来不及下山，只好爬进凹痕暂避。\n雨越下越大，你估计这几天都爬不了山了，既不能上也不能下，无可奈何之下，你只好在凹痕里暂时扎营。\n你补充了食物和水分，靠在凹痕一角睡觉，迷迷糊糊间，似乎看到一个人影，站在雨幕之前。",
         "3-50": "你对着雪堆祭拜一番，没想到雪堆里传来了声音：“你好啊，年轻人。”\n“阿宾？”你问道，“你的灵魂没有消散？”\n“没有。”阿宾说道，“从死后，我就一直待在这里，想要回忆起一件我想不起来的事。你拿着翡翠剑，是勇者吧。”\n“嗯，我是来找……”你咽了口唾沫，“找你的尸体的。……我想知道关于翡翠剑剑心的事，天使城的长老告诉我可以用你的尸体进行回溯。”\n“……噢。”阿宾轻声道，“我的尸体或许不能告诉你所有事，我可以先给你讲一些：翡翠剑的铸造我全程都在场，它的剑心最初并不是设计成固定的存在，而是作为消耗品的生命晶石——翡翠剑的能力是把生命力量转换成光明力量，但它做到这一点的前提是，有足够的生命力量作为支撑。”\n“那您的剑心是……”\n“有一个人自愿牺牲，她把她后面几十年的生命力量注入了一枚生命水晶。”\n你不知道该说什么好，阿宾低低地道：“不要去铸造剑心，年轻人，翡翠剑的本质是勇气，不是什么宝石。但如果你找到了它，也不要避讳使用它的力量——她会希望自己能为战胜魔王尽一份力的。剑心在我死的时候依然镶嵌在翡翠剑上，或许我的尸体知道后来发生了什么。最后，年轻的勇士，刨开这个雪堆吧，我祝你好运。”\n你挖开雪堆，忽然一阵奇怪的风从里面刮了出来，翡翠剑发出一声哀鸣，你这才意识到，挖开坟墓，阿宾的灵魂也就随之消散了。",
         "3-51": "你刨开雪堆，仿佛听到了一声久远之前的叹息。一股怪风从尸骨上刮了出来，翡翠剑发出一声哀鸣。",
         "3-52": "阿宾的尸骨只剩下上半身，安静地躺在雪堆里，大概几十年没有见过天日了。\n你准备回溯——",
@@ -6825,7 +6829,6 @@
         "3-57": "彩色的烟雾升起，在你眼前交织出一幅场景。\n勇者站在天使城的雕像前，问身旁的红衣祭司：“为什么天使没有面孔？”\n“因为天使没有留下面孔。”祭司解释道，“那个神迹只留下了神殿中央的石台。最先抵达的人没有见到天使的模样，只是看到一个好像有六个翅膀的光影，黑暗力量被它逼到了石台下面。雕刻雕像的工匠期待后人能看到天使的模样，完成这个作品，所以没有雕刻面容。但天使再没出现过，所以雕像也一直没有面容。”\n“或许那不是天使，而是个人。”勇者说。\n“或许。但我们依然会称其为天使的，习惯了。”",
         "3-58": "尸骨上已经回溯不出什么了，你开始思考下一步的计划。\n你知道自己应该尽快讨伐魔王、驱逐黑暗，但阿宾临死时念叨的“哥谭”始终萦绕在你心间，给你带来一种不快的疑虑。\n思来想去，你决定——",
         "3-59": "你决定去讨伐魔王，但你很快遇到了一个问题。\n你是被直接传送到这里来的，对龙骨雪山的地形完全不了解。朝着黑暗领域没走多远，就被一座峭壁挡住了去路，你只好选择绕路。走左边还是走右边呢？",
-        "3-6": "没人回答。\n那个人恍若未觉，四下看了看，叹了口气：“这么大雨，没法爬山了。”\n难道他听不到你说话吗？你感到有些奇怪。",
         "3-60": "你从山顶出发想去哥谭。有的地方雪层很浅，下面是冰，你不慎踩到滑了一跤，在雪坡上滑出去很远，最后撞上一棵树才停下来。\n你灰头土脸地爬起来，人已经在一座山谷里了。你在雪林里走了一会儿，发现有一条被踩出来的小路，你决定去碰碰运气，或许可以问到路。",
         "3-61": "你想起布鲁斯曾提到过，他是哥谭人。布鲁斯让你感到很好奇，现在哥谭也同样如此。你不知道阿宾为什么至死都惦记着哥谭，但你有预感，自己会有所收获。于是，你决定去哥谭看看。\n晚上你找了个避风的山洞露营，没有枯枝可以生火，你怕睡着就再也醒不过来，于是不敢睡得太实。\n半夜里，山洞外面忽然刮起风雪，你本能地握紧了翡翠剑，发现它发着热。翡翠剑下的雪已经融化了一部分，留下一个菱形的坑。\n这绝不是一场普通的暴风雪。",
         "3-62": "你走到了一处路口，面前有两条岔路，你——",
@@ -6836,7 +6839,6 @@
         "3-67": "你向平原的方向前进，走到了一座冰湖。冰湖上长着冰凝成的树，冰面下居然还有鱼。\n你饱览了冰天雪地的奇异风景，也看到森林另一头的峰上，矗立着一座漆黑的城池。\n那里应该就是哥谭了。",
         "3-68": "你抓着温暖的剑，走出了山洞。\n风雪中，你仿佛看到了一个漆黑的人影，走近了却又见不到人。\n你在风雪中转了好一会儿，只得无功而返。你花了些时间找到山洞，在山洞前看到了几个很新的脚印，你小心地持剑走了进去。\n但进去没多远，你就发现不是别人占了你的山洞，而是你走错了山洞。可你已经来不及退出去了，因为你抬起头，对上了一双深蓝的眼睛。",
         "3-69": "你在风雪中小心地度过一夜，天亮后风雪停息，继续出发。",
-        "3-7": "你本能地伸手摸向翡翠剑，却摸了个空。你低头看着光秃秃的石面，忽然想不起把剑放在了那里，只好向那个人走去。",
         "3-70": "“布鲁斯？”你问道。\n“哈尔？”那双蓝眼睛的主人还真是他。\n“你怎么跑到这儿来的。”他问道。\n“我按你的建议去了天使城……”你把分开之后的经历简单讲了讲，“……所以我准备去哥谭看看。翡翠剑有感应黑暗力量的能力，刚刚它有反应，我有点担心，就出来看看。”",
         "3-71": "你横剑防御，对方并没有进攻。你与他对视片刻，突然想起了什么：“布鲁斯？”\n“……哈尔。”他也想起你是谁了。\n“你还好吧，翡翠剑感应到了黑暗力量。”你说道。\n“我没事。”",
         "3-72": "对方和你过了几招，他手里没有剑，只能闪躲，被你逼到了墙边。\n你听到对方念了几个你听不懂的词，然后你就动弹不得，你心里一凉，却听到他说：“你有毛病吗，勇者哈尔？”\n“啊……布鲁斯？”你讪讪一笑，“不好意思啊，我有点冲动了。——翡翠剑感应到了黑暗力量，我以为你是什么黑暗生物。”",
@@ -6847,11 +6849,17 @@
         "3-77": "“好吧。”你说，“我在山洞里等着。”\n布鲁斯冷淡地朝你点点头。",
         "3-78": "风雪停下时天还没亮，布鲁斯从口袋里掏出一个吊坠，戴在脖子上。他念了什么咒语，吊坠上一颗拇指大的珍珠就在他的魔法下发出明亮的光，看起来比火把好用得多。\n你盯着那个吊坠，他看到你的眼神，又掏出一个递给你。你生涩地模仿他，重复了一遍那个咒语，吊坠真的亮了。\n看来你的魔法天赋还成，你惊喜地看向布鲁斯，布鲁斯一言不发，转身走出了山洞。",
         "3-79": "你在山洞里等了一会儿才跟出去，布鲁斯已经在和鹰魔交战了。\n他的剑术很好，但鹰魔的速度实在太快，因此他也多少有些应付不过来。鹰魔忽然转了一个弯，去突袭他的后背，你冲上去帮他格挡下来，与他背靠背战斗。\n“我说了让你别出来。”他声音里甚至带着点怒气。\n你翻了个白眼：“我担心你死了没人带我去哥谭。”\n你们吵着架并肩作战，有两个人简单了很多，没有受伤就杀死了鹰魔。",
-        "3-8": "这个人穿得很整洁，连出门在外最容易散乱的绑腿和护腕都一丝不苟，干净的皮斗篷上满是晶亮的雨水。长得很是端正，也很是陌生。\n他脱下斗篷放在一边，露出腰间的长剑，坐下掏出食物吃起来。你故意在他面前走了几步，他果然看不见你。",
         "3-80": "你几乎紧跟着布鲁斯的脚步除了山洞。\n没走出多远，一道破空之声在你耳后响起，是鹰魔的突袭。你立刻负剑挡下，和鹰魔开始交战。\n你从没应付过这种局面，险象环生。布鲁斯非常生气，一边帮忙一边骂你是找死。\n经过一番苦战，最后你们杀掉了鹰魔，但你也受了些伤。没受伤的他把你带回山洞，给你包扎的同时，把你狠狠训了一顿。",
         "3-81": "你在山洞里听不到外面交战的声音。耐心地等候了大半个小时，就在你实在忍不住想出去看看的时候，布鲁斯回来了。\n他有一道很大的伤口，虽然并不深，但还是流了不少血。你扶他坐下，撕了他的披风给他包扎。“我不需要你帮忙。”他说道。他想把你推开，但因为失血而虚弱无力，完全推不开你。\n你在伤患的不配合下，你还是给他包扎完了伤口。站起身来，准备去找些水。\n走出山洞的时候，你听到后方传来一句很费劲的谢谢。",
-        "3-9": "你伸手去拍他，手却从他身体里穿了过去。\n你不由得吃了一惊，打量四周，发现似乎比你进来前要干净许多，不是有人打扫过的那种干净，灰尘和枯枝败叶均匀地少了，却没有完全消失。\n你还记得进来时凹痕口有一棵大树，当你看去时，那里却只有几棵杂草。",
         "4-1": "雪山上的视野总不是很好，你找不到下山的路，在雪山上绕了挺久。直到筋疲力竭，才找到一条看来通向黑暗领域的下坡。",
+        "4-2": "借助在山头上画的地图，你没花多少力气就跨过龙骨雪山，找到了通向黑暗领域的路。",
+        "4-3": "接近山脚，你才发现龙骨雪山的特别之处。——与黑暗领域相连的龙骨雪山大部分是冰雪覆盖的悬崖绝壁，可以上去的路屈指可数。\n你沿着山路下行，在路边遇到了一个酒馆，武士。你在雪山上穿行了很久，武士酒馆看起来会是个休息的好地方。你推开门走进去，每一桌旁边都坐了人，幸好有几张桌子还没有坐满。\n一张旁边坐了三个强壮的武士，衣服又脏又破，桌上倒着七八个个空酒瓶。\n第二张旁边坐了三个人，和旁边另一满桌四个是一起的，是一支七人小队。每人的袖口和裤腿都束得很紧，看起来训练有素。\n第三张桌子边只坐了一个人，带着兜帽，一根长长的法杖靠在桌边，看来大概会是个法师。",
+        "4-4": "你加入了那几个衣衫破烂的强壮武士，与他们喝酒吃肉，相谈甚欢，了解了不少东西。\n龙骨山脉并不与魔王统治的黑暗领域直接相邻。山脉外有一条战区带，战区带另一侧才是黑暗领域。你同桌的这些武士是冒险者，经常进入战区杀魔收集它们的身体素材。那是很有用的研究材料，有些不要命的人会做这种工作。\n你说到准备去讨伐魔王，他们热情地提出和你同行，可以向你介绍一些战区的情况。",
+        "4-5": "你走到那支七人小队桌边，敲敲桌子：“嘿，没座位了，我可以坐这儿吗？”\n“当然。”\n你们同桌吃饭，他们是一支“守卫小队”，每个通向战区的地方都有几支守卫小队，负责在战区巡逻，减少魔的数量，令它们不能大规模地袭击龙骨雪山。\n在得知你是讨伐魔王的勇者后，他们很热心地和你分享了不少情报。\n魔并不是完全没有规律的生物，它们可以分为七种：魅魔、球魔、鹰魔、睡魔、火魔、刃魔、魔王。每一种都不太一样，魅魔像人，有一对长角；球魔能漂浮在半空中，释放魔法；鹰魔是很大的怪鸟；睡魔看起来像一片沼泽；火魔全身燃着烈火；刃魔身上长着利刃。这六种都有很多，而魔王比较特别——只有一只，而且没有人见过。\n你和他们相谈甚欢，第二天孤身上路。",
+        "4-6": "你在兜帽法师对面坐下，要了一点热食。老板给你端来一碗浓汤，你吃着吃着，突然发现对面的人非常眼熟。\n“巴里？！”你震惊地叫出他的名字。\n“你可小点声吧哈尔！”巴里低声吼道，但已经来不及了，墙角的一桌人站了起来，拔出剑冲到你们桌旁。巴里抓起法杖一挥，乌云立刻在房间中凝聚起来，电闪雷鸣之中，你和巴里仓促地跑出了酒馆大门。\n“跟我来。”他说。\n你们花了好大力气甩开追兵，巴里居然在一棵大树里有一个藏身处——树根下有一个兔子洞，钻进去，到了一个还挺宽敞的地窖。\n巴里摘下兜帽：“天才，如果一个人戴着兜帽，这就说明他并不希望有人高喊他的名字。”\n你抄起手盯着他：“你一个连火球都搓不出来的见习法师，是怎么用出那么强的魔法的？”巴里在小镇已经住了七年了，你们一直把他当成光明系的见习法师，现在看来，完全不是这样。\n巴里一时语塞：“……咳，说来话长了。”",
+        "4-7": "你孤身上路，出发去黑暗领域。\n天空被黑暗力量遮蔽，越走越阴暗，黑暗领域里，大概就看不见任何蓝天白云了。\n这一路非常危险，因此你紧握着翡翠剑，时刻警戒着。\n没走多远，土地里就钻出两只球魔，对你发起了攻击。",
+        "4-8": "“你到底是什么人？”你问道。\n“我其实是雷电系大魔法师，光明骑士团的一员。”巴里介绍道，“光明骑士团是守卫生灵的多种族联盟，我们散布在全大陆，以防黑暗力量暗地里有什么侵袭。”\n巴里吸了口气：“如果你需要的话，我还是你讨伐魔王之路上的队友。”\n你笑起来：“我以为你要守卫大陆？”\n巴里笑着耸耸肩：“讨伐魔王也是守卫大陆的一种方式啊。”",
+        "4-9": "“你跑到小镇干什么？”\n“我是去观察长老团的。——我发现长老团有些不愿意让人知道的秘密。”\n“长老团？”你哑然失笑，“长老团那群小蓝人，能有什么秘密？”\n巴里叹了口气：“没有秘密吗？你有没有想过，他们指引小镇的预言都是哪儿来的？”\n……你还真的从来没想过这件事——长老团的预言总是对的，渐渐的，就没有人怀疑他们了。\n“你有什么想法？”\n巴里摇摇头：“几乎没有线索，只能说，我怀疑他们和天使城的神迹有关——长老团与天使城神殿祭司甘瑟的外形、打扮都很相似。然后就没了。”",
         "4-10": "“你怎么会在这儿？”\n“说来话长。简而言之，我觉得深入黑暗领域或许能发现有用的东西。”\n“你可以慢慢说，我又不赶时间。”\n巴黎摇摇头：“我还是在去黑暗领域的路上慢慢和你说吧。”",
         "4-11": "你看着巴里的眼睛：“我可以相信你吗？”\n地窖里唯一的光源是巴里的法杖，法杖顶端镶嵌的水晶石里残存着他的魔力，发出忽明忽暗的紫光。\n紫光之下，巴里目瞪口呆地看着你。\n老天，这比你想象得还搞笑，你毫不收敛地大声笑了出来。巴里这才意识到你在耍他，抄起法杖想抽你，被你一只手就拦了下来：“哈哈，有点幽默感嘛，小熊。”\n“切。”\n\n你们在地窖里休息一夜，养好精神，就一同向黑暗领域出发了。\n从龙骨雪山出去先是战区，之后才是黑暗领域。战区顾名思义，是生灵和魔交战的区域。魔会从黑暗领域跑进战区，试图侵略龙骨雪山，守卫小队会定期进战区巡逻，防止战区的魔太多，形成有规模的袭击。\n天空被黑暗力量遮蔽，越走越阴暗，黑暗领域里，大概就看不见任何蓝天白云了。\n进入战区不久，你们就遭遇了魔的袭击。",
         "4-12": "你们在战区一路走一路杀，抵达了黑暗领域真正的边境。\n忽然，你听到破空之声，立刻把巴里推开，自己也后退几步。一道烈火从天而降，砸在了你们几秒前所在的地方。\n“黑暗领域巡视边境的军队？”你问道。\n“应该是小队，当心。”\n小队个头。\n巡视的魔源源不断，你们杀掉一只又一只，可总是见不到头。“有什么办法没有？”你问。\n“你拦一下，我用个传送魔法。”\n“你会用传送魔法？那我们为什么徒步走过来？”\n“因为我的传送魔法不太靠谱，我怕把咱俩传进谁肚子里去！”\n巴里不再跟你说话，开始专心吟唱，你玩了命地拦住所有打向巴里的攻击，幸好吟唱时间还不太长，在你没命前就结束了。\n“现在！抓住我！”你听着巴里的声音，伸手去抓他，但在传送魔法刺眼的光线下，你只抓到了他的法杖。\n光线褪去，传送结束，你脚下一空。你的眼睛还没反应过来，看不清周围的情况，本能地把翡翠剑向周围挥去。你运气还不错，翡翠剑卡进了什么硬物里，给你争取了一点恢复视力的时间。\n\n恢复视力之后看到的景象，真的令你目瞪口呆：“你他妈是怎么做到的？”\n你右手拿着翡翠剑，翡翠剑卡在屋顶的瓦片里，身体悬空，左手抓着法杖。巴里抓着法杖另一头，脚离地面一百多米。\n——这他妈是一座瞭望塔的塔顶。\n“跟你说了不太靠谱。咳，你撑着点，我用个漂浮术。”\n巴里开始吟唱，乳白色的光晕从法杖顶端的水晶里散发出来，你们的身体越来越轻盈。你拔出翡翠剑，跟着巴里飘进了瞭望塔的顶层。\n那里有着四个卫兵，早就已经被惊动了，都把武器对着你们。\n“呃，哈，传送事故。”你尬笑道。\n卫兵狐疑地打量着你们：“你们从哪儿来的？”\n“战区——招惹了我们应付不来的注意力，只好跑路了。”你缓缓举起翡翠剑，在手指上划了一道浅浅的口子：“看，红的，我们是人。”\n有的魔可以伪装成人的外形，但魔的“血管”里流淌的是黑暗力量，不会有任何血液，因此这是个简单的区分方法。\n巴里从善如流，也划伤了自己的手指。\n守卫点点头：“下去吧。”\n你们从瞭望塔里的旋转楼梯下去，你好奇地问：“这是什么地方？”\n巴里耸耸肩：“龙骨雪山的最北点，哥谭。”",
@@ -6862,7 +6870,6 @@
         "4-17": "你有些犹豫：“这里不安全吧。已经进了黑暗领域了，说不准什么时候就会有巡逻的士兵来。……我不喜欢赶时间做。”\n“不用担心那些士兵。”瑟尔露出一个奇怪的笑容，“相信我。”",
         "4-18": "你利索地开始脱衣服，扭头发现瑟尔抄着手，一动不动地站在原地。\n“放心。”你露齿一笑，“我把翡翠剑放在手边，要死我们一起死。”\n瑟尔举起拳头抵在嘴边，扭过头，发出一声既像咳嗽又像笑的声音。",
         "4-19": "“你真奇怪。”你忍不住说。\n“哦？”\n“两次了。你不知道从哪儿冒出来，然后就让我上你……瑟尔，你究竟是什么人？”\n你究竟，是不是人？\n“做不做？”瑟尔喜怒难辨地看着你。",
-        "4-2": "借助在山头上画的地图，你没花多少力气就跨过龙骨雪山，找到了通向黑暗领域的路。",
         "4-20": "你又和瑟尔搞了一次，凭借上次的经验，你可以判断出他还是很满意。\n这次没有命悬一线的危机感，你留意到了更多的事情——\n瑟尔的眼白会在某些时刻突然变黑，指甲会突然变长再缩回去——但无论什么时候挠人都很疼——，你好像还看到他的皮肤泛起紫红色……\n“你还是要去杀了魔王吗？”瑟尔问道。",
         "4-21": "“你怎么问这个？”\n瑟尔端详着你：“我刚好也要去魔王宫殿，和你同路。一起走吗？”\n“这么巧？”你忍不住问道。这简直像是在侮辱你的智商。\n“世界上总有很多巧合的，或者说，命运。”瑟尔说，“你不相信命运吗？”\n“命运？”你眨眨眼睛，“预言那种？”\n“预言那种。”\n你想了想：“我读过一个戏剧剧本。主人公原本是个忠诚的将军，凯旋的路上，听到三个女巫预言说他会当上王。他以前从来没有过这种想法，但听了预言之后，他决定弑君篡位，真的成为了王。”\n瑟尔皱着眉头，轻轻说道：“你觉得预言之所以成真，是因为主人公把它当真了。”\n“你不能否认这种可能吧。”\n瑟尔耸耸肩：“我不否认。”\n“我相信命运是由人的选择构成的。”你最终说道，“比如说要不要和你同行这件事——”",
         "4-22": "“我在考虑。”\n“考虑？”\n“黑暗生物有着自己的意识，就意味着可以交流，或许经过交流，双方可以共存，不一定要你死我活。”",
@@ -6873,14 +6880,15 @@
         "4-27": "你微笑着问道：“都到你家门口了，不请我进去看看吗？——我们打起来之后可能就没有这么好的机会了。”\n这一瞬间，瑟尔卸下了全部的伪装，金光闪过他的眼睛，黑色侵占了他的眼白：“你知道我是谁。”\n“当然，我又不傻。”你摊开手，甚至没握着剑柄。\n“哼。”\n“确定不请我进去？就当是前戏了。”\n“呵呵，我什么时候给你留下了我对前戏感兴趣的印象？”\n“这倒确实没有过。”你忍不住笑了，拔出剑来。\n瑟尔头上显现出两只角，一对漆黑的蝠翼在他背后展开。你握紧了翡翠剑，剑刃上发着翠绿的光。\n\n这场战斗持续了很久，你们基本势均力敌，最后还是你赢了。翡翠剑吸取生命力量，转化为光明。而魔王的宫殿里恰巧有许多生命力量作为食物储备。借助魔王本人的支持，你把冒着绿光的翡翠剑插进瑟尔胸口，把他的身体钉在地上。\n绿光蒸腾着他身上的黑暗力量，他每分每秒都在变得更虚弱。\n你在他身边蹲下：“现在可以请我进去参观了吗？”\n瑟尔冷笑一声：“都基本让你砸完了，参观什么？”\n也对，你哈哈笑起来。\n\n笑了一会儿，你说道：“我大概猜得出你的故事。——你本来是讨伐魔王勇者，结果出了些差错，如预言所说，被黑暗力量吞噬，成为了一只魅魔，又成为了魔王。你杀了阿宾，你最好的朋友。翡翠剑的剑心，那枚绿水晶吊坠，你应该很熟悉吧？”\n“嗯，我砸碎了它。”\n“那是阿琳。”\n你第一次看到瑟尔露出这样的表情——仿佛五雷轰顶。“什么？”他颤抖着问道。\n“黑暗吞噬了你，所有人都以为你死了。阿宾选择讨伐魔王，阿琳选择用自己的生命和灵魂，铸成剑心，助他一臂之力。”\n“结果我把他们两个都杀了。”\n“为什么你要这样做？”这是你百思不得其解的疑惑。\n“一开始成为魔，我确实不是自愿的。但很快我就发现了成为魔的好处——只要我够强，我就说了算。这是人永远不可能体会到的感觉。我很快成为了魔王，我试图把这样的秩序推广到龙骨雪山的另一侧，在山脉上，我遇到了阿宾。——他是我成为魔之后遇到的第一个活物，他认出了我，于是露出了破绽，我看到他的心脏在胸膛里跳跃，滚烫而香甜，于是我把它掏了出来。”\n“就这样？”\n“就这样。他是阿宾这件事，对我没有任何意义。——我不是他的好朋友，我是他的敌人，科瓦德魔王。大概因为阿琳的缘故，即便阿宾死后，翡翠剑还在攻击我，我试图毁掉它，只砸掉了剑心，剑身崩飞了，我没太在意。”\n“那为什么遇到我的时候，你说你叫瑟尔？”\n“你想说什么？”\n“我觉得身为人的那一部分还在纠缠着你，你还有人的感情，只是不太多而已。”\n他的身体渐渐虚化，你知道他很快就会死了。",
         "4-28": "你早知道瑟尔就是科瓦德魔王了——金眼睛、黑指甲，不符合已知的六种魔的特征，他只可能是魔王。\n拔剑进攻。你们交手了几百招，但最后你还是输了。\n锋利的指甲卡在你脖子上，你能感觉到它们划伤了你的皮肤，血液从伤口里往下流。",
         "4-29": "“没错。”你不假思索地回答，“都已经走了这么远，再退回去岂不是太没意义了？无论结果如何，我都很乐意面对。”",
-        "4-3": "接近山脚，你才发现龙骨雪山的特别之处。——与黑暗领域相连的龙骨雪山大部分是冰雪覆盖的悬崖绝壁，可以上去的路屈指可数。\n你沿着山路下行，在路边遇到了一个酒馆，武士。你在雪山上穿行了很久，武士酒馆看起来会是个休息的好地方。你推开门走进去，每一桌旁边都坐了人，幸好有几张桌子还没有坐满。\n一张旁边坐了三个强壮的武士，衣服又脏又破，桌上倒着七八个个空酒瓶。\n第二张旁边坐了三个人，和旁边另一满桌四个是一起的，是一支七人小队。每人的袖口和裤腿都束得很紧，看起来训练有素。\n第三张桌子边只坐了一个人，带着兜帽，一根长长的法杖靠在桌边，看来大概会是个法师。",
-        "4-4": "你加入了那几个衣衫破烂的强壮武士，与他们喝酒吃肉，相谈甚欢，了解了不少东西。\n龙骨山脉并不与魔王统治的黑暗领域直接相邻。山脉外有一条战区带，战区带另一侧才是黑暗领域。你同桌的这些武士是冒险者，经常进入战区杀魔收集它们的身体素材。那是很有用的研究材料，有些不要命的人会做这种工作。\n你说到准备去讨伐魔王，他们热情地提出和你同行，可以向你介绍一些战区的情况。",
-        "4-5": "你走到那支七人小队桌边，敲敲桌子：“嘿，没座位了，我可以坐这儿吗？”\n“当然。”\n你们同桌吃饭，他们是一支“守卫小队”，每个通向战区的地方都有几支守卫小队，负责在战区巡逻，减少魔的数量，令它们不能大规模地袭击龙骨雪山。\n在得知你是讨伐魔王的勇者后，他们很热心地和你分享了不少情报。\n魔并不是完全没有规律的生物，它们可以分为七种：魅魔、球魔、鹰魔、睡魔、火魔、刃魔、魔王。每一种都不太一样，魅魔像人，有一对长角；球魔能漂浮在半空中，释放魔法；鹰魔是很大的怪鸟；睡魔看起来像一片沼泽；火魔全身燃着烈火；刃魔身上长着利刃。这六种都有很多，而魔王比较特别——只有一只，而且没有人见过。\n你和他们相谈甚欢，第二天孤身上路。",
-        "4-6": "你在兜帽法师对面坐下，要了一点热食。老板给你端来一碗浓汤，你吃着吃着，突然发现对面的人非常眼熟。\n“巴里？！”你震惊地叫出他的名字。\n“你可小点声吧哈尔！”巴里低声吼道，但已经来不及了，墙角的一桌人站了起来，拔出剑冲到你们桌旁。巴里抓起法杖一挥，乌云立刻在房间中凝聚起来，电闪雷鸣之中，你和巴里仓促地跑出了酒馆大门。\n“跟我来。”他说。\n你们花了好大力气甩开追兵，巴里居然在一棵大树里有一个藏身处——树根下有一个兔子洞，钻进去，到了一个还挺宽敞的地窖。\n巴里摘下兜帽：“天才，如果一个人戴着兜帽，这就说明他并不希望有人高喊他的名字。”\n你抄起手盯着他：“你一个连火球都搓不出来的见习法师，是怎么用出那么强的魔法的？”巴里在小镇已经住了七年了，你们一直把他当成光明系的见习法师，现在看来，完全不是这样。\n巴里一时语塞：“……咳，说来话长了。”",
-        "4-7": "你孤身上路，出发去黑暗领域。\n天空被黑暗力量遮蔽，越走越阴暗，黑暗领域里，大概就看不见任何蓝天白云了。\n这一路非常危险，因此你紧握着翡翠剑，时刻警戒着。\n没走多远，土地里就钻出两只球魔，对你发起了攻击。",
-        "4-8": "“你到底是什么人？”你问道。\n“我其实是雷电系大魔法师，光明骑士团的一员。”巴里介绍道，“光明骑士团是守卫生灵的多种族联盟，我们散布在全大陆，以防黑暗力量暗地里有什么侵袭。”\n巴里吸了口气：“如果你需要的话，我还是你讨伐魔王之路上的队友。”\n你笑起来：“我以为你要守卫大陆？”\n巴里笑着耸耸肩：“讨伐魔王也是守卫大陆的一种方式啊。”",
-        "4-9": "“你跑到小镇干什么？”\n“我是去观察长老团的。——我发现长老团有些不愿意让人知道的秘密。”\n“长老团？”你哑然失笑，“长老团那群小蓝人，能有什么秘密？”\n巴里叹了口气：“没有秘密吗？你有没有想过，他们指引小镇的预言都是哪儿来的？”\n……你还真的从来没想过这件事——长老团的预言总是对的，渐渐的，就没有人怀疑他们了。\n“你有什么想法？”\n巴里摇摇头：“几乎没有线索，只能说，我怀疑他们和天使城的神迹有关——长老团与天使城神殿祭司甘瑟的外形、打扮都很相似。然后就没了。”",
         "5-1": "你向那座城的方向出发，在龙骨雪山上走了好几天之后，你终于接近了目的地。\n——那是一座坐落在山顶的城。那个山头在龙骨山脉的一侧，紧邻着黑暗力量，山峰上方三分之一已经被黑暗力量遮蔽，你直到走到上山的路上，才分辨出山顶上其实有一座城，被淹没在黑暗力量里。\n随着你不断前进，那座城也越来越清晰。它由深灰色的花岗岩搭建而成，三面城墙与龙骨雪山的峭壁紧密相连，最后一面城墙外有一条山路。",
+        "5-2": "你走进城门，余光扫到行囊里有光透出来。你翻了一下，是那块通讯水晶在发光。\n你把它拿在手里，水晶中一张面孔渐渐浮现，虽然透过水晶颇有扭曲，但还是看得出，那是一个还挺年轻的男人。他长着一双深蓝的眼睛，没什么表情，平淡的声音从水晶里传出来：“你好，哈尔。”\n“……你好？找我什么事？”\n他没有直接回答这个问题：“我在哥谭的中央广场等你，进了城门后一直走。”\n然后通讯水晶中的光线就消失了，你一头雾水，只好向那座中央广场前进。",
+        "5-3": "布鲁斯一边带你前进，一边为你简单介绍了一下哥谭的情况。\n哥谭已经矗立在龙骨雪山顶端三百年了，据说最初还见得到太阳，但随着黑暗力量的渐渐膨胀，哥谭的天空也渐渐昏暗下来。四十年前，黑暗已经完全笼罩了这座孤城。\n“这么说，你没见过太阳？”你问道，布鲁斯显然还不到三十岁，既然他生长在哥谭，那……\n“我也不是从没有去过有阳光的地方。”布鲁斯说道，“不过我确实没有亲眼见过太阳——我总是赶上夜里或者阴天。……到了。”\n布鲁斯停下脚步，你一瞬间甚至不太明白他是不是在开玩笑——他带你走到了哥谭的最北端，一座恢宏的城堡前。\n这座城堡是哥谭面对黑暗力量的最前线，是布鲁斯的……家。\n“请进。”他说。\n\n这里出乎你意料的空旷，布鲁斯解释说这里除了你们两个，只有瞭望塔上几个负责监视黑暗领域动向的卫兵。一日三餐时间厨房会有人准备食物，但现在天色已晚，他们早回家了。\n他带你走进城堡主建筑的一楼客厅，用魔法点亮了一些照明的珍珠：“我知道你有很多疑问，我会尽力解答它们。”",
+        "5-4": "走出瞭望塔，映入你眼帘的是一片深灰色的建筑。这些建筑是你从没见过的样式，散发着古老的气息，可看起来又像是最近一二十年才建造的。\n这座城被黑暗力量笼罩着，不见天日。再加上时间已晚，户外几乎一点光线都没有。\n\n“这边走。”巴里指指右手边。你跟着他在城里走了一阵子，一直走到哥谭最北端的城堡。城堡看着空荡荡的，巴里直接推门带你走了进去。\n城堡里是真的一个人都没有，巴里带你走到客厅，摸着桌子上的一块水晶：“嘿，布鲁斯，我带哈尔，就是勇者，过来了，在你家等你。”",
+        "5-5": "你走到中央广场，没了水晶的扭曲，你很轻易地认出了站在那里等你的人：“布鲁斯？”\n他冲你点点头：“哈尔。”\n你忍不住笑了：“我记得你说过你是哥谭人。”\n“这就是我长大的地方。”他抬头看向天空，你也跟着抬起头，看不到太阳，看不到蓝天，看不到云。\n你能看到的，只有一片黑暗。",
+        "5-6": "你走到中央广场，没了水晶的扭曲，你越看那个人越眼熟：“是你？”\n那是你在那个无边无际的星空中见过的人，没想到他会在这里等你，说：“是我。……没想到你能到哥谭来。”语气里颇有一点喟叹。\n你皱起眉头：“什么意思？”\n他耸耸肩：“我以为你会直接去讨伐魔王。我叫布鲁斯。”",
+        "5-7": "你走到中央广场，那里只有一个人在等人，于是你走上前去，他朝你点点头：“哈尔。”\n“你知道我的名字，你的呢？”\n“我叫布鲁斯。”",
+        "5-8": "“你找我有什么事？”\n“我有些事情想告诉你，跟我来吧。去我家坐下慢慢谈。”",
+        "5-9": "“布鲁斯？”这个名字让你感到有些熟悉，你没花多大力气就想起在那片星空里遇到的人。奇奇怪怪、一身秘密，也是哥谭人。\n“怎么了？”\n你找了张椅子坐下：“我认识一个叫这名字的人，他也是哥谭人。”\n“可能就是他。”巴里在你旁边坐下，“布鲁斯也是光明骑士团的成员，虽然他基本待在哥谭，但也有可能去南边和你碰上。”\n\n你们等了十几分钟，一个人就走了进来——就是你认识的那个布鲁斯。",
         "5-10": "“谁是布鲁斯？”\n“他也是光明骑士团的一员，不过基本上都待在哥谭附近。”巴里说，“我们可以在这里休整一下，听听他的建议，再考虑下一步的行动。”\n你点点头：“也行。——直闯黑暗领域现在看来是不太现实了，得想个别的办法。”\n\n你们坐了十几分钟，你听到门外传来脚步声，扭过头去看，刚好对上了一双深蓝的眼睛。",
         "5-11": "“是你？”那双眼睛非常熟悉，沉静而坚定，你一下子就看出你曾经见过。\n他朝你点点头：“……没想到你能到哥谭来，我还以为你会直接去讨伐魔王。”\n你尴尬地笑笑。",
         "5-12": "“你好。”你打了声招呼。\n布鲁斯开门见山地道：“你们两个怎么跑到这儿来的？”\n你耸耸肩：“我们本来准备去讨伐魔王的，一路穿过战区，到了黑暗领域的边境，被士兵发现了。眼看着魔越来越多，巴里用了个传送魔法，我们就到了哥谭的瞭望塔顶上。”\n“巴里的传送魔法。”布鲁斯挑了挑眉，“你们能完好无损地坐在这儿还真是运气好。”\n巴里咳嗽两声，布鲁斯换了个话题：“无论如何，你们来哥谭都是件好事。哈尔，我正想见你。”\n“等等，”你说道，“我想先问你几个问题。”\n“你说。”",
@@ -6894,7 +6902,6 @@
         "5-17": "你不急着睡觉，准备出发去下一个目的地。",
         "5-18": "你到了客房门口，要进去休息吗？",
         "5-19": "三楼大部分房间门上都积着灰，大概很久没人动过了。只有一间房间的门把手是干净的，你尝试着推了推，布鲁斯的声音响起来：“这是我的卧室，客房在二楼。”\n他想的还真全面。\n你也知道这并不好笑，但你就是忍不住笑了起来。",
-        "5-2": "你走进城门，余光扫到行囊里有光透出来。你翻了一下，是那块通讯水晶在发光。\n你把它拿在手里，水晶中一张面孔渐渐浮现，虽然透过水晶颇有扭曲，但还是看得出，那是一个还挺年轻的男人。他长着一双深蓝的眼睛，没什么表情，平淡的声音从水晶里传出来：“你好，哈尔。”\n“……你好？找我什么事？”\n他没有直接回答这个问题：“我在哥谭的中央广场等你，进了城门后一直走。”\n然后通讯水晶中的光线就消失了，你一头雾水，只好向那座中央广场前进。",
         "5-20": "厨房里没有人，但还有些食物。\n自从从小镇出发，你已经很久没有吃到过真正烹调出来的食物了，因此虽然只是残羹冷炙，你还是饱餐一顿，心满意足。",
         "5-21": "东塔楼的上层是一座天台。令你毫不意外的是，没有任何的夜景或星星可看，只有寒凉的夜风。\n你正准备下楼，却在屋顶上看到了一些有点眼熟的刻画。你仔细辨认了一番——是星星。\n你看着屋顶上雕刻的星空，怔住了。从进城以来，你一直以为哥谭是座不见天日的城市。但你却忘记了，即便这座城不见天日，城里的人也有渴望星空的权力。",
         "5-22": "你推开西塔楼的下层的门，看到了一眼望不到尽头的藏书。\n这里的藏书比你在任何地方见到的都更详尽，你找到了大把从没见过的记载。关于生灵与黑暗力量的战争、魔王、讨伐魔王的勇者。\n你忍不住怀疑布鲁斯可能是对的——去黑暗领域讨伐魔王的勇者从没有一个人成功，但有几个在路上就莫名丧生——例如阿宾。\n比魔王弱的魔不可能悄无声息地越过龙骨雪山，因此，恐怕魔王并不是从不出黑暗领域，只是没有人能活下来告诉别人这件事。",
@@ -6905,7 +6912,6 @@
         "5-27": "你沿着这条山路走到城门口，一个卫兵走了上来：“布鲁斯先生，这位是……？”\n布鲁斯朝他点点头：“这是勇者哈尔。我有一块给他准备的通讯水晶托你们转交来着。”\n“在这里。”守卫掏出水晶交给你，非常认真地说道：“加油。”\n“谢谢。”你接过水晶，和布鲁斯一起进了城。\n\n你张开嘴，但布鲁斯抢先打断了你：“我知道你有很多问题，去我家坐下慢慢说吧。”",
         "5-28": "你很久没有睡过床了，这一夜睡得很好。第二天早上你起床晨练，晨练结束后前往厨房，刚好看到布鲁斯端着一托盘食物，找了个座位坐下。\n你也划拉了一堆吃的，坐在他身边：“你昨天说的那个特训，是怎么回事？”\n“训练你对抗魔族。”布鲁斯啃着兽肉回答道，“我猜你没什么这方面的经验。哥谭这些年来积累了不少这方面的知识，特训期间都会分享给你。”\n……你确实没有。\n你点点头接受了这个计划，抓起一把蔬菜塞进嘴里，说道：“那把魔王引出来的事呢？要怎么做？”\n布鲁斯冷淡又生硬地拒绝了分享这方面情报：“这件事你不用管，我会解决。”",
         "5-29": "布鲁斯慢慢地解释道：“魔族并不是无脑的生灵，他们一直在想办法混过边境，潜入我们生活的地方。龙骨雪山出现三百多年来，他们伪装成生灵的能力一直在进步——现在，伪装的魔族外表上，已经我们没有什么区别了。但作为黑暗生物，他们身上没有生命力量，只有黑暗力量，因此，一旦深入腹地，就很容易被发现。——大陆上有一个光明骑士团，就是负责防御这种入侵的。”\n“你也是光明骑士？”\n“名义上是的，这样我可以尽可能及时地预警他们，一旦哥谭的防线有什么漏洞，他们也能尽快通知我。但我几乎不出哥谭，更不会像他们一样全大陆巡逻，用他们的话说，‘带去光明’。”\n“所以，不如说你是个黑暗骑士？”你笑着打趣道。\n布鲁斯没有回答，只是继续说道：“但哥谭的人，大多数都是防线上替换休息的守卫小队，身上或多或少都会沾染一些一些黑暗力量，因此，如果魔族混进来，找出究竟是谁要麻烦许多。”\n你看向布鲁斯，已经猜到了他的意思。\n“但魔族混进来的目标并不是单纯潜伏，而是作为间谍。”布鲁斯继续说道，“他们通讯的手段是一种纯粹黑暗元素驱动的魔法，单纯以人力并不能施展，但如果抓到一只活的魔，我就可以以之为基础，冒充间谍和黑暗领域通信。但有一个问题——”\n“真正的间谍可能会揭穿你。”\n布鲁斯点点头：“以前，我会施展笼罩哥谭的光明魔法直接杀死间谍，但现在，我需要活捉它，以防和黑暗领域的通讯中有什么未知的暗号。”\n“这么麻烦啊。”你感叹道。\n布鲁斯喝了口果汁：“你不用担心，这些事我可以搞定。你只需要专心特训就好。”\n你决定——",
-        "5-3": "布鲁斯一边带你前进，一边为你简单介绍了一下哥谭的情况。\n哥谭已经矗立在龙骨雪山顶端三百年了，据说最初还见得到太阳，但随着黑暗力量的渐渐膨胀，哥谭的天空也渐渐昏暗下来。四十年前，黑暗已经完全笼罩了这座孤城。\n“这么说，你没见过太阳？”你问道，布鲁斯显然还不到三十岁，既然他生长在哥谭，那……\n“我也不是从没有去过有阳光的地方。”布鲁斯说道，“不过我确实没有亲眼见过太阳——我总是赶上夜里或者阴天。……到了。”\n布鲁斯停下脚步，你一瞬间甚至不太明白他是不是在开玩笑——他带你走到了哥谭的最北端，一座恢宏的城堡前。\n这座城堡是哥谭面对黑暗力量的最前线，是布鲁斯的……家。\n“请进。”他说。\n\n这里出乎你意料的空旷，布鲁斯解释说这里除了你们两个，只有瞭望塔上几个负责监视黑暗领域动向的卫兵。一日三餐时间厨房会有人准备食物，但现在天色已晚，他们早回家了。\n他带你走进城堡主建筑的一楼客厅，用魔法点亮了一些照明的珍珠：“我知道你有很多疑问，我会尽力解答它们。”",
         "5-30": "布鲁斯把眼神从早餐里抬起来看向你，叹了口气：“虽然我们尽可能在哥谭隔绝魔族，但哥谭毕竟不是铜墙铁壁。”\n“这儿有卧底？”\n布鲁斯安静地点了下头，肯定了你的推测：“找到卧底后，我就可以利用他把魔王引出来。”\n“怎么引？”\n布鲁斯略微眯起眼睛：“科瓦德魔王，以前是人类……任何人都有弱点，我知道他的。”\n他平静的语调很有说服力，你相信了他的计划，决定——",
         "5-31": "“哥谭有魔族的卧底。”他淡淡地道，“我们会抓住他，然后利用他把魔王引出来。”\n布鲁斯看了你一眼，锋利的眼神几乎要把你钉在座位上：“这些你不用管，你只要特训就好。”\n他不容置喙的语气令你略感不快，但一个强硬的盟友总比一个无用的盟友要好些。",
         "5-32": "“我帮你找出卧底吧。”你说道，“如果这事失败了，那我训练再久也没用。”\n布鲁斯起初并不同意，但你不肯让步，争执不下，最后布鲁斯略微松了松口：“你有一天时间，把魔族活捉回来，一定要活的。明天天亮的时候，无论你有没有抓到魔族卧底，你都必须进行特训了。”\n哥谭并不大，一天，应该够了。你知道得寸进尺没什么好处，所以你同意了这个方案。\n布鲁斯带你去了书房，打开一张哥谭地图，为你介绍目前已经掌握的情况。\n“哥谭发生任何异常情况，目击者都会来告诉我。最近半个月，有三个地方有人见到疑似魔族的黑影：城东的一口枯井、哥谭中央广场、和城南这座荒废的屋子。”\n他边说，边在地图上指出这三个地方，为你逐一介绍：“这口枯井周围是各种各样的演武场，视野开阔，没有隐蔽的地方。”\n“井下呢？”你问道。\n“这座井是由青石砌成，下面是枯竭的水源，地面和井口差不多大，没什么空间，我三个月前还下去看过。”\n你记下这个信息，布鲁斯继续介绍道：“中央广场在哥谭中央，是哥谭人流量最大的地方，无论什么时候，都会有人经过。”\n所以，魔族很可能是从这里路过。\n“这座旧屋……实际上，目击者对我描述的是这片住宅区。这里房屋窄小，住的基本都是单身的守卫队员。守卫队员很多时候在外面巡逻，并不住在家里，一旦发生什么事，也不会及时察觉。这片区域里，只有这间旧屋暂时闲置着，相对可疑许多。”\n“好，我明白了。”\n布鲁斯总结道：“目前我所掌握的情况就是这些。另外，如果你需要什么东西，城堡里的可以随便拿。”",
@@ -6916,7 +6922,6 @@
         "5-37": "你把出气多进气少的魔族运回了城堡，送到布鲁斯面前，它还没有断气。",
         "5-38": "“能救活吗？”你讪讪问道。\n布鲁斯皱紧了眉头，没有回答，而是找出一些药水，小心地滴到魔族身上。你们从天黑折腾到天亮，最后，魔族变成黑雾，消散在了空气中。\n布鲁斯满是血丝的双眼狠狠瞪着你：“跟我去特训。”",
         "5-39": "“能救活吗？”你讪讪问道。\n布鲁斯哼了一声：“幸好你之前捡了一条魔族的胳膊。”\n以那条胳膊作为原料，布鲁斯忙活了两个多小时，魔族身上的伤口终于开始渐渐愈合。他松了口气，把魔族锁在地窖里，出来后，疲惫不堪地揉了揉太阳穴。",
-        "5-4": "走出瞭望塔，映入你眼帘的是一片深灰色的建筑。这些建筑是你从没见过的样式，散发着古老的气息，可看起来又像是最近一二十年才建造的。\n这座城被黑暗力量笼罩着，不见天日。再加上时间已晚，户外几乎一点光线都没有。\n\n“这边走。”巴里指指右手边。你跟着他在城里走了一阵子，一直走到哥谭最北端的城堡。城堡看着空荡荡的，巴里直接推门带你走了进去。\n城堡里是真的一个人都没有，巴里带你走到客厅，摸着桌子上的一块水晶：“嘿，布鲁斯，我带哈尔，就是勇者，过来了，在你家等你。”",
         "5-40": "中央广场白日里人来人往，鱼龙混杂。你在这里守了一天，直到天黑，也没发现任何可疑的事情。",
         "5-41": "夜晚，你隐藏在中央广场的角落里，等待着魔族的路过。\n时间越来越晚，四周越来越静，终于，一道烟雾似的黑影从路上飘过。",
         "5-42": "你追逐起那个黑影，口袋里的生命晶石飞入翡翠剑，翡翠剑脱手飞出，把黑影钉在了地上，一剑穿心。剑上的光明力量灼烧起这只魔族的身躯。\n你只好把正在死去的魔族带回去给布鲁斯。布鲁斯冷笑一声：“这就是你非要插手的结果，是吧？”\n他拂袖而去，你看着魔族一点点被灼烧殆尽，感觉有点不是滋味。",
@@ -6927,7 +6932,6 @@
         "5-47": "你来到旧屋附近，虽然天已经黑了，但没有一间屋子亮着灯。你摸黑潜到旧屋旁边，确认了里面没有人在活动。",
         "5-48": "你在不远处找了一个僻静地方布置了一个陷阱——困魔药水围绕的生命晶石。\n然后你打碎一块生命晶石，释放出其中的生命力量，引诱魔族的到来。魔族无法抗拒浓郁生命力量的诱惑，你蹲守了几个小时，就活捉了他。",
         "5-49": "你躲在旧屋里，在魔族到来时突袭了他。\n有生命晶石的加成，翡翠剑削铁如泥，轻而易举地砍下了他小半个身子。眼看魔族已经只剩下半口气，随时可能死去，你立刻想起布鲁斯“要活的”的嘱咐。",
-        "5-5": "你走到中央广场，没了水晶的扭曲，你很轻易地认出了站在那里等你的人：“布鲁斯？”\n他冲你点点头：“哈尔。”\n你忍不住笑了：“我记得你说过你是哥谭人。”\n“这就是我长大的地方。”他抬头看向天空，你也跟着抬起头，看不到太阳，看不到蓝天，看不到云。\n你能看到的，只有一片黑暗。",
         "5-50": "魔族警戒心很强，这只魔族的感知更是格外敏锐。他几乎一进门就发现了你潜伏在屋内，立刻逃跑。你没能抓到卧底，空手而归。",
         "5-51": "“包括龙蛋吗？”你调笑道。\n布鲁斯歪头看向你，似笑非笑：“那东西比金子还沉，搬得动你就拿吧。”\n你哈哈大笑，布鲁斯摇了摇头，走了出去。",
         "5-52": "生命体征平稳的间谍俘虏令布鲁斯很满意，他彬彬有礼地向你致谢，语言又华丽又罕见。\n你忽然意识到一件事情——布鲁斯住在一座城堡里，这里有专门的藏书室、肖像廊。\n布鲁斯的家族，以前应该是贵族领主一类的身份。\n但现在的布鲁斯和所有人都吃着差不多的东西，穿着差不多的衣服；甚至，他远比大多数人都更劳累、更忙碌。他统筹管理着这座危城的所有信息，伫立在直面黑暗力量的最前线。\n——像一位骑士。\n“没什么。”你说道，“有任何我能帮上忙的事，尽管告诉我。”",
@@ -6938,15 +6942,11 @@
         "5-57": "你没有回房，而是跟在布鲁斯身后。走上一级楼梯后，他就留意到了。\n布鲁斯站在楼梯上，转身看向你，他手里的提灯照亮了你们周围，朦胧的灯光让他的脸颊轮廓都柔和了不少。\n——又或许这是酒精的效果？\n你忙于胡思乱想，听到布鲁斯轻声说道：“你需要好好休息。”\n“我知道。”你回答道。",
         "5-58": "你跟着布鲁斯走上三楼，他打开自己卧室的门，转头看着你。你笑了笑，走上去，把他揽进了怀里。\n布鲁斯的嘴唇出乎意料的柔软，一个深入的吻后，你发现他正在微笑。“我可能真的喝多了。”你恍恍惚惚地道，“我好想看到你在笑。”\n布鲁斯轻轻哼了一声，抓住你的领子，把你拽了进去。\n\n你们共度了甜蜜而炙热的一夜，再醒来时，布鲁斯已经不在枕边了。\n你带着好奇心在他房间里转了转，没有找到任何能体现他爱好的东西，你决定去找布鲁斯，他应该还在城堡里，他大概会去——",
         "5-59": "你猜错了布鲁斯的去向，一无所获。只好把那些暧昧不明的思绪暂时抛到脑后。",
-        "5-6": "你走到中央广场，没了水晶的扭曲，你越看那个人越眼熟：“是你？”\n那是你在那个无边无际的星空中见过的人，没想到他会在这里等你，说：“是我。……没想到你能到哥谭来。”语气里颇有一点喟叹。\n你皱起眉头：“什么意思？”\n他耸耸肩：“我以为你会直接去讨伐魔王。我叫布鲁斯。”",
         "5-60": "你在地下室找到了布鲁斯。他站在龙蛋前，双眼阖着，正在专心孵蛋。\n你不知道卡尔能不能看到你，但保险起见，你还是对龙蛋比了个噤声的手势。你轻轻地走到布鲁斯身边，他一只手按在光泽莹润的乳白色蛋壳上。\n你不由得在心里摇头：蛋壳都比他的手看起来有血色。\n布鲁斯从来没有晒过太阳，身上哪里的皮肤都苍白得像个病人，摸起来也总觉得有点凉。\n布鲁斯察觉了你的到来，睁开眼看着你：“你怎么来了？”\n你张了张嘴，突然不知道要怎么解释很简单的三个字：想见你。\n你的目光落到他的手上——",
         "5-61": "你在地下室找到了布鲁斯。他站在一颗一人多高的乳白色巨蛋前，一只手按在蛋壳上，双眼闭着，不知道在做什么。\n你没有打断他，打算安静地走到他身边，等着他发现你。但你刚迈出脚步，蛋壳上就泛起一道蓝色的波纹，撞上他的手，布鲁斯随即睁开了眼睛：“哈尔？”\n你耸耸肩，走到他身边：“你在干什么？”\n“孵蛋。”布鲁斯简单地解释道，“这是卡尔·艾尔，大陆上最后一头天空巨龙。他母亲是立起龙骨雪山的莱拉·劳·艾尔，父亲乔·艾尔也已经故去了。作为现存唯一的龙语者，我是他离开这个蛋壳唯一的希望。”\n“你平时不见人影就是在这儿？”\n“有时候是，我的事很多。最近在这里的时间要多些，他快破壳了。”\n他一只手放在蛋壳上，因为不见天日，那只手非常苍白，没有任何血色，更显得手背上的几条青筋触目惊心。",
         "5-62": "你抬起一只手，轻轻按在布鲁斯的手上。你的手甚至比他的还小一点，并不能把他的手完全罩起来，但也足够传一些热量给他。遗憾的是布鲁斯并不领情，瞪着你：“你！”\n一道蓝色的波纹撞上他的掌心，于是他改变了呵斥的对象：“有你什么事！”\n他又把目光转向你，动了动嘴唇，不过最后什么也没说。\n既然布鲁斯没有开口，你就依然按着布鲁斯的手：“卡尔还要多久才能出来？你说很快。”\n“他说的很快，我是第一次孵蛋，我怎么会知道。”布鲁斯纠正了你的误解，“——龙族有传承记忆，但时间概念比我们粗很多，三五天是很快，一两个月也是很快。”\n一两个月的时间你还是有的。“这么说来，我可以先见到卡尔再回欧阿。”\n布鲁斯的手摸着有点凉，你转过头，朝他笑了笑：“在哥谭的阳光下。”\n布鲁斯定定地看着你，很久没有说话。\n“相信我。”你说道，没有等他的回复，抄起他垂在身侧的左手亲了一口，就离开了地下室。\n\n你走之后，龙蛋在布鲁斯手下晃了晃，不稳定的蓝色纹路细如发丝，蛛网般从他手下蔓延开来，慢慢爬满了整个龙蛋。\n这是……快了？布鲁斯心想。",
         "5-63": "你决定先回城堡一趟。",
         "5-64": "你把翡翠药水涂在剑上，躲在旧屋里，在魔族到来时偷袭了它。\n困魔药水名不虚传，你的剑逼近它身体半米之内，它就动弹不得了——这大大出乎你的意料，你一时没有收住招式，翡翠剑从魔族肩头切入，削进去好大一段，按人体器官来算，肺怕是切成两半了。幸好你手边没有生命晶石提升攻击力，魔族又生命顽强，虽然进气少出气多，但勉强还算是活着。",
-        "5-7": "你走到中央广场，那里只有一个人在等人，于是你走上前去，他朝你点点头：“哈尔。”\n“你知道我的名字，你的呢？”\n“我叫布鲁斯。”",
-        "5-8": "“你找我有什么事？”\n“我有些事情想告诉你，跟我来吧。去我家坐下慢慢谈。”",
-        "5-9": "“布鲁斯？”这个名字让你感到有些熟悉，你没花多大力气就想起在那片星空里遇到的人。奇奇怪怪、一身秘密，也是哥谭人。\n“怎么了？”\n你找了张椅子坐下：“我认识一个叫这名字的人，他也是哥谭人。”\n“可能就是他。”巴里在你旁边坐下，“布鲁斯也是光明骑士团的成员，虽然他基本待在哥谭，但也有可能去南边和你碰上。”\n\n你们等了十几分钟，一个人就走了进来——就是你认识的那个布鲁斯。",
         "6-1": "决战当天。\n你在阴云笼罩下的城市醒来。从经验判断，现在大约是日出时分。你的窗口朝西，窗外是连绵的龙骨雪山山脊。尽管没有阳光，但你能看到远方某一座山峰上，近似于龙的非自然形状。皑皑白雪反射着昏暗的光线，在阴云下勾勒出一条不容错认的分界线。\n决战约在了正午，在哥谭以北半山的一个平台上，无论地理位置还是海拔都在两个势力的正中间。布鲁斯带你去那里看了，平台很宽阔，白雪下是平整的青石，寸草不生，感觉上很公平。\n你照常练过剑法，走进厨房，不出意外地看到了布鲁斯。",
         "6-2": "布鲁斯显然是在等你。\n你拿了吃的在他面前坐下。“决战的消息传开了。”布鲁斯说道，“很多人想送你。”\n何必呢，你摇摇头，留着精力给我庆功不好吗。\n“很久没有勇者走到这么远了——甚至，很久都没有勇者了。”布鲁斯说道，“上一位勇者阿宾，他出发讨伐魔王是六十多年前的事，甚至没有翻过龙骨雪山。上一个来到哥谭的勇者叫做瑟尔，出发比阿宾早上几个月吧。”\n这些事你并不是第一天听说，但今天你忽然领悟到了其下的内涵：“也就是说，哥谭的百姓有六十多年没有看到战胜黑暗的……希望了。”\n布鲁斯轻轻点头：“你好好吃饭。”\n你沉浸在思绪中，有几分钟没吃东西了。你道了声谢，边吃边问：“哥谭没有出过讨伐魔王的勇者吗？”\n布鲁斯惊异地看了你一眼：“你不知道吗，所有勇者都是欧阿的长老团选出的。”\n……你还真不知道。等你回去，或许他们会告诉你其中的隐情。\n“总之，他们会对你很热情。”布鲁斯总结道。",
         "6-3": "吃完早饭，离正午还有三个小时，你走出布鲁斯的城堡，向决战地点前进。\n虽然在哥谭住了一个多月，但你基本都待在城堡里，对这座城市谈不上多么了解。不过，有一点实在是太异常了——今天街上挤满了人。\n哥谭平时至少有一般的人组成巡逻小队，在龙骨雪山山脚与黑暗领域之间的战区，和魔族交战。因此虽然城很大，但街上人影稀疏才是常态。可今天，不管什么人，都聚在了城堡到城门的这条路上，看到你出来，近处的人立刻呼喊起了你的名字。\n“你们好。”你朝他们点点头，笑了一笑。\n人群忽然安静下来，但并不是因为没劲，而是他们对你的期待变成了一种不太好用语言表达的东西。你面前看不到尽头的人群，每个人都炙热地看着你，眼睛明亮到近乎发光。\n是希望。\n“接过。”你说道。人群裂开一条短缝，你走了进去。人群在你身前裂开，又在你身后合拢，你穿过人群，出了城。\n城外有人在等你，为首的是一个女人。她的胳膊和腿大面积裸露在雪山上，但看起来一点也不冷：“你好，我是戴安娜，光明骑士团的团长。”",
@@ -6962,6 +6962,14 @@
         "7-8": "“你是什么人？”你看向凯尔。\n“我来自你成为魔王的未来，”凯尔说，“我是来阻止你的，全世界的未来都寄托在我身上。”\n是吗？\n你忽然迈出一步，推了一把凯尔的肩膀，另一只脚一绊，凯尔立刻重心不稳，摔倒在地。\n他都没正经练过剑吧……你心想。",
         "7-9": "“你是天使？”你啼笑皆非地问道。\n凯尔傻傻地看了一会儿雕像，才尬笑道：“怎么可能……我就是个普通人。”\n如此拙劣的演技，你要假装相信都装不动。于是你只是挑起眉尖，似笑非笑地看着他。\n“……来自未来的普通人。”凯尔补充道，“你成为魔王的那个未来。当时黑暗力量逐渐逼近，已经无力抵抗，于是甘瑟——也就是神殿祭司——决定使用天使留下的魔法阵，逆转时间，给人类创造一线希望。我在刚巧的时候路过神殿门口，就担负起了这个任务。”\n“你真是普通人？”\n凯尔苦笑一声：“对啊。我连剑都玩不利索。”",
         "end-1": "你认为自己不适合这个任务，把翡翠剑交还了长老团。\n终其一生，你都没再离开这个太平无事的小镇。\n到了年迈之时，你有时也会想，如果当年你继续了，又会经历些什么。\n你曾经锐利的眼睛早已浑浊，你看向窗外，却发现，龙骨雪山亘古以来雪白的山顶，不知何时已被墨色染黑。\n漆黑的力量跨过山顶，迅速下移，几乎一瞬间就到了你眼前。可你早已经没有力气去与它搏斗了。\nEND",
+        "end-2": "你冲上去，决定杀了他，可还不等你手里的剑刺中他，你就感受到一阵痛彻心扉的疼痛。\n你低下头，胸口不知什么时候破开了一个大洞，你的心脏被一团黑雾包裹着飞了出去。\n你再也看不到别的了。\nEND",
+        "end-3": "你咬紧牙关，反复拷问自己，最终还是点不下去这个头。\n“不愿意。”\n胸口一阵剧痛，你最后看到的，就是瑟尔不屑的眼神。\nEND",
+        "end-4": "瑟尔的声音突然出现在你耳边：“你以为呢？”\n你转过身，他眼中放着金光，眼白转黑，皮肤变成了紫红色，一双漆黑的蝠翼从他身后展开。\n他鄙夷的眼神扫过你全身，露出尖锐的獠牙：“作为科瓦德魔王，刚刚是我和人类体验最差的一次。”\n你来不及说什么，就眼前一黑，不省人事。\nEND",
+        "end-5": "你的手指勉强够到了对侧的岩石，却没能抓住，指尖的汗水很滑，你坠入了万丈深渊。\n再醒来时，你一丝不挂地躺在一张柔软的床上，四肢被铁链锁住。你环顾四周，衣服、行礼、翡翠剑都不见踪影。你从没见过这样的装饰风格，空气里更是充满了一种令人不快的气息。\n门忽然开了，走进来的，是瑟尔。\n他眼睛放着金光，皮肤渐渐变红，一条尾巴从腰后钻出来，缠上你的脚踝。\n他露出一个笑容：“哈尔，欢迎来到龙骨雪山的另一边。还记得我吗？我是瑟尔。但我想，你大概更熟悉我的另一个名字——科瓦德魔王。”\n巨大的冲击令你怔在原地，你的大脑一片空白，只能听着他继续说道：“我不会杀你，至少暂时如此。因为我打算让你成为我的食物，每天上我。”\n“什么？”你难以置信地问道。\n“在成为魔王之前，我先成了魔。魔有很多种，我是一只魅魔。你知道魅魔是什么吗？”\n你摇摇头。\n瑟尔不紧不慢地解释道：“魔统一的进食方式是吃掉生物，一般都最喜欢心脏。魅魔还有另一种——和生物性交，但和直接进食心脏不同，魅魔用上床的方法进食，并不一定会一次要了食物的命，那样吃了上顿没下顿，一点也不实惠。”\n然后他伸手，抚摸过你的腿，说道：“我打算把你豢养起来。等腻了再一口气榨干，或者吃掉你的心。”\n“你好像没考虑过我不愿意。”\n瑟尔惊讶地睁大眼睛：“你怎么会不愿意呢？我可是魔王，我要你死你就死……”你忽然喘不上气来，你长大嘴巴，但就是无法呼吸。\n“要你活你就活……”你的呼吸一下子恢复，甚至连体力都充沛了一些。\n“要你硬你就硬……”突如其来的情欲立刻裹挟了你。\n“所以，告诉我，哈尔，”恶魔露出他的笑容，“你怎么会不愿意呢？”\n一对漆黑的蝠翼在他身后展开，你再也没有见到光。\nEND",
+        "end-6": "在穿过战区的路上，你与一个又一个敌人短兵相接。\n不幸的是，大约是你的运气不太好，在远远见到黑暗领域的时候，你已经用尽了所有体力。\n一只鹰魔俯冲下来，利爪花开了你的胸膛。\nEND",
+        "end-7": "虽然险象环生，但你成功穿过了战区，还越过边境潜入了黑暗领域。\n但在黑暗领域还没走多远，你就被伏击了，魔从四面八方袭来，你抵挡不住，落到了他们手中。\n你听不懂魔在说什么，只知道自己最后被五花大绑送进了一座恢弘的宫殿里。\n一只指甲漆黑的手伸到你眼前，你心口一凉，低头看去，心脏已经不见踪影。\nEND",
+        "end-8": "“你想怎样？”\n“如果我留你一命，你还会想着要杀我吗？”\n你不假思索：“当然了。”\n瑟尔点点头。\n\n你以为你死定了，可你却在一张床上醒来，四肢被镣铐锁住，一丝不挂。\n瑟尔站在床边：“我本来不想冒这个险的，但我是从魅魔成为魔王的。魅魔的那一部分实在舍不得杀了你，所以我只能把你关起来。”\n“操你吗？”\n“对。”\n你很认真地说道：“我不会放弃杀你的。”\n他也很认真：“这也是我舍不得杀你的原因之一。”\nEND",
+        "end-9": "“你想怎样？”\n“如果我留你一命，你还会想着要杀我吗？”\n你不假思索：“当然了。”\n瑟尔点点头。\nEND",
         "end-10": "“怎么了？”你问道。\n瑟尔反问：“你还没猜出我是谁吗？”两只角钻破他的头，一双蝠翼在他身后展开。\n你叹了口气。——你当然猜出来了，但你宁可不知道，那样事情会简单很多。\n你拔出剑来，翡翠剑上的绿光忽明忽暗，就像你犹豫不决的内心。按理说你输定了，可瑟尔几乎没有反抗，最后你杀死了瑟尔，拔出剑来时，却听到他的声音说：“欢迎告别人世，哈尔。”\n你低头，一道黑气飘进了你的心口。\n你捂住心脏，但已经来不及了，与瑟尔相同的蝠翼撑破了你的后背，你疼晕了过去。\n\n再醒来时，你几乎没有什么感觉，你感觉不到疼痛，也感觉不到任何感情。你想去碰翡翠剑，但它在你手下发出绿光，让你本能地缩了手。\n你成为了魔王。\n\n失去了翡翠剑，生灵勇士在你面前不堪一击。很快，就再也没有勇者敢来讨伐你了。\n在你的统治下，魔越过了龙骨雪山，统治了整个大陆。\n最后一个被攻陷的地方是天使城，你亲自去督战。天使城中央的神殿在魔的冲击下轰然倒塌，倒塌前，你好像看到里面有一道光闪过。\n太阳在西侧缓缓落下，暮光撒遍世界。你知道，它再也不会升起了。\nEND",
         "end-11": "你拔出翡翠剑。\n瑟尔震惊地看着你：“你要干什么？”\n“我决定再给你一次机会。”\n瑟尔依然满脸震惊，都没从地上爬起来：“什么？”\n“我不相信你无药可救。”你收起翡翠剑，把瑟尔从地上拉起来，“你曾经是一个勇者，无所畏惧、愿意为生命和阳光献出一切的勇者，我相信你依然有热爱生活的潜力。所以，在我放弃这种想法之前，我不会杀你。”\n瑟尔冷嘲热讽：“你疯了。”\n你耸耸肩：“好了，现在给我介绍一下黑暗领域的布防情况吧。你总得给生灵做点贡献嘛。”\n\n一年之后。\n\n这是个阳光灿烂的日子，你和瑟尔站在小镇外。你扭头看向他：“进去吧。”\n随着生灵联军驱逐黑暗力量，瑟尔体内人性的一部分也在渐渐扩张。大约一周后，黑暗力量就会被彻底封印，到时候，瑟尔就再也当不成魔王了。\n瑟尔这一年来已经有了不少变化。你的猜想没错，他体内确实仍有人性的一面——举个例子，近乡情怯。\n瑟尔没看你：“小镇中心的那棵树。……我离开的时候它还是活的。”\n你看过去：“它旁边那眼喷泉，我走的时候还是干的。世界在复苏，瑟尔，大多数事情都可以重来。”\n瑟尔没有说话，但他抬起脚步，走进了小镇。\n\n后来瑟尔就在你家住了下来。黑暗力量被封印之后，他就彻底成为了一个人。\n或者说一只猫——至少挠人的时候很像。\nEND",
         "end-12": "你蹲在瑟尔身边，扶着翡翠剑，直到它焚烧掉最后一丝魔王的黑暗力量。\n瑟尔早该死了。你不准备告诉任何人魔王的样子，就让世界只记住讨伐魔王牺牲的勇者瑟尔吧。\n\n你从地上拔出翡翠剑，踏上了回去的路。\n没有了魔王的统治，剩下的魔只能算是一团散沙，你回去的路上完全没有受到像样的袭击。\n终于走出战区的那一天，你抬头看向天空，晴空万里。\n你忍不住笑了出来。魔王已死，过不了多久，整片大陆都会看到天空了。\nEND",
@@ -6972,15 +6980,7 @@
         "end-17": "魔王很难缠，但平心而论，并没有布鲁斯所设计的训练难缠。魔王在你剑下化为灰烬，你有些脱力，瘫坐在了地上。\n一阵狂风刮过，你在湿滑的地面上被吹了几米远，靠把剑插进地面才停下来。来路不明的狂风吹透了你满是破洞的衣服，也吹散了哥谭上空积年的阴霾。阴云散开，暮色便从天上洒落，像一层轻纱般，飘落在哥谭灰色的城墙上。\n一个浅蓝色的影子腾空而起，在空中盘旋了几周，展开双翅俯冲下来，轻盈地落在了你身前。你忍不住笑道：“刚破壳就载人？”\n卡尔身形不大，蜷缩起来和龙蛋大小差不多，离传说中的巨龙体型，大概还有几百年的时间。布鲁斯从卡尔背上跳下来，哼了一声：“他强壮得很，再加一个你也能飞。”\n你低低笑了几声，摇摇晃晃地站起来，收剑入鞘：“我走回去就行了。”\n布鲁斯拍拍卡尔的脖子：“谢谢。”卡尔清吟一声，扇动翅膀，一飞冲天，转眼就不见了踪影。凉风呼呼地灌进你的衣服里，你挪了两步，站到布鲁斯的下风处：“这儿一直都这么冷吗？”\n布鲁斯轻轻哼了一声，脱下斗篷，披到了你身上。\n\n哥谭的百姓举行了三天三夜的狂欢。因为疲惫，你非常遗憾地错过了第一天的活动。因为布鲁斯，你错过了后两天的活动——毫不遗憾，甚至兴高采烈。\n卡尔找到了龙谷，传音过来说他需要几十年的时间，然后就可以把龙骨雪山复原为平地。\n你趴在布鲁斯的后背上：“哥谭没事了，你以后准备做些什么？”\n“魔王虽然死了，但北方的依然有黑暗势力盘踞，不能放任不管。”\n“你是说，黑暗骑士要出征了？”\n布鲁斯点点头，深吸一口气，轻声问道：“一起吗？”\n“当然。”你咧开一个巨大的笑容。\n\n第二天是一个晴朗的日子，万里无云，和你从小镇出发的那天一样。\n你们从哥谭出发，向黑暗笼罩的大地前进。\nEND",
         "end-18": "魔王非常强大，但最终还是略逊你一筹。\n你把魔王斩于剑下，远方的天空忽然撕裂，一道阳光洒落在魔王的宫殿上，宏伟的殿宇轰然倒塌，化为齑粉。\n——一如黑暗对生灵的威胁。\n翡翠剑在你手中飞起，在半空中蜷缩成一个翠绿球体，发出晶莹的光。光明骑士团在这里树起一根长杆，把翡翠灯挂在顶上。这盏灯打破了空间的制约，无论从大陆哪里看去，人们都能看到一点不灭的绿光。\n它象征着生命、光明，以及最重要的——战胜黑暗的勇气。\nEND",
         "end-19": "吟游诗人皱起脸看着你，很是生气的样子。然后他径自收起乐器，离开了酒馆。\n你不置可否，耸耸肩，去了神殿。\n你刚进天使城时，天使雕像的面容是模糊的，现在却有了纤毫毕现的五官——是那个吟游诗人的长相。你吃了一惊，还来不及思索前因后果，就看到天使雕像发出了耀眼的白光。\n你什么也不知道了。\nEND",
-        "end-2": "你冲上去，决定杀了他，可还不等你手里的剑刺中他，你就感受到一阵痛彻心扉的疼痛。\n你低下头，胸口不知什么时候破开了一个大洞，你的心脏被一团黑雾包裹着飞了出去。\n你再也看不到别的了。\nEND",
         "end-20": "你带着凯尔出发讨伐魔王。凯尔实力非常不济，像个宅男。你在路上对他进行训练，成效却不太好——赶路本身就已经消耗了他绝大部分体力，他根本没有多余的力气进行训练。\n你们翻过龙骨雪山，山下是一片黑暗。\n“要不你先回去？”你看向凯尔——一路走下来，凯尔的体力有了明显上升，至少自己回天使城不成问题，黑暗领域太过危险，实在不适合凯尔这样青涩稚嫩的人。\n“不。”凯尔坚定地摇头，“我相信你，哈尔。”\n你叹了口气：“……好吧。”\n你带着凯尔踏上征途。黑暗领域险象环生，凯尔很快就无法保护自己。你竭尽全力保护他，但遗憾的是，你一个人的力量不足以保护你们两个，你们一起死在了黑暗领域。\n往好的方向想……至少那个故事没有成真，对吧？\nEND",
-        "end-21": "“你这样，来阻止我？”你目瞪口呆地看着他，“你……知道，自己在我手下走不过一招吧。”\n“我知道啊……”凯尔说，“但我们认为，这不是一个靠武力值能解决的问题。——强大的实力有助于自保没错，但根本没有人比你更强，所以找再能打的人来有什么用呢？”\n“那你是准备怎么阻止我？靠……”你上下扫视了凯尔几趟，“卖萌吗？”\n凯尔正色道：“我希望我可以让事情不发展到必须要阻止你那一步。——哈尔，我相信你是一个勇敢、正直、伟大的英雄。那场悲剧只不过是机缘巧合，我不需要阻止魔王侵略大陆，我只需要阻止黑暗力量侵蚀你。”\n凯尔抿抿嘴唇：“再退一步说，即便我不是勇士，我也不想看到世界毁灭。只要能拯救未来，我被你砍死也不算什么。”\n你好像明白了为什么来到现在的会是凯尔——这绝不是恰好路过神殿门口什么的巧合。\n天使雕像似乎笑了一声，天使体内分出一柄光剑，飞到了凯尔眼前，凯尔握住光剑，全身沐浴在温暖的白光里。\n你看着连握剑姿势都不对的凯尔，决定给他一个机会。\n你尝试着训练了凯尔几天，凯尔的学习能力和体质出奇得好，半个月就完成了三个月的计划，他还是有些成为勇者的希望的。\n\n在一个黎明，你和凯尔一起出发，踏上了讨伐魔王的道路。\n凯尔希望世界不会毁灭，你相信他的愿望能够成真。\nEND",
-        "end-3": "你咬紧牙关，反复拷问自己，最终还是点不下去这个头。\n“不愿意。”\n胸口一阵剧痛，你最后看到的，就是瑟尔不屑的眼神。\nEND",
-        "end-4": "瑟尔的声音突然出现在你耳边：“你以为呢？”\n你转过身，他眼中放着金光，眼白转黑，皮肤变成了紫红色，一双漆黑的蝠翼从他身后展开。\n他鄙夷的眼神扫过你全身，露出尖锐的獠牙：“作为科瓦德魔王，刚刚是我和人类体验最差的一次。”\n你来不及说什么，就眼前一黑，不省人事。\nEND",
-        "end-5": "你的手指勉强够到了对侧的岩石，却没能抓住，指尖的汗水很滑，你坠入了万丈深渊。\n再醒来时，你一丝不挂地躺在一张柔软的床上，四肢被铁链锁住。你环顾四周，衣服、行礼、翡翠剑都不见踪影。你从没见过这样的装饰风格，空气里更是充满了一种令人不快的气息。\n门忽然开了，走进来的，是瑟尔。\n他眼睛放着金光，皮肤渐渐变红，一条尾巴从腰后钻出来，缠上你的脚踝。\n他露出一个笑容：“哈尔，欢迎来到龙骨雪山的另一边。还记得我吗？我是瑟尔。但我想，你大概更熟悉我的另一个名字——科瓦德魔王。”\n巨大的冲击令你怔在原地，你的大脑一片空白，只能听着他继续说道：“我不会杀你，至少暂时如此。因为我打算让你成为我的食物，每天上我。”\n“什么？”你难以置信地问道。\n“在成为魔王之前，我先成了魔。魔有很多种，我是一只魅魔。你知道魅魔是什么吗？”\n你摇摇头。\n瑟尔不紧不慢地解释道：“魔统一的进食方式是吃掉生物，一般都最喜欢心脏。魅魔还有另一种——和生物性交，但和直接进食心脏不同，魅魔用上床的方法进食，并不一定会一次要了食物的命，那样吃了上顿没下顿，一点也不实惠。”\n然后他伸手，抚摸过你的腿，说道：“我打算把你豢养起来。等腻了再一口气榨干，或者吃掉你的心。”\n“你好像没考虑过我不愿意。”\n瑟尔惊讶地睁大眼睛：“你怎么会不愿意呢？我可是魔王，我要你死你就死……”你忽然喘不上气来，你长大嘴巴，但就是无法呼吸。\n“要你活你就活……”你的呼吸一下子恢复，甚至连体力都充沛了一些。\n“要你硬你就硬……”突如其来的情欲立刻裹挟了你。\n“所以，告诉我，哈尔，”恶魔露出他的笑容，“你怎么会不愿意呢？”\n一对漆黑的蝠翼在他身后展开，你再也没有见到光。\nEND",
-        "end-6": "在穿过战区的路上，你与一个又一个敌人短兵相接。\n不幸的是，大约是你的运气不太好，在远远见到黑暗领域的时候，你已经用尽了所有体力。\n一只鹰魔俯冲下来，利爪花开了你的胸膛。\nEND",
-        "end-7": "虽然险象环生，但你成功穿过了战区，还越过边境潜入了黑暗领域。\n但在黑暗领域还没走多远，你就被伏击了，魔从四面八方袭来，你抵挡不住，落到了他们手中。\n你听不懂魔在说什么，只知道自己最后被五花大绑送进了一座恢弘的宫殿里。\n一只指甲漆黑的手伸到你眼前，你心口一凉，低头看去，心脏已经不见踪影。\nEND",
-        "end-8": "“你想怎样？”\n“如果我留你一命，你还会想着要杀我吗？”\n你不假思索：“当然了。”\n瑟尔点点头。\n\n你以为你死定了，可你却在一张床上醒来，四肢被镣铐锁住，一丝不挂。\n瑟尔站在床边：“我本来不想冒这个险的，但我是从魅魔成为魔王的。魅魔的那一部分实在舍不得杀了你，所以我只能把你关起来。”\n“操你吗？”\n“对。”\n你很认真地说道：“我不会放弃杀你的。”\n他也很认真：“这也是我舍不得杀你的原因之一。”\nEND",
-        "end-9": "“你想怎样？”\n“如果我留你一命，你还会想着要杀我吗？”\n你不假思索：“当然了。”\n瑟尔点点头。\nEND"
+        "end-21": "“你这样，来阻止我？”你目瞪口呆地看着他，“你……知道，自己在我手下走不过一招吧。”\n“我知道啊……”凯尔说，“但我们认为，这不是一个靠武力值能解决的问题。——强大的实力有助于自保没错，但根本没有人比你更强，所以找再能打的人来有什么用呢？”\n“那你是准备怎么阻止我？靠……”你上下扫视了凯尔几趟，“卖萌吗？”\n凯尔正色道：“我希望我可以让事情不发展到必须要阻止你那一步。——哈尔，我相信你是一个勇敢、正直、伟大的英雄。那场悲剧只不过是机缘巧合，我不需要阻止魔王侵略大陆，我只需要阻止黑暗力量侵蚀你。”\n凯尔抿抿嘴唇：“再退一步说，即便我不是勇士，我也不想看到世界毁灭。只要能拯救未来，我被你砍死也不算什么。”\n你好像明白了为什么来到现在的会是凯尔——这绝不是恰好路过神殿门口什么的巧合。\n天使雕像似乎笑了一声，天使体内分出一柄光剑，飞到了凯尔眼前，凯尔握住光剑，全身沐浴在温暖的白光里。\n你看着连握剑姿势都不对的凯尔，决定给他一个机会。\n你尝试着训练了凯尔几天，凯尔的学习能力和体质出奇得好，半个月就完成了三个月的计划，他还是有些成为勇者的希望的。\n\n在一个黎明，你和凯尔一起出发，踏上了讨伐魔王的道路。\n凯尔希望世界不会毁灭，你相信他的愿望能够成真。\nEND"
     }
 }
