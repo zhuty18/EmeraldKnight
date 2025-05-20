@@ -190,8 +190,7 @@ function sceneOptions (configData, scene, paras) {
     return configData.scene_map[scene].options
 }
 
-function sceneChoices (configData, scene, paras) {
-    let options = sceneOptions(configData, scene, paras)
+function choiceFromOption (configData, scene, paras, options) {
     let res = []
     for (var i = 0; i < options.length; i++) {
         if (choiceShow(configData, scene, paras, options[i])) {
@@ -204,4 +203,12 @@ function sceneChoices (configData, scene, paras) {
     return res
 }
 
-export { sceneText, chapterName, sceneChoices, changePara, getPara }
+export {
+    sceneText,
+    chapterName,
+    sceneOptions,
+    changePara,
+    getPara,
+    checkIs,
+    choiceFromOption,
+}
