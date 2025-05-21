@@ -7,7 +7,7 @@ import {
     getPara,
     choiceFromOption,
 } from "./story"
-import { markEnd, checkEnd } from "./save"
+import { markEnd, checkEnd, saveAt, loadAt } from "./save"
 import {
     useAttack,
     useCheat,
@@ -26,10 +26,7 @@ await fetch("data/config.json")
     })
 
 let paras = {}
-
-// let scene = configData.const_map.START_OVER
 let scene = "6-6"
-
 let battle = null
 
 function initPara (configData) {
@@ -49,7 +46,6 @@ function toScene (target) {
 function chooseChoice (choice_id) {
     if (scene === configData.const_map.START_OVER) {
         toScene(configData.const_map.START_SCENE)
-        initPara()
     } else if (choice_id === configData.const_map.END_CHOICE.id) {
         toScene(configData.const_map.START_OVER)
     } else {
@@ -104,6 +100,29 @@ function battleAct (actId) {
     refreshStory()
 }
 
+function saveGame (index) {
+    saveAt(
+        {
+            scene: scene,
+            paras: paras,
+        },
+        index
+    )
+    console.log("save game at " + index)
+}
+
+function loadGame (index) {
+    let saveData = loadAt(index)
+    if (saveData && saveData.scene && saveData.paras) {
+        scene = saveData.scene
+        paras = saveData.paras
+    } else {
+        scene = configData.const_map.START_OVER
+        initPara(configData)
+    }
+    refreshStory()
+}
+
 function clearNode (parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild)
@@ -111,6 +130,12 @@ function clearNode (parent) {
 }
 
 function refreshStory () {
+    // if (
+    //     scene !== configData.const_map.FINAL_BATTLE
+    // ) {
+    //     saveGame(0)
+    // }
+
     document.getElementById("scene_title").textContent = chapterName(
         configData,
         scene
@@ -199,8 +224,21 @@ function refreshStory () {
     }
 }
 
-refreshStory()
-document.getElementById("start_alarm").showModal()
+loadGame(0)
+// document.getElementById("start_alarm").showModal()
+
+document.getElementById("restart_btn").onclick = startOver
+function startOver () {
+    loadGame(-1)
+}
+
+document.getElementById("save_btn").onclick = function () {
+    showSave(true)
+}
+document.getElementById("load_btn").onclick = function () {
+    showSave(false)
+}
+function showSave (saving) { }
 
 function debugInfo () {
     let res = "<div>"
