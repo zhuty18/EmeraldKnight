@@ -200,6 +200,7 @@ function refreshStory () {
 }
 
 refreshStory()
+document.getElementById("start_alarm").showModal()
 
 function debugInfo () {
     let res = "<div>"
