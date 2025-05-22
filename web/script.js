@@ -94,20 +94,25 @@ function refreshStory () {
             chooseChoice(this.id)
         }
         choice_list.appendChild(btn)
+        let blank = document.createElement("div")
+        blank.style.height = "5em"
+        choice_list.appendChild(blank)
         for (var i in configData.end_map) {
             let endBtn = document.createElement("button")
             endBtn.classList = "btn w-full btn-soft"
             endBtn.id = i
             if (checkEnd(i)) {
                 endBtn.textContent =
-                    configData.chap_map.end + configData.end_map[i]
-                endBtn.className = " btn-success"
+                    configData.chap_map.end +
+                    i.replace("end-", "") +
+                    configData.end_map[i]
+                endBtn.classList += " btn-success"
                 endBtn.onclick = function () {
                     toScene(this.id)
                 }
             } else {
                 endBtn.textContent =
-                    configData.chap_map.end + "未解锁"
+                    configData.chap_map.end + i.replace("end-", "") + "未解锁"
                 endBtn.classList += " btn-disabled"
             }
             choice_list.appendChild(endBtn)
