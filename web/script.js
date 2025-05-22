@@ -180,8 +180,10 @@ function refreshStory () {
                     toScene(this.id)
                 }
             } else {
-                endBtn.textContent =
-                    configData.chap_map.end + i.replace("end-", "") + "未解锁"
+                endBtn.innerHTML =
+                    configData.chap_map.end +
+                    i.replace("end-", "") +
+                    "&nbsp;&nbsp;&nbsp;未解锁"
                 endBtn.classList += " btn-disabled"
             }
             choice_list.appendChild(endBtn)
