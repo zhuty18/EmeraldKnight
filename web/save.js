@@ -20,4 +20,16 @@ function checkEnd (end_id) {
     return getCookie(end_id) === "true"
 }
 
-export { markEnd, checkEnd }
+function saveAt (saveData, index) {
+    setCookie("save" + index, JSON.stringify(saveData))
+}
+
+function loadAt (index) {
+    let saveData = getCookie("save" + index)
+    if (saveData === "") {
+        return null
+    }
+    return JSON.parse(saveData)
+}
+
+export { markEnd, checkEnd, saveAt, loadAt }

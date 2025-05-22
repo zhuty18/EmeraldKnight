@@ -6,21 +6,21 @@
         "max_life": 500,
         "actions": [
             {
-                "id": "SINESTRO_PLAIN_ATTACK",
+                "id": "SINESTRO_01_PLAIN_ATTACK",
                 "type": "ATTACK",
                 "strength": 0.1,
                 "chance": 2,
                 "text": "魔王向你发动进攻，"
             },
             {
-                "id": "SINESTRO_MAGIC_ATTACK",
+                "id": "SINESTRO_02_MAGIC_ATTACK",
                 "type": "ATTACK",
                 "strength": 0.25,
                 "chance": 1,
                 "text": "魔王对你使用了魔法，"
             },
             {
-                "id": "SINESTRO_HEAL",
+                "id": "SINESTRO_03_HEAL",
                 "type": "HEAL",
                 "min": 120,
                 "max": 180,
@@ -37,14 +37,14 @@
         "type": "HERO",
         "actions": [
             {
-                "id": "HAL_PLAIN_ATTACK",
+                "id": "HAL_01_PLAIN_ATTACK",
                 "name": "普通攻击",
                 "type": "ATTACK",
                 "strength": 0.15,
                 "text": "你向魔王发动进攻，"
             },
             {
-                "id": "HAL_FLYING_ATTACK",
+                "id": "HAL_02_FLYING_ATTACK",
                 "name": "突袭",
                 "type": "ATTACK",
                 "strength": 0.3,
@@ -61,7 +61,7 @@
                 }
             },
             {
-                "id": "HAL_SPECIAL_ATTACK",
+                "id": "HAL_03_SPECIAL_ATTACK",
                 "name": "特殊攻击",
                 "type": "ATTACK",
                 "strength": 0.5,
@@ -73,7 +73,7 @@
                 }
             },
             {
-                "id": "HAL_HEAL",
+                "id": "HAL_04_HEAL",
                 "name": "治疗",
                 "type": "HEAL",
                 "min": 30,
@@ -82,7 +82,7 @@
                 "text": "你吃下一颗雷电小球，"
             },
             {
-                "id": "HAL_CHEAT",
+                "id": "HAL_05`_CHEAT",
                 "name": "开挂",
                 "type": "CHEAT",
                 "text": "你开挂绝杀！"
