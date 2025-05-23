@@ -123,6 +123,66 @@ function loadGame (index) {
     refreshStory()
 }
 
+function showSave (configData, saving) {
+    if (scene === configData.const_map.START_OVER && saving) {
+        document.getElementById("error_title").textContent = "存档失败！"
+        document.getElementById("error_text").textContent = "游戏未开始！"
+        document.getElementById("error_dialog").showModal()
+        setTimeout(() => {
+            document.getElementById("error_close").click()
+        }, 3000)
+        return
+    } else if (scene === configData.const_map.FINAL_BATTLE && saving) {
+        document.getElementById("error_title").textContent = "存档失败！"
+        document.getElementById("error_text").textContent = "战斗中无法存档！"
+        document.getElementById("error_dialog").showModal()
+        setTimeout(() => {
+            document.getElementById("error_close").click()
+        }, 3000)
+        return
+    }
+    document.getElementById("save_title").textContent = saving ? "存档" : "读档"
+    let save_box = document.getElementById("save_box")
+    clearNode(save_box)
+    for (var i = 1; i <= 10; i++) {
+        if (loadAt(i) !== null) {
+            let saveBtn = document.createElement("button")
+            saveBtn.classList = "btn w-full btn-outline btn-secondary"
+            let date = new Date(loadAt(i).time)
+            saveBtn.innerHTML =
+                chapterName(configData, loadAt(i).scene) +
+                "&nbsp;&nbsp;" +
+                (date.getMonth() + 1).toString().padStart(2, "0") +
+                "." +
+                date.getDate().toString().padStart(2, "0") +
+                " " +
+                date.getHours().toString().padStart(2, "0") +
+                ":" +
+                date.getMinutes().toString().padStart(2, "0")
+            saveBtn.save_index = i
+            saveBtn.onclick = function () {
+                if (saving) {
+                    saveGame(this.save_index)
+                } else {
+                    loadGame(this.save_index)
+                }
+            }
+            save_box.appendChild(saveBtn)
+        } else if (saving) {
+            let saveBtn = document.createElement("button")
+            saveBtn.classList = "btn w-full btn-outline btn-info"
+            saveBtn.textContent = configData.const_map.EMPTY_SAVE
+            saveBtn.save_index = i
+            saveBtn.onclick = function () {
+                saveGame(this.save_index)
+            }
+            save_box.appendChild(saveBtn)
+            break
+        }
+    }
+    document.getElementById("save_dialog").showModal()
+}
+
 function clearNode (parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild)
@@ -130,11 +190,9 @@ function clearNode (parent) {
 }
 
 function refreshStory () {
-    // if (
-    //     scene !== configData.const_map.FINAL_BATTLE
-    // ) {
-    //     saveGame(0)
-    // }
+    if (scene !== configData.const_map.FINAL_BATTLE) {
+        saveGame(0)
+    }
 
     document.getElementById("scene_title").textContent = chapterName(
         configData,
@@ -202,7 +260,6 @@ function refreshStory () {
         if (battle === null) {
             battle = initBattle(configData, paras)
         }
-
         story.insertAdjacentHTML("afterbegin", battleText(configData, battle))
         let choice = battleChoices(configData, paras, battle.hero, battle.enemy)
         for (var i = 0; i < choice.length; i++) {
@@ -233,7 +290,6 @@ function refreshStory () {
 }
 
 loadGame(0)
-// document.getElementById("start_alarm").showModal()
 
 document.getElementById("restart_btn").onclick = startOver
 function startOver () {
@@ -241,12 +297,15 @@ function startOver () {
 }
 
 document.getElementById("save_btn").onclick = function () {
-    showSave(true)
+    showSave(configData, true)
 }
 document.getElementById("load_btn").onclick = function () {
-    showSave(false)
+    showSave(configData, false)
 }
-function showSave (saving) { }
+
+if (scene === configData.const_map.START_OVER) {
+    document.getElementById("start_alarm").showModal()
+}
 
 function debugInfo () {
     let res = "<div>"

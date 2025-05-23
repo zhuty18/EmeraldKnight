@@ -21,6 +21,7 @@ function checkEnd (end_id) {
 }
 
 function saveAt (saveData, index) {
+    saveData.time = new Date().getTime()
     setCookie("save" + index, JSON.stringify(saveData))
 }
 
