@@ -4,11 +4,7 @@ on:
     push:
         branches:
             - master
-            - web
             - develop
-    pull_request:
-        branches:
-            - master
 
 permissions:
     contents: read
