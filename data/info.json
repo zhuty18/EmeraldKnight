@@ -1,9 +1,9 @@
 {
     "name_zh": "翡翠骑士",
     "name_en": "Emerald Knight",
-    "version": "2.1.6",
+    "version": "2.2",
     "version_number": 7,
-    "update": "2025.05.03",
+    "update": "2025.05.23",
     "chapters": 7,
     "icon": "data/icon.ico",
     "poem": [
