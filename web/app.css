@@ -1,3 +1,15 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@plugin "daisyui" {
+    themes: emerald --default, forest --prefersdark;
+}
+
+.btn {
+    margin: 0.3em;
+    border-radius: 2rem;
+}
+
+p {
+    text-indent: 2em;
+    line-height: 2em;
+}

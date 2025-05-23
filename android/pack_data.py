@@ -55,10 +55,10 @@ if __name__ == "__main__":
     name = re.findall(
         r'<string name="app_name">(.*)</string>',
         string_data,
-    )
+    )[0]
     string_data = string_data.replace(
-        f'<string name="app_name">{name[0]}</string>',
-        f'<string name="app_name">{data["name"]}</string>',
+        f'<string name="app_name">{name}</string>',
+        f'<string name="app_name">{data["name_zh"]}</string>',
     )
 
     version = re.findall(r'<string name="version">v(.*)</string>', string_data)[

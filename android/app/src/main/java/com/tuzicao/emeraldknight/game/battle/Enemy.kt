@@ -1,7 +1,6 @@
 package com.tuzicao.emeraldknight.game.battle
 
 import org.json.JSONObject
-import java.util.HashMap
 import java.util.Random
 
 abstract class Enemy(data: JSONObject) : Character(data) {
@@ -11,7 +10,7 @@ abstract class Enemy(data: JSONObject) : Character(data) {
                 return life < it
             }
         }
-        action.condition?.let {
+        action.trigger?.let {
             return life < it
         }
         return false

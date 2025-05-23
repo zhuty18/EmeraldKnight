@@ -1,49 +1,318 @@
-// let storyEl = document.getElementById("story");
-// let inputEl = document.getElementById("playerInput");
+import "./app.css"
+import {
+    chapterName,
+    sceneText,
+    sceneOptions,
+    changePara,
+    getPara,
+    choiceFromOption,
+} from "./story"
+import { markEnd, checkEnd, saveAt, loadAt } from "./save"
+import {
+    useAttack,
+    useCheat,
+    useHeal,
+    initBattle,
+    battleText,
+    battleChoices,
+} from "./battle"
 
-// function handleInput () {
-//     const choice = inputEl.value.trim().toLowerCase();
-//     inputEl.value = "";
+let configData = {}
 
-//     if (choice === "进入") {
-//         storyEl.textContent = "你迈入森林，四周变得昏暗。远处传来狼嚎...";
-//     } else if (choice === "离开") {
-//         storyEl.textContent = "你转身离开，但心中有些许遗憾。也许，这是个错误的决定。";
-//     } else {
-//         storyEl.textContent = `你说了“${choice}”，但风似乎没有回应。试试别的？`;
-//     }
-// }
-
-import "./app.css";
-
-let paras = {};
-let scene = "";
-
-fetch("data/paras.json")
+await fetch("data/config.json")
     .then((res) => res.json())
     .then((data) => {
-        for (let i = 0; i < data.para_list.length; i++) {
-            paras[data.para_list[i].name] = data.para_list[i].default_value;
+        configData = data
+    })
+
+let paras = {}
+let scene = "6-6"
+let battle = null
+
+function initPara (configData) {
+    for (var key in configData.para_map) {
+        paras[key] = configData.para_map[key].default_value
+    }
+}
+
+function toScene (target) {
+    scene = target
+    if (target.includes("end-")) {
+        markEnd(target)
+    }
+    refreshStory()
+}
+
+function chooseChoice (choice_id) {
+    if (scene === configData.const_map.START_OVER) {
+        toScene(configData.const_map.START_SCENE)
+    } else if (choice_id === configData.const_map.END_CHOICE.id) {
+        toScene(configData.const_map.START_OVER)
+    } else {
+        if (configData.choice_map[choice_id].choose) {
+            configData.choice_map[choice_id].choose.forEach((action) =>
+                changePara(configData, scene, paras, action)
+            )
         }
-    });
-
-function chapter_id(scene) {
-    return scene.split("-")[0];
+        toScene(configData.choice_map[choice_id].target)
+    }
+    document.documentElement.scrollTop = 0
 }
 
-function chapter_name(scene) {
-    fetch("data/names.json")
-        .then((res) => res.json())
-        .then((data) => {
-            if (data.chapter_names.includes(chapter_id(scene))) {
-                return data.chapter_names[chapter_id(scene)];
+function currentChoices (configData, scene, paras) {
+    if (scene.includes("end")) {
+        return [configData.const_map.END_CHOICE]
+    } else {
+        return choiceFromOption(
+            configData,
+            scene,
+            paras,
+            sceneOptions(configData, scene, paras)
+        )
+    }
+}
+
+function battleAct (actId) {
+    battle.round += 1
+    let act = null
+    for (var i = 0; i < battle.hero.actions.length; i++) {
+        if (battle.hero.actions[i].id === actId) {
+            act = battle.hero.actions[i]
+            break
+        }
+    }
+    if (act === null) {
+        return chooseChoice(actId)
+    }
+    let text = ""
+    switch (act.type) {
+        case "ATTACK":
+            text = useAttack(configData, battle.hero, battle.enemy, act)
+            break
+        case "HEAL":
+            text = useHeal(configData, battle.hero, act)
+            break
+        case "CHEAT":
+            text = useCheat(battle.enemy, act)
+            break
+    }
+    battle.hero_text = text
+    refreshStory()
+}
+
+function saveGame (index) {
+    saveAt(
+        {
+            scene: scene,
+            paras: paras,
+        },
+        index
+    )
+    console.log("save game at " + index)
+}
+
+function loadGame (index) {
+    let saveData = loadAt(index)
+    if (saveData && saveData.scene && saveData.paras) {
+        scene = saveData.scene
+        paras = saveData.paras
+    } else {
+        scene = configData.const_map.START_OVER
+        initPara(configData)
+    }
+    refreshStory()
+}
+
+function showSave (configData, saving) {
+    if (scene === configData.const_map.START_OVER && saving) {
+        document.getElementById("error_title").textContent = "存档失败！"
+        document.getElementById("error_text").textContent = "游戏未开始！"
+        document.getElementById("error_dialog").showModal()
+        setTimeout(() => {
+            document.getElementById("error_close").click()
+        }, 3000)
+        return
+    } else if (scene === configData.const_map.FINAL_BATTLE && saving) {
+        document.getElementById("error_title").textContent = "存档失败！"
+        document.getElementById("error_text").textContent = "战斗中无法存档！"
+        document.getElementById("error_dialog").showModal()
+        setTimeout(() => {
+            document.getElementById("error_close").click()
+        }, 3000)
+        return
+    }
+    document.getElementById("save_title").textContent = saving ? "存档" : "读档"
+    let save_box = document.getElementById("save_box")
+    clearNode(save_box)
+    for (var i = 1; i <= 10; i++) {
+        if (loadAt(i) !== null) {
+            let saveBtn = document.createElement("button")
+            saveBtn.classList = "btn w-full btn-outline btn-secondary"
+            let date = new Date(loadAt(i).time)
+            saveBtn.innerHTML =
+                chapterName(configData, loadAt(i).scene) +
+                "&nbsp;&nbsp;" +
+                (date.getMonth() + 1).toString().padStart(2, "0") +
+                "." +
+                date.getDate().toString().padStart(2, "0") +
+                " " +
+                date.getHours().toString().padStart(2, "0") +
+                ":" +
+                date.getMinutes().toString().padStart(2, "0")
+            saveBtn.save_index = i
+            saveBtn.onclick = function () {
+                if (saving) {
+                    saveGame(this.save_index)
+                } else {
+                    loadGame(this.save_index)
+                }
             }
-        });
-    return scene + "章名";
+            save_box.appendChild(saveBtn)
+        } else if (saving) {
+            let saveBtn = document.createElement("button")
+            saveBtn.classList = "btn w-full btn-outline btn-info"
+            saveBtn.textContent = configData.const_map.EMPTY_SAVE
+            saveBtn.save_index = i
+            saveBtn.onclick = function () {
+                saveGame(this.save_index)
+            }
+            save_box.appendChild(saveBtn)
+            break
+        }
+    }
+    document.getElementById("save_dialog").showModal()
 }
 
-function refresh_story() {
-    document.getElementById("scene_title").textContent = chapter_name(scene);
+function clearNode (parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild)
+    }
 }
 
-refresh_story();
+function refreshStory () {
+    if (scene !== configData.const_map.FINAL_BATTLE) {
+        saveGame(0)
+    }
+
+    document.getElementById("scene_title").textContent = chapterName(
+        configData,
+        scene
+    )
+    let story = document.getElementById("story")
+    clearNode(story)
+    let choice_list = document.getElementById("choice_list")
+    clearNode(choice_list)
+    if (scene === configData.const_map.START_OVER) {
+        let startText = "<div style='text-align:center'>"
+        for (var i = 0; i < configData.info.poem.length; i++) {
+            startText += "<p style='text-indent:0em'>"
+            startText += configData.info.poem[i].join(
+                "&nbsp;&nbsp;&nbsp;&nbsp;"
+            )
+            startText += "</p>"
+        }
+        startText += "</div>"
+        story.insertAdjacentHTML("afterbegin", startText)
+        let btn = document.createElement("button")
+        btn.textContent = "开始游戏"
+        btn.classList = ["btn btn-primary w-full shadow-lg"]
+        btn.id = "start_game"
+        btn.onclick = function () {
+            chooseChoice(this.id)
+        }
+        choice_list.appendChild(btn)
+        let blank = document.createElement("div")
+        blank.style.height = "5em"
+        choice_list.appendChild(blank)
+        for (var i in configData.end_map) {
+            let endBtn = document.createElement("button")
+            endBtn.classList = "btn w-full btn-soft"
+            endBtn.id = i
+            if (checkEnd(i)) {
+                endBtn.textContent =
+                    configData.chap_map.end +
+                    i.replace("end-", "") +
+                    configData.end_map[i]
+                endBtn.classList += " btn-success"
+                endBtn.onclick = function () {
+                    toScene(this.id)
+                }
+            } else {
+                endBtn.innerHTML =
+                    configData.chap_map.end +
+                    i.replace("end-", "") +
+                    "&nbsp;&nbsp;&nbsp;未解锁"
+                endBtn.classList += " btn-disabled"
+            }
+            choice_list.appendChild(endBtn)
+        }
+    } else if (scene.includes("end")) {
+        story.insertAdjacentHTML("afterbegin", sceneText(configData, scene))
+        let btn = document.createElement("button")
+        btn.classList = ["btn btn-primary w-full shadow-lg"]
+        btn.id = configData.const_map.END_CHOICE.id
+        btn.textContent = configData.const_map.END_CHOICE.text
+        btn.onclick = function () {
+            chooseChoice(this.id)
+        }
+        choice_list.appendChild(btn)
+    } else if (scene === configData.const_map.FINAL_BATTLE) {
+        if (battle === null) {
+            battle = initBattle(configData, paras)
+        }
+        story.insertAdjacentHTML("afterbegin", battleText(configData, battle))
+        let choice = battleChoices(configData, paras, battle.hero, battle.enemy)
+        for (var i = 0; i < choice.length; i++) {
+            let btn = document.createElement("button")
+            btn.textContent = choice[i].text
+            btn.classList = "btn btn-primary w-full shadow-lg"
+            btn.id = choice[i].id
+            btn.onclick = function () {
+                battleAct(this.id)
+            }
+            choice_list.appendChild(btn)
+        }
+    } else if (scene in configData.scene_map) {
+        story.insertAdjacentHTML("afterbegin", sceneText(configData, scene))
+        // story.insertAdjacentHTML("afterbegin", debugInfo())
+        let choice = currentChoices(configData, scene, paras)
+        for (var i = 0; i < choice.length; i++) {
+            let btn = document.createElement("button")
+            btn.textContent = choice[i].text
+            btn.classList = "btn btn-primary w-full shadow-lg"
+            btn.id = choice[i].id
+            btn.onclick = function () {
+                chooseChoice(this.id)
+            }
+            choice_list.appendChild(btn)
+        }
+    }
+}
+
+loadGame(0)
+
+document.getElementById("restart_btn").onclick = startOver
+function startOver () {
+    loadGame(-1)
+}
+
+document.getElementById("save_btn").onclick = function () {
+    showSave(configData, true)
+}
+document.getElementById("load_btn").onclick = function () {
+    showSave(configData, false)
+}
+
+if (scene === configData.const_map.START_OVER) {
+    document.getElementById("start_alarm").showModal()
+}
+
+function debugInfo () {
+    let res = "<div>"
+    res += "<p>scene: " + scene + "</p><p>"
+    for (var i in configData.para_map) {
+        res += i + ": " + getPara(configData, paras, i) + "；"
+    }
+    res += "</p></div>"
+    return res
+}

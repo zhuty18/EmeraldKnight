@@ -1,20 +1,56 @@
 {
+    "code_list": {
+        "BARRY_CODE": {
+            "id": "BARRY_CODE",
+            "description": "",
+            "value": 4
+        },
+        "BRUCE_CODE": {
+            "id": "BRUCE_CODE",
+            "description": "",
+            "value": 1
+        },
+        "OLIVER_CODE": {
+            "id": "OLIVER_CODE",
+            "description": "",
+            "value": 3
+        },
+        "SINESTRO_CODE": {
+            "id": "SINESTRO_CODE",
+            "description": "",
+            "value": 2
+        }
+    },
+    "func_list": {
+        "CHOICE": {
+            "id": "CHOICE",
+            "description": ""
+        },
+        "FIGHT": {
+            "id": "FIGHT",
+            "description": ""
+        },
+        "SCENE": {
+            "id": "SCENE",
+            "description": ""
+        }
+    },
     "para_list": {
         "BARRY_LOVE": {
             "id": "BARRY_LOVE",
-            "description": "",
+            "description": "巴里好感度",
             "name": "bal",
             "default_value": 0
         },
         "BRUCE_INTRODUCE": {
             "id": "BRUCE_INTRODUCE",
-            "description": "",
+            "description": "是否认识布鲁斯",
             "name": "bri",
             "default_value": 0
         },
         "BRUCE_LOVE": {
             "id": "BRUCE_LOVE",
-            "description": "",
+            "description": "布鲁斯好感度",
             "name": "brl",
             "default_value": 0
         },
@@ -114,17 +150,5 @@
             "name": "tmp",
             "default_value": 0
         }
-    },
-    "function_para_list": {
-        "SCENE": "SCENE",
-        "END": "END",
-        "FIGHT": "FIGHT",
-        "CHOICE": "CHOICE"
-    },
-    "code_list": {
-        "BRUCE_CODE": 1,
-        "SINESTRO_CODE": 2,
-        "OLIVER_CODE": 3,
-        "BARRY_CODE": 4
     }
 }

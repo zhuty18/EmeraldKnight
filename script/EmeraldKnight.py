@@ -77,11 +77,11 @@ class EmeraldKnightGUI(EmeraldKnight):
         text = qt.QLabel(scene_text)
         text.setFont(self.font)
         text.setWordWrap(True)
-        text.setAlignment(core.Qt.AlignTop)
+        text.setAlignment(core.Qt.AlignmentFlag.AlignTop)
         scroll = qt.QScrollArea()
         scroll.setWidgetResizable(True)
         scroll.setWidget(text)
-        scroll.setFrameShape(qt.QScrollArea.NoFrame)
+        scroll.setFrameShape(qt.QScrollArea.Shape.NoFrame)
         game_layout.addWidget(scroll)
         for index, choice in enumerate(choices):
             btn = qt.QPushButton(f"{chr(index + ord('A'))}: {choice.text()}")
@@ -106,7 +106,7 @@ class EmeraldKnightGUI(EmeraldKnight):
         f = gui.QFont()
         f.setPixelSize(20)
         hello_label.setFont(f)
-        hello_label.setAlignment(core.Qt.AlignCenter)
+        hello_label.setAlignment(core.Qt.AlignmentFlag.AlignCenter)
         hello_layout.addWidget(hello_label)
         self.update(hello_layout)
 

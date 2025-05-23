@@ -2,29 +2,95 @@
 
 """游戏编辑器"""
 
-# from functools import partial
+
+import json
+import os
 
 # import PySide6.QtCore as core
 # import PySide6.QtGui as gui
 import PySide6.QtWidgets as qt
-from para_ctrl import ParameterController
+from editor_setting import FILE_CONFIG, PATH_DATA
+from info_ctrl import InfoController
+from para_ctrl import ParaGui
+from utils import export_data, write_data
 
-# TODO: 基础信息管理器
+from script.game.game_logic import Logic
+
 # TODO: 章节管理器：结构&章、节名称
 # TODO: 故事剧情编辑器
 # TODO: 常量管理器
 # TODO: 对应弹窗、机制
 
 
-class GameEditor:
+class GameEditor(ParaGui, InfoController):
     """游戏编辑器"""
 
     def __init__(self):
-        self._para_ctrl = ParameterController()
         self._app = qt.QApplication()
         self._main_window = qt.QMainWindow()
         self.set_main_window()
-        self._para_window = qt.QMainWindow(self._main_window)
+        super().__init__(
+            self._main_window,
+            self._app.primaryScreen().geometry(),
+        )
+        self.load_data()
+
+    def load_data(self):
+        """加载数据"""
+        para = {}
+        para["para_list"] = self._paras
+        para["func_list"] = self._func_paras
+        para["code_list"] = self._codes
+        with open(
+            os.path.join(Logic.PATH_DATA, Logic.FILE_CHARACTERS),
+            "r",
+            encoding="utf-8",
+        ) as f:
+            para["char_list"] = json.loads(f.read())
+        with open(
+            os.path.join(Logic.PATH_DATA, Logic.FILE_CHOICES),
+            "r",
+            encoding="utf-8",
+        ) as f:
+            para["choice_list"] = json.loads(f.read())
+        with open(
+            os.path.join(Logic.PATH_DATA, Logic.FILE_CONSTS),
+            "r",
+            encoding="utf-8",
+        ) as f:
+            para["const_list"] = json.loads(f.read())
+        with open(
+            os.path.join(Logic.PATH_DATA, "info.json"),
+            "r",
+            encoding="utf-8",
+        ) as f:
+            para["info"] = json.loads(f.read())
+        with open(
+            os.path.join(Logic.PATH_DATA, Logic.FILE_SCENES),
+            "r",
+            encoding="utf-8",
+        ) as f:
+            para["scene_list"] = json.loads(f.read())
+        with open(
+            os.path.join(Logic.PATH_DATA, Logic.FILE_NAMES),
+            "r",
+            encoding="utf-8",
+        ) as f:
+            para["name_list"] = json.loads(f.read())
+        with open(
+            os.path.join(Logic.PATH_DATA, Logic.FILE_STORYS),
+            "r",
+            encoding="utf-8",
+        ) as f:
+            para["story"] = json.loads(f.read())
+        with open(
+            os.path.join(Logic.PATH_DATA, "info.json"),
+            "r",
+            encoding="utf-8",
+        ) as f:
+            para["info_map"] = json.loads(f.read())
+        write_data(para, os.path.join(PATH_DATA, FILE_CONFIG))
+        export_data(para, "data/config.json")
 
     def run(self):
         """开始运行"""
@@ -38,18 +104,20 @@ class GameEditor:
         self._main_window.resize(
             screen.width() * 2 / 3, screen.height() * 2 / 3
         )
-        self.set_menu_bar()
+        self.set_menu()
 
-    def set_menu_bar(self):
+    def set_menu(self):
         """设置菜单栏"""
         menu_bar = self._main_window.menuBar()
         menu_bar.setNativeMenuBar(False)
         load_chapter_btn = menu_bar.addAction("打开章")
         load_chapter_btn.triggered.connect(self.ask_chapter)
-        paras_btn = menu_bar.addAction("打开参数")
-        paras_btn.triggered.connect(self.open_paras)
-        paras_export_btn = menu_bar.addAction("导出参数")
-        paras_export_btn.triggered.connect(self._para_ctrl.export_paras)
+        para_open_btn = menu_bar.addAction("打开参数")
+        para_open_btn.triggered.connect(self.open_para)
+        para_import_btn = menu_bar.addAction("导入参数")
+        para_import_btn.triggered.connect(self.import_paras)
+        para_export_btn = menu_bar.addAction("导出参数")
+        para_export_btn.triggered.connect(self.export_paras)
 
     def ask_chapter(self):
         """选择加载章节"""
@@ -58,38 +126,6 @@ class GameEditor:
     def load_chapter(self, index):
         """加载章节"""
         # TODO: 根据对应章数据加载章节内容并显示
-
-    def open_paras(self):
-        """打开参数表"""
-        self.refresh_para_window()
-        self._para_window.show()
-
-    def refresh_para_window(self):
-        """刷新参数表"""
-        main_layout = qt.QVBoxLayout()
-        para = self._para_ctrl.get_paras()
-        for _, v in para.items():
-            layout_1 = qt.QHBoxLayout()
-            layout_1.addWidget(qt.QLabel(v["id"]))
-            layout_1.addWidget(qt.QLabel(v["description"]))
-            btn_1 = qt.QPushButton("编辑")
-            btn_1.minimumSize()
-            layout_1.addWidget(btn_1)
-            main_layout.addLayout(layout_1)
-            layout_2 = qt.QHBoxLayout()
-            layout_2.addWidget(qt.QLabel(v["name"]))
-            layout_2.addWidget(qt.QLabel(str(v["default_value"])))
-            btn_2 = qt.QPushButton("删除")
-            btn_2.minimumSize()
-            layout_2.addWidget(btn_2)
-            main_layout.addLayout(layout_2)
-        widget = qt.QWidget()
-        widget.setLayout(main_layout)
-        scroll = qt.QScrollArea()
-        scroll.setWidgetResizable(True)
-        scroll.setWidget(widget)
-        scroll.setFrameShape(qt.QScrollArea.NoFrame)
-        self._para_window.setCentralWidget(scroll)
 
 
 if __name__ == "__main__":

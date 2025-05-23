@@ -45,7 +45,8 @@ jobs:
               run: |
                   cd web
                   mkdir data
-                  cp -r ../data ./data
+                  cp ../data/info.json ./data
+                  cp ../data/config.json ./data
                   npm install
                   npm run build
 
