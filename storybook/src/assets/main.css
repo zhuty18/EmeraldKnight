@@ -7,9 +7,12 @@
 @import '@vue-flow/controls/dist/style.css';
 @import '@vue-flow/minimap/dist/style.css';
 
-body {
-  color: #111;
+@import "tailwindcss";
+
+@plugin "daisyui" {
+  themes: garden --default, halloween --prefersdark;
 }
+
 
 #app {
   text-transform: uppercase;
@@ -18,7 +21,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
 
 html,

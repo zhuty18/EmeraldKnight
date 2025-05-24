@@ -1,41 +1,23 @@
 <template>
     <div class="sidebar">
-        <ChooseList
-            :selectedTab="selectedTab"
-            @updateTab="selectedTab = $event"
-        />
-        <div class="setting-display">
-            <component :is="currentComponent" />
-        </div>
+        <SideItem :itemTitle="'参数表'" :boxId="'para_box'" :checked="true"/>
+        <SideItem :itemTitle="'代码表'" :boxId="'code_box'" />
+        <SideItem :itemTitle="'角色表'" :boxId="'char_box'" />
+        <SideItem :itemTitle="'章节表'" :boxId="'chap_box'" />
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
-import ChooseList from "./ChooseList.vue";
-import About from "./About.vue";
-
-const selectedTab = ref("首页");
-const currentComponent = computed(() => {
-    switch (selectedTab.value) {
-        case "关于我们":
-            return About;
-        case "服务":
-            return About;
-        case "联系我们":
-            return About;
-        default:
-            return About;
-    }
-});
+import SideItem from "./SideItem.vue"
 </script>
 
 <style scoped>
 .sidebar {
-    width: 30%;
-    display: flex;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
-.setting-display {
-    flex: 1;
+.sidebar::-webkit-scrollbar {
+    display: none;
 }
 </style>
