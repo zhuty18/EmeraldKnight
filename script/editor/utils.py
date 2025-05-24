@@ -72,7 +72,7 @@ def export_data(x, file_name):
             res["chap_map"] = list_to_dict(v["chapter_names"])
             res["end_map"] = list_to_dict(v["end_names"])
         elif k == "func_list":
-            res["func_map"] = list(list_to_dict(v).keys())
+            res["func_list"] = list(list_to_dict(v).keys())
         else:
             res[k.replace("_list", "_map")] = list_to_dict(v)
     with open(file_name, "w", encoding="utf-8") as f:
