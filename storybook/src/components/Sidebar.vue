@@ -1,13 +1,13 @@
 <template>
-    <div class="sidebar">
-        <SideItem :itemTitle="'参数表'" :boxId="'para_box'" :checked="true"/>
+    <div class="sidebar bg-base-200 w-full h-full">
+        <SideItem :itemTitle="'参数表'" :boxId="'para_box'" :checked="true" />
         <SideItem :itemTitle="'代码表'" :boxId="'code_box'" />
         <SideItem :itemTitle="'角色表'" :boxId="'char_box'" />
         <SideItem :itemTitle="'章节表'" :boxId="'chap_box'" />
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import SideItem from "./SideItem.vue"
 </script>
 

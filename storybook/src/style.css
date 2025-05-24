@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@plugin "daisyui" {
+    themes: garden --default, dark --prefersdark;
+}
+
+@import '@vue-flow/core/dist/style.css';
+@import '@vue-flow/controls/dist/style.css';
+@import '@vue-flow/minimap/dist/style.css';

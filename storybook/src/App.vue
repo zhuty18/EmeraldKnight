@@ -1,76 +1,100 @@
 <template>
-    <div
-        class="app bg-base-100 text-base-content min-h-screen flex flex-vert justify-center"
-    >
-        <div class="flex w-full">
-            <div class="bg-base-200 h-full" style="width: 25vw">
-                <Sidebar style="height: 100vh" />
-            </div>
-            <div class="divider divider-horizontal"></div>
-            <div class="bg-base-100 h-full" style="width: 70vw; height: 100vh">
-                <VueFlow
-                    v-model:nodes="nodes"
-                    v-model:edges="edges"
-                    fit-view-on-init
-                    class="vue-flow-basic-example"
-                    :default-zoom="1.5"
-                    :min-zoom="0.2"
-                    :max-zoom="4"
-                >
-                    <Background pattern-color="#aaa" :gap="8" />
-
-                    <MiniMap />
-
-                    <Controls />
-
-                    <template #node-custom="nodeProps">
-                        <SpecialNode v-bind="nodeProps" />
-                    </template>
-
-                    <template #edge-custom="edgeProps">
-                        <SpecialEdge v-bind="edgeProps" />
-                    </template>
-                </VueFlow>
-            </div>
+    <div class="bg-base-100 text-base-content flex flex-vert">
+        <div style="width: 25vw; height: 100vh">
+            <Sidebar />
+        </div>
+        <div style="width: 75vw; height: 100vh">
+            <VueFlow
+                :nodes="nodes"
+                :edges="edges"
+                @nodes-initialized="layoutGraph()"
+            >
+                <Background patternColor="var(--color-base-300)" />
+                <MiniMap />
+                <Controls />
+                <Panel :position="'top-right'">
+                    <details class="dropdown">
+                        <summary class="btn btn-sm btn-soft btn-primary">
+                            章节
+                        </summary>
+                        <ul
+                            class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+                        >
+                            <li><button>第一章</button></li>
+                            <li><a>Item 2</a></li>
+                        </ul>
+                    </details>
+                    <details class="dropdown">
+                        <summary class="btn btn-sm btn-soft btn-neutral">
+                            配置
+                        </summary>
+                        <ul
+                            class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+                        >
+                            <li><button>导入配置</button></li>
+                            <li><button>导出配置</button></li>
+                        </ul>
+                    </details>
+                    <details class="dropdown">
+                        <summary class="btn btn-sm btn-soft btn-secondary">
+                            节点
+                        </summary>
+                        <ul
+                            class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+                        >
+                            <li><button>添加节点</button></li>
+                            <li><button>删除节点</button></li>
+                        </ul>
+                    </details>
+                    <details class="dropdown">
+                        <summary class="btn btn-sm btn-soft btn-secondary">
+                            选项
+                        </summary>
+                        <ul
+                            class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+                        >
+                            <li><button>添加选项</button></li>
+                            <li><button>删除选项</button></li>
+                        </ul>
+                    </details>
+                    <details class="dropdown">
+                        <summary class="btn btn-sm btn-soft btn-accent">
+                            参数
+                        </summary>
+                        <ul
+                            class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+                        >
+                            <li><button>导入配置</button></li>
+                            <li><button>导出配置</button></li>
+                        </ul>
+                    </details>
+                </Panel>
+            </VueFlow>
         </div>
     </div>
 </template>
-<script lang="ts" setup>
-import { ref } from "vue"
+<script setup>
+import { nextTick, ref } from "vue"
 import { Background } from "@vue-flow/background"
 import { Controls } from "@vue-flow/controls"
 import { MiniMap } from "@vue-flow/minimap"
-import { VueFlow, useVueFlow, type Node, type Edge } from "@vue-flow/core"
-import SpecialNode from "./components/SpecialNode.vue"
-import SpecialEdge from "./components/SpecialEdge.vue"
+import { VueFlow, Panel, useVueFlow } from "@vue-flow/core"
 import Sidebar from "./components/Sidebar.vue"
 
-const { onConnect, addEdges } = useVueFlow()
+import { initialNodes, initialEdges } from "./init.js"
+import { useLayout } from "./useLayout"
 
-const nodes = ref<Node[]>([
-    { id: "1", type: "input", label: "Node 1", position: { x: 250, y: 5 } },
-    { id: "2", type: "output", label: "Node 2", position: { x: 100, y: 100 } },
-    { id: "3", type: "custom", label: "Node 3", position: { x: 400, y: 100 } },
-])
+var nodes = ref(initialNodes)
+var edges = ref(initialEdges)
+const { layout } = useLayout()
 
-const edges = ref<Edge[]>([
-    { id: "e1-2", source: "1", target: "2", type: "custom" },
-    { id: "e1-3", source: "1", target: "3", animated: true },
-])
+const { fitView } = useVueFlow()
 
-onConnect((params) => {
-    addEdges([params])
-})
+async function layoutGraph(direction) {
+    nodes.value = layout(nodes.value, edges.value, direction)
+
+    nextTick(() => {
+        fitView()
+    })
+}
 </script>
-
-<style scoped>
-.app {
-    height: 100vh;
-    display: flex;
-    background-color: var(--color-base-100);
-}
-
-.main-content {
-    flex: 1;
-}
-</style>

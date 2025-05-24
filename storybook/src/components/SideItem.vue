@@ -1,16 +1,19 @@
 <template>
-    <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+    <div
+        class="collapse collapse-arrow bg-base-100 rounded-xl"
+        style="margin-bottom: 0.2em"
+    >
         <input type="radio" name="my-accordion" :checked="checked" />
-        <div class="collapse-title font-semibold">
+        <div class="collapse-title font-semibold bg-accent text-accent-content">
             {{ itemTitle }}
         </div>
-        <div :id="boxId" class="collapse-content text-sm">
-            {{ itemTitle }}内容
+        <div class="collapse-content text-sm bg-base-200 text-base-content">
+            <div :id="boxId" class="p-4">{{ itemTitle }}内容</div>
         </div>
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { defineProps } from "vue"
 
 const props = defineProps({
@@ -19,5 +22,3 @@ const props = defineProps({
     checked: { type: Boolean, default: false },
 })
 </script>
-
-<style scoped></style>
