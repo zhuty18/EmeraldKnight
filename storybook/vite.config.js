@@ -3,6 +3,6 @@ import tailwindcss from "@tailwindcss/vite"
 import vue from "@vitejs/plugin-vue"
 
 export default defineConfig({
-  base: "EmeraldKnight/storybook/",
+  base: "/EmeraldKnight/storybook/",
   plugins: [tailwindcss(), vue()],
 })

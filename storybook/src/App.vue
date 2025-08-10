@@ -20,8 +20,11 @@
                         <ul
                             class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
                         >
-                            <li><button>第一章</button></li>
-                            <li><a>Item 2</a></li>
+                            <li v-for="item in getChapters()">
+                                <button @click="switchChapter(item)">
+                                    第{{ item }}章
+                                </button>
+                            </li>
                         </ul>
                     </details>
                     <details class="dropdown">
@@ -31,7 +34,9 @@
                         <ul
                             class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
                         >
-                            <li><button>导入配置</button></li>
+                            <li>
+                                <button @click="loadConfig()">导入配置</button>
+                            </li>
                             <li><button>导出配置</button></li>
                         </ul>
                     </details>
@@ -73,8 +78,9 @@
         </div>
     </div>
 </template>
+
 <script setup>
-import { nextTick, ref } from "vue"
+import { nextTick, ref, Suspense } from "vue"
 import { Background } from "@vue-flow/background"
 import { Controls } from "@vue-flow/controls"
 import { MiniMap } from "@vue-flow/minimap"
@@ -84,8 +90,19 @@ import Sidebar from "./components/Sidebar.vue"
 import { initialNodes, initialEdges } from "./init.js"
 import { useLayout } from "./useLayout"
 
-var nodes = ref(initialNodes)
-var edges = ref(initialEdges)
+import { loadChapter, loadConfig, getChapters } from "./story.js"
+
+let data = loadChapter("2")
+let nodes = ref(data.node)
+let edges = ref(data.edge)
+
+async function switchChapter(chapId) {
+    let new_data = loadChapter(chapId)
+    nodes = ref(new_data.node)
+    edges = ref(new_data.edge)
+    await layoutGraph()
+}
+
 const { layout } = useLayout()
 
 const { fitView } = useVueFlow()
