@@ -29,9 +29,9 @@ class Character(BasicLogic):
         self._life_max = None
         self._life = None
         self._name = data["name"]
-        self._actions = []
-        for act in data["actions"]:
-            self._actions.append(Action.get_existence(act, self))
+        self._actions = [
+            Action.get_existence(act, self) for act in data["actions"]
+        ]
         self._record = ""
 
     def set(self):
@@ -98,18 +98,12 @@ class Action(BasicLogic):
         self._owner = owner
         self._text = data["text"]
 
-        self._name = data["name"] if "name" in data else None
-        self._show = data["show"] if "show" in data else None
+        self._name = data.get("name")
+        self._show = data.get("show")
 
-        self._trigger = None
-        self._first = None
-        self._chance = None
-        if "trigger" in data:
-            self._trigger = data["trigger"]
-        if "first" in data:
-            self._first = data["first"]
-        if "chance" in data:
-            self._chance = data["chance"]
+        self._trigger = data.get("trigger")
+        self._first = data.get("first")
+        self._chance = data.get("chance")
 
     @abstractmethod
     def execute(self, target: Character = None):

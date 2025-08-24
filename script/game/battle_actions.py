@@ -14,10 +14,7 @@ class Attack(Action):
     def __init__(self, data, owner):
         super().__init__(data, owner)
         self._strength = data["strength"]
-        if "self_hurt" in data:
-            self._self_hurt = data["self_hurt"]
-        else:
-            self._self_hurt = None
+        self._self_hurt = data.get("self_hurt")
 
     def execute(self, target: Character = None):
         """执行攻击"""

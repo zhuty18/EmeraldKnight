@@ -41,14 +41,10 @@ class StoryChoice(Choice):
     def __init__(self, data):
         self._id = data["id"]
         self._target = data["target"]
-        self._text = (
-            data["text"]
-            if "text" in data
-            else Logic.get_scene_name(self._target)
-        )
+        self._text = data.get("text") or Logic.get_scene_name(self._target)
 
-        self._show = data["show"] if "show" in data else None
-        self._choose = data["choose"] if "choose" in data else None
+        self._show = data.get("show")
+        self._choose = data.get("choose")
 
     def text(self):
         return self._text
@@ -59,10 +55,11 @@ class StoryChoice(Choice):
         return Logic.get_kernel().check_is(self._show)
 
     def choose(self):
+        kernel = Logic.get_kernel()
         if self._choose:
             for action in self._choose:
-                Logic.get_kernel().change_para(action)
-        Logic.get_kernel().to_scene(self._target)
+                kernel.change_para(action)
+        kernel.to_scene(self._target)
 
 
 def get_story_choice(choice_id, _):
@@ -94,12 +91,8 @@ class Scene(BasicLogic):
     def get_options(self, options=None, choices=None):
         """获取选项"""
         if not choices:
-            choices = [Choice.get_existence(x) for x in options]
-        res = []
-        for c in choices:
-            if c.show():
-                res.append(c)
-        return res
+            choices = [Choice.get_existence(x) for x in (options or [])]
+        return [c for c in choices if c.show()]
 
 
 class StoryScene(Scene):
@@ -108,11 +101,13 @@ class StoryScene(Scene):
     def __init__(self, data):
         self._id = data["id"]
         self._options = data["options"]
-        self._require = data["require"] if "require" in data else None
+        self._require = data.get("require")
 
     def get_text(self):
         scene_text = Logic.get_scene_text(self._id)
-        if "end" in self._id:
+        if not scene_text:
+            scene_text = ""
+        if self._id.startswith(Logic.END_MARK):
             scene_text += Logic.STORY_END + Logic.get_end_name(self._id)
         scene_text = "    " + scene_text
         scene_text = scene_text.replace("\n", "\n    ")
@@ -128,7 +123,7 @@ class StoryScene(Scene):
 
 def get_story_scene(scene_id, _):
     """获取故事场景"""
-    if "end" in str(scene_id):
+    if str(scene_id).startswith(Logic.END_MARK):
         Logic.mark_end(scene_id)
         return StoryScene(
             {
