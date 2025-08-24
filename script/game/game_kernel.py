@@ -120,7 +120,7 @@ class Kernel:
                 case "CHOICE":
                     check_para = int(Choice.get_existence(check_by).show())
                     value = 1
-        elif "end" in para_name:
+        elif Logic.END_MARK in para_name:
             check_para = int(Logic.check_end(para_name))
         else:
             check_para = self.get_para(para_name)

@@ -28,16 +28,17 @@ class Hal(Hero):
 
     def __init__(self, data):
         super().__init__(data)
+        kernel = Logic.get_kernel()
         self._attack = 100
-        self._attack += Logic.get_kernel().get_para("BRUCE_LOVE") * 2
-        self._attack += Logic.get_kernel().get_para("INTELLIGENCE") * 2
-        self._attack += Logic.get_kernel().get_para("DRAGON_EGG") * 10
+        self._attack += kernel.get_para("BRUCE_LOVE") * 2
+        self._attack += kernel.get_para("INTELLIGENCE") * 2
+        self._attack += kernel.get_para("DRAGON_EGG") * 10
         self._speed = 100
-        self._speed += Logic.get_kernel().get_para("KNOWLEDGE")
-        self._speed += Logic.get_kernel().get_para("PEGASUS") * 20
+        self._speed += kernel.get_para("KNOWLEDGE")
+        self._speed += kernel.get_para("PEGASUS") * 20
         self._life_max = 100
-        self._life_max += Logic.get_kernel().get_para("OLIVER_LOVE") * 10
-        self._life_max += Logic.get_kernel().get_para("BARRY_LOVE") * 10
+        self._life_max += kernel.get_para("OLIVER_LOVE") * 10
+        self._life_max += kernel.get_para("BARRY_LOVE") * 10
 
         self.set()
 
@@ -81,10 +82,12 @@ class Sinestro(Enemy):
 
     def __init__(self, data):
         super().__init__(data)
+        kernel = Logic.get_kernel()
+
         self._attack = 100
-        self._attack -= Logic.get_kernel().get_para("SINESTRO_LOVE") * 5
+        self._attack -= kernel.get_para("SINESTRO_LOVE") * 5
         self._speed = 100
-        self._speed -= Logic.get_kernel().get_para("SINESTRO_TAME") * 2
+        self._speed -= kernel.get_para("SINESTRO_TAME") * 2
         self._life_max = data["max_life"]
         self.set()
 
