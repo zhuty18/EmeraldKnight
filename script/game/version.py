@@ -4,10 +4,8 @@
 
 import json
 
-VERSION = None
-if not VERSION:
-    with open("data/info.json", "r", encoding="utf-8") as f:
-        data = json.loads(f.read())
+with open("data/info.json", "r", encoding="utf-8") as f:
+    data = json.loads(f.read())
     VERSION = data["version"]
     CHAPTERS = data["chapters"]
     GAME_NAME = data["name_zh"]

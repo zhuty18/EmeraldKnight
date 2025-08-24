@@ -16,10 +16,10 @@ class BasicLogic(ABC):
         return cls._existence_functions
 
     @classmethod
-    def add_get_functions(cls, func, index=-1):
+    def add_get_functions(cls, func, end=True):
         """增加基于id生成的函数"""
         if func not in cls.get_functions():
-            cls.get_functions().insert(index, func)
+            cls.get_functions().insert(-1 if end else 0, func)
 
     @classmethod
     def get_existence(cls, para_1=None, para_2=None):
@@ -32,7 +32,4 @@ class BasicLogic(ABC):
 
     def get_id(self):
         """获取实例ID"""
-        if hasattr(self, "_id"):
-            return self._id
-        else:
-            return self.__class__.__name__ + " ID"
+        return getattr(self, "_id", self.__class__.__name__ + " ID")

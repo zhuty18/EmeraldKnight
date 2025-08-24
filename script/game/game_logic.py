@@ -6,10 +6,11 @@ import json
 import os
 import time
 
+from logic_const import ConstLogic
 from version import CHAPTERS, DEBUG, GAME_NAME, VERSION
 
 
-class Logic:
+class Logic(ConstLogic):
     """逻辑类"""
 
     GAME_NAME = GAME_NAME  # 游戏名
@@ -25,7 +26,7 @@ class Logic:
 
     FILE_SCENES = "scenes.json"  # 场景配置文件
     FILE_CHOICES = "choices.json"  # 选项配置文件
-    FILE_STORYS = "story_text.json"  # 场景故事配置文件
+    FILE_STORY_TEXTS = "story_text.json"  # 场景故事配置文件
 
     PATH_SAVE = "save"  # 存档相关文件路径
     FILE_DEFAULT_SAVE = "0.eks"  # 初始存档文件
@@ -33,20 +34,12 @@ class Logic:
     DEFAULT_PARAS = {}  # 参数表
     DEFAULT_FUNC_PARAS = {}  # 功能参数表
     DEFAULT_CODES = {}  # 代码表
-    DEFAULT_CONSTS = {}  # 常量表
     CHOICE_MAP = {}  # 选项表
     SCENE_MAP = {}  # 场景表
     SCENE_TEXT_MAP = {}  # 场景内容表
     END_NAME_MAP = {}  # 结局名表
     CHAPTER_NAME_MAP = {}  # 章名表
     CHARACTER_MAP = {}  # 角色表
-
-    START_SCENE = ""  # 起始场景
-    START_OVER = ""  # 重开场景
-    FINAL_BATTLE = ""  # 战斗场景
-    EMPTY_SAVE = ""  # 空存档字符串
-    STORY_END = ""  # 故事结尾补充字符串
-    BATTLE_STORY = {}  # 决战相关字符串
 
     @staticmethod
     def res_path(file_dir, file_name=None):
@@ -78,21 +71,20 @@ class Logic:
     def __init__(self, kernel):
         Logic._kernel = kernel
 
+        consts = {}
         Logic.load_data(
-            Logic.read_file(Logic.PATH_DATA, Logic.FILE_CONSTS),
-            Logic.DEFAULT_CONSTS,
-            False,
+            Logic.read_file(Logic.PATH_DATA, Logic.FILE_CONSTS), consts, False
         )
+        for k, v in consts.items():
+            setattr(Logic, k, v)
 
         para_data = Logic.read_file(Logic.PATH_DATA, Logic.FILE_PARAS)
         Logic.load_data(para_data["para_list"], Logic.DEFAULT_PARAS)
         Logic.load_data(para_data["code_list"], Logic.DEFAULT_CODES, False)
         Logic.DEFAULT_FUNC_PARAS = para_data["func_list"]
 
-        end_scene = Logic.DEFAULT_CONSTS["END_SCENE"]
-        Logic.SCENE_MAP[end_scene["id"]] = end_scene
-        end_choice = Logic.DEFAULT_CONSTS["END_CHOICE"]
-        Logic.CHOICE_MAP[end_choice["id"]] = end_choice
+        Logic.SCENE_MAP[Logic.END_SCENE["id"]] = Logic.END_SCENE
+        Logic.CHOICE_MAP[Logic.END_SCENE["id"]] = Logic.END_SCENE
 
         Logic.load_data(
             Logic.read_file(Logic.PATH_DATA, Logic.FILE_SCENES),
@@ -103,7 +95,7 @@ class Logic:
             Logic.CHOICE_MAP,
         )
         Logic.load_data(
-            Logic.read_file(Logic.PATH_DATA, Logic.FILE_STORYS),
+            Logic.read_file(Logic.PATH_DATA, Logic.FILE_STORY_TEXTS),
             Logic.SCENE_TEXT_MAP,
             False,
         )
@@ -118,13 +110,6 @@ class Logic:
             Logic.read_file(Logic.PATH_DATA, Logic.FILE_CHARACTERS),
             Logic.CHARACTER_MAP,
         )
-
-        Logic.START_SCENE = Logic.DEFAULT_CONSTS["START_SCENE"]
-        Logic.START_OVER = Logic.DEFAULT_CONSTS["START_OVER"]
-        Logic.FINAL_BATTLE = Logic.DEFAULT_CONSTS["FINAL_BATTLE"]
-        Logic.EMPTY_SAVE = Logic.DEFAULT_CONSTS["EMPTY_SAVE"]
-        Logic.STORY_END = Logic.DEFAULT_CONSTS["STORY_END"]
-        Logic.BATTLE_STORY = Logic.DEFAULT_CONSTS["BATTLE_STORY"]
 
         if not os.path.exists(Logic.res_path(Logic.PATH_SAVE)):
             os.mkdir(Logic.res_path(Logic.PATH_SAVE))
@@ -161,9 +146,13 @@ class Logic:
     @staticmethod
     def get_chapter_name(scene_id):
         """获取所在章节名"""
-        if Logic.get_scene_chapter(scene_id) == "end":
-            return Logic.CHAPTER_NAME_MAP["end"] + Logic.END_NAME_MAP[scene_id]
-        return Logic.CHAPTER_NAME_MAP[f"ch{Logic.get_scene_chapter(scene_id)}"]
+        chapter = Logic.get_scene_chapter(scene_id)
+        if chapter == Logic.END_MARK:
+            return (
+                Logic.CHAPTER_NAME_MAP[Logic.END_MARK]
+                + Logic.END_NAME_MAP[scene_id]
+            )
+        return Logic.CHAPTER_NAME_MAP[f"ch{chapter}"]
 
     @staticmethod
     def mark_end(end_id):

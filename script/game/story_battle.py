@@ -108,4 +108,4 @@ def get_battle_scene(scene_id, _):
     return None
 
 
-Scene.add_get_functions(get_battle_scene, 0)
+Scene.add_get_functions(get_battle_scene, False)

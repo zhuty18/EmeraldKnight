@@ -78,7 +78,7 @@ class GameEditor(ParaGui, InfoController):
         ) as f:
             para["name_list"] = json.loads(f.read())
         with open(
-            os.path.join(Logic.PATH_DATA, Logic.FILE_STORYS),
+            os.path.join(Logic.PATH_DATA, Logic.FILE_STORY_TEXTS),
             "r",
             encoding="utf-8",
         ) as f:

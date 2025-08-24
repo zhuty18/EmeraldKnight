@@ -1,5 +1,9 @@
 [
     {
+        "id": "END_MARK",
+        "value": "end"
+    },
+    {
         "id": "END_CHOICE",
         "value": {
             "id": "end",
