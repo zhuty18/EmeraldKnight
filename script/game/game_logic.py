@@ -84,7 +84,7 @@ class Logic(ConstLogic):
         Logic.DEFAULT_FUNC_PARAS = para_data["func_list"]
 
         Logic.SCENE_MAP[Logic.END_SCENE["id"]] = Logic.END_SCENE
-        Logic.CHOICE_MAP[Logic.END_SCENE["id"]] = Logic.END_SCENE
+        Logic.CHOICE_MAP[Logic.END_CHOICE["id"]] = Logic.END_CHOICE
 
         Logic.load_data(
             Logic.read_file(Logic.PATH_DATA, Logic.FILE_SCENES),

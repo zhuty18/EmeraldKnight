@@ -54,7 +54,7 @@ class StoryChoice(Choice):
             return True
         return Logic.get_kernel().check_is(self._show)
 
-    def choose(self) -> None:
+    def choose(self):
         kernel = Logic.get_kernel()
         if self._choose:
             for action in self._choose:
@@ -107,7 +107,7 @@ class StoryScene(Scene):
         scene_text = Logic.get_scene_text(self._id)
         if not scene_text:
             scene_text = ""
-        if self._id.endswith(Logic.END_MARK):
+        if self._id.startswith(Logic.END_MARK):
             scene_text += Logic.STORY_END + Logic.get_end_name(self._id)
         scene_text = "    " + scene_text
         scene_text = scene_text.replace("\n", "\n    ")
@@ -123,7 +123,7 @@ class StoryScene(Scene):
 
 def get_story_scene(scene_id, _):
     """获取故事场景"""
-    if str(scene_id).endswith(Logic.END_MARK):
+    if str(scene_id).startswith(Logic.END_MARK):
         Logic.mark_end(scene_id)
         return StoryScene(
             {
