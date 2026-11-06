@@ -1,114 +1,114 @@
 name: Deploy to Web
 
 on:
-    push:
-        branches:
-            - master
-            - develop
+  push:
+    branches:
+      - master
+      - develop
 
 permissions:
-    contents: read
-    pages: write
-    id-token: write
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-    build_home:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v4
+  build_home:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-            - name: Build Homepage with Jekyll
-              uses: actions/jekyll-build-pages@v1
-              with:
-                  source: ./
-                  destination: ./_site
+      - name: Build Homepage with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
 
-            - name: Upload built files
-              uses: actions/upload-artifact@v4
-              with:
-                  name: Home_Builds
-                  path: _site
+      - name: Upload built files
+        uses: actions/upload-artifact@v4
+        with:
+          name: Home_Builds
+          path: _site
 
-    build_web:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v4
+  build_web:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-            - name: Setup Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: 18
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
-            - name: Build Web
-              run: |
-                  cd web
-                  mkdir data
-                  cp ../data/info.json ./data
-                  cp ../data/config.json ./data
-                  npm install
-                  npm run build
+      - name: Build Web
+        run: |
+          cd web
+          mkdir data
+          cp ../data/info.json ./data
+          cp ../data/config.json ./data
+          npm install
+          npm run build
 
-            - name: Upload built files
-              uses: actions/upload-artifact@v4
-              with:
-                  name: Web_Builds
-                  path: web/dist
+      - name: Upload built files
+        uses: actions/upload-artifact@v4
+        with:
+          name: Web_Builds
+          path: web/dist
 
-    build_editor:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v4
+  build_editor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-            - name: Setup Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: 18
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
-            - name: Build Editor
-              run: |
-                  cd storybook
-                  npm install
-                  npm run build
+      - name: Build Editor
+        run: |
+          cd storybook
+          npm install
+          npm run build
 
-            - name: Upload built files
-              uses: actions/upload-artifact@v4
-              with:
-                  name: Editor_Builds
-                  path: storybook/dist
-    deploy:
-        needs:
-            - build_home
-            - build_web
-            - build_editor
-        runs-on: ubuntu-latest
-        steps:
-            - name: Download built files
-              uses: actions/download-artifact@v4
-              with:
-                  name: Home_Builds
-                  path: _site
+      - name: Upload built files
+        uses: actions/upload-artifact@v4
+        with:
+          name: Editor_Builds
+          path: storybook/dist
+  deploy:
+    needs:
+      - build_home
+      - build_web
+      - build_editor
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download built files
+        uses: actions/download-artifact@v4
+        with:
+          name: Home_Builds
+          path: _site
 
-            - name: Download built files
-              uses: actions/download-artifact@v4
-              with:
-                  name: Web_Builds
-                  path: _site/web
+      - name: Download built files
+        uses: actions/download-artifact@v4
+        with:
+          name: Web_Builds
+          path: _site/web
 
-            - name: Download built files
-              uses: actions/download-artifact@v4
-              with:
-                  name: Editor_Builds
-                  path: _site/storybook
+      - name: Download built files
+        uses: actions/download-artifact@v4
+        with:
+          name: Editor_Builds
+          path: _site/storybook
 
-            - name: Setup Pages
-              uses: actions/configure-pages@v5
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
 
-            - name: Upload artifact
-              uses: actions/upload-pages-artifact@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
 
-            - name: Deploy to GitHub Pages
-              id: deployment
-              uses: actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
