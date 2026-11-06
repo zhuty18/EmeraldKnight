@@ -4251,7 +4251,7 @@
         "START_SCENE": "1-1",
         "STORY_END": "\n\n结局——"
     },
-    "func_map": [
+    "func_list": [
         "CHOICE",
         "FIGHT",
         "SCENE"
